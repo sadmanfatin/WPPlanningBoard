@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="viewPageDef" Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OrgVO1" RangeSize="10" DataControl="AppModuleDataControl"
+              id="OrgVO1Iterator"/>
+    <invokeAction Binds="setSessionValues" id="setSessionValue"
+                  Refresh="always"/>
+    <iterator Binds="MonthSearchVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="MonthSearchVO1Iterator"/>
+    <iterator Binds="WpMonthListVO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="WpMonthListVO1Iterator"/>
+    <iterator Binds="WpPlanningBoardLoadVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="WpPlanningBoardLoadVO1Iterator"/>
+    <searchRegion Binds="WpPlanningBoardLoadVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="WpPlanningBoardLoadVO1Query"/>
+    <iterator Binds="WpPlanningBoardVO1" RangeSize="200"
+              DataControl="AppModuleDataControl"
+              id="WpPlanningBoardVO1Iterator"/>
+    <searchRegion Binds="WpPlanningBoardVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="WpPlanningBoardVO1Query"/>
+    <iterator Binds="PopulateStylesVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="PopulateStylesVO1Iterator"/>
+    <searchRegion Binds="PopulateStylesVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="PopulateStylesVO1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="OrgVO1Iterator" id="OrgName">
+      <AttrNames>
+        <Item Value="OrgName"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="setSessionValues"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSessionValues"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="orgId" NDValue="#{viewScope.orgId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDValue="#{viewScope.userId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respId" NDValue="#{viewScope.respId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respApplId" NDValue="#{viewScope.respApplId}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <list IterBinding="MonthSearchVO1Iterator" StaticList="false"
+          Uses="LOV_MonthName" id="MonthName" DTSupportsMRU="true"/>
+    <list IterBinding="MonthSearchVO1Iterator" StaticList="false"
+          Uses="LOV_Year" id="Year" DTSupportsMRU="true"/>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="MonthId">
+      <AttrNames>
+        <Item Value="MonthId"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="WpPlanningBoardLoadVO1Iterator"
+          id="WpPlanningBoardLoadVO1">
+      <nodeDefinition DefName="model.view.WpPlanningBoardLoadVO"
+                      Name="WpPlanningBoardLoadVO10">
+        <AttrNames>
+          <Item Value="PlanningBoardLoadId"/>
+          <Item Value="MonthId"/>
+          <Item Value="WpSectionId"/>
+          <Item Value="D1"/>
+          <Item Value="D2"/>
+          <Item Value="D3"/>
+          <Item Value="D4"/>
+          <Item Value="D5"/>
+          <Item Value="D6"/>
+          <Item Value="D7"/>
+          <Item Value="D8"/>
+          <Item Value="D9"/>
+          <Item Value="D10"/>
+          <Item Value="D11"/>
+          <Item Value="D12"/>
+          <Item Value="D13"/>
+          <Item Value="D14"/>
+          <Item Value="D15"/>
+          <Item Value="D16"/>
+          <Item Value="D17"/>
+          <Item Value="D18"/>
+          <Item Value="D19"/>
+          <Item Value="D20"/>
+          <Item Value="D21"/>
+          <Item Value="D22"/>
+          <Item Value="D23"/>
+          <Item Value="D24"/>
+          <Item Value="D25"/>
+          <Item Value="D26"/>
+          <Item Value="D27"/>
+          <Item Value="D28"/>
+          <Item Value="D29"/>
+          <Item Value="D30"/>
+          <Item Value="D31"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="WpPlanningBoardVO1Iterator" id="WpPlanningBoardVO1">
+      <nodeDefinition DefName="model.view.WpPlanningBoardVO"
+                      Name="WpPlanningBoardVO10">
+        <AttrNames>
+          <Item Value="PlanningBoardId"/>
+          <Item Value="MonthId"/>
+          <Item Value="SystemId"/>
+          <Item Value="Remarks"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdatedDate"/>
+          <Item Value="D1"/>
+          <Item Value="D2"/>
+          <Item Value="D3"/>
+          <Item Value="D4"/>
+          <Item Value="D5"/>
+          <Item Value="D6"/>
+          <Item Value="D7"/>
+          <Item Value="D8"/>
+          <Item Value="D9"/>
+          <Item Value="D10"/>
+          <Item Value="D11"/>
+          <Item Value="D12"/>
+          <Item Value="D13"/>
+          <Item Value="D14"/>
+          <Item Value="D15"/>
+          <Item Value="D16"/>
+          <Item Value="D17"/>
+          <Item Value="D18"/>
+          <Item Value="D19"/>
+          <Item Value="D20"/>
+          <Item Value="D21"/>
+          <Item Value="D22"/>
+          <Item Value="D23"/>
+          <Item Value="D24"/>
+          <Item Value="D25"/>
+          <Item Value="D26"/>
+          <Item Value="D27"/>
+          <Item Value="D28"/>
+          <Item Value="D29"/>
+          <Item Value="D30"/>
+          <Item Value="D31"/>
+          <Item Value="BuyerName"/>
+          <Item Value="Season"/>
+          <Item Value="Style"/>
+          <Item Value="WashName"/>
+          <Item Value="Color"/>
+          <Item Value="ProductionUnitName"/>
+          <Item Value="AvailableSamVersion"/>
+          <Item Value="CurrentSamVersion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="NumberOfDays">
+      <AttrNames>
+        <Item Value="NumberOfDays"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="WpPlanningBoardVO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <tree IterBinding="PopulateStylesVO1Iterator" id="PopulateStylesVO1">
+      <nodeDefinition DefName="model.view.PopulateStylesVO"
+                      Name="PopulateStylesVO10">
+        <AttrNames>
+          <Item Value="SystemId"/>
+          <Item Value="LcUnit"/>
+          <Item Value="LcUnitName"/>
+          <Item Value="ProductionUnit"/>
+          <Item Value="ProductionUnitName"/>
+          <Item Value="BuyerId"/>
+          <Item Value="BuyerName"/>
+          <Item Value="Season"/>
+          <Item Value="Style"/>
+          <Item Value="Color"/>
+          <Item Value="WashName"/>
+          <Item Value="OrderQty"/>
+          <Item Value="OrgId"/>
+          <Item Value="CheckBox" Binds="CheckBox"/>
+          <Item Value="AvailableSamVersion"/>
+          <Item Value="CurrentSamVersion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="PopulateStylesVO1Iterator" id="CheckBox"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="CheckBox"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="y"/>
+        <Item Value="n"/>
+      </ValueList>
+    </button>
+  </bindings>
+</pageDefinition>

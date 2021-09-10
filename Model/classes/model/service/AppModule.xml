@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  ComponentClass="model.service.AppModuleImpl"
+  DefClass="model.service.AppModuleDefImpl"
+  ComponentInterface="model.service.common.AppModule"
+  ClientProxyName="model.service.client.AppModuleClient"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isDefCodegen" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="OrgVO1"
+    ViewObjectName="model.view.OrgVO"/>
+  <ViewUsage
+    Name="MonthSearchVO1"
+    ViewObjectName="model.view.MonthSearchVO"/>
+  <ViewUsage
+    Name="WpMonthListVO1"
+    ViewObjectName="model.view.WpMonthListVO"/>
+  <ViewUsage
+    Name="WpHolidayCalendarVO1"
+    ViewObjectName="model.view.WpHolidayCalendarVO"/>
+  <ViewUsage
+    Name="WpPlanningBoardVO1"
+    ViewObjectName="model.view.WpPlanningBoardVO"/>
+  <ViewUsage
+    Name="WpPlanningBoardLoadVO1"
+    ViewObjectName="model.view.WpPlanningBoardLoadVO">
+    <ViewCriteriaUsage
+      Name="WpPlanningBoardLoadVOCriteria"
+      FullName="model.view.WpPlanningBoardLoadVO.WpPlanningBoardLoadVOCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="PopulateStylesVO1"
+    ViewObjectName="model.view.PopulateStylesVO"/>
+  <ViewLinkUsage
+    Name="MonthSearchVO_vs_WpMonthListVO_vl1"
+    ViewLinkObjectName="model.view.MonthSearchVO_vs_WpMonthListVO_vl"
+    SrcViewUsageName="model.service.AppModule.MonthSearchVO1"
+    DstViewUsageName="model.service.AppModule.WpMonthListVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="WpMonthListVO_vs_WpHolidayCalendarVO_vl1"
+    ViewLinkObjectName="model.view.WpMonthListVO_vs_WpHolidayCalendarVO_vl"
+    SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
+    DstViewUsageName="model.service.AppModule.WpHolidayCalendarVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="WpMonthListVO_vs_WpPlanningBoardVO_vl1"
+    ViewLinkObjectName="model.view.WpMonthListVO_vs_WpPlanningBoardVO_vl"
+    SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
+    DstViewUsageName="model.service.AppModule.WpPlanningBoardVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="WpMonthListVO_vs_WpPlanningBoardLoadVO_vl1"
+    ViewLinkObjectName="model.view.WpMonthListVO_vs_WpPlanningBoardLoadVO_vl"
+    SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
+    DstViewUsageName="model.service.AppModule.WpPlanningBoardLoadVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="OrgVO_vs_PopulateStyles_vl1"
+    ViewLinkObjectName="model.view.OrgVO_vs_PopulateStyles_vl"
+    SrcViewUsageName="model.service.AppModule.OrgVO1"
+    DstViewUsageName="model.service.AppModule.PopulateStylesVO1"
+    Reversed="false"/>
+  <ClientInterface>
+    <Method
+      Name="setSessionValues">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="orgId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="respId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="respApplId"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
+</AppModule>
