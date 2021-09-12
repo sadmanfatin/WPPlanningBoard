@@ -8,8 +8,8 @@
     <af:document id="d1">
       <af:messages id="m1"/>
       <af:form id="f1">
-        <af:panelStretchLayout topHeight="100px" id="psl1"
-                               styleClass="AFStretchWidth">
+        <af:panelStretchLayout id="psl1"
+                               styleClass="AFStretchWidth" topHeight="75px">
                     <f:facet name="top">
             <af:panelGroupLayout
                                  xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
@@ -85,7 +85,7 @@
                       <af:commandButton actionListener="#{bindings.Delete.execute}"
                                         text="Delete"
                                         id="cb4"/>
-                      <af:commandButton actionListener="#{bindings.Commit.execute}"
+                      <af:commandButton actionListener="#{ManagedBean.save}"
                                         text="Save"
                                         id="cb5"/>
                     </af:panelFormLayout>
@@ -108,23 +108,8 @@
                               partialTriggers="::soc1 ::soc2"
                               rowSelection="single">
                       <af:column id="c74" width="685" align="center"
-                                 inlineStyle="height:26.0px;">
+                                 inlineStyle="height:26px; width:765.0px;">
                         <af:outputText value="Section Load %" id="ot1"/>
-                      </af:column>
-                      <af:column sortProperty="PlanningBoardLoadId"
-                                 filterable="false" sortable="false" id="c30"
-                                 width="75" align="center">
-                        <af:inputText value="#{row.bindings.PlanningBoardLoadId.inputValue}"
-                                      label="#{bindings.WpPlanningBoardLoadVO1.hints.PlanningBoardLoadId.label}"
-                                      required="#{bindings.WpPlanningBoardLoadVO1.hints.PlanningBoardLoadId.mandatory}"
-                                      columns="#{bindings.WpPlanningBoardLoadVO1.hints.PlanningBoardLoadId.displayWidth}"
-                                      maximumLength="#{bindings.WpPlanningBoardLoadVO1.hints.PlanningBoardLoadId.precision}"
-                                      shortDesc="#{bindings.WpPlanningBoardLoadVO1.hints.PlanningBoardLoadId.tooltip}"
-                                      id="it11" readOnly="true">
-                          <f:validator binding="#{row.bindings.PlanningBoardLoadId.validator}"/>
-                          <af:convertNumber groupingUsed="false"
-                                            pattern="#{bindings.WpPlanningBoardLoadVO1.hints.PlanningBoardLoadId.format}"/>
-                        </af:inputText>
                       </af:column>
                       <af:column sortProperty="MonthId" filterable="false"
                                  sortable="false" id="c4" width="75"
@@ -784,7 +769,9 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D1.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D1.tooltip}"
                                       id="it44"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true"
+                                      valueChangeListener="#{ManagedBean.styleQtyValueChangeListener}">
                           <f:validator binding="#{row.bindings.D1.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D1.format}"/>
@@ -801,7 +788,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D2.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D2.tooltip}"
                                       id="it58"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D2.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D2.format}"/>
@@ -818,7 +806,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D3.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D3.tooltip}"
                                       id="it71"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D3.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D3.format}"/>
@@ -835,7 +824,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D4.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D4.tooltip}"
                                       id="it51"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D4.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D4.format}"/>
@@ -852,7 +842,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D5.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D5.tooltip}"
                                       id="it42"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D5.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D5.format}"/>
@@ -869,7 +860,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D6.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D6.tooltip}"
                                       id="it53"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D6.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D6.format}"/>
@@ -886,7 +878,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D7.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D7.tooltip}"
                                       id="it40"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D7.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D7.format}"/>
@@ -903,7 +896,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D8.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D8.tooltip}"
                                       id="it65"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D8.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D8.format}"/>
@@ -920,7 +914,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D9.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D9.tooltip}"
                                       id="it46"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D9.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D9.format}"/>
@@ -937,7 +932,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D10.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D10.tooltip}"
                                       id="it52"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D10.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D10.format}"/>
@@ -954,7 +950,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D11.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D11.tooltip}"
                                       id="it57"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D11.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D11.format}"/>
@@ -971,7 +968,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D12.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D12.tooltip}"
                                       id="it55"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D12.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D12.format}"/>
@@ -988,7 +986,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D13.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D13.tooltip}"
                                       id="it37"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D13.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D13.format}"/>
@@ -1005,7 +1004,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D14.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D14.tooltip}"
                                       id="it54"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D14.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D14.format}"/>
@@ -1022,7 +1022,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D15.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D15.tooltip}"
                                       id="it45"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D15.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D15.format}"/>
@@ -1039,7 +1040,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D16.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D16.tooltip}"
                                       id="it61"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D16.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D16.format}"/>
@@ -1056,7 +1058,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D17.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D17.tooltip}"
                                       id="it69"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D17.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D17.format}"/>
@@ -1073,7 +1076,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D18.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D18.tooltip}"
                                       id="it64"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D18.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D18.format}"/>
@@ -1090,7 +1094,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D19.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D19.tooltip}"
                                       id="it43"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D19.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D19.format}"/>
@@ -1107,7 +1112,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D20.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D20.tooltip}"
                                       id="it63"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D20.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D20.format}"/>
@@ -1124,7 +1130,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D21.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D21.tooltip}"
                                       id="it60"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D21.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D21.format}"/>
@@ -1141,7 +1148,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D22.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D22.tooltip}"
                                       id="it67"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D22.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D22.format}"/>
@@ -1158,7 +1166,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D23.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D23.tooltip}"
                                       id="it62"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D23.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D23.format}"/>
@@ -1175,7 +1184,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D24.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D24.tooltip}"
                                       id="it41"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D24.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D24.format}"/>
@@ -1192,7 +1202,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D25.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D25.tooltip}"
                                       id="it39"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D25.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D25.format}"/>
@@ -1209,7 +1220,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D26.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D26.tooltip}"
                                       id="it48"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D26.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D26.format}"/>
@@ -1226,7 +1238,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D27.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D27.tooltip}"
                                       id="it38"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D27.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D27.format}"/>
@@ -1243,7 +1256,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D28.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D28.tooltip}"
                                       id="it70"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D28.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D28.format}"/>
@@ -1260,7 +1274,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D29.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D29.tooltip}"
                                       id="it59"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D29.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D29.format}"/>
@@ -1277,7 +1292,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D30.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D30.tooltip}"
                                       id="it56"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D30.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D30.format}"/>
@@ -1294,7 +1310,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.D31.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D31.tooltip}"
                                       id="it36"
-                                      contentStyle="text-align:center;">
+                                      contentStyle="text-align:center;"
+                                      autoSubmit="true" autoTab="true">
                           <f:validator binding="#{row.bindings.D31.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D31.format}"/>

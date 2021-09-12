@@ -1,3 +1,5 @@
 APPS.POC_SYSTEM_ID_VIEW
-
 APPS.WP_SECTION_SAM_OF_STYLE
+APPS.WP_DAILY_STYLE_QUANTITY          -- style quantity for each day of given month  -- row for day
+APPS.WP_DAILY_TOTAL_SECTION_SAM_V     
+APPS.WP_DAILY_WET_SECTION_LOAD_V

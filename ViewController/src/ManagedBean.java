@@ -12,6 +12,7 @@ import javax.el.ValueExpression;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.event.PhaseEvent;
 
 import javax.faces.event.ValueChangeEvent;
@@ -38,6 +39,9 @@ import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.context.AdfFacesContext;
 
 import oracle.adf.view.rich.event.DialogEvent;
+
+import oracle.binding.BindingContainer;
+import oracle.binding.OperationBinding;
 
 import oracle.jbo.Key;
 import oracle.jbo.Row;
@@ -425,4 +429,37 @@ public class ManagedBean {
         
         
     }
+
+    public void styleQtyValueChangeListener(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        
+//        appM.getDBTransaction().commit();
+//        this.getAppModuleImpl().getWpPlanningBoardLoadVO1().executeQuery();
+//        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardLoadTable());
+                                         
+    }
+
+    public void save(ActionEvent actionEvent) {
+        // Add event code here...
+        this.executeOperation("Commit");
+        
+        appM.getWpPlanningBoardLoadVO1().executeQuery();
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardLoadTable());
+     
+        
+    }
+    
+    
+    private void executeOperation(String method) {
+        BindingContainer bindings = getBindings();
+               OperationBinding ob = bindings.getOperationBinding(method);
+        Object result = ob.execute();
+        
+    }
+
+
+    public BindingContainer getBindings() {
+        return BindingContext.getCurrent().getCurrentBindingsEntry();
+    }
+    
 }
