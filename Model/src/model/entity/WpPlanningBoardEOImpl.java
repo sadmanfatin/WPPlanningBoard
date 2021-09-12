@@ -427,6 +427,16 @@ public class WpPlanningBoardEOImpl extends EntityImpl {
             }
         }
         ,
+        MonthlyTotal {
+            public Object get(WpPlanningBoardEOImpl obj) {
+                return obj.getMonthlyTotal();
+            }
+
+            public void put(WpPlanningBoardEOImpl obj, Object value) {
+                obj.setMonthlyTotal((Number)value);
+            }
+        }
+        ,
         WpMonthListEO {
             public Object get(WpPlanningBoardEOImpl obj) {
                 return obj.getWpMonthListEO();
@@ -505,6 +515,7 @@ public class WpPlanningBoardEOImpl extends EntityImpl {
     public static final int D30 = AttributesEnum.D30.index();
     public static final int D31 = AttributesEnum.D31.index();
     public static final int ORGID = AttributesEnum.OrgId.index();
+    public static final int MONTHLYTOTAL = AttributesEnum.MonthlyTotal.index();
     public static final int WPMONTHLISTEO = AttributesEnum.WpMonthListEO.index();
 
     /**
@@ -1163,6 +1174,22 @@ public class WpPlanningBoardEOImpl extends EntityImpl {
      */
     public void setOrgId(Number value) {
         setAttributeInternal(ORGID, value);
+    }
+
+    /**
+     * Gets the attribute value for MonthlyTotal, using the alias name MonthlyTotal.
+     * @return the MonthlyTotal
+     */
+    public Number getMonthlyTotal() {
+        return (Number)getAttributeInternal(MONTHLYTOTAL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for MonthlyTotal.
+     * @param value value to set the MonthlyTotal
+     */
+    public void setMonthlyTotal(Number value) {
+        setAttributeInternal(MONTHLYTOTAL, value);
     }
 
     /**

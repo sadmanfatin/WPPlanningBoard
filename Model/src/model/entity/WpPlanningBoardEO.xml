@@ -460,6 +460,17 @@
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="MonthlyTotal"
+    ColumnName="MONTHLY_TOTAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WP_PLANNING_BOARD">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="WpMonthListEO"
     Association="model.entity.WP_PLANNING_BOARD_R01_Assoc"

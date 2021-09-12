@@ -417,6 +417,16 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        MonthlyTotal {
+            public Object get(WpPlanningBoardVORowImpl obj) {
+                return obj.getMonthlyTotal();
+            }
+
+            public void put(WpPlanningBoardVORowImpl obj, Object value) {
+                obj.setMonthlyTotal((Number)value);
+            }
+        }
+        ,
         LcUnit {
             public Object get(WpPlanningBoardVORowImpl obj) {
                 return obj.getLcUnit();
@@ -616,6 +626,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
     public static final int D30 = AttributesEnum.D30.index();
     public static final int D31 = AttributesEnum.D31.index();
     public static final int ORGID = AttributesEnum.OrgId.index();
+    public static final int MONTHLYTOTAL = AttributesEnum.MonthlyTotal.index();
     public static final int LCUNIT = AttributesEnum.LcUnit.index();
     public static final int LCUNITNAME = AttributesEnum.LcUnitName.index();
     public static final int BUYERID = AttributesEnum.BuyerId.index();
@@ -786,6 +797,11 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      */
     public void setD1(Number value) {
         setAttributeInternal(D1, value);
+        
+        this.setMonthlyTotal(this.getMonthlyTotal());
+        
+     
+  
     }
 
     /**
@@ -1474,6 +1490,39 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      */
     public void setAvailableSamVersion(Number value) {
         setAttributeInternal(AVAILABLESAMVERSION, value);
+    }
+
+    /**
+     * Gets the attribute value for MONTHLY_TOTAL using the alias name MonthlyTotal.
+     * @return the MONTHLY_TOTAL
+     */
+    public Number getMonthlyTotal() {
+        Number total = new Number(0);
+        String dayName = null;
+            for (int i=1;i<=31; i++  ){
+                dayName = "D"+i;
+                
+                if(this.getAttribute(dayName) != null){
+                    total  = total.add((Number)this.getAttribute(dayName));
+                  //  System.out.println("============ "+dayName + "  total  "+total);
+                }
+
+            }        
+        return total;
+     
+        
+    //  return (Number) getAttributeInternal(MONTHLYTOTAL);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for MONTHLY_TOTAL using the alias name MonthlyTotal.
+     * @param value value to set the MONTHLY_TOTAL
+     */
+    public void setMonthlyTotal(Number value) {
+       
+        
+        setAttributeInternal(MONTHLYTOTAL, value);
+        
     }
 
     /**

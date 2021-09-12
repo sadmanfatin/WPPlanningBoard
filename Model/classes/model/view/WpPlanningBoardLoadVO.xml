@@ -20,7 +20,7 @@
 from   
 
 (
-select lv.month_id, lv.org_id,lv.wp_section_id, lv.section_name,  lv.day, lv.load  from WP_DAILY_SECTION_LOAD_V lv
+select lv.month_id, lv.org_id,lv.wp_section_id, lv.section_name,  lv.day, lv.load  from WP_DAILY_WET_SECTION_LOAD_V lv
 )
 pivot (  max(load) for day in (
                                  'D1' D1   ,'D2' D2  ,'D3' D3, 'D4' D4, 'D5' D5,'D6' D6 ,'D7' D7, 'D8' D8,'D9' D9, 'D10' D10, 

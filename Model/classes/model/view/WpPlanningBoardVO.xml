@@ -58,17 +58,18 @@
        WpPlanningBoardEO.D30, 
        WpPlanningBoardEO.D31,
        WpPlanningBoardEO.ORG_ID,
-       POC.LC_UNIT,  
+       WpPlanningBoardEO.MONTHLY_TOTAL,
+       PV.LC_UNIT,  
        APPS.ORG_ID_TO_ORG_NAME(LC_UNIT) LC_UNIT_NAME,       
-       POC.BUYER_ID, 
-       APPS.XX_OM_BUYER_NAME_FOR_ID(POC.BUYER_ID) BUYER_NAME ,
-       POC.SEASON, 
-       POC.STYLE ,   
-       POC.COLOR, 
-       POC.WASH_NAME ,
+       PV.BUYER_ID, 
+       pv.BUYER_NAME ,
+       PV.SEASON, 
+       PV.STYLE ,   
+       PV.COLOR, 
+       PV.WASH_NAME ,
        SS.PRODUCTION_UNIT, 
        APPS.ORG_ID_TO_ORG_NAME(LC_UNIT) PRODUCTION_UNIT_NAME, 
-       poc.ORDER_QTY ,
+       PV.ORDER_QTY ,
        SS.SAM_VERSION CURRENT_SAM_VERSION,       
         (
             SELECT  nvl(  MAX(SV.SAM_VERSION),0) FROM  WP_STYLE_WISE_PROCESS_SAM_V SV  WHERE  SV.SYSTEM_ID = SS.SYSTEM_ID
@@ -79,22 +80,10 @@
        
 FROM WP_PLANNING_BOARD WpPlanningBoardEO, 
 WP_STYLE_SETUP SS,
-
-  (  SELECT  POCL.SYSTEM_ID, 
-        POCH.LC_UNIT, 
-        POCH.BUYER_ID, 
-        POCH.SEASON, 
-        POCH.STYLE ,   
-        POCL.COLOR, 
-        POCL.WASH_NAME , 
-        POCH.ORDER_QTY 
-        FROM XX_OM_POC_H_T POCH,
-       XX_OM_POC_L_T POCL 
-      WHERE POCH.POC_ID = POCL.POC_ID
-       AND POCH.GM_APPROVAL = 'Y'  
-      ) POC  
- WHERE WpPlanningBoardEO.SYSTEM_ID = POC.SYSTEM_ID
- AND POC.SYSTEM_ID = SS.SYSTEM_ID
+ POC_SYSTEM_ID_VIEW PV
+   
+ WHERE WpPlanningBoardEO.SYSTEM_ID = PV.SYSTEM_ID
+ AND PV.SYSTEM_ID = SS.SYSTEM_ID
  AND WpPlanningBoardEO.ORG_ID = SS.ORG_ID]]>
   </SQLQuery>
   <EntityUsage
@@ -341,6 +330,77 @@ WP_STYLE_SETUP SS,
     EntityAttrName="OrgId"
     EntityUsage="WpPlanningBoardEO"
     AliasName="ORG_ID"/>
+  <ViewAttribute
+    Name="MonthlyTotal"
+    PrecisionRule="true"
+    EntityAttrName="MonthlyTotal"
+    EntityUsage="WpPlanningBoardEO"
+    AliasName="MONTHLY_TOTAL">
+    <Dependencies>
+      <Item
+        Value="D1"/>
+      <Item
+        Value="D10"/>
+      <Item
+        Value="D11"/>
+      <Item
+        Value="D12"/>
+      <Item
+        Value="D13"/>
+      <Item
+        Value="D14"/>
+      <Item
+        Value="D15"/>
+      <Item
+        Value="D16"/>
+      <Item
+        Value="D17"/>
+      <Item
+        Value="D18"/>
+      <Item
+        Value="D19"/>
+      <Item
+        Value="D2"/>
+      <Item
+        Value="D20"/>
+      <Item
+        Value="D21"/>
+      <Item
+        Value="D22"/>
+      <Item
+        Value="D23"/>
+      <Item
+        Value="D24"/>
+      <Item
+        Value="D25"/>
+      <Item
+        Value="D26"/>
+      <Item
+        Value="D27"/>
+      <Item
+        Value="D28"/>
+      <Item
+        Value="D29"/>
+      <Item
+        Value="D3"/>
+      <Item
+        Value="D30"/>
+      <Item
+        Value="D31"/>
+      <Item
+        Value="D4"/>
+      <Item
+        Value="D5"/>
+      <Item
+        Value="D6"/>
+      <Item
+        Value="D7"/>
+      <Item
+        Value="D8"/>
+      <Item
+        Value="D9"/>
+    </Dependencies>
+  </ViewAttribute>
   <ViewAttribute
     Name="LcUnit"
     IsPersistent="false"

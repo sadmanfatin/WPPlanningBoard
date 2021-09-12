@@ -152,6 +152,7 @@
           <Item Value="ProductionUnitName"/>
           <Item Value="AvailableSamVersion"/>
           <Item Value="CurrentSamVersion"/>
+          <Item Value="MonthlyTotal"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

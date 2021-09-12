@@ -107,13 +107,13 @@
                               binding="#{ManagedBean.planningBoardLoadTable}"
                               partialTriggers="::soc1 ::soc2"
                               rowSelection="single">
-                      <af:column id="c74" width="685" align="center"
-                                 inlineStyle="height:26px; width:765.0px;">
+                      <af:column id="c74" align="center"
+                                 inlineStyle="height:26px;" width="900">
                         <af:outputText value="Section Load %" id="ot1"/>
                       </af:column>
                       <af:column sortProperty="MonthId" filterable="false"
                                  sortable="false" id="c4" width="75"
-                                 align="center">
+                                 align="center" visible="false">
                         <af:inputText value="#{row.bindings.MonthId.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.MonthId.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.MonthId.mandatory}"
@@ -128,7 +128,7 @@
                       </af:column>
                       <af:column sortProperty="WpSectionId" filterable="false"
                                  sortable="false" id="c34" width="75"
-                                 align="center">
+                                 align="center" visible="false">
                         <af:inputText value="#{row.bindings.WpSectionId.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.WpSectionId.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.WpSectionId.mandatory}"
@@ -626,7 +626,8 @@
                       <af:column sortProperty="PlanningBoardId"
                                  filterable="true" sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.PlanningBoardId.label}"
-                                 id="c37" width="70" align="center">
+                                 id="c37" width="70" align="center"
+                                 visible="false">
                         <af:inputText value="#{row.bindings.PlanningBoardId.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.PlanningBoardId.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.PlanningBoardId.mandatory}"
@@ -642,7 +643,8 @@
                       <af:column sortProperty="MonthId" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.MonthId.label}"
-                                 id="c64" width="70" align="center">
+                                 id="c64" width="70" align="center"
+                                 visible="false">
                         <af:inputText value="#{row.bindings.MonthId.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.MonthId.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.MonthId.mandatory}"
@@ -658,7 +660,8 @@
                       <af:column sortProperty="SystemId" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.SystemId.label}"
-                                 id="c35" width="70" align="center">
+                                 id="c35" width="70" align="center"
+                                 visible="false">
                         <af:inputText value="#{row.bindings.SystemId.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.SystemId.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.SystemId.mandatory}"
@@ -679,19 +682,19 @@
                                       columns="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitName.displayWidth}"
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitName.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitName.tooltip}"
-                                      id="it92">
+                                      id="it92" readOnly="true">
                           <f:validator binding="#{row.bindings.ProductionUnitName.validator}"/>
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.BuyerName.label}"
-                                 id="c41">
+                                 id="c41" width="140">
                         <af:inputText value="#{row.bindings.BuyerName.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.BuyerName.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.BuyerName.mandatory}"
                                       columns="#{bindings.WpPlanningBoardVO1.hints.BuyerName.displayWidth}"
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.BuyerName.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.BuyerName.tooltip}"
-                                      id="it50">
+                                      id="it50" readOnly="true">
                           <f:validator binding="#{row.bindings.BuyerName.validator}"/>
                         </af:inputText>
                       </af:column>
@@ -703,7 +706,7 @@
                                       columns="#{bindings.WpPlanningBoardVO1.hints.Season.displayWidth}"
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.Season.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.Season.tooltip}"
-                                      id="it68">
+                                      id="it68" readOnly="true">
                           <f:validator binding="#{row.bindings.Season.validator}"/>
                         </af:inputText>
                       </af:column>
@@ -715,7 +718,7 @@
                                       columns="#{bindings.WpPlanningBoardVO1.hints.Style.displayWidth}"
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.Style.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.Style.tooltip}"
-                                      id="it89">
+                                      id="it89" readOnly="true">
                           <f:validator binding="#{row.bindings.Style.validator}"/>
                         </af:inputText>
                       </af:column>
@@ -727,7 +730,7 @@
                                       columns="#{bindings.WpPlanningBoardVO1.hints.Color.displayWidth}"
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.Color.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.Color.tooltip}"
-                                      id="it91">
+                                      id="it91" readOnly="true">
                           <f:validator binding="#{row.bindings.Color.validator}"/>
                         </af:inputText>
                       </af:column>
@@ -739,14 +742,14 @@
                                       columns="#{bindings.WpPlanningBoardVO1.hints.WashName.displayWidth}"
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.WashName.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.WashName.tooltip}"
-                                      id="it90">
+                                      id="it90" readOnly="true">
                           <f:validator binding="#{row.bindings.WashName.validator}"/>
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="Remarks" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.Remarks.label}"
-                                 id="c48" width="70" align="center"
+                                 id="c48" width="120" align="center"
                                  frozen="false">
                         <af:inputText value="#{row.bindings.Remarks.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.Remarks.label}"
@@ -756,6 +759,21 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.Remarks.tooltip}"
                                       id="it72">
                           <f:validator binding="#{row.bindings.Remarks.validator}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.label}"
+                                 id="c30" align="center">
+                        <af:inputText value="#{row.bindings.MonthlyTotal.inputValue}"
+                                      label="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.label}"
+                                      required="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.mandatory}"
+                                      columns="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.displayWidth}"
+                                      maximumLength="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.precision}"
+                                      shortDesc="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.tooltip}"
+                                      id="it11" readOnly="true"
+                                      partialTriggers="it44 it58 it71 it51 it42 it53 it40 it65 it46 it52 it57 it55 it37 it54 it45 it61 it69 it64 it43 it63 it60 it67 it62 it41 it39 it48 it38 it70 it59 it56 it36 it93 it94">
+                          <f:validator binding="#{row.bindings.MonthlyTotal.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.format}"/>
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D1" filterable="true"

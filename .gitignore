@@ -2,3 +2,6 @@
 *.jdb
 *.jdb
 *.jws
+*.class
+*.jdb
+*.cdi_javac
