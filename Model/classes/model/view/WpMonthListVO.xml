@@ -23,7 +23,12 @@
        WpMonthListEO.YEAR, 
        WpMonthListEO.ORG_ID, 
        WpMonthListEO.WEEKLY_HOLIDAY,
-       extract (day from  last_day(to_date(WpMonthListEO.MONTH_NAME||'/'|| WpMonthListEO.YEAR , 'Month/yyyy' )) ) number_of_days
+       extract (day from  last_day(to_date(WpMonthListEO.MONTH_NAME||'/'|| WpMonthListEO.YEAR , 'Month/yyyy' )) ) number_of_days,
+       
+       (select count ( *)  from WP_holiday_calendar hc where hc.month_id  =  WpMonthListEO.month_id and  hc.WORKING_STATUS = 'Workingday')  Workingday_counT,
+       
+       (select count ( *)  from WP_holiday_calendar hc where hc.month_id  =  WpMonthListEO.month_id and  hc.WORKING_STATUS = 'Holiday')  holiday_counT
+       
 FROM WP_MONTH_LIST WpMonthListEO]]>
   </SQLQuery>
   <EntityUsage
@@ -66,13 +71,38 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     AliasName="WEEKLY_HOLIDAY"/>
   <ViewAttribute
     Name="NumberOfDays"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
     AliasName="NUMBER_OF_DAYS"
     Expression="NUMBER_OF_DAYS"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WorkingdayCount"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="WORKINGDAY_COUNT"
+    Expression="WORKINGDAY_COUNT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="HolidayCount"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="HOLIDAY_COUNT"
+    Expression="HOLIDAY_COUNT"
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
@@ -391,10 +421,21 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR"/>
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="AveragePerDay"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression><![CDATA[MonthlyGrandTotal/WorkingdayCount]]></TransientExpression>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="MonthSearchVO"
     ViewLink="model.view.MonthSearchVO_vs_WpMonthListVO_vl"
@@ -414,6 +455,16 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
   <ViewLinkAccessor
     Name="WpHolidayCalendarVO"
     ViewLink="model.view.WpMonthListVO_vs_WpHolidayCalendarVO_vl"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="BuyerWiseMonthlyQtyVO"
+    ViewLink="model.view.WpMonthListVO_vs_BuyerWiseMonthlyQtyVO_vl"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ProductionUnitWiseMonthlyQtyVO"
+    ViewLink="model.view.WpMonthListVO_vs_ProductionUnitWiseMonthlyQtyVO_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

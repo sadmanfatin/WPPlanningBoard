@@ -30,6 +30,12 @@
     <searchRegion Binds="PopulateStylesVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="PopulateStylesVO1Query"/>
+    <iterator Binds="BuyerWiseMonthlyQtyVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="BuyerWiseMonthlyQtyVO1Iterator"/>
+    <iterator Binds="ProductionUnitWiseMonthlyQtyVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="ProductionUnitWiseMonthlyQtyVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="OrgVO1Iterator" id="OrgName">
@@ -203,5 +209,197 @@
         <Item Value="D1Total"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D2Total">
+      <AttrNames>
+        <Item Value="D2Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D3Total">
+      <AttrNames>
+        <Item Value="D3Total"/>
+      </AttrNames>
+    </attributeValues>
+        <attributeValues IterBinding="WpMonthListVO1Iterator" id="D4Total">
+      <AttrNames>
+        <Item Value="D4Total"/>
+      </AttrNames>
+    </attributeValues>
+        <attributeValues IterBinding="WpMonthListVO1Iterator" id="D5Total">
+      <AttrNames>
+        <Item Value="D5Total"/>
+      </AttrNames>
+    </attributeValues>
+        <attributeValues IterBinding="WpMonthListVO1Iterator" id="D6Total">
+      <AttrNames>
+        <Item Value="D6Total"/>
+      </AttrNames>
+    </attributeValues>
+        <attributeValues IterBinding="WpMonthListVO1Iterator" id="D7Total">
+      <AttrNames>
+        <Item Value="D7Total"/>
+      </AttrNames>
+    </attributeValues>
+        <attributeValues IterBinding="WpMonthListVO1Iterator" id="D8Total">
+      <AttrNames>
+        <Item Value="D8Total"/>
+      </AttrNames>
+    </attributeValues>
+        <attributeValues IterBinding="WpMonthListVO1Iterator" id="D9Total">
+      <AttrNames>
+        <Item Value="D9Total"/>
+      </AttrNames>
+    </attributeValues>
+        <attributeValues IterBinding="WpMonthListVO1Iterator" id="D10Total">
+      <AttrNames>
+        <Item Value="D10Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D11Total">
+      <AttrNames>
+        <Item Value="D11Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D12Total">
+      <AttrNames>
+        <Item Value="D12Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D13Total">
+      <AttrNames>
+        <Item Value="D13Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D14Total">
+      <AttrNames>
+        <Item Value="D14Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D15Total">
+      <AttrNames>
+        <Item Value="D15Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D16Total">
+      <AttrNames>
+        <Item Value="D16Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D17Total">
+      <AttrNames>
+        <Item Value="D17Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D18Total">
+      <AttrNames>
+        <Item Value="D18Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D19Total">
+      <AttrNames>
+        <Item Value="D19Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D20Total">
+      <AttrNames>
+        <Item Value="D20Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D21Total">
+      <AttrNames>
+        <Item Value="D21Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D22Total">
+      <AttrNames>
+        <Item Value="D22Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D23Total">
+      <AttrNames>
+        <Item Value="D23Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D24Total">
+      <AttrNames>
+        <Item Value="D24Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D25Total">
+      <AttrNames>
+        <Item Value="D25Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D26Total">
+      <AttrNames>
+        <Item Value="D26Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D27Total">
+      <AttrNames>
+        <Item Value="D27Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D28Total">
+      <AttrNames>
+        <Item Value="D28Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D29Total">
+      <AttrNames>
+        <Item Value="D29Total"/>
+      </AttrNames>
+    </attributeValues>
+     <attributeValues IterBinding="WpMonthListVO1Iterator" id="D30Total">
+      <AttrNames>
+        <Item Value="D30Total"/>
+      </AttrNames>
+    </attributeValues>
+   <attributeValues IterBinding="WpMonthListVO1Iterator" id="D31Total">
+      <AttrNames>
+        <Item Value="D31Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator"
+                     id="MonthlyGrandTotal">
+      <AttrNames>
+        <Item Value="MonthlyGrandTotal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="WorkingdayCount">
+      <AttrNames>
+        <Item Value="WorkingdayCount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="AveragePerDay">
+      <AttrNames>
+        <Item Value="AveragePerDay"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="BuyerWiseMonthlyQtyVO1Iterator"
+          id="BuyerWiseMonthlyQtyVO1">
+      <nodeDefinition DefName="model.view.BuyerWiseMonthlyQtyVO"
+                      Name="BuyerWiseMonthlyQtyVO10">
+        <AttrNames>
+          <Item Value="MonthId"/>
+          <Item Value="BuyerName"/>
+          <Item Value="WashQuantity"/>
+          <Item Value="AveragePerDay"/>
+          <Item Value="WashPercentage"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ProductionUnitWiseMonthlyQtyVO1Iterator"
+          id="ProductionUnitWiseMonthlyQtyVO1">
+      <nodeDefinition DefName="model.view.ProductionUnitWiseMonthlyQtyVO"
+                      Name="ProductionUnitWiseMonthlyQtyVO10">
+        <AttrNames>
+          <Item Value="MonthId"/>
+          <Item Value="ProductionUnit"/>
+          <Item Value="WashQuantity"/>
+          <Item Value="AveragePerDay"/>
+          <Item Value="WashPercentage"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

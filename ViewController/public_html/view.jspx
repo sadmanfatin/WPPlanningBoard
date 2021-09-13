@@ -45,7 +45,8 @@
                               columns="#{bindings.MonthId.hints.displayWidth}"
                               maximumLength="#{bindings.MonthId.hints.precision}"
                               shortDesc="#{bindings.MonthId.hints.tooltip}"
-                              id="it5" partialTriggers="soc1 soc2">
+                              id="it5" partialTriggers="soc1 soc2"
+                              readOnly="true">
                   <f:validator binding="#{bindings.MonthId.validator}"/>
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.MonthId.format}"/>
@@ -622,7 +623,8 @@
                               styleClass="AFStretchWidth"
                               inlineStyle="width:3400.0px;" rendered="true"
                               binding="#{ManagedBean.planningBoardTable}"
-                              partialTriggers="::soc1 ::soc2 ::cb4 ::cb5">
+                              partialTriggers="::soc1 ::soc2 ::cb4 ::cb5"
+                              autoHeightRows="50">
                       <af:column sortProperty="PlanningBoardId"
                                  filterable="true" sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.PlanningBoardId.label}"
@@ -775,6 +777,16 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.format}"/>
                         </af:inputText>
+                        <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl33" layout="vertical"
+                                               halign="center">
+                            <af:outputText value="#{bindings.MonthlyGrandTotal.inputValue}"
+                                           id="ot31" partialTriggers="it11">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.MonthlyGrandTotal.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D1" filterable="true"
                                  sortable="true"
@@ -795,14 +807,16 @@
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D1.format}"/>
                         </af:inputText>
                         <f:facet name="footer">
-                          <af:panelLabelAndMessage
-                                                   id="plam1">
-                            <af:outputText value="#{bindings.D1Total.inputValue}"
-                                           id="ot2">
-                              <af:convertNumber groupingUsed="false"
-                                                pattern="#{bindings.D1Total.format}"/>
-                            </af:outputText>
-                          </af:panelLabelAndMessage>
+                          <af:group id="g1">
+                            <af:panelGroupLayout id="pgl4" halign="center"
+                                                 layout="vertical">
+                              <af:outputText value="#{bindings.D1Total.inputValue}"
+                                             id="ot2" partialTriggers="it44">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.D1Total.format}"/>
+                              </af:outputText>
+                            </af:panelGroupLayout>
+                          </af:group>
                         </f:facet>
                       </af:column>
                       <af:column sortProperty="D2" filterable="true"
@@ -822,6 +836,18 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D2.format}"/>
                         </af:inputText>
+                        <f:facet name="footer">
+                          <af:panelGroupLayout id="panelGroupLayout1"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D2Total.inputValue}"
+                                           id="outputText1"
+                                           partialTriggers="it58">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D2Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D3" filterable="true"
                                  sortable="true"
@@ -840,6 +866,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D3.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl5"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D3Total.inputValue}"
+                                           id="ot3" partialTriggers="it71">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D3Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D4" filterable="true"
                                  sortable="true"
@@ -858,6 +895,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D4.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl6"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D4Total.inputValue}"
+                                           id="ot4" partialTriggers="it51">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D4Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D5" filterable="true"
                                  sortable="true"
@@ -876,6 +924,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D5.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl7"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D5Total.inputValue}"
+                                           id="ot5" partialTriggers="it42">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D5Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D6" filterable="true"
                                  sortable="true"
@@ -894,6 +953,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D6.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl8"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D6Total.inputValue}"
+                                           id="ot6" partialTriggers="it53">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D6Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D7" filterable="true"
                                  sortable="true"
@@ -912,6 +982,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D7.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl9"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D7Total.inputValue}"
+                                           id="ot7" partialTriggers="it40">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D7Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D8" filterable="true"
                                  sortable="true"
@@ -930,6 +1011,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D8.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl10"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D8Total.inputValue}"
+                                           id="ot8" partialTriggers="it65">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D8Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D9" filterable="true"
                                  sortable="true"
@@ -948,6 +1040,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D9.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl11"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D9Total.inputValue}"
+                                           id="ot9" partialTriggers="it46">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D9Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D10" filterable="true"
                                  sortable="true"
@@ -966,6 +1069,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D10.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl12"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D10Total.inputValue}"
+                                           id="ot10" partialTriggers="it52">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D10Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D11" filterable="true"
                                  sortable="true"
@@ -984,6 +1098,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D11.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl13"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D11Total.inputValue}"
+                                           id="ot11" partialTriggers="it57">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D11Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D12" filterable="true"
                                  sortable="true"
@@ -1002,6 +1127,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D12.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl14"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D12Total.inputValue}"
+                                           id="ot12" partialTriggers="it55">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D12Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D13" filterable="true"
                                  sortable="true"
@@ -1020,6 +1156,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D13.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl15"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D13Total.inputValue}"
+                                           id="ot13" partialTriggers="it37">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D13Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D14" filterable="true"
                                  sortable="true"
@@ -1038,6 +1185,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D14.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl16"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D14Total.inputValue}"
+                                           id="ot14" partialTriggers="it54">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D14Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D15" filterable="true"
                                  sortable="true"
@@ -1056,6 +1214,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D15.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl17"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D15Total.inputValue}"
+                                           id="ot15" partialTriggers="it45">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D15Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D16" filterable="true"
                                  sortable="true"
@@ -1074,6 +1243,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D16.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl18"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D16Total.inputValue}"
+                                           id="ot16" partialTriggers="it61">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D16Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D17" filterable="true"
                                  sortable="true"
@@ -1092,6 +1272,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D17.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl19"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D17Total.inputValue}"
+                                           id="ot17" partialTriggers="it69">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D17Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D18" filterable="true"
                                  sortable="true"
@@ -1110,6 +1301,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D18.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl20"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D18Total.inputValue}"
+                                           id="ot18" partialTriggers="it64">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D18Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D19" filterable="true"
                                  sortable="true"
@@ -1128,6 +1330,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D19.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl21"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D19Total.inputValue}"
+                                           id="ot19" partialTriggers="it43">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D19Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D20" filterable="true"
                                  sortable="true"
@@ -1145,7 +1358,17 @@
                           <f:validator binding="#{row.bindings.D20.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D20.format}"/>
-                        </af:inputText>
+                        </af:inputText>                        <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl22"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D20Total.inputValue}"
+                                           id="ot20" partialTriggers="it63">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D20Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D21" filterable="true"
                                  sortable="true"
@@ -1164,6 +1387,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D21.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl23"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D21Total.inputValue}"
+                                           id="ot21" partialTriggers="it60">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D21Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D22" filterable="true"
                                  sortable="true"
@@ -1182,6 +1416,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D22.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl24"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D22Total.inputValue}"
+                                           id="ot22" partialTriggers="c51">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D22Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D23" filterable="true"
                                  sortable="true"
@@ -1200,6 +1445,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D23.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl25"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D23Total.inputValue}"
+                                           id="ot23" partialTriggers="it62">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D23Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D24" filterable="true"
                                  sortable="true"
@@ -1218,6 +1474,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D24.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl26"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D24Total.inputValue}"
+                                           id="ot24" partialTriggers="it41">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D24Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D25" filterable="true"
                                  sortable="true"
@@ -1236,6 +1503,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D25.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl27"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D25Total.inputValue}"
+                                           id="ot25" partialTriggers="it39">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D25Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D26" filterable="true"
                                  sortable="true"
@@ -1254,6 +1532,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D26.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl28"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D26Total.inputValue}"
+                                           id="ot26" partialTriggers="it48">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D26Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D27" filterable="true"
                                  sortable="true"
@@ -1272,6 +1561,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D27.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl29"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D27Total.inputValue}"
+                                           id="ot27" partialTriggers="it38">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D27Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D28" filterable="true"
                                  sortable="true"
@@ -1290,6 +1590,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D28.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl30"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D28Total.inputValue}"
+                                           id="ot28" partialTriggers="it70">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D28Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D29" filterable="true"
                                  sortable="true"
@@ -1308,6 +1619,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D29.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl31"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D29Total.inputValue}"
+                                           id="ot29" partialTriggers="it59">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D29Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D30" filterable="true"
                                  sortable="true"
@@ -1326,6 +1648,17 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D30.format}"/>
                         </af:inputText>
+                          <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl32"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D30Total.inputValue}"
+                                           id="ot30" partialTriggers="it56">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D30Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D31" filterable="true"
                                  sortable="true"
@@ -1344,6 +1677,18 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D31.format}"/>
                         </af:inputText>
+                         <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl34"
+                                               halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.D31Total.inputValue}"
+                                           id="ot32" partialTriggers="it36">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D31Total.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
+                        
                       </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.CurrentSamVersion.label}"
                                  id="c98">
@@ -1358,6 +1703,7 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.CurrentSamVersion.format}"/>
                         </af:inputText>
+                                                <f:facet name="footer"/>
                       </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.AvailableSamVersion.label}"
                                  id="c97">
@@ -1381,7 +1727,260 @@
                     </af:toolbar>
                   </f:facet>
                 </af:showDetailItem>
-                <af:showDetailItem text="Dashboard" id="sdi2"/>
+                <af:showDetailItem text="Dashboard" id="sdi2">
+                  <af:panelDashboard id="pd1" columns="2" rowHeight="300px"
+                                     inlineStyle="height:700px; width:1300px;"
+                                     styleClass="AFStretchWidth">
+                    <af:panelGroupLayout id="pgl38"
+                                         inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                      <af:panelHeader text="Wrking Day" id="ph3">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:panelFormLayout id="pfl3"
+                                            partialTriggers="::soc1 ::soc2">
+                          <af:inputText value="#{bindings.WorkingdayCount.inputValue}"
+                                        label="#{bindings.WorkingdayCount.hints.label}"
+                                        required="#{bindings.WorkingdayCount.hints.mandatory}"
+                                        columns="#{bindings.WorkingdayCount.hints.displayWidth}"
+                                        maximumLength="#{bindings.WorkingdayCount.hints.precision}"
+                                        shortDesc="#{bindings.WorkingdayCount.hints.tooltip}"
+                                        id="it97" readOnly="true">
+                            <f:validator binding="#{bindings.WorkingdayCount.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.WorkingdayCount.format}"/>
+                          </af:inputText>
+                          <af:inputText value="#{bindings.MonthlyGrandTotal.inputValue}"
+                                        label="#{bindings.MonthlyGrandTotal.hints.label}"
+                                        required="#{bindings.MonthlyGrandTotal.hints.mandatory}"
+                                        columns="#{bindings.MonthlyGrandTotal.hints.displayWidth}"
+                                        maximumLength="#{bindings.MonthlyGrandTotal.hints.precision}"
+                                        shortDesc="#{bindings.MonthlyGrandTotal.hints.tooltip}"
+                                        id="it96" readOnly="true">
+                            <f:validator binding="#{bindings.MonthlyGrandTotal.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.MonthlyGrandTotal.format}"/>
+                          </af:inputText>
+                          <af:inputText value="#{bindings.AveragePerDay.inputValue}"
+                                        label="#{bindings.AveragePerDay.hints.label}"
+                                        required="#{bindings.AveragePerDay.hints.mandatory}"
+                                        columns="#{bindings.AveragePerDay.hints.displayWidth}"
+                                        maximumLength="#{bindings.AveragePerDay.hints.precision}"
+                                        shortDesc="#{bindings.AveragePerDay.hints.tooltip}"
+                                        id="it95" readOnly="true">
+                            <f:validator binding="#{bindings.AveragePerDay.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.AveragePerDay.format}"/>
+                          </af:inputText>
+                        </af:panelFormLayout>
+                      </af:panelHeader>
+                    </af:panelGroupLayout>
+                    <af:panelGroupLayout id="pgl35"
+                                         inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                      <af:panelHeader text="Buyer Wise Monthly View" id="ph4">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:table value="#{bindings.BuyerWiseMonthlyQtyVO1.collectionModel}"
+                                  var="row"
+                                  rows="#{bindings.BuyerWiseMonthlyQtyVO1.rangeSize}"
+                                  emptyText="#{bindings.BuyerWiseMonthlyQtyVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.BuyerWiseMonthlyQtyVO1.rangeSize}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.BuyerWiseMonthlyQtyVO1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.BuyerWiseMonthlyQtyVO1.collectionModel.makeCurrent}"
+                                  rowSelection="single" id="t5" width="545"
+                                  partialTriggers="::soc1 ::soc2"
+                                  inlineStyle="height:240.0px;">
+                          <af:column sortProperty="MonthId" sortable="false"
+                                     headerText="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.label}"
+                                     id="c75">
+                            <af:inputText value="#{row.bindings.MonthId.inputValue}"
+                                          label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.label}"
+                                          required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.mandatory}"
+                                          columns="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.displayWidth}"
+                                          maximumLength="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.precision}"
+                                          shortDesc="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.tooltip}"
+                                          id="it102">
+                              <f:validator binding="#{row.bindings.MonthId.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.format}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column sortProperty="BuyerName" sortable="false"
+                                     headerText="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.label}"
+                                     id="c78">
+                            <af:inputText value="#{row.bindings.BuyerName.inputValue}"
+                                          label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.label}"
+                                          required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.mandatory}"
+                                          columns="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.displayWidth}"
+                                          maximumLength="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.precision}"
+                                          shortDesc="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.tooltip}"
+                                          id="it101">
+                              <f:validator binding="#{row.bindings.BuyerName.validator}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column sortProperty="WashQuantity"
+                                     sortable="false"
+                                     headerText="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.label}"
+                                     id="c76">
+                            <af:inputText value="#{row.bindings.WashQuantity.inputValue}"
+                                          label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.label}"
+                                          required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.mandatory}"
+                                          columns="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.displayWidth}"
+                                          maximumLength="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.precision}"
+                                          shortDesc="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.tooltip}"
+                                          id="it100">
+                              <f:validator binding="#{row.bindings.WashQuantity.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.format}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column sortProperty="AveragePerDay"
+                                     sortable="false"
+                                     headerText="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
+                                     id="c99">
+                            <af:inputText value="#{row.bindings.AveragePerDay.inputValue}"
+                                          label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
+                                          required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.mandatory}"
+                                          columns="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.displayWidth}"
+                                          maximumLength="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.precision}"
+                                          shortDesc="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.tooltip}"
+                                          id="it99">
+                              <f:validator binding="#{row.bindings.AveragePerDay.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.format}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column sortProperty="WashPercentage"
+                                     sortable="false"
+                                     headerText="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.label}"
+                                     id="c77">
+                            <af:inputText value="#{row.bindings.WashPercentage.inputValue}"
+                                          label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.label}"
+                                          required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.mandatory}"
+                                          columns="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.displayWidth}"
+                                          maximumLength="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.precision}"
+                                          shortDesc="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.tooltip}"
+                                          id="it98">
+                              <f:validator binding="#{row.bindings.WashPercentage.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.format}"/>
+                            </af:inputText>
+                          </af:column>
+                        </af:table>
+                      </af:panelHeader>
+                    </af:panelGroupLayout>
+                    <af:panelGroupLayout id="pgl36"
+                                         inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                      <af:panelHeader text="Unit Wise Delivery qty" id="ph5"
+                                      inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:table value="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel}"
+                                  var="row"
+                                  rows="#{bindings.ProductionUnitWiseMonthlyQtyVO1.rangeSize}"
+                                  emptyText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  fetchSize="#{bindings.ProductionUnitWiseMonthlyQtyVO1.rangeSize}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel.makeCurrent}"
+                                  rowSelection="single" id="t6"
+                                  partialTriggers="::soc1 ::soc2"
+                                  autoHeightRows="5"
+                                  inlineStyle="height:220px; width:545.0px;">
+                          <af:column sortProperty="MonthId" sortable="false"
+                                     headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.label}"
+                                     id="c100">
+                            <af:inputText value="#{row.bindings.MonthId.inputValue}"
+                                          label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.label}"
+                                          required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.mandatory}"
+                                          columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.displayWidth}"
+                                          maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.precision}"
+                                          shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.tooltip}"
+                                          id="it105">
+                              <f:validator binding="#{row.bindings.MonthId.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.format}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column sortProperty="ProductionUnit"
+                                     sortable="false"
+                                     headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnit.label}"
+                                     id="c102">
+                            <af:inputText value="#{row.bindings.ProductionUnit.inputValue}"
+                                          label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnit.label}"
+                                          required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnit.mandatory}"
+                                          columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnit.displayWidth}"
+                                          maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnit.precision}"
+                                          shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnit.tooltip}"
+                                          id="it103">
+                              <f:validator binding="#{row.bindings.ProductionUnit.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnit.format}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column sortProperty="WashQuantity"
+                                     sortable="false"
+                                     headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.label}"
+                                     id="c101">
+                            <af:inputText value="#{row.bindings.WashQuantity.inputValue}"
+                                          label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.label}"
+                                          required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.mandatory}"
+                                          columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.displayWidth}"
+                                          maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.precision}"
+                                          shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.tooltip}"
+                                          id="it107">
+                              <f:validator binding="#{row.bindings.WashQuantity.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.format}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column sortProperty="AveragePerDay"
+                                     sortable="false"
+                                     headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
+                                     id="c103">
+                            <af:inputText value="#{row.bindings.AveragePerDay.inputValue}"
+                                          label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
+                                          required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.mandatory}"
+                                          columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.displayWidth}"
+                                          maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.precision}"
+                                          shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.tooltip}"
+                                          id="it106">
+                              <f:validator binding="#{row.bindings.AveragePerDay.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.format}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column sortProperty="WashPercentage"
+                                     sortable="false"
+                                     headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.label}"
+                                     id="c104">
+                            <af:inputText value="#{row.bindings.WashPercentage.inputValue}"
+                                          label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.label}"
+                                          required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.mandatory}"
+                                          columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.displayWidth}"
+                                          maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.precision}"
+                                          shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.tooltip}"
+                                          id="it104">
+                              <f:validator binding="#{row.bindings.WashPercentage.validator}"/>
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.format}"/>
+                            </af:inputText>
+                          </af:column>
+                        </af:table>
+                      </af:panelHeader>
+                    </af:panelGroupLayout>
+                    <af:panelGroupLayout id="pgl37"/>
+                  </af:panelDashboard>
+                </af:showDetailItem>
                 <af:showDetailItem text="Section Load" id="sdi3"/>
               </af:panelTabbed>
             </af:panelGroupLayout>

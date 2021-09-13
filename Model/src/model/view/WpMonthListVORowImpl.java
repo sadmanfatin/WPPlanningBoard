@@ -107,6 +107,26 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        WorkingdayCount {
+            public Object get(WpMonthListVORowImpl obj) {
+                return obj.getWorkingdayCount();
+            }
+
+            public void put(WpMonthListVORowImpl obj, Object value) {
+                obj.setWorkingdayCount((Number)value);
+            }
+        }
+        ,
+        HolidayCount {
+            public Object get(WpMonthListVORowImpl obj) {
+                return obj.getHolidayCount();
+            }
+
+            public void put(WpMonthListVORowImpl obj, Object value) {
+                obj.setHolidayCount((Number)value);
+            }
+        }
+        ,
         D1Total {
             public Object get(WpMonthListVORowImpl obj) {
                 return obj.getD1Total();
@@ -423,7 +443,17 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
             }
 
             public void put(WpMonthListVORowImpl obj, Object value) {
-                obj.setMonthlyGrandTotal((String)value);
+                obj.setMonthlyGrandTotal((Number)value);
+            }
+        }
+        ,
+        AveragePerDay {
+            public Object get(WpMonthListVORowImpl obj) {
+                return obj.getAveragePerDay();
+            }
+
+            public void put(WpMonthListVORowImpl obj, Object value) {
+                obj.setAveragePerDay((Number)value);
             }
         }
         ,
@@ -466,6 +496,26 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
                 obj.setAttributeInternal(index(), value);
             }
         }
+        ,
+        BuyerWiseMonthlyQtyVO {
+            public Object get(WpMonthListVORowImpl obj) {
+                return obj.getBuyerWiseMonthlyQtyVO();
+            }
+
+            public void put(WpMonthListVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        ProductionUnitWiseMonthlyQtyVO {
+            public Object get(WpMonthListVORowImpl obj) {
+                return obj.getProductionUnitWiseMonthlyQtyVO();
+            }
+
+            public void put(WpMonthListVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -494,12 +544,15 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int MONTHID = AttributesEnum.MonthId.index();
     public static final int MONTHNAME = AttributesEnum.MonthName.index();
     public static final int YEAR = AttributesEnum.Year.index();
     public static final int ORGID = AttributesEnum.OrgId.index();
     public static final int WEEKLYHOLIDAY = AttributesEnum.WeeklyHoliday.index();
     public static final int NUMBEROFDAYS = AttributesEnum.NumberOfDays.index();
+    public static final int WORKINGDAYCOUNT = AttributesEnum.WorkingdayCount.index();
+    public static final int HOLIDAYCOUNT = AttributesEnum.HolidayCount.index();
     public static final int D1TOTAL = AttributesEnum.D1Total.index();
     public static final int D2TOTAL = AttributesEnum.D2Total.index();
     public static final int D3TOTAL = AttributesEnum.D3Total.index();
@@ -532,10 +585,13 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
     public static final int D30TOTAL = AttributesEnum.D30Total.index();
     public static final int D31TOTAL = AttributesEnum.D31Total.index();
     public static final int MONTHLYGRANDTOTAL = AttributesEnum.MonthlyGrandTotal.index();
+    public static final int AVERAGEPERDAY = AttributesEnum.AveragePerDay.index();
     public static final int MONTHSEARCHVO = AttributesEnum.MonthSearchVO.index();
     public static final int WPPLANNINGBOARDVO = AttributesEnum.WpPlanningBoardVO.index();
     public static final int WPPLANNINGBOARDLOADVO = AttributesEnum.WpPlanningBoardLoadVO.index();
     public static final int WPHOLIDAYCALENDARVO = AttributesEnum.WpHolidayCalendarVO.index();
+    public static final int BUYERWISEMONTHLYQTYVO = AttributesEnum.BuyerWiseMonthlyQtyVO.index();
+    public static final int PRODUCTIONUNITWISEMONTHLYQTYVO = AttributesEnum.ProductionUnitWiseMonthlyQtyVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -662,13 +718,45 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for the calculated attribute WorkingdayCount.
+     * @return the WorkingdayCount
+     */
+    public Number getWorkingdayCount() {
+        return (Number) getAttributeInternal(WORKINGDAYCOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute WorkingdayCount.
+     * @param value value to set the  WorkingdayCount
+     */
+    public void setWorkingdayCount(Number value) {
+        setAttributeInternal(WORKINGDAYCOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute HolidayCount.
+     * @return the HolidayCount
+     */
+    public Number getHolidayCount() {
+        return (Number) getAttributeInternal(HOLIDAYCOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute HolidayCount.
+     * @param value value to set the  HolidayCount
+     */
+    public void setHolidayCount(Number value) {
+        setAttributeInternal(HOLIDAYCOUNT, value);
+    }
+
+
+    /**
      * Gets the attribute value for the calculated attribute D1Total.
      * @return the D1Total
      */
     public Number getD1Total() {
        
-       return getTotalforAttribute("D1");
-        
+         return getTotalforAttribute("D1");        
      //   return (Number) getAttributeInternal(D1TOTAL);
     }
 
@@ -685,7 +773,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D2Total
      */
     public Number getD2Total() {
-        return (Number) getAttributeInternal(D2TOTAL);
+        return getTotalforAttribute("D2");    
+       // return (Number) getAttributeInternal(D2TOTAL);
     }
 
     /**
@@ -701,7 +790,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D3Total
      */
     public Number getD3Total() {
-        return (Number) getAttributeInternal(D3TOTAL);
+        return getTotalforAttribute("D3");    
+       // return (Number) getAttributeInternal(D3TOTAL);
     }
 
     /**
@@ -717,7 +807,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D4Total
      */
     public Number getD4Total() {
-        return (Number) getAttributeInternal(D4TOTAL);
+        return getTotalforAttribute("D4");   
+       // return (Number) getAttributeInternal(D4TOTAL);
     }
 
     /**
@@ -733,7 +824,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D5Total
      */
     public Number getD5Total() {
-        return (Number) getAttributeInternal(D5TOTAL);
+        return getTotalforAttribute("D5");   
+      //  return (Number) getAttributeInternal(D5TOTAL);
     }
 
     /**
@@ -749,7 +841,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D6Total
      */
     public Number getD6Total() {
-        return (Number) getAttributeInternal(D6TOTAL);
+        return getTotalforAttribute("D6");   
+       // return (Number) getAttributeInternal(D6TOTAL);
     }
 
     /**
@@ -765,7 +858,9 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D7Total
      */
     public Number getD7Total() {
-        return (Number) getAttributeInternal(D7TOTAL);
+        
+        return getTotalforAttribute("D7");   
+      //  return (Number) getAttributeInternal(D7TOTAL);
     }
 
     /**
@@ -781,7 +876,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D8Total
      */
     public Number getD8Total() {
-        return (Number) getAttributeInternal(D8TOTAL);
+        return getTotalforAttribute("D8");   
+       // return (Number) getAttributeInternal(D8TOTAL);
     }
 
     /**
@@ -797,7 +893,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D9Total
      */
     public Number getD9Total() {
-        return (Number) getAttributeInternal(D9TOTAL);
+        return getTotalforAttribute("D9");   
+       // return (Number) getAttributeInternal(D9TOTAL);
     }
 
     /**
@@ -813,7 +910,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D10Total
      */
     public Number getD10Total() {
-        return (Number) getAttributeInternal(D10TOTAL);
+        return getTotalforAttribute("D10");   
+      //  return (Number) getAttributeInternal(D10TOTAL);
     }
 
     /**
@@ -829,7 +927,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D11Total
      */
     public Number getD11Total() {
-        return (Number) getAttributeInternal(D11TOTAL);
+        return getTotalforAttribute("D11");   
+        //return (Number) getAttributeInternal(D11TOTAL);
     }
 
     /**
@@ -845,7 +944,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D12Total
      */
     public Number getD12Total() {
-        return (Number) getAttributeInternal(D12TOTAL);
+        return getTotalforAttribute("D12");   
+        //return (Number) getAttributeInternal(D12TOTAL);
     }
 
     /**
@@ -861,7 +961,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D13Total
      */
     public Number getD13Total() {
-        return (Number) getAttributeInternal(D13TOTAL);
+      return getTotalforAttribute("D13");   
+      //  return (Number) getAttributeInternal(D13TOTAL);
     }
 
     /**
@@ -869,6 +970,7 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @param value value to set the  D13Total
      */
     public void setD13Total(Number value) {
+        
         setAttributeInternal(D13TOTAL, value);
     }
 
@@ -877,7 +979,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D14Total
      */
     public Number getD14Total() {
-        return (Number) getAttributeInternal(D14TOTAL);
+        return getTotalforAttribute("D14");   
+        //return (Number) getAttributeInternal(D14TOTAL);
     }
 
     /**
@@ -893,7 +996,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D15Total
      */
     public Number getD15Total() {
-        return (Number) getAttributeInternal(D15TOTAL);
+        return getTotalforAttribute("D15");   
+        //return (Number) getAttributeInternal(D15TOTAL);
     }
 
     /**
@@ -909,7 +1013,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D16Total
      */
     public Number getD16Total() {
-        return (Number) getAttributeInternal(D16TOTAL);
+        return getTotalforAttribute("D16");   
+       // return (Number) getAttributeInternal(D16TOTAL);
     }
 
     /**
@@ -925,7 +1030,9 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D17Total
      */
     public Number getD17Total() {
-        return (Number) getAttributeInternal(D17TOTAL);
+        
+        return getTotalforAttribute("D17");   
+       // return (Number) getAttributeInternal(D17TOTAL);
     }
 
     /**
@@ -941,7 +1048,9 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D18Total
      */
     public Number getD18Total() {
-        return (Number) getAttributeInternal(D18TOTAL);
+       
+        return getTotalforAttribute("D18");   
+        //return (Number) getAttributeInternal(D18TOTAL);
     }
 
     /**
@@ -957,7 +1066,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D19Total
      */
     public Number getD19Total() {
-        return (Number) getAttributeInternal(D19TOTAL);
+        return getTotalforAttribute("D19");   
+      //  return (Number) getAttributeInternal(D19TOTAL);
     }
 
     /**
@@ -973,7 +1083,9 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D20Total
      */
     public Number getD20Total() {
-        return (Number) getAttributeInternal(D20TOTAL);
+        
+        return getTotalforAttribute("D20");    
+       // return (Number) getAttributeInternal(D20TOTAL);
     }
 
     /**
@@ -989,7 +1101,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D21Total
      */
     public Number getD21Total() {
-        return (Number) getAttributeInternal(D21TOTAL);
+        return getTotalforAttribute("D21");   
+        //return (Number) getAttributeInternal(D21TOTAL);
     }
 
     /**
@@ -1005,7 +1118,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D22Total
      */
     public Number getD22Total() {
-        return (Number) getAttributeInternal(D22TOTAL);
+        return getTotalforAttribute("D22");   
+        //return (Number) getAttributeInternal(D22TOTAL);
     }
 
     /**
@@ -1021,7 +1135,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D23Total
      */
     public Number getD23Total() {
-        return (Number) getAttributeInternal(D23TOTAL);
+        return getTotalforAttribute("D23");   
+      //  return (Number) getAttributeInternal(D23TOTAL);
     }
 
     /**
@@ -1037,7 +1152,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D24Total
      */
     public Number getD24Total() {
-        return (Number) getAttributeInternal(D24TOTAL);
+        return getTotalforAttribute("D24");   
+       // return (Number) getAttributeInternal(D24TOTAL);
     }
 
     /**
@@ -1053,7 +1169,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D25Total
      */
     public Number getD25Total() {
-        return (Number) getAttributeInternal(D25TOTAL);
+        return getTotalforAttribute("D25");   
+       // return (Number) getAttributeInternal(D25TOTAL);
     }
 
     /**
@@ -1069,7 +1186,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D26Total
      */
     public Number getD26Total() {
-        return (Number) getAttributeInternal(D26TOTAL);
+        return getTotalforAttribute("D26");   
+   //     return (Number) getAttributeInternal(D26TOTAL);
     }
 
     /**
@@ -1085,7 +1203,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D27Total
      */
     public Number getD27Total() {
-        return (Number) getAttributeInternal(D27TOTAL);
+        return getTotalforAttribute("D27");   
+        //return (Number) getAttributeInternal(D27TOTAL);
     }
 
     /**
@@ -1101,7 +1220,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D28Total
      */
     public Number getD28Total() {
-        return (Number) getAttributeInternal(D28TOTAL);
+        return getTotalforAttribute("D28");   
+      //  return (Number) getAttributeInternal(D28TOTAL);
     }
 
     /**
@@ -1117,7 +1237,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D29Total
      */
     public Number getD29Total() {
-        return (Number) getAttributeInternal(D29TOTAL);
+        return getTotalforAttribute("D29");   
+     //   return (Number) getAttributeInternal(D29TOTAL);
     }
 
     /**
@@ -1133,7 +1254,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D30Total
      */
     public Number getD30Total() {
-        return (Number) getAttributeInternal(D30TOTAL);
+        return getTotalforAttribute("D30");   
+       // return (Number) getAttributeInternal(D30TOTAL);
     }
 
     /**
@@ -1149,7 +1271,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * @return the D31Total
      */
     public Number getD31Total() {
-        return (Number) getAttributeInternal(D31TOTAL);
+        return getTotalforAttribute("D31");   
+     //   return (Number) getAttributeInternal(D31TOTAL);
     }
 
     /**
@@ -1164,17 +1287,36 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      * Gets the attribute value for the calculated attribute MonthlyGrandTotal.
      * @return the MonthlyGrandTotal
      */
-    public String getMonthlyGrandTotal() {
-        return (String) getAttributeInternal(MONTHLYGRANDTOTAL);
+    public Number getMonthlyGrandTotal() {
+        return getTotalforAttribute("MonthlyTotal");   
+        
+      //  return (String) getAttributeInternal(MONTHLYGRANDTOTAL);
     }
 
     /**
      * Sets <code>value</code> as the attribute value for the calculated attribute MonthlyGrandTotal.
      * @param value value to set the  MonthlyGrandTotal
      */
-    public void setMonthlyGrandTotal(String value) {
+    public void setMonthlyGrandTotal(Number value) {
         setAttributeInternal(MONTHLYGRANDTOTAL, value);
     }
+
+    /**
+     * Gets the attribute value for the calculated attribute AveragePerDay.
+     * @return the AveragePerDay
+     */
+    public Number getAveragePerDay() {
+        return (Number) getAttributeInternal(AVERAGEPERDAY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute AveragePerDay.
+     * @param value value to set the  AveragePerDay
+     */
+    public void setAveragePerDay(Number value) {
+        setAttributeInternal(AVERAGEPERDAY, value);
+    }
+
 
     /**
      * Gets the associated <code>Row</code> using master-detail link MonthSearchVO.
@@ -1209,6 +1351,20 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      */
     public RowIterator getWpHolidayCalendarVO() {
         return (RowIterator)getAttributeInternal(WPHOLIDAYCALENDARVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link BuyerWiseMonthlyQtyVO.
+     */
+    public RowIterator getBuyerWiseMonthlyQtyVO() {
+        return (RowIterator)getAttributeInternal(BUYERWISEMONTHLYQTYVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ProductionUnitWiseMonthlyQtyVO.
+     */
+    public RowIterator getProductionUnitWiseMonthlyQtyVO() {
+        return (RowIterator)getAttributeInternal(PRODUCTIONUNITWISEMONTHLYQTYVO);
     }
 
     /**

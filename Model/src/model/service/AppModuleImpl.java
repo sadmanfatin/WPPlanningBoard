@@ -8,7 +8,10 @@ import javax.servlet.http.HttpSession;
 import model.service.common.AppModule;
 
 import model.view.MonthSearchVOImpl;
+import model.view.PopulateStylesVOImpl;
 import model.view.WpMonthListVOImpl;
+
+import model.view.WpPlanningBoardVOImpl;
 
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.ViewLinkImpl;
@@ -154,5 +157,37 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getOrgVO_vs_PopulateStyles_vl1() {
         return (ViewLinkImpl)findViewLink("OrgVO_vs_PopulateStyles_vl1");
+    }
+
+    /**
+     * Container's getter for BuyerWiseMonthlyQtyVO1.
+     * @return BuyerWiseMonthlyQtyVO1
+     */
+    public ViewObjectImpl getBuyerWiseMonthlyQtyVO1() {
+        return (ViewObjectImpl)findViewObject("BuyerWiseMonthlyQtyVO1");
+    }
+
+    /**
+     * Container's getter for WpMonthListVO_vs_BuyerWiseMonthlyQtyVO_vl1.
+     * @return WpMonthListVO_vs_BuyerWiseMonthlyQtyVO_vl1
+     */
+    public ViewLinkImpl getWpMonthListVO_vs_BuyerWiseMonthlyQtyVO_vl1() {
+        return (ViewLinkImpl)findViewLink("WpMonthListVO_vs_BuyerWiseMonthlyQtyVO_vl1");
+    }
+
+    /**
+     * Container's getter for ProductionUnitWiseMonthlyQtyVO1.
+     * @return ProductionUnitWiseMonthlyQtyVO1
+     */
+    public ViewObjectImpl getProductionUnitWiseMonthlyQtyVO1() {
+        return (ViewObjectImpl)findViewObject("ProductionUnitWiseMonthlyQtyVO1");
+    }
+
+    /**
+     * Container's getter for WpMonthListVO_vs_ProductionUnitWiseMonthlyQtyVO_vl1.
+     * @return WpMonthListVO_vs_ProductionUnitWiseMonthlyQtyVO_vl1
+     */
+    public ViewLinkImpl getWpMonthListVO_vs_ProductionUnitWiseMonthlyQtyVO_vl1() {
+        return (ViewLinkImpl)findViewLink("WpMonthListVO_vs_ProductionUnitWiseMonthlyQtyVO_vl1");
     }
 }
