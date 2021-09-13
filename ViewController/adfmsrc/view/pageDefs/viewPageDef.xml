@@ -198,5 +198,10 @@
     </button>
     <action id="Commit" DataControl="AppModuleDataControl"
             RequiresUpdateModel="true" Action="commitTransaction"/>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="D1Total">
+      <AttrNames>
+        <Item Value="D1Total"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -1520,8 +1520,23 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      */
     public void setMonthlyTotal(Number value) {
        
+        Number total = new Number(0);
+        String dayName = null;
+            for (int i=1;i<=31; i++  ){
+                dayName = "D"+i;
+                
+                if(this.getAttribute(dayName) != null){
+                    total  = total.add((Number)this.getAttribute(dayName));
+                  //  System.out.println("============ "+dayName + "  total  "+total);
+                }
+
+            }        
+
         
-        setAttributeInternal(MONTHLYTOTAL, value);
+        
+        
+        
+        setAttributeInternal(MONTHLYTOTAL,total);
         
     }
 

@@ -794,6 +794,16 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D1.format}"/>
                         </af:inputText>
+                        <f:facet name="footer">
+                          <af:panelLabelAndMessage
+                                                   id="plam1">
+                            <af:outputText value="#{bindings.D1Total.inputValue}"
+                                           id="ot2">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.D1Total.format}"/>
+                            </af:outputText>
+                          </af:panelLabelAndMessage>
+                        </f:facet>
                       </af:column>
                       <af:column sortProperty="D2" filterable="true"
                                  sortable="true"
@@ -1371,6 +1381,8 @@
                     </af:toolbar>
                   </f:facet>
                 </af:showDetailItem>
+                <af:showDetailItem text="Dashboard" id="sdi2"/>
+                <af:showDetailItem text="Section Load" id="sdi3"/>
               </af:panelTabbed>
             </af:panelGroupLayout>
           </f:facet>
