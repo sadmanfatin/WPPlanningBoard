@@ -36,6 +36,12 @@
     <iterator Binds="ProductionUnitWiseMonthlyQtyVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="ProductionUnitWiseMonthlyQtyVO1Iterator"/>
+    <iterator Binds="WpPlanningBoardAllSectionLoadVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="WpPlanningBoardAllSectionLoadVO1Iterator"/>
+    <searchRegion Binds="WpPlanningBoardAllSectionLoadVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="WpPlanningBoardAllSectionLoadVO1Query"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="OrgVO1Iterator" id="OrgName">
@@ -398,6 +404,49 @@
           <Item Value="WashQuantity"/>
           <Item Value="AveragePerDay"/>
           <Item Value="WashPercentage"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="WpPlanningBoardAllSectionLoadVO1Iterator"
+          id="WpPlanningBoardAllSectionLoadVO1">
+      <nodeDefinition DefName="model.view.WpPlanningBoardAllSectionLoadVO"
+                      Name="WpPlanningBoardAllSectionLoadVO10">
+        <AttrNames>
+          <Item Value="MonthId"/>
+          <Item Value="OrgId"/>
+          <Item Value="WpSectionId"/>
+          <Item Value="SectionName"/>
+          <Item Value="D1"/>
+          <Item Value="D2"/>
+          <Item Value="D3"/>
+          <Item Value="D4"/>
+          <Item Value="D5"/>
+          <Item Value="D6"/>
+          <Item Value="D7"/>
+          <Item Value="D8"/>
+          <Item Value="D9"/>
+          <Item Value="D10"/>
+          <Item Value="D11"/>
+          <Item Value="D12"/>
+          <Item Value="D13"/>
+          <Item Value="D14"/>
+          <Item Value="D15"/>
+          <Item Value="D16"/>
+          <Item Value="D17"/>
+          <Item Value="D18"/>
+          <Item Value="D19"/>
+          <Item Value="D20"/>
+          <Item Value="D21"/>
+          <Item Value="D22"/>
+          <Item Value="D23"/>
+          <Item Value="D24"/>
+          <Item Value="D25"/>
+          <Item Value="D26"/>
+          <Item Value="D27"/>
+          <Item Value="D28"/>
+          <Item Value="D29"/>
+          <Item Value="D30"/>
+          <Item Value="D31"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

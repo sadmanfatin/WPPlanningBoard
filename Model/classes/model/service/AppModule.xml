@@ -47,6 +47,9 @@
   <ViewUsage
     Name="ProductionUnitWiseMonthlyQtyVO1"
     ViewObjectName="model.view.ProductionUnitWiseMonthlyQtyVO"/>
+  <ViewUsage
+    Name="WpPlanningBoardAllSectionLoadVO1"
+    ViewObjectName="model.view.WpPlanningBoardAllSectionLoadVO"/>
   <ViewLinkUsage
     Name="MonthSearchVO_vs_WpMonthListVO_vl1"
     ViewLinkObjectName="model.view.MonthSearchVO_vs_WpMonthListVO_vl"
@@ -88,6 +91,12 @@
     ViewLinkObjectName="model.view.WpMonthListVO_vs_ProductionUnitWiseMonthlyQtyVO_vl"
     SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
     DstViewUsageName="model.service.AppModule.ProductionUnitWiseMonthlyQtyVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="WpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl1"
+    ViewLinkObjectName="model.view.WpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl"
+    SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
+    DstViewUsageName="model.service.AppModule.WpPlanningBoardAllSectionLoadVO1"
     Reversed="false"/>
   <ClientInterface>
     <Method

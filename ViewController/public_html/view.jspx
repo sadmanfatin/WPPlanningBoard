@@ -1740,7 +1740,7 @@
                         <f:facet name="legend"/>
                         <f:facet name="info"/>
                         <af:panelFormLayout id="pfl3"
-                                            partialTriggers="::soc1 ::soc2">
+                                            partialTriggers="soc1 soc2">
                           <af:inputText value="#{bindings.WorkingdayCount.inputValue}"
                                         label="#{bindings.WorkingdayCount.hints.label}"
                                         required="#{bindings.WorkingdayCount.hints.mandatory}"
@@ -1981,7 +1981,341 @@
                     <af:panelGroupLayout id="pgl37"/>
                   </af:panelDashboard>
                 </af:showDetailItem>
-                <af:showDetailItem text="Section Load" id="sdi3"/>
+                <af:showDetailItem text="Process Wise Qty" id="sdi4"/>
+                <af:showDetailItem text="Section Load" id="sdi3">
+                  <af:panelHeader text="All section Load" id="ph6">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar"/>
+                    <af:table value="#{bindings.WpPlanningBoardAllSectionLoadVO1.collectionModel}"
+                              var="row"
+                              rows="#{bindings.WpPlanningBoardAllSectionLoadVO1.rangeSize}"
+                              emptyText="#{bindings.WpPlanningBoardAllSectionLoadVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              fetchSize="#{bindings.WpPlanningBoardAllSectionLoadVO1.rangeSize}"
+                              rowBandingInterval="0"
+                              filterModel="#{bindings.WpPlanningBoardAllSectionLoadVO1Query.queryDescriptor}"
+                              queryListener="#{bindings.WpPlanningBoardAllSectionLoadVO1Query.processQuery}"
+                              filterVisible="true" varStatus="vs"
+                              selectedRowKeys="#{bindings.WpPlanningBoardAllSectionLoadVO1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.WpPlanningBoardAllSectionLoadVO1.collectionModel.makeCurrent}"
+                              rowSelection="single" id="t7"
+                              partialTriggers="::soc1 ::soc2"
+                              styleClass="AFStretchWidth">
+                      <af:column sortProperty="MonthId" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.MonthId.label}"
+                                 id="c119">
+                        <af:outputText value="#{row.MonthId}" id="ot45">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.MonthId.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="OrgId" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.OrgId.label}"
+                                 id="c118">
+                        <af:outputText value="#{row.OrgId}" id="ot38">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.OrgId.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="WpSectionId" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.WpSectionId.label}"
+                                 id="c137">
+                        <af:outputText value="#{row.WpSectionId}" id="ot47">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.WpSectionId.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="SectionName" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.SectionName.label}"
+                                 id="c132">
+                        <af:outputText value="#{row.SectionName}" id="ot46"/>
+                      </af:column>
+                      <af:column sortProperty="D1" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D1.label}"
+                                 id="c130">
+                        <af:outputText value="#{row.D1}" id="ot48">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D1.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D2" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D2.label}"
+                                 id="c129">
+                        <af:outputText value="#{row.D2}" id="ot64">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D2.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D3" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D3.label}"
+                                 id="c111">
+                        <af:outputText value="#{row.D3}" id="ot41">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D3.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D4" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D4.label}"
+                                 id="c114">
+                        <af:outputText value="#{row.D4}" id="ot43">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D4.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D5" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D5.label}"
+                                 id="c115">
+                        <af:outputText value="#{row.D5}" id="ot39">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D5.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D6" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D6.label}"
+                                 id="c107">
+                        <af:outputText value="#{row.D6}" id="ot33">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D6.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D7" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D7.label}"
+                                 id="c121">
+                        <af:outputText value="#{row.D7}" id="ot44">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D7.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D8" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D8.label}"
+                                 id="c123">
+                        <af:outputText value="#{row.D8}" id="ot56">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D8.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D9" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D9.label}"
+                                 id="c120">
+                        <af:outputText value="#{row.D9}" id="ot66">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D9.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D10" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D10.label}"
+                                 id="c125">
+                        <af:outputText value="#{row.D10}" id="ot42">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D10.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D11" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D11.label}"
+                                 id="c117">
+                        <af:outputText value="#{row.D11}" id="ot60">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D11.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D12" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D12.label}"
+                                 id="c105">
+                        <af:outputText value="#{row.D12}" id="ot35">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D12.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D13" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D13.label}"
+                                 id="c131">
+                        <af:outputText value="#{row.D13}" id="ot50">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D13.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D14" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D14.label}"
+                                 id="c134">
+                        <af:outputText value="#{row.D14}" id="ot40">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D14.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D15" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D15.label}"
+                                 id="c136">
+                        <af:outputText value="#{row.D15}" id="ot51">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D15.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D16" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D16.label}"
+                                 id="c124">
+                        <af:outputText value="#{row.D16}" id="ot57">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D16.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D17" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D17.label}"
+                                 id="c126">
+                        <af:outputText value="#{row.D17}" id="ot53">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D17.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D18" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D18.label}"
+                                 id="c112">
+                        <af:outputText value="#{row.D18}" id="ot49">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D18.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D19" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D19.label}"
+                                 id="c135">
+                        <af:outputText value="#{row.D19}" id="ot59">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D19.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D20" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D20.label}"
+                                 id="c138">
+                        <af:outputText value="#{row.D20}" id="ot34">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D20.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D21" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D21.label}"
+                                 id="c113">
+                        <af:outputText value="#{row.D21}" id="ot65">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D21.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D22" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D22.label}"
+                                 id="c116">
+                        <af:outputText value="#{row.D22}" id="ot55">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D22.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D23" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D23.label}"
+                                 id="c109">
+                        <af:outputText value="#{row.D23}" id="ot36">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D23.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D24" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D24.label}"
+                                 id="c122">
+                        <af:outputText value="#{row.D24}" id="ot54">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D24.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D25" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D25.label}"
+                                 id="c139">
+                        <af:outputText value="#{row.D25}" id="ot52">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D25.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D26" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D26.label}"
+                                 id="c106">
+                        <af:outputText value="#{row.D26}" id="ot37">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D26.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D27" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D27.label}"
+                                 id="c108">
+                        <af:outputText value="#{row.D27}" id="ot63">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D27.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D28" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D28.label}"
+                                 id="c110">
+                        <af:outputText value="#{row.D28}" id="ot61">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D28.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D29" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D29.label}"
+                                 id="c133">
+                        <af:outputText value="#{row.D29}" id="ot58">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D29.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D30" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D30.label}"
+                                 id="c128">
+                        <af:outputText value="#{row.D30}" id="ot67">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D30.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D31" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D31.label}"
+                                 id="c127">
+                        <af:outputText value="#{row.D31}" id="ot62">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D31.format}"/>
+                        </af:outputText>
+                      </af:column>
+                    </af:table>
+                  </af:panelHeader>
+                </af:showDetailItem>
               </af:panelTabbed>
             </af:panelGroupLayout>
           </f:facet>

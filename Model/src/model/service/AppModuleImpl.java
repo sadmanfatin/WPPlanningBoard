@@ -190,4 +190,20 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewLinkImpl getWpMonthListVO_vs_ProductionUnitWiseMonthlyQtyVO_vl1() {
         return (ViewLinkImpl)findViewLink("WpMonthListVO_vs_ProductionUnitWiseMonthlyQtyVO_vl1");
     }
+
+    /**
+     * Container's getter for WpPlanningBoardAllSectionLoadVO1.
+     * @return WpPlanningBoardAllSectionLoadVO1
+     */
+    public ViewObjectImpl getWpPlanningBoardAllSectionLoadVO1() {
+        return (ViewObjectImpl)findViewObject("WpPlanningBoardAllSectionLoadVO1");
+    }
+
+    /**
+     * Container's getter for WpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl1.
+     * @return WpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl1
+     */
+    public ViewLinkImpl getWpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl1() {
+        return (ViewLinkImpl)findViewLink("WpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl1");
+    }
 }
