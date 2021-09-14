@@ -698,8 +698,14 @@
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.SystemId.format}"/>
                         </af:inputText>
                       </af:column>
+                      <af:column id="c174">
+                        <af:commandButton text="Sam Version" id="cb6"/>
+                      </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitName.label}"
-                                 id="c96">
+                                 id="c96" align="center" sortable="true"
+                                 filterable="true"
+                                 filterFeatures="caseInsensitive"
+                                 sortProperty="ProductionUnitName">
                         <af:inputText value="#{row.bindings.ProductionUnitName.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitName.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitName.mandatory}"
@@ -709,9 +715,16 @@
                                       id="it92" readOnly="true">
                           <f:validator binding="#{row.bindings.ProductionUnitName.validator}"/>
                         </af:inputText>
+                        <f:facet name="footer">
+                          <af:outputLabel value="Total:" id="ol1"
+                                          inlineStyle="font-size:small; font-weight:bold;"/>
+                        </f:facet>
                       </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.BuyerName.label}"
-                                 id="c41" width="140">
+                                 id="c41" width="140" align="center"
+                                 sortable="true" filterable="true"
+                                 sortProperty="BuyerName"
+                                 filterFeatures="caseInsensitive">
                         <af:inputText value="#{row.bindings.BuyerName.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.BuyerName.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.BuyerName.mandatory}"
@@ -723,7 +736,9 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.Season.label}"
-                                 id="c53">
+                                 id="c53" align="center" sortable="true"
+                                 filterable="true" sortProperty="Season"
+                                 filterFeatures="caseInsensitive">
                         <af:inputText value="#{row.bindings.Season.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.Season.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.Season.mandatory}"
@@ -735,7 +750,9 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.Style.label}"
-                                 id="c62">
+                                 id="c62" align="center" sortable="true"
+                                 filterable="true" sortProperty="Style"
+                                 filterFeatures="caseInsensitive">
                         <af:inputText value="#{row.bindings.Style.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.Style.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.Style.mandatory}"
@@ -747,7 +764,9 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.Color.label}"
-                                 id="c95">
+                                 id="c95" align="center" sortable="true"
+                                 filterable="true" sortProperty="Color"
+                                 filterFeatures="caseInsensitive">
                         <af:inputText value="#{row.bindings.Color.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.Color.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.Color.mandatory}"
@@ -759,7 +778,9 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.WashName.label}"
-                                 id="c67">
+                                 id="c67" align="center" sortable="true"
+                                 filterable="true" sortProperty="WashName"
+                                 filterFeatures="caseInsensitive">
                         <af:inputText value="#{row.bindings.WashName.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.WashName.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.WashName.mandatory}"
@@ -774,7 +795,8 @@
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.Remarks.label}"
                                  id="c48" width="120" align="center"
-                                 frozen="false">
+                                 frozen="false"
+                                 filterFeatures="caseInsensitive">
                         <af:inputText value="#{row.bindings.Remarks.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.Remarks.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.Remarks.mandatory}"
@@ -786,7 +808,9 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.label}"
-                                 id="c30" align="center">
+                                 id="c30" align="center"
+                                 sortProperty="MonthlyTotal" sortable="true"
+                                 filterable="true">
                         <af:inputText value="#{row.bindings.MonthlyTotal.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.mandatory}"
@@ -803,7 +827,8 @@
                           <af:panelGroupLayout id="pgl33" layout="vertical"
                                                halign="center">
                             <af:outputText value="#{bindings.MonthlyGrandTotal.inputValue}"
-                                           id="ot31" partialTriggers="it11">
+                                           id="ot31" partialTriggers="it11"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.MonthlyGrandTotal.format}"/>
                             </af:outputText>
@@ -833,7 +858,8 @@
                             <af:panelGroupLayout id="pgl4" halign="center"
                                                  layout="vertical">
                               <af:outputText value="#{bindings.D1Total.inputValue}"
-                                             id="ot2" partialTriggers="it44">
+                                             id="ot2" partialTriggers="it44"
+                                             inlineStyle=" font-weight:bold;">
                                 <af:convertNumber groupingUsed="false"
                                                   pattern="#{bindings.D1Total.format}"/>
                               </af:outputText>
@@ -864,7 +890,8 @@
                                                layout="vertical">
                             <af:outputText value="#{bindings.D2Total.inputValue}"
                                            id="outputText1"
-                                           partialTriggers="it58">
+                                           partialTriggers="it58"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D2Total.format}"/>
                             </af:outputText>
@@ -893,7 +920,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D3Total.inputValue}"
-                                           id="ot3" partialTriggers="it71">
+                                           id="ot3" partialTriggers="it71"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D3Total.format}"/>
                             </af:outputText>
@@ -922,7 +950,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D4Total.inputValue}"
-                                           id="ot4" partialTriggers="it51">
+                                           id="ot4" partialTriggers="it51"
+                                           inlineStyle="font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D4Total.format}"/>
                             </af:outputText>
@@ -951,7 +980,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D5Total.inputValue}"
-                                           id="ot5" partialTriggers="it42">
+                                           id="ot5" partialTriggers="it42"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D5Total.format}"/>
                             </af:outputText>
@@ -980,7 +1010,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D6Total.inputValue}"
-                                           id="ot6" partialTriggers="it53">
+                                           id="ot6" partialTriggers="it53"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D6Total.format}"/>
                             </af:outputText>
@@ -1009,7 +1040,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D7Total.inputValue}"
-                                           id="ot7" partialTriggers="it40">
+                                           id="ot7" partialTriggers="it40"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D7Total.format}"/>
                             </af:outputText>
@@ -1038,7 +1070,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D8Total.inputValue}"
-                                           id="ot8" partialTriggers="it65">
+                                           id="ot8" partialTriggers="it65"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D8Total.format}"/>
                             </af:outputText>
@@ -1067,7 +1100,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D9Total.inputValue}"
-                                           id="ot9" partialTriggers="it46">
+                                           id="ot9" partialTriggers="it46"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D9Total.format}"/>
                             </af:outputText>
@@ -1096,7 +1130,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D10Total.inputValue}"
-                                           id="ot10" partialTriggers="it52">
+                                           id="ot10" partialTriggers="it52"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D10Total.format}"/>
                             </af:outputText>
@@ -1125,7 +1160,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D11Total.inputValue}"
-                                           id="ot11" partialTriggers="it57">
+                                           id="ot11" partialTriggers="it57"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D11Total.format}"/>
                             </af:outputText>
@@ -1154,7 +1190,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D12Total.inputValue}"
-                                           id="ot12" partialTriggers="it55">
+                                           id="ot12" partialTriggers="it55"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D12Total.format}"/>
                             </af:outputText>
@@ -1183,7 +1220,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D13Total.inputValue}"
-                                           id="ot13" partialTriggers="it37">
+                                           id="ot13" partialTriggers="it37"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D13Total.format}"/>
                             </af:outputText>
@@ -1212,7 +1250,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D14Total.inputValue}"
-                                           id="ot14" partialTriggers="it54">
+                                           id="ot14" partialTriggers="it54"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D14Total.format}"/>
                             </af:outputText>
@@ -1241,7 +1280,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D15Total.inputValue}"
-                                           id="ot15" partialTriggers="it45">
+                                           id="ot15" partialTriggers="it45"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D15Total.format}"/>
                             </af:outputText>
@@ -1270,7 +1310,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D16Total.inputValue}"
-                                           id="ot16" partialTriggers="it61">
+                                           id="ot16" partialTriggers="it61"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D16Total.format}"/>
                             </af:outputText>
@@ -1299,7 +1340,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D17Total.inputValue}"
-                                           id="ot17" partialTriggers="it69">
+                                           id="ot17" partialTriggers="it69"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D17Total.format}"/>
                             </af:outputText>
@@ -1328,7 +1370,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D18Total.inputValue}"
-                                           id="ot18" partialTriggers="it64">
+                                           id="ot18" partialTriggers="it64"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D18Total.format}"/>
                             </af:outputText>
@@ -1357,7 +1400,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D19Total.inputValue}"
-                                           id="ot19" partialTriggers="it43">
+                                           id="ot19" partialTriggers="it43"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D19Total.format}"/>
                             </af:outputText>
@@ -1385,7 +1429,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D20Total.inputValue}"
-                                           id="ot20" partialTriggers="it63">
+                                           id="ot20" partialTriggers="it63"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D20Total.format}"/>
                             </af:outputText>
@@ -1414,7 +1459,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D21Total.inputValue}"
-                                           id="ot21" partialTriggers="it60">
+                                           id="ot21" partialTriggers="it60"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D21Total.format}"/>
                             </af:outputText>
@@ -1443,7 +1489,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D22Total.inputValue}"
-                                           id="ot22" partialTriggers="c51">
+                                           id="ot22" partialTriggers="c51"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D22Total.format}"/>
                             </af:outputText>
@@ -1472,7 +1519,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D23Total.inputValue}"
-                                           id="ot23" partialTriggers="it62">
+                                           id="ot23" partialTriggers="it62"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D23Total.format}"/>
                             </af:outputText>
@@ -1501,7 +1549,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D24Total.inputValue}"
-                                           id="ot24" partialTriggers="it41">
+                                           id="ot24" partialTriggers="it41"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D24Total.format}"/>
                             </af:outputText>
@@ -1530,7 +1579,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D25Total.inputValue}"
-                                           id="ot25" partialTriggers="it39">
+                                           id="ot25" partialTriggers="it39"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D25Total.format}"/>
                             </af:outputText>
@@ -1559,7 +1609,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D26Total.inputValue}"
-                                           id="ot26" partialTriggers="it48">
+                                           id="ot26" partialTriggers="it48"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D26Total.format}"/>
                             </af:outputText>
@@ -1588,7 +1639,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D27Total.inputValue}"
-                                           id="ot27" partialTriggers="it38">
+                                           id="ot27" partialTriggers="it38"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D27Total.format}"/>
                             </af:outputText>
@@ -1617,7 +1669,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D28Total.inputValue}"
-                                           id="ot28" partialTriggers="it70">
+                                           id="ot28" partialTriggers="it70"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D28Total.format}"/>
                             </af:outputText>
@@ -1646,7 +1699,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D29Total.inputValue}"
-                                           id="ot29" partialTriggers="it59">
+                                           id="ot29" partialTriggers="it59"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D29Total.format}"/>
                             </af:outputText>
@@ -1675,7 +1729,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D30Total.inputValue}"
-                                           id="ot30" partialTriggers="it56">
+                                           id="ot30" partialTriggers="it56"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D30Total.format}"/>
                             </af:outputText>
@@ -1704,7 +1759,8 @@
                                                halign="center"
                                                layout="vertical">
                             <af:outputText value="#{bindings.D31Total.inputValue}"
-                                           id="ot32" partialTriggers="it36">
+                                           id="ot32" partialTriggers="it36"
+                                           inlineStyle=" font-weight:bold;">
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.D31Total.format}"/>
                             </af:outputText>

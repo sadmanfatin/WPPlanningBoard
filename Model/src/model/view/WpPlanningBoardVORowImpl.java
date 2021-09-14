@@ -556,6 +556,16 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
                 obj.setAvailableSamVersion((Number)value);
             }
         }
+        ,
+        UpdatedSamVersionAvaliable {
+            public Object get(WpPlanningBoardVORowImpl obj) {
+                return obj.getUpdatedSamVersionAvaliable();
+            }
+
+            public void put(WpPlanningBoardVORowImpl obj, Object value) {
+                obj.setUpdatedSamVersionAvaliable((Boolean)value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -640,6 +650,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
     public static final int ORDERQTY = AttributesEnum.OrderQty.index();
     public static final int CURRENTSAMVERSION = AttributesEnum.CurrentSamVersion.index();
     public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
+    public static final int UPDATEDSAMVERSIONAVALIABLE = AttributesEnum.UpdatedSamVersionAvaliable.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1490,6 +1501,22 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      */
     public void setAvailableSamVersion(Number value) {
         setAttributeInternal(AVAILABLESAMVERSION, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute UpdatedSamVersionAvaliable.
+     * @return the UpdatedSamVersionAvaliable
+     */
+    public Boolean getUpdatedSamVersionAvaliable() {
+        return (Boolean) getAttributeInternal(UPDATEDSAMVERSIONAVALIABLE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute UpdatedSamVersionAvaliable.
+     * @param value value to set the  UpdatedSamVersionAvaliable
+     */
+    public void setUpdatedSamVersionAvaliable(Boolean value) {
+        setAttributeInternal(UPDATEDSAMVERSIONAVALIABLE, value);
     }
 
     /**

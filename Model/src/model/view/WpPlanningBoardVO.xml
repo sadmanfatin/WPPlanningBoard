@@ -578,4 +578,15 @@ WP_STYLE_SETUP SS,
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewAttribute
+    Name="UpdatedSamVersionAvaliable"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <TransientExpression><![CDATA[AvailableSamVersion>CurrentSamVersion]]></TransientExpression>
+  </ViewAttribute>
 </ViewObject>
