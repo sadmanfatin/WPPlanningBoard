@@ -527,6 +527,16 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        ProductionUnitShortName {
+            public Object get(WpPlanningBoardVORowImpl obj) {
+                return obj.getProductionUnitShortName();
+            }
+
+            public void put(WpPlanningBoardVORowImpl obj, Object value) {
+                obj.setProductionUnitShortName((String)value);
+            }
+        }
+        ,
         OrderQty {
             public Object get(WpPlanningBoardVORowImpl obj) {
                 return obj.getOrderQty();
@@ -647,6 +657,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
     public static final int WASHNAME = AttributesEnum.WashName.index();
     public static final int PRODUCTIONUNIT = AttributesEnum.ProductionUnit.index();
     public static final int PRODUCTIONUNITNAME = AttributesEnum.ProductionUnitName.index();
+    public static final int PRODUCTIONUNITSHORTNAME = AttributesEnum.ProductionUnitShortName.index();
     public static final int ORDERQTY = AttributesEnum.OrderQty.index();
     public static final int CURRENTSAMVERSION = AttributesEnum.CurrentSamVersion.index();
     public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
@@ -1453,6 +1464,22 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      */
     public void setProductionUnitName(String value) {
         setAttributeInternal(PRODUCTIONUNITNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute ProductionUnitShortName.
+     * @return the ProductionUnitShortName
+     */
+    public String getProductionUnitShortName() {
+        return (String) getAttributeInternal(PRODUCTIONUNITSHORTNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute ProductionUnitShortName.
+     * @param value value to set the  ProductionUnitShortName
+     */
+    public void setProductionUnitShortName(String value) {
+        setAttributeInternal(PRODUCTIONUNITSHORTNAME, value);
     }
 
     /**

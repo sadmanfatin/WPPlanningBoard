@@ -68,7 +68,8 @@
        PV.COLOR, 
        PV.WASH_NAME ,
        SS.PRODUCTION_UNIT, 
-       APPS.ORG_ID_TO_ORG_NAME(LC_UNIT) PRODUCTION_UNIT_NAME, 
+       APPS.ORG_ID_TO_ORG_NAME(SS.PRODUCTION_UNIT) PRODUCTION_UNIT_NAME, 
+        APPS.ORG_ID_TO_ORG_SHORT_NAME(SS.PRODUCTION_UNIT) PRODUCTION_UNIT_SHORT_NAME, 
        PV.ORDER_QTY ,
        SS.SAM_VERSION CURRENT_SAM_VERSION,       
         (
@@ -534,6 +535,21 @@ WP_STYLE_SETUP SS,
     ColumnType="VARCHAR2"
     AliasName="PRODUCTION_UNIT_NAME"
     Expression="PRODUCTION_UNIT_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProductionUnitShortName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PRODUCTION_UNIT_SHORT_NAME"
+    Expression="PRODUCTION_UNIT_SHORT_NAME"
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>

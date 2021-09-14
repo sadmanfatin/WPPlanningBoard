@@ -132,7 +132,7 @@
                               rowSelection="single">
                       <af:column id="c74" align="center"
                                  inlineStyle="height:26px;" width="900">
-                        <af:outputText value="Section Load %" id="ot1"/>
+                        <af:outputText value="Wet Section Load (%)" id="ot1"/>
                       </af:column>
                       <af:column sortProperty="MonthId" filterable="false"
                                  sortable="false" id="c4" width="75"
@@ -698,27 +698,41 @@
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.SystemId.format}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column id="c174">
-                        <af:commandButton text="Sam Version" id="cb6"/>
-                      </af:column>
-                      <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitName.label}"
-                                 id="c96" align="center" sortable="true"
-                                 filterable="true"
-                                 filterFeatures="caseInsensitive"
-                                 sortProperty="ProductionUnitName">
-                        <af:inputText value="#{row.bindings.ProductionUnitName.inputValue}"
-                                      label="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitName.label}"
-                                      required="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitName.mandatory}"
-                                      columns="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitName.displayWidth}"
-                                      maximumLength="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitName.precision}"
-                                      shortDesc="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitName.tooltip}"
-                                      id="it92" readOnly="true">
-                          <f:validator binding="#{row.bindings.ProductionUnitName.validator}"/>
+                      <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.UpdatedSamVersionAvaliable.label}"
+                                 id="c176" width="60" visible="false">
+                        <af:inputText value="#{row.bindings.UpdatedSamVersionAvaliable.inputValue}"
+                                      label="#{bindings.WpPlanningBoardVO1.hints.UpdatedSamVersionAvaliable.label}"
+                                      required="#{bindings.WpPlanningBoardVO1.hints.UpdatedSamVersionAvaliable.mandatory}"
+                                      columns="#{bindings.WpPlanningBoardVO1.hints.UpdatedSamVersionAvaliable.displayWidth}"
+                                      maximumLength="#{bindings.WpPlanningBoardVO1.hints.UpdatedSamVersionAvaliable.precision}"
+                                      shortDesc="#{bindings.WpPlanningBoardVO1.hints.UpdatedSamVersionAvaliable.tooltip}"
+                                      id="it110">
+                          <f:validator binding="#{row.bindings.UpdatedSamVersionAvaliable.validator}"/>
                         </af:inputText>
+                      </af:column>
+                      <af:column id="c174" width="75" visible="false">
+                        <af:commandButton text="Sam Version" id="cb6"
+                                          inlineStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?        'color:rgb(198,0,0)'  :  'color:Black' } ;"/>
+                      </af:column>
+                      <af:column headerText="Production Unit"
+                                 id="c96" align="center" sortable="true"
+                                 filterFeatures="caseInsensitive"
+                                 sortProperty="ProductionUnitShortName"
+                                 width="55" filterable="true">
                         <f:facet name="footer">
                           <af:outputLabel value="Total:" id="ol1"
                                           inlineStyle="font-size:small; font-weight:bold;"/>
                         </f:facet>
+                        <af:inputText value="#{row.bindings.ProductionUnitShortName.inputValue}"
+                                      label="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitShortName.label}"
+                                      required="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitShortName.mandatory}"
+                                      columns="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitShortName.displayWidth}"
+                                      maximumLength="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitShortName.precision}"
+                                      shortDesc="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitShortName.tooltip}"
+                                      id="it90" readOnly="true"
+                                      contentStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;">
+                          <f:validator binding="#{row.bindings.ProductionUnitShortName.validator}"/>
+                        </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.BuyerName.label}"
                                  id="c41" width="140" align="center"
@@ -731,7 +745,8 @@
                                       columns="#{bindings.WpPlanningBoardVO1.hints.BuyerName.displayWidth}"
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.BuyerName.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.BuyerName.tooltip}"
-                                      id="it50" readOnly="true">
+                                      id="it50" readOnly="true"
+                                      contentStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;">
                           <f:validator binding="#{row.bindings.BuyerName.validator}"/>
                         </af:inputText>
                       </af:column>
@@ -745,7 +760,8 @@
                                       columns="#{bindings.WpPlanningBoardVO1.hints.Season.displayWidth}"
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.Season.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.Season.tooltip}"
-                                      id="it68" readOnly="true">
+                                      id="it68" readOnly="true"
+                                      contentStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;">
                           <f:validator binding="#{row.bindings.Season.validator}"/>
                         </af:inputText>
                       </af:column>
@@ -759,7 +775,8 @@
                                       columns="#{bindings.WpPlanningBoardVO1.hints.Style.displayWidth}"
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.Style.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.Style.tooltip}"
-                                      id="it89" readOnly="true">
+                                      id="it89" readOnly="true"
+                                      contentStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;">
                           <f:validator binding="#{row.bindings.Style.validator}"/>
                         </af:inputText>
                       </af:column>
@@ -773,7 +790,8 @@
                                       columns="#{bindings.WpPlanningBoardVO1.hints.Color.displayWidth}"
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.Color.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.Color.tooltip}"
-                                      id="it91" readOnly="true">
+                                      id="it91" readOnly="true"
+                                      contentStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;">
                           <f:validator binding="#{row.bindings.Color.validator}"/>
                         </af:inputText>
                       </af:column>
@@ -781,15 +799,10 @@
                                  id="c67" align="center" sortable="true"
                                  filterable="true" sortProperty="WashName"
                                  filterFeatures="caseInsensitive">
-                        <af:inputText value="#{row.bindings.WashName.inputValue}"
-                                      label="#{bindings.WpPlanningBoardVO1.hints.WashName.label}"
-                                      required="#{bindings.WpPlanningBoardVO1.hints.WashName.mandatory}"
-                                      columns="#{bindings.WpPlanningBoardVO1.hints.WashName.displayWidth}"
-                                      maximumLength="#{bindings.WpPlanningBoardVO1.hints.WashName.precision}"
-                                      shortDesc="#{bindings.WpPlanningBoardVO1.hints.WashName.tooltip}"
-                                      id="it90" readOnly="true">
-                          <f:validator binding="#{row.bindings.WashName.validator}"/>
-                        </af:inputText>
+                        <af:commandLink text="#{row.bindings.WashName.inputValue}" id="cl1"
+                                        inlineStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;">
+                          <af:showPopupBehavior popupId="::p2"/>
+                        </af:commandLink>
                       </af:column>
                       <af:column sortProperty="Remarks" filterable="true"
                                  sortable="true"
@@ -807,10 +820,19 @@
                           <f:validator binding="#{row.bindings.Remarks.validator}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.label}"
+                      <af:column headerText="Order Qty"
+                                 id="c175" width="70" align="center"
+                                 sortable="true" filterable="true"
+                                 sortProperty="OrderQty">
+                        <af:outputText value="#{row.OrderQty}" id="ot102">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardVO1.hints.OrderQty.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column headerText="Monthly Total"
                                  id="c30" align="center"
                                  sortProperty="MonthlyTotal" sortable="true"
-                                 filterable="true">
+                                 filterable="true" width="70">
                         <af:inputText value="#{row.bindings.MonthlyTotal.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.mandatory}"
@@ -1806,7 +1828,7 @@
                   </f:facet>
                 </af:showDetailItem>
                 <af:showDetailItem text="Dashboard" id="sdi2">
-                  <af:panelDashboard id="pd1" columns="2" rowHeight="300px"
+                  <af:panelDashboard id="pd1" columns="2" rowHeight="250px"
                                      inlineStyle="height:700px; width:1300px;"
                                      styleClass="AFStretchWidth">
                     <af:panelGroupLayout id="pgl38"
@@ -1877,10 +1899,11 @@
                                   selectionListener="#{bindings.BuyerWiseMonthlyQtyVO1.collectionModel.makeCurrent}"
                                   rowSelection="single" id="t5" width="545"
                                   partialTriggers="::soc1 ::soc2"
-                                  inlineStyle="height:240.0px;">
+                                  inlineStyle="height:220.0px;"
+                                  autoHeightRows="10">
                           <af:column sortProperty="MonthId" sortable="false"
                                      headerText="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.label}"
-                                     id="c75">
+                                     id="c75" visible="false">
                             <af:inputText value="#{row.bindings.MonthId.inputValue}"
                                           label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.label}"
                                           required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.mandatory}"
@@ -1895,7 +1918,7 @@
                           </af:column>
                           <af:column sortProperty="BuyerName" sortable="false"
                                      headerText="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.label}"
-                                     id="c78">
+                                     id="c78" width="140" align="center">
                             <af:inputText value="#{row.bindings.BuyerName.inputValue}"
                                           label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.label}"
                                           required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.mandatory}"
@@ -1909,7 +1932,7 @@
                           <af:column sortProperty="WashQuantity"
                                      sortable="false"
                                      headerText="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.label}"
-                                     id="c76">
+                                     id="c76" align="center">
                             <af:inputText value="#{row.bindings.WashQuantity.inputValue}"
                                           label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.label}"
                                           required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.mandatory}"
@@ -1925,7 +1948,7 @@
                           <af:column sortProperty="AveragePerDay"
                                      sortable="false"
                                      headerText="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
-                                     id="c99">
+                                     id="c99" align="center">
                             <af:inputText value="#{row.bindings.AveragePerDay.inputValue}"
                                           label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
                                           required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.mandatory}"
@@ -1941,7 +1964,7 @@
                           <af:column sortProperty="WashPercentage"
                                      sortable="false"
                                      headerText="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.label}"
-                                     id="c77">
+                                     id="c77" align="center">
                             <af:inputText value="#{row.bindings.WashPercentage.inputValue}"
                                           label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.label}"
                                           required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.mandatory}"
@@ -1976,10 +1999,10 @@
                                   rowSelection="single" id="t6"
                                   partialTriggers="::soc1 ::soc2"
                                   autoHeightRows="5"
-                                  inlineStyle="height:220px; width:545.0px;">
+                                  inlineStyle="height:200.0px; width:545px;">
                           <af:column sortProperty="MonthId" sortable="false"
                                      headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.label}"
-                                     id="c100">
+                                     id="c100" visible="false">
                             <af:inputText value="#{row.bindings.MonthId.inputValue}"
                                           label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.label}"
                                           required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.mandatory}"
@@ -1992,26 +2015,24 @@
                                                 pattern="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.format}"/>
                             </af:inputText>
                           </af:column>
-                          <af:column sortProperty="ProductionUnit"
-                                     sortable="false"
-                                     headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnit.label}"
-                                     id="c102">
-                            <af:inputText value="#{row.bindings.ProductionUnit.inputValue}"
-                                          label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnit.label}"
-                                          required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnit.mandatory}"
-                                          columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnit.displayWidth}"
-                                          maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnit.precision}"
-                                          shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnit.tooltip}"
-                                          id="it103">
-                              <f:validator binding="#{row.bindings.ProductionUnit.validator}"/>
-                              <af:convertNumber groupingUsed="false"
-                                                pattern="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnit.format}"/>
+                          <af:column sortProperty="ProductionUnitShortName"
+                                     sortable="true"
+                                     headerText="Production Unit"
+                                     id="c102" align="center" filterable="true">
+                            <af:inputText value="#{row.bindings.ProductionUnitShortName.inputValue}"
+                                          label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnitShortName.label}"
+                                          required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnitShortName.mandatory}"
+                                          columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnitShortName.displayWidth}"
+                                          maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnitShortName.precision}"
+                                          shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnitShortName.tooltip}"
+                                          id="it92" readOnly="true">
+                              <f:validator binding="#{row.bindings.ProductionUnitShortName.validator}"/>
                             </af:inputText>
                           </af:column>
                           <af:column sortProperty="WashQuantity"
-                                     sortable="false"
+                                     sortable="true"
                                      headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.label}"
-                                     id="c101">
+                                     id="c101" align="center">
                             <af:inputText value="#{row.bindings.WashQuantity.inputValue}"
                                           label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.label}"
                                           required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.mandatory}"
@@ -2025,9 +2046,9 @@
                             </af:inputText>
                           </af:column>
                           <af:column sortProperty="AveragePerDay"
-                                     sortable="false"
+                                     sortable="true"
                                      headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
-                                     id="c103">
+                                     id="c103" align="center">
                             <af:inputText value="#{row.bindings.AveragePerDay.inputValue}"
                                           label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
                                           required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.mandatory}"
@@ -2041,9 +2062,9 @@
                             </af:inputText>
                           </af:column>
                           <af:column sortProperty="WashPercentage"
-                                     sortable="false"
+                                     sortable="true"
                                      headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.label}"
-                                     id="c104">
+                                     id="c104" align="center">
                             <af:inputText value="#{row.bindings.WashPercentage.inputValue}"
                                           label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.label}"
                                           required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.mandatory}"
@@ -2978,6 +2999,9 @@
               </af:table>
             </af:panelHeader>
           </af:dialog>
+        </af:popup>
+        <af:popup id="p2">
+          <af:dialog id="d3"/>
         </af:popup>
       </af:form>
     </af:document>

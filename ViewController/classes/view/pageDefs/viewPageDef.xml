@@ -171,6 +171,9 @@
           <Item Value="AvailableSamVersion"/>
           <Item Value="CurrentSamVersion"/>
           <Item Value="MonthlyTotal"/>
+          <Item Value="OrderQty"/>
+          <Item Value="UpdatedSamVersionAvaliable"/>
+          <Item Value="ProductionUnitShortName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -410,6 +413,7 @@
           <Item Value="WashQuantity"/>
           <Item Value="AveragePerDay"/>
           <Item Value="WashPercentage"/>
+          <Item Value="ProductionUnitShortName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
