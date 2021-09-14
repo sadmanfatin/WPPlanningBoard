@@ -472,4 +472,9 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ViewLink="model.view.WpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="MonthWiseDailyProcessQtyVO"
+    ViewLink="model.view.WpMonthListVO_vs_MonthWiseDailyProcessQtyVO_vl"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

@@ -16,7 +16,7 @@
     </input-page-parameter>
     <input-page-parameter>
       <from-value>#{param.ParamRespApplId}</from-value>
-      <to-value>#{viewScope.RespAppId}</to-value>
+      <to-value>#{viewScope.RespApplId}</to-value>
     </input-page-parameter>
   </view>
   <managed-bean id="__3">

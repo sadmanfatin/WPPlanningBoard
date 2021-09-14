@@ -9,7 +9,7 @@
       <af:messages id="m1"/>
       <af:form id="f1">
         <af:panelStretchLayout id="psl1"
-                               styleClass="AFStretchWidth" topHeight="75px">
+                               styleClass="AFStretchWidth" topHeight="74px">
                     <f:facet name="top">
             <af:panelGroupLayout
                                  xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
@@ -21,7 +21,7 @@
                 <f:facet name="menuBar"/>
                 <f:facet name="toolbar"/>
               </af:panelHeader>
-              <af:panelFormLayout id="pfl1" rows="1" maxColumns="7"
+              <af:panelFormLayout id="pfl1" rows="1" maxColumns="10"
                                   inlineStyle="border-style:solid; border-width:thin; background-color:rgb(248,248,265); border-color:rgb(198,198,198); margin-bottom:2px; padding:3px; height:25.0px;">
                 <af:selectOneChoice value="#{bindings.MonthName.inputValue}"
                                     label="Month"
@@ -46,13 +46,13 @@
                               maximumLength="#{bindings.MonthId.hints.precision}"
                               shortDesc="#{bindings.MonthId.hints.tooltip}"
                               id="it5" partialTriggers="soc1 soc2"
-                              readOnly="true">
+                              readOnly="true" visible="false">
                   <f:validator binding="#{bindings.MonthId.validator}"/>
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.MonthId.format}"/>
                 </af:inputText>
                 <af:inputText value="#{bindings.NumberOfDays.inputValue}"
-                              label="#{bindings.NumberOfDays.hints.label}"
+                              label="Total Days"
                               required="#{bindings.NumberOfDays.hints.mandatory}"
                               columns="#{bindings.NumberOfDays.hints.displayWidth}"
                               maximumLength="#{bindings.NumberOfDays.hints.precision}"
@@ -63,6 +63,28 @@
                   <f:validator binding="#{bindings.NumberOfDays.validator}"/>
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.NumberOfDays.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.WorkingdayCount.inputValue}"
+                              label="Workingday"
+                              required="#{bindings.WorkingdayCount.hints.mandatory}"
+                              columns="#{bindings.WorkingdayCount.hints.displayWidth}"
+                              maximumLength="#{bindings.WorkingdayCount.hints.precision}"
+                              shortDesc="#{bindings.WorkingdayCount.hints.tooltip}"
+                              id="it108" readOnly="true">
+                  <f:validator binding="#{bindings.WorkingdayCount.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.WorkingdayCount.format}"/>
+                </af:inputText>
+                <af:inputText value="#{bindings.HolidayCount.inputValue}"
+                              label="Holiday"
+                              required="#{bindings.HolidayCount.hints.mandatory}"
+                              columns="#{bindings.HolidayCount.hints.displayWidth}"
+                              maximumLength="#{bindings.HolidayCount.hints.precision}"
+                              shortDesc="#{bindings.HolidayCount.hints.tooltip}"
+                              id="it109" readOnly="true">
+                  <f:validator binding="#{bindings.HolidayCount.validator}"/>
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.HolidayCount.format}"/>
                 </af:inputText>
               </af:panelFormLayout>
             </af:panelGroupLayout>
@@ -1698,7 +1720,7 @@
                                       columns="#{bindings.WpPlanningBoardVO1.hints.CurrentSamVersion.displayWidth}"
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.CurrentSamVersion.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.CurrentSamVersion.tooltip}"
-                                      id="it93">
+                                      id="it93" readOnly="true">
                           <f:validator binding="#{row.bindings.CurrentSamVersion.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.CurrentSamVersion.format}"/>
@@ -1713,7 +1735,7 @@
                                       columns="#{bindings.WpPlanningBoardVO1.hints.AvailableSamVersion.displayWidth}"
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.AvailableSamVersion.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.AvailableSamVersion.tooltip}"
-                                      id="it94">
+                                      id="it94" readOnly="true">
                           <f:validator binding="#{row.bindings.AvailableSamVersion.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.AvailableSamVersion.format}"/>
@@ -1740,14 +1762,16 @@
                         <f:facet name="legend"/>
                         <f:facet name="info"/>
                         <af:panelFormLayout id="pfl3"
-                                            partialTriggers="soc1 soc2">
+                                            partialTriggers="soc1 soc2"
+                                            inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
                           <af:inputText value="#{bindings.WorkingdayCount.inputValue}"
                                         label="#{bindings.WorkingdayCount.hints.label}"
                                         required="#{bindings.WorkingdayCount.hints.mandatory}"
                                         columns="#{bindings.WorkingdayCount.hints.displayWidth}"
                                         maximumLength="#{bindings.WorkingdayCount.hints.precision}"
                                         shortDesc="#{bindings.WorkingdayCount.hints.tooltip}"
-                                        id="it97" readOnly="true">
+                                        id="it97" readOnly="true"
+                                        inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
                             <f:validator binding="#{bindings.WorkingdayCount.validator}"/>
                             <af:convertNumber groupingUsed="false"
                                               pattern="#{bindings.WorkingdayCount.format}"/>
@@ -1758,7 +1782,8 @@
                                         columns="#{bindings.MonthlyGrandTotal.hints.displayWidth}"
                                         maximumLength="#{bindings.MonthlyGrandTotal.hints.precision}"
                                         shortDesc="#{bindings.MonthlyGrandTotal.hints.tooltip}"
-                                        id="it96" readOnly="true">
+                                        id="it96" readOnly="true"
+                                        inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
                             <f:validator binding="#{bindings.MonthlyGrandTotal.validator}"/>
                             <af:convertNumber groupingUsed="false"
                                               pattern="#{bindings.MonthlyGrandTotal.format}"/>
@@ -1769,7 +1794,8 @@
                                         columns="#{bindings.AveragePerDay.hints.displayWidth}"
                                         maximumLength="#{bindings.AveragePerDay.hints.precision}"
                                         shortDesc="#{bindings.AveragePerDay.hints.tooltip}"
-                                        id="it95" readOnly="true">
+                                        id="it95" readOnly="true"
+                                        inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
                             <f:validator binding="#{bindings.AveragePerDay.validator}"/>
                             <af:convertNumber groupingUsed="false"
                                               pattern="#{bindings.AveragePerDay.format}"/>
@@ -1877,8 +1903,7 @@
                     </af:panelGroupLayout>
                     <af:panelGroupLayout id="pgl36"
                                          inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
-                      <af:panelHeader text="Unit Wise Delivery qty" id="ph5"
-                                      inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                      <af:panelHeader text="Unit Wise Delivery qty" id="ph5">
                         <f:facet name="context"/>
                         <f:facet name="menuBar"/>
                         <f:facet name="toolbar"/>
@@ -1981,9 +2006,335 @@
                     <af:panelGroupLayout id="pgl37"/>
                   </af:panelDashboard>
                 </af:showDetailItem>
-                <af:showDetailItem text="Process Wise Qty" id="sdi4"/>
+                <af:showDetailItem text="Process Wise Qty" id="sdi4">
+                  <af:panelHeader text="Dayly Process Qty" id="ph7">
+                    <f:facet name="context"/>
+                    <f:facet name="menuBar"/>
+                    <f:facet name="toolbar"/>
+                    <f:facet name="legend"/>
+                    <f:facet name="info"/>
+                    <af:table value="#{bindings.MonthWiseDailyProcessQtyVO1.collectionModel}"
+                              var="row"
+                              rows="#{bindings.MonthWiseDailyProcessQtyVO1.rangeSize}"
+                              emptyText="#{bindings.MonthWiseDailyProcessQtyVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              fetchSize="#{bindings.MonthWiseDailyProcessQtyVO1.rangeSize}"
+                              rowBandingInterval="1"
+                              filterModel="#{bindings.MonthWiseDailyProcessQtyVO1Query.queryDescriptor}"
+                              queryListener="#{bindings.MonthWiseDailyProcessQtyVO1Query.processQuery}"
+                              filterVisible="true" varStatus="vs"
+                              selectedRowKeys="#{bindings.MonthWiseDailyProcessQtyVO1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.MonthWiseDailyProcessQtyVO1.collectionModel.makeCurrent}"
+                              rowSelection="single" id="t8"
+                              partialTriggers="::soc1 ::soc2"
+                              styleClass="AFStretchWidth" autoHeightRows="30">
+                      <af:column sortProperty="MonthId" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.MonthId.label}"
+                                 id="c169" align="center" width="55">
+                        <af:outputText value="#{row.MonthId}" id="ot69">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.MonthId.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="WpProcessId" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.WpProcessId.label}"
+                                 id="c172" align="center" width="55">
+                        <af:outputText value="#{row.WpProcessId}" id="ot72">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.WpProcessId.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="ProcessName" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.ProcessName.label}"
+                                 id="c141" align="center" width="120">
+                        <af:outputText value="#{row.ProcessName}" id="ot100"/>
+                      </af:column>
+                      <af:column sortProperty="D1" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D1.label}"
+                                 id="c143" align="center" width="50">
+                        <af:outputText value="#{row.D1}" id="ot93">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D1.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D2" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D2.label}"
+                                 id="c167" align="center" width="50">
+                        <af:outputText value="#{row.D2}" id="ot101">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D2.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D3" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D3.label}"
+                                 id="c166" align="center" width="50">
+                        <af:outputText value="#{row.D3}" id="ot90">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D3.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D4" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D4.label}"
+                                 id="c155" align="center" width="50">
+                        <af:outputText value="#{row.D4}" id="ot76">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D4.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D5" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D5.label}"
+                                 id="c158" align="center" width="50">
+                        <af:outputText value="#{row.D5}" id="ot85">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D5.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D6" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D6.label}"
+                                 id="c154" align="center" width="50">
+                        <af:outputText value="#{row.D6}" id="ot83">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D6.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D7" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D7.label}"
+                                 id="c157" align="center" width="50">
+                        <af:outputText value="#{row.D7}" id="ot82">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D7.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D8" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D8.label}"
+                                 id="c151" align="center" width="50">
+                        <af:outputText value="#{row.D8}" id="ot80">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D8.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D9" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D9.label}"
+                                 id="c159" align="center" width="50">
+                        <af:outputText value="#{row.D9}" id="ot96">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D9.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D10" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D10.label}"
+                                 id="c145" align="center" width="50">
+                        <af:outputText value="#{row.D10}" id="ot71">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D10.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D11" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D11.label}"
+                                 id="c162" align="center" width="50">
+                        <af:outputText value="#{row.D11}" id="ot94">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D11.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D12" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D12.label}"
+                                 id="c173" align="center" width="50">
+                        <af:outputText value="#{row.D12}" id="ot73">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D12.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D13" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D13.label}"
+                                 id="c147" align="center" width="50">
+                        <af:outputText value="#{row.D13}" id="ot79">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D13.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D14" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D14.label}"
+                                 id="c171" align="center" width="50">
+                        <af:outputText value="#{row.D14}" id="ot74">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D14.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D15" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D15.label}"
+                                 id="c148" align="center" width="50">
+                        <af:outputText value="#{row.D15}" id="ot88">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D15.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D16" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D16.label}"
+                                 id="c146" align="center" width="50">
+                        <af:outputText value="#{row.D16}" id="ot92">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D16.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D17" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D17.label}"
+                                 id="c142" align="center" width="50">
+                        <af:outputText value="#{row.D17}" id="ot98">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D17.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D18" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D18.label}"
+                                 id="c161" align="center" width="50">
+                        <af:outputText value="#{row.D18}" id="ot75">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D18.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D19" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D19.label}"
+                                 id="c144" align="center" width="50">
+                        <af:outputText value="#{row.D19}" id="ot91">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D19.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D20" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D20.label}"
+                                 id="c160" align="center" width="50">
+                        <af:outputText value="#{row.D20}" id="ot68">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D20.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D21" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D21.label}"
+                                 id="c140" align="center" width="50">
+                        <af:outputText value="#{row.D21}" id="ot99">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D21.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D22" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D22.label}"
+                                 id="c153" align="center" width="50">
+                        <af:outputText value="#{row.D22}" id="ot77">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D22.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D23" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D23.label}"
+                                 id="c164" align="center" width="50">
+                        <af:outputText value="#{row.D23}" id="ot86">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D23.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D24" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D24.label}"
+                                 id="c163" align="center" width="50">
+                        <af:outputText value="#{row.D24}" id="ot95">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D24.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D25" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D25.label}"
+                                 id="c168" align="center" width="50">
+                        <af:outputText value="#{row.D25}" id="ot81">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D25.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D26" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D26.label}"
+                                 id="c165" align="center" width="50">
+                        <af:outputText value="#{row.D26}" id="ot84">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D26.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D27" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D27.label}"
+                                 id="c152" align="center" width="50">
+                        <af:outputText value="#{row.D27}" id="ot78">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D27.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D28" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D28.label}"
+                                 id="c150" align="center" width="50">
+                        <af:outputText value="#{row.D28}" id="ot97">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D28.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D29" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D29.label}"
+                                 id="c156" align="center" width="50">
+                        <af:outputText value="#{row.D29}" id="ot89">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D29.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D30" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D30.label}"
+                                 id="c149" align="center" width="50">
+                        <af:outputText value="#{row.D30}" id="ot70">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D30.format}"/>
+                        </af:outputText>
+                      </af:column>
+                      <af:column sortProperty="D31" filterable="true"
+                                 sortable="true"
+                                 headerText="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D31.label}"
+                                 id="c170" align="center" width="50">
+                        <af:outputText value="#{row.D31}" id="ot87">
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.MonthWiseDailyProcessQtyVO1.hints.D31.format}"/>
+                        </af:outputText>
+                      </af:column>
+                    </af:table>
+                  </af:panelHeader>
+                </af:showDetailItem>
                 <af:showDetailItem text="Section Load" id="sdi3">
-                  <af:panelHeader text="All section Load" id="ph6">
+                  <af:panelHeader text="All section Load (%)" id="ph6">
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar"/>
@@ -1992,7 +2343,7 @@
                               rows="#{bindings.WpPlanningBoardAllSectionLoadVO1.rangeSize}"
                               emptyText="#{bindings.WpPlanningBoardAllSectionLoadVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                               fetchSize="#{bindings.WpPlanningBoardAllSectionLoadVO1.rangeSize}"
-                              rowBandingInterval="0"
+                              rowBandingInterval="1"
                               filterModel="#{bindings.WpPlanningBoardAllSectionLoadVO1Query.queryDescriptor}"
                               queryListener="#{bindings.WpPlanningBoardAllSectionLoadVO1Query.processQuery}"
                               filterVisible="true" varStatus="vs"
@@ -2000,11 +2351,11 @@
                               selectionListener="#{bindings.WpPlanningBoardAllSectionLoadVO1.collectionModel.makeCurrent}"
                               rowSelection="single" id="t7"
                               partialTriggers="::soc1 ::soc2"
-                              styleClass="AFStretchWidth">
+                              styleClass="AFStretchWidth" autoHeightRows="10">
                       <af:column sortProperty="MonthId" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.MonthId.label}"
-                                 id="c119">
+                                 id="c119" align="center" width="55">
                         <af:outputText value="#{row.MonthId}" id="ot45">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.MonthId.format}"/>
@@ -2013,7 +2364,7 @@
                       <af:column sortProperty="OrgId" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.OrgId.label}"
-                                 id="c118">
+                                 id="c118" align="center" width="55">
                         <af:outputText value="#{row.OrgId}" id="ot38">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.OrgId.format}"/>
@@ -2022,7 +2373,7 @@
                       <af:column sortProperty="WpSectionId" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.WpSectionId.label}"
-                                 id="c137">
+                                 id="c137" align="center" width="55">
                         <af:outputText value="#{row.WpSectionId}" id="ot47">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.WpSectionId.format}"/>
@@ -2031,13 +2382,13 @@
                       <af:column sortProperty="SectionName" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.SectionName.label}"
-                                 id="c132">
+                                 id="c132" align="center" width="55">
                         <af:outputText value="#{row.SectionName}" id="ot46"/>
                       </af:column>
                       <af:column sortProperty="D1" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D1.label}"
-                                 id="c130">
+                                 id="c130" align="center" width="45">
                         <af:outputText value="#{row.D1}" id="ot48">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D1.format}"/>
@@ -2046,7 +2397,7 @@
                       <af:column sortProperty="D2" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D2.label}"
-                                 id="c129">
+                                 id="c129" align="center" width="45">
                         <af:outputText value="#{row.D2}" id="ot64">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D2.format}"/>
@@ -2055,7 +2406,7 @@
                       <af:column sortProperty="D3" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D3.label}"
-                                 id="c111">
+                                 id="c111" align="center" width="45">
                         <af:outputText value="#{row.D3}" id="ot41">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D3.format}"/>
@@ -2064,7 +2415,7 @@
                       <af:column sortProperty="D4" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D4.label}"
-                                 id="c114">
+                                 id="c114" align="center" width="45">
                         <af:outputText value="#{row.D4}" id="ot43">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D4.format}"/>
@@ -2073,7 +2424,7 @@
                       <af:column sortProperty="D5" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D5.label}"
-                                 id="c115">
+                                 id="c115" align="center" width="45">
                         <af:outputText value="#{row.D5}" id="ot39">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D5.format}"/>
@@ -2082,7 +2433,7 @@
                       <af:column sortProperty="D6" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D6.label}"
-                                 id="c107">
+                                 id="c107" align="center" width="45">
                         <af:outputText value="#{row.D6}" id="ot33">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D6.format}"/>
@@ -2091,7 +2442,7 @@
                       <af:column sortProperty="D7" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D7.label}"
-                                 id="c121">
+                                 id="c121" align="center" width="45">
                         <af:outputText value="#{row.D7}" id="ot44">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D7.format}"/>
@@ -2100,7 +2451,7 @@
                       <af:column sortProperty="D8" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D8.label}"
-                                 id="c123">
+                                 id="c123" align="center" width="45">
                         <af:outputText value="#{row.D8}" id="ot56">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D8.format}"/>
@@ -2109,7 +2460,7 @@
                       <af:column sortProperty="D9" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D9.label}"
-                                 id="c120">
+                                 id="c120" align="center" width="45">
                         <af:outputText value="#{row.D9}" id="ot66">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D9.format}"/>
@@ -2118,7 +2469,7 @@
                       <af:column sortProperty="D10" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D10.label}"
-                                 id="c125">
+                                 id="c125" align="center" width="45">
                         <af:outputText value="#{row.D10}" id="ot42">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D10.format}"/>
@@ -2127,7 +2478,7 @@
                       <af:column sortProperty="D11" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D11.label}"
-                                 id="c117">
+                                 id="c117" align="center" width="45">
                         <af:outputText value="#{row.D11}" id="ot60">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D11.format}"/>
@@ -2136,7 +2487,7 @@
                       <af:column sortProperty="D12" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D12.label}"
-                                 id="c105">
+                                 id="c105" align="center" width="45">
                         <af:outputText value="#{row.D12}" id="ot35">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D12.format}"/>
@@ -2145,7 +2496,7 @@
                       <af:column sortProperty="D13" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D13.label}"
-                                 id="c131">
+                                 id="c131" align="center" width="45">
                         <af:outputText value="#{row.D13}" id="ot50">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D13.format}"/>
@@ -2154,7 +2505,7 @@
                       <af:column sortProperty="D14" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D14.label}"
-                                 id="c134">
+                                 id="c134" align="center" width="45">
                         <af:outputText value="#{row.D14}" id="ot40">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D14.format}"/>
@@ -2163,7 +2514,7 @@
                       <af:column sortProperty="D15" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D15.label}"
-                                 id="c136">
+                                 id="c136" align="center" width="45">
                         <af:outputText value="#{row.D15}" id="ot51">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D15.format}"/>
@@ -2172,7 +2523,7 @@
                       <af:column sortProperty="D16" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D16.label}"
-                                 id="c124">
+                                 id="c124" align="center" width="45">
                         <af:outputText value="#{row.D16}" id="ot57">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D16.format}"/>
@@ -2181,7 +2532,7 @@
                       <af:column sortProperty="D17" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D17.label}"
-                                 id="c126">
+                                 id="c126" align="center" width="45">
                         <af:outputText value="#{row.D17}" id="ot53">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D17.format}"/>
@@ -2190,7 +2541,7 @@
                       <af:column sortProperty="D18" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D18.label}"
-                                 id="c112">
+                                 id="c112" align="center" width="45">
                         <af:outputText value="#{row.D18}" id="ot49">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D18.format}"/>
@@ -2199,7 +2550,7 @@
                       <af:column sortProperty="D19" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D19.label}"
-                                 id="c135">
+                                 id="c135" align="center" width="45">
                         <af:outputText value="#{row.D19}" id="ot59">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D19.format}"/>
@@ -2208,7 +2559,7 @@
                       <af:column sortProperty="D20" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D20.label}"
-                                 id="c138">
+                                 id="c138" align="center" width="45">
                         <af:outputText value="#{row.D20}" id="ot34">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D20.format}"/>
@@ -2217,7 +2568,7 @@
                       <af:column sortProperty="D21" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D21.label}"
-                                 id="c113">
+                                 id="c113" align="center" width="45">
                         <af:outputText value="#{row.D21}" id="ot65">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D21.format}"/>
@@ -2226,7 +2577,7 @@
                       <af:column sortProperty="D22" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D22.label}"
-                                 id="c116">
+                                 id="c116" align="center" width="45">
                         <af:outputText value="#{row.D22}" id="ot55">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D22.format}"/>
@@ -2235,7 +2586,7 @@
                       <af:column sortProperty="D23" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D23.label}"
-                                 id="c109">
+                                 id="c109" align="center" width="45">
                         <af:outputText value="#{row.D23}" id="ot36">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D23.format}"/>
@@ -2244,7 +2595,7 @@
                       <af:column sortProperty="D24" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D24.label}"
-                                 id="c122">
+                                 id="c122" align="center" width="45">
                         <af:outputText value="#{row.D24}" id="ot54">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D24.format}"/>
@@ -2253,7 +2604,7 @@
                       <af:column sortProperty="D25" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D25.label}"
-                                 id="c139">
+                                 id="c139" align="center" width="45">
                         <af:outputText value="#{row.D25}" id="ot52">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D25.format}"/>
@@ -2262,7 +2613,7 @@
                       <af:column sortProperty="D26" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D26.label}"
-                                 id="c106">
+                                 id="c106" align="center" width="45">
                         <af:outputText value="#{row.D26}" id="ot37">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D26.format}"/>
@@ -2271,7 +2622,7 @@
                       <af:column sortProperty="D27" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D27.label}"
-                                 id="c108">
+                                 id="c108" align="center" width="45">
                         <af:outputText value="#{row.D27}" id="ot63">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D27.format}"/>
@@ -2280,7 +2631,7 @@
                       <af:column sortProperty="D28" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D28.label}"
-                                 id="c110">
+                                 id="c110" align="center" width="45">
                         <af:outputText value="#{row.D28}" id="ot61">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D28.format}"/>
@@ -2289,7 +2640,7 @@
                       <af:column sortProperty="D29" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D29.label}"
-                                 id="c133">
+                                 id="c133" align="center" width="45">
                         <af:outputText value="#{row.D29}" id="ot58">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D29.format}"/>
@@ -2298,7 +2649,7 @@
                       <af:column sortProperty="D30" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D30.label}"
-                                 id="c128">
+                                 id="c128" align="center" width="45">
                         <af:outputText value="#{row.D30}" id="ot67">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D30.format}"/>
@@ -2307,7 +2658,7 @@
                       <af:column sortProperty="D31" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D31.label}"
-                                 id="c127">
+                                 id="c127" align="center" width="45">
                         <af:outputText value="#{row.D31}" id="ot62">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.D31.format}"/>

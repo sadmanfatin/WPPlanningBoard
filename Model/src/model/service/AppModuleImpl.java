@@ -33,8 +33,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         
     //      System.out.println("====================  set session values    ================================");
                 
-           orgId = "343";
-           userId = "5219";
+          orgId = "343";
+        userId = "5219";
 
     //       System.out.println(" orgId "+ orgId  + "  data type  "+ orgId.getClass().getName());
     //
@@ -205,5 +205,21 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getWpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl1() {
         return (ViewLinkImpl)findViewLink("WpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl1");
+    }
+
+    /**
+     * Container's getter for MonthWiseDailyProcessQtyVO1.
+     * @return MonthWiseDailyProcessQtyVO1
+     */
+    public ViewObjectImpl getMonthWiseDailyProcessQtyVO1() {
+        return (ViewObjectImpl)findViewObject("MonthWiseDailyProcessQtyVO1");
+    }
+
+    /**
+     * Container's getter for WpMonthListVO_vs_MonthWiseDailyProcessQtyVO_vl1.
+     * @return WpMonthListVO_vs_MonthWiseDailyProcessQtyVO_vl1
+     */
+    public ViewLinkImpl getWpMonthListVO_vs_MonthWiseDailyProcessQtyVO_vl1() {
+        return (ViewLinkImpl)findViewLink("WpMonthListVO_vs_MonthWiseDailyProcessQtyVO_vl1");
     }
 }

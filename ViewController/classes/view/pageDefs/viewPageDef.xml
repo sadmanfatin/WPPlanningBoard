@@ -42,6 +42,12 @@
     <searchRegion Binds="WpPlanningBoardAllSectionLoadVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="WpPlanningBoardAllSectionLoadVO1Query"/>
+    <iterator Binds="MonthWiseDailyProcessQtyVO1" RangeSize="50"
+              DataControl="AppModuleDataControl"
+              id="MonthWiseDailyProcessQtyVO1Iterator"/>
+    <searchRegion Binds="MonthWiseDailyProcessQtyVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MonthWiseDailyProcessQtyVO1Query"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="OrgVO1Iterator" id="OrgName">
@@ -54,13 +60,13 @@
                   DataControl="AppModuleDataControl" RequiresUpdateModel="true"
                   Action="invokeMethod" MethodName="setSessionValues"
                   IsViewObjectMethod="false">
-      <NamedData NDName="orgId" NDValue="#{viewScope.orgId}"
+      <NamedData NDName="orgId" NDValue="#{viewScope.OrgId}"
                  NDType="java.lang.String"/>
-      <NamedData NDName="userId" NDValue="#{viewScope.userId}"
+      <NamedData NDName="userId" NDValue="#{viewScope.UserId}"
                  NDType="java.lang.String"/>
-      <NamedData NDName="respId" NDValue="#{viewScope.respId}"
+      <NamedData NDName="respId" NDValue="#{viewScope.RespId}"
                  NDType="java.lang.String"/>
-      <NamedData NDName="respApplId" NDValue="#{viewScope.respApplId}"
+      <NamedData NDName="respApplId" NDValue="#{viewScope.RespApplId}"
                  NDType="java.lang.String"/>
     </methodAction>
     <list IterBinding="MonthSearchVO1Iterator" StaticList="false"
@@ -450,5 +456,52 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <tree IterBinding="MonthWiseDailyProcessQtyVO1Iterator"
+          id="MonthWiseDailyProcessQtyVO1">
+      <nodeDefinition DefName="model.view.MonthWiseDailyProcessQtyVO"
+                      Name="MonthWiseDailyProcessQtyVO10">
+        <AttrNames>
+          <Item Value="MonthId"/>
+          <Item Value="WpProcessId"/>
+          <Item Value="ProcessName"/>
+          <Item Value="D1"/>
+          <Item Value="D2"/>
+          <Item Value="D3"/>
+          <Item Value="D4"/>
+          <Item Value="D5"/>
+          <Item Value="D6"/>
+          <Item Value="D7"/>
+          <Item Value="D8"/>
+          <Item Value="D9"/>
+          <Item Value="D10"/>
+          <Item Value="D11"/>
+          <Item Value="D12"/>
+          <Item Value="D13"/>
+          <Item Value="D14"/>
+          <Item Value="D15"/>
+          <Item Value="D16"/>
+          <Item Value="D17"/>
+          <Item Value="D18"/>
+          <Item Value="D19"/>
+          <Item Value="D20"/>
+          <Item Value="D21"/>
+          <Item Value="D22"/>
+          <Item Value="D23"/>
+          <Item Value="D24"/>
+          <Item Value="D25"/>
+          <Item Value="D26"/>
+          <Item Value="D27"/>
+          <Item Value="D28"/>
+          <Item Value="D29"/>
+          <Item Value="D30"/>
+          <Item Value="D31"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="WpMonthListVO1Iterator" id="HolidayCount">
+      <AttrNames>
+        <Item Value="HolidayCount"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
