@@ -124,14 +124,13 @@
                               selectedRowKeys="#{bindings.WpPlanningBoardLoadVO1.collectionModel.selectedRow}"
                               selectionListener="#{bindings.WpPlanningBoardLoadVO1.collectionModel.makeCurrent}"
                               id="t1"
-                              inlineStyle="height:26.0px; width:3400px;"
+                              inlineStyle="height:30.0px; width:3400px;"
                               styleClass="AFStretchWidth"
                               clientComponent="true"
                               binding="#{ManagedBean.planningBoardLoadTable}"
                               partialTriggers="::soc1 ::soc2"
                               rowSelection="single">
-                      <af:column id="c74" align="center"
-                                 inlineStyle="height:26px;" width="900">
+                      <af:column id="c74" align="center" width="900">
                         <af:outputText value="Wet Section Load (%)" id="ot1"/>
                       </af:column>
                       <af:column sortProperty="MonthId" filterable="false"
@@ -717,16 +716,16 @@
                                           partialSubmit="true"
                                           inlineStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;"
                                           visible="#{row.bindings.UpdatedSamVersionAvaliable.inputValue}"/>
+                        <f:facet name="footer">
+                          <af:outputLabel value="Total:" id="ol1"
+                                          inlineStyle="font-size:small; font-weight:bold;"/>
+                        </f:facet>
                       </af:column>
                       <af:column headerText="Production Unit"
                                  id="c96" align="center" sortable="true"
                                  filterFeatures="caseInsensitive"
                                  sortProperty="ProductionUnitShortName"
                                  width="55" filterable="true">
-                        <f:facet name="footer">
-                          <af:outputLabel value="Total:" id="ol1"
-                                          inlineStyle="font-size:small; font-weight:bold;"/>
-                        </f:facet>
                         <af:inputText value="#{row.bindings.ProductionUnitShortName.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitShortName.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitShortName.mandatory}"
