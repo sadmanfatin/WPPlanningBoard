@@ -1,3 +1,5 @@
+import java.sql.CallableStatement;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -28,11 +30,13 @@ import model.view.WpMonthListVOImpl;
 
 import model.view.WpMonthListVORowImpl;
 
+import model.view.WpPlanningBoardVOImpl;
 import model.view.WpPlanningBoardVORowImpl;
 
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCDataControl;
+import oracle.adf.share.ADFContext;
 import oracle.adf.view.rich.component.rich.data.RichColumn;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
@@ -461,5 +465,69 @@ public class ManagedBean {
     public BindingContainer getBindings() {
         return BindingContext.getCurrent().getCurrentBindingsEntry();
     }
+
+    public void updateSamVersion(ActionEvent actionEvent) {
+        // Add event code here...
+        String statement = "BEGIN APPS.UPDATE_WP_STYLE_SETUP_VERSION(:1,:2); END;";
+        CallableStatement cs =  appM.getDBTransaction().createCallableStatement(statement, 1);
+        WpPlanningBoardVOImpl planningBoardVo = ( WpPlanningBoardVOImpl)appM.getWpPlanningBoardVO1();
+        WpPlanningBoardVORowImpl styleSetupVoRow = (WpPlanningBoardVORowImpl)planningBoardVo.getCurrentRow();
+        String styleSetupId =   styleSetupVoRow.getStyleSetupId().toString();
+        
+        Map sessionScope = ADFContext.getCurrent().getSessionScope();
+        String userId = (String)sessionScope.get("userId");
+        
+        
+        try {
+            cs.setInt(1, Integer.parseInt(styleSetupId));
+            cs.setInt(2, Integer.parseInt(userId));
+            cs.execute();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            ;
+        }              
+        
+        this.refreshQueryKeepingCurrentRow(appM.getWpPlanningBoardVO1());
+        this.refreshQueryKeepingCurrentRow(appM.getWpPlanningBoardLoadVO1());
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardTable());
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardLoadTable());
+    }
     
+    public void refreshQueryKeepingCurrentRow(ViewObject viewObject )  {
+        
+        
+         Row currentRow;
+         Key currentRowKey;
+         
+         // added on 7.jan.18 to handle exception if view object has no current row
+        try{
+           currentRow = viewObject.getCurrentRow();
+           currentRowKey = currentRow.getKey();
+        }
+        catch(Exception e){
+            return;
+        }     
+       int rangePosOfCurrentRow = viewObject.getRangeIndexOf(currentRow);
+       int rangeStartBeforeQuery = viewObject.getRangeStart();
+       viewObject.executeQuery();
+       viewObject.setRangeStart(rangeStartBeforeQuery);
+       /*
+        * In 10.1.2, there is this convenience method we could use
+        * instead of the remaining lines of code
+        *
+        *  findAndSetCurrentRowByKey(currentRowKey,rangePosOfCurrentRow);
+        *  
+        */
+       
+         
+       Row[] rows = viewObject.findByKey(currentRowKey, 1);
+       if (rows != null && rows.length == 1)
+       {
+          viewObject.scrollRangeTo(rows[0], rangePosOfCurrentRow);
+          viewObject.setCurrentRowAtRangeIndex(viewObject.getRangeIndexOf(rows[0]));
+       }
+       
+               
+     }
 }

@@ -567,6 +567,16 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        StyleSetupId {
+            public Object get(WpPlanningBoardVORowImpl obj) {
+                return obj.getStyleSetupId();
+            }
+
+            public void put(WpPlanningBoardVORowImpl obj, Object value) {
+                obj.setStyleSetupId((Number)value);
+            }
+        }
+        ,
         UpdatedSamVersionAvaliable {
             public Object get(WpPlanningBoardVORowImpl obj) {
                 return obj.getUpdatedSamVersionAvaliable();
@@ -661,6 +671,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
     public static final int ORDERQTY = AttributesEnum.OrderQty.index();
     public static final int CURRENTSAMVERSION = AttributesEnum.CurrentSamVersion.index();
     public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
+    public static final int STYLESETUPID = AttributesEnum.StyleSetupId.index();
     public static final int UPDATEDSAMVERSIONAVALIABLE = AttributesEnum.UpdatedSamVersionAvaliable.index();
 
     /**
@@ -1528,6 +1539,22 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      */
     public void setAvailableSamVersion(Number value) {
         setAttributeInternal(AVAILABLESAMVERSION, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute StyleSetupId.
+     * @return the StyleSetupId
+     */
+    public Number getStyleSetupId() {
+        return (Number) getAttributeInternal(STYLESETUPID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute StyleSetupId.
+     * @param value value to set the  StyleSetupId
+     */
+    public void setStyleSetupId(Number value) {
+        setAttributeInternal(STYLESETUPID, value);
     }
 
     /**

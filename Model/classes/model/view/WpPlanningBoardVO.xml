@@ -76,7 +76,11 @@
             SELECT  nvl(  MAX(SV.SAM_VERSION),0) FROM  WP_STYLE_WISE_PROCESS_SAM_V SV  WHERE  SV.SYSTEM_ID = SS.SYSTEM_ID
             AND  SV.ORG_ID =  SS.ORG_ID
                
-        )  AVAILABLE_SAM_VERSION     
+        )  AVAILABLE_SAM_VERSION   ,
+        
+        ss.style_setup_id
+        
+        
        
        
 FROM WP_PLANNING_BOARD WpPlanningBoardEO, 
@@ -589,6 +593,21 @@ WP_STYLE_SETUP SS,
     ColumnType="NUMBER"
     AliasName="AVAILABLE_SAM_VERSION"
     Expression="AVAILABLE_SAM_VERSION"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StyleSetupId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="STYLE_SETUP_ID"
+    Expression="STYLE_SETUP_ID"
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
