@@ -51,41 +51,47 @@
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.MonthId.format}"/>
                 </af:inputText>
-                <af:inputText value="#{bindings.NumberOfDays.inputValue}"
-                              label="Total Days"
-                              required="#{bindings.NumberOfDays.hints.mandatory}"
-                              columns="#{bindings.NumberOfDays.hints.displayWidth}"
-                              maximumLength="#{bindings.NumberOfDays.hints.precision}"
-                              shortDesc="#{bindings.NumberOfDays.hints.tooltip}"
-                              id="it73" readOnly="true"
-                              partialTriggers="soc1 soc2"
-                              binding="#{ManagedBean.numberOfDays}">
-                  <f:validator binding="#{bindings.NumberOfDays.validator}"/>
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.NumberOfDays.format}"/>
-                </af:inputText>
-                <af:inputText value="#{bindings.WorkingdayCount.inputValue}"
-                              label="Workingday"
-                              required="#{bindings.WorkingdayCount.hints.mandatory}"
-                              columns="#{bindings.WorkingdayCount.hints.displayWidth}"
-                              maximumLength="#{bindings.WorkingdayCount.hints.precision}"
-                              shortDesc="#{bindings.WorkingdayCount.hints.tooltip}"
-                              id="it108" readOnly="true">
-                  <f:validator binding="#{bindings.WorkingdayCount.validator}"/>
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.WorkingdayCount.format}"/>
-                </af:inputText>
-                <af:inputText value="#{bindings.HolidayCount.inputValue}"
-                              label="Holiday"
-                              required="#{bindings.HolidayCount.hints.mandatory}"
-                              columns="#{bindings.HolidayCount.hints.displayWidth}"
-                              maximumLength="#{bindings.HolidayCount.hints.precision}"
-                              shortDesc="#{bindings.HolidayCount.hints.tooltip}"
-                              id="it109" readOnly="true">
-                  <f:validator binding="#{bindings.HolidayCount.validator}"/>
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.HolidayCount.format}"/>
-                </af:inputText>
+                <af:panelGroupLayout id="pgl39" layout="horizontal"
+                                     valign="middle" halign="center">
+                  <af:inputText value="#{bindings.HolidayCount.inputValue}"
+                                label="Holiday"
+                                required="#{bindings.HolidayCount.hints.mandatory}"
+                                columns="#{bindings.HolidayCount.hints.displayWidth}"
+                                maximumLength="#{bindings.HolidayCount.hints.precision}"
+                                shortDesc="#{bindings.HolidayCount.hints.tooltip}"
+                                id="it109" readOnly="true">
+                    <f:validator binding="#{bindings.HolidayCount.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.HolidayCount.format}"/>
+                  </af:inputText>
+                  <af:spacer width="30" height="10" id="s1"/>
+                  <af:inputText value="#{bindings.WorkingdayCount.inputValue}"
+                                label="Workingday"
+                                required="#{bindings.WorkingdayCount.hints.mandatory}"
+                                columns="#{bindings.WorkingdayCount.hints.displayWidth}"
+                                maximumLength="#{bindings.WorkingdayCount.hints.precision}"
+                                shortDesc="#{bindings.WorkingdayCount.hints.tooltip}"
+                                id="it108" readOnly="true">
+                    <f:validator binding="#{bindings.WorkingdayCount.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.WorkingdayCount.format}"/>
+                  </af:inputText>
+                  <af:spacer width="30" height="10" id="spacer1"/>
+                  <af:inputText value="#{bindings.NumberOfDays.inputValue}"
+                                label="Total Days"
+                                required="#{bindings.NumberOfDays.hints.mandatory}"
+                                columns="#{bindings.NumberOfDays.hints.displayWidth}"
+                                maximumLength="#{bindings.NumberOfDays.hints.precision}"
+                                shortDesc="#{bindings.NumberOfDays.hints.tooltip}"
+                                id="it73" readOnly="true"
+                                partialTriggers="soc1 soc2"
+                                binding="#{ManagedBean.numberOfDays}">
+                    <f:validator binding="#{bindings.NumberOfDays.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.NumberOfDays.format}"/>
+                  </af:inputText>
+                  <af:spacer width="30" height="10" id="spacer2"/>
+                </af:panelGroupLayout>
               </af:panelFormLayout>
             </af:panelGroupLayout>
           </f:facet>
@@ -99,7 +105,7 @@
                                    styleClass="AFStretchWidth">
                   <af:panelGroupLayout id="pgl3" layout="scroll">
                     <af:panelFormLayout id="pfl2" rows="1" maxColumns="7"
-                                        inlineStyle="border-style:solid; border-width:thin; background-color:rgb(248,248,265); border-color:rgb(198,198,198); margin-bottom:2px; padding:3px; height:25.0px;">
+                                        inlineStyle="border-style:solid; border-width:thin; background-color:rgb(248,248,265); border-color:rgb(198,198,198); margin-bottom:2px; padding:3.0px; height:25px; ">
                       <af:commandButton text="Populate From Previous Month"
                                         id="cb2"/>
                       <af:commandButton text="Populate Style" id="cb3">
@@ -130,7 +136,7 @@
                               binding="#{ManagedBean.planningBoardLoadTable}"
                               partialTriggers="::soc1 ::soc2"
                               rowSelection="single">
-                      <af:column id="c74" align="center" width="900">
+                      <af:column id="c74" align="center" width="980">
                         <af:outputText value="Wet Section Load (%)" id="ot1"/>
                       </af:column>
                       <af:column sortProperty="MonthId" filterable="false"
