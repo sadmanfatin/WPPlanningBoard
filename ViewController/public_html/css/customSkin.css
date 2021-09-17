@@ -43,3 +43,7 @@ af|table::data-row {
     height: 25px;
 }
 
+
+.newStyleColor af|co::content {
+    background-color:rgb(214,231,255);
+}

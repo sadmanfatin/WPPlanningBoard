@@ -116,7 +116,7 @@
                                         id="cb4"/>
                       <af:commandButton actionListener="#{ManagedBean.save}"
                                         text="Save"
-                                        id="cb5"/>
+                                        id="cb5" partialSubmit="true"/>
                     </af:panelFormLayout>
                     <af:table value="#{bindings.WpPlanningBoardLoadVO1.collectionModel}"
                               var="row"
@@ -134,7 +134,7 @@
                               styleClass="AFStretchWidth"
                               clientComponent="true"
                               binding="#{ManagedBean.planningBoardLoadTable}"
-                              partialTriggers="::soc1 ::soc2"
+                              partialTriggers="::soc1 ::soc2 ::cb5"
                               rowSelection="single">
                       <af:column id="c74" align="center" width="980">
                         <af:outputText value="Wet Section Load (%)" id="ot1"/>
@@ -650,7 +650,7 @@
                               styleClass="AFStretchWidth"
                               inlineStyle="width:3400.0px;" rendered="true"
                               binding="#{ManagedBean.planningBoardTable}"
-                              partialTriggers="::soc1 ::soc2 ::cb4 ::cb5"
+                              partialTriggers="::soc1 ::soc2 ::cb4"
                               autoHeightRows="50">
                       <af:column sortProperty="PlanningBoardId"
                                  filterable="true" sortable="true"
@@ -755,7 +755,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.BuyerName.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.BuyerName.tooltip}"
                                       id="it50" readOnly="true"
-                                      contentStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;">
+                                      contentStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;"
+                                      styleClass="newStyleColor">
                           <f:validator binding="#{row.bindings.BuyerName.validator}"/>
                         </af:inputText>
                       </af:column>
