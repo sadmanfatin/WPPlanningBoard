@@ -72,17 +72,22 @@
         APPS.ORG_ID_TO_ORG_SHORT_NAME(SS.PRODUCTION_UNIT) PRODUCTION_UNIT_SHORT_NAME, 
        PV.ORDER_QTY ,
        SS.SAM_VERSION CURRENT_SAM_VERSION,       
-        (
-            SELECT  nvl(  MAX(SV.SAM_VERSION),0) FROM  WP_STYLE_WISE_PROCESS_SAM_V SV  WHERE  SV.SYSTEM_ID = SS.SYSTEM_ID
-            AND  SV.ORG_ID =  SS.ORG_ID
-               
-        )  AVAILABLE_SAM_VERSION   ,
-        
-        ss.style_setup_id
-        
-        
-       
-       
+      SS.AVAILABLE_SAM_VERSION   ,      
+         SS.STYLE_SETUP_ID,
+       ( SELECT SUM(QUANTITY) 
+       FROM WP_DAILY_STYLE_QUANTITY SQ    
+       WHERE SQ.SYSTEM_ID =   WPPLANNINGBOARDEO.SYSTEM_ID AND SQ.ORG_ID = WPPLANNINGBOARDEO.ORG_ID 
+       AND SQ.MONTH_ID < WPPLANNINGBOARDEO.MONTH_ID    ) PREV_MONTHS_QTY, 
+           
+      PV.ORDER_QTY - (
+      
+      WPPLANNINGBOARDEO.MONTHLY_TOTAL + ( SELECT SUM(QUANTITY) 
+       FROM WP_DAILY_STYLE_QUANTITY SQ    
+       WHERE SQ.SYSTEM_ID =   WPPLANNINGBOARDEO.SYSTEM_ID AND SQ.ORG_ID = WPPLANNINGBOARDEO.ORG_ID 
+       AND SQ.MONTH_ID < WPPLANNINGBOARDEO.MONTH_ID    )
+      
+      ) REMAINING_QTY
+           
 FROM WP_PLANNING_BOARD WpPlanningBoardEO, 
 WP_STYLE_SETUP SS,
  POC_SYSTEM_ID_VIEW PV
@@ -614,6 +619,34 @@ WP_STYLE_SETUP SS,
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
+    Name="PrevMonthsQty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="PREV_MONTHS_QTY"
+    Expression="PREV_MONTHS_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RemainingQty"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="REMAINING_QTY"
+    Expression="REMAINING_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
     Name="UpdatedSamVersionAvaliable"
     IsSelected="false"
     IsPersistent="false"
@@ -624,4 +657,10 @@ WP_STYLE_SETUP SS,
     SQLType="BIT">
     <TransientExpression><![CDATA[AvailableSamVersion>CurrentSamVersion]]></TransientExpression>
   </ViewAttribute>
+  <ViewLinkAccessor
+    Name="WpMonthListVO"
+    ViewLink="model.view.WpMonthListVO_vs_WpPlanningBoardVO_vl"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

@@ -23,6 +23,10 @@
         ResId="model.view.PopulateStylesVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
+  <Variable
+    Name="p_month_id"
+    Kind="where"
+    Type="java.lang.String"/>
   <SQLQuery>
     <![CDATA[SELECT DISTINCT
 POCL.SYSTEM_ID, 
@@ -56,6 +60,7 @@ and ss.system_id = pocl.system_id
 
 and not exists (select  pb.system_id from wp_planning_board pb where pb.system_id =  pocl.system_id
                  and  ss.org_id = (select org_id from wp_month_list ml where  ml.month_id = pb.month_id)
+      and pb.month_id = :p_month_id      
                     )
 order by pocl.system_id desc]]>
   </SQLQuery>

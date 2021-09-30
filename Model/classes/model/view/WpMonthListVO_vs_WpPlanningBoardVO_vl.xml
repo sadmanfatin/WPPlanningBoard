@@ -24,6 +24,7 @@
     <DesignTime>
       <Attr Name="_finderName" Value="WpMonthListVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_accessor" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.view.WpMonthListVO.MonthId"/>

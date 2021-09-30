@@ -22,7 +22,7 @@
   <SQLQuery>
     <![CDATA[select * from 
   
- ( select  MONTH_ID , WP_PROCESS_ID,  PROCESS_NAME ,TOTAL_PROCESS_QTY,   day  from
+ ( select  MONTH_ID ,  SECTION_NAME, SECTION_SERIAL,  WP_PROCESS_ID,  PROCESS_NAME ,TOTAL_PROCESS_QTY,   day  from
   
     WP_DAILY_PROCESS_QUANTITY_V )
   
@@ -31,7 +31,8 @@
                                  'D11' D11 ,'D12' D12 ,'D13' D13, 'D14' D14, 'D15' D15,'D16' D16 ,'D17' D17, 'D18' D18,'D19' D19, 'D20' D20, 
                                  'D21' D21,'D22' D22 ,'D23' D23, 'D24' D24, 'D25' D25,'D26' D26 ,'D27' D27, 'D28' D28,'D29' D29,'D30' D30,'D31' D31 
                                  )
-)]]>
+)
+ORDER BY SECTION_SERIAL]]>
   </SQLQuery>
   <ViewAttribute
     Name="MonthId"
@@ -42,6 +43,35 @@
     ColumnType="NUMBER"
     AliasName="MONTH_ID"
     Expression="MONTH_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SectionName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SECTION_NAME"
+    Expression="SECTION_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SectionSerial"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="SECTION_SERIAL"
+    Expression="SECTION_SERIAL"
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>

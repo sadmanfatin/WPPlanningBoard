@@ -501,6 +501,7 @@
           <Item Value="D29"/>
           <Item Value="D30"/>
           <Item Value="D31"/>
+          <Item Value="SectionName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

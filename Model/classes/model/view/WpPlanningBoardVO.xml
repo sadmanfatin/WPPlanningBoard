@@ -624,4 +624,10 @@ WP_STYLE_SETUP SS,
     SQLType="BIT">
     <TransientExpression><![CDATA[AvailableSamVersion>CurrentSamVersion]]></TransientExpression>
   </ViewAttribute>
+  <ViewLinkAccessor
+    Name="WpMonthListVO"
+    ViewLink="model.view.WpMonthListVO_vs_WpPlanningBoardVO_vl"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
 </ViewObject>

@@ -2,6 +2,7 @@ package model.view;
 
 import model.entity.WpPlanningBoardEOImpl;
 
+import oracle.jbo.Row;
 import oracle.jbo.domain.Date;
 import oracle.jbo.domain.Number;
 import oracle.jbo.server.AttributeDefImpl;
@@ -577,6 +578,26 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        PrevMonthsQty {
+            public Object get(WpPlanningBoardVORowImpl obj) {
+                return obj.getPrevMonthsQty();
+            }
+
+            public void put(WpPlanningBoardVORowImpl obj, Object value) {
+                obj.setPrevMonthsQty((Number)value);
+            }
+        }
+        ,
+        RemainingQty {
+            public Object get(WpPlanningBoardVORowImpl obj) {
+                return obj.getRemainingQty();
+            }
+
+            public void put(WpPlanningBoardVORowImpl obj, Object value) {
+                obj.setRemainingQty((Number)value);
+            }
+        }
+        ,
         UpdatedSamVersionAvaliable {
             public Object get(WpPlanningBoardVORowImpl obj) {
                 return obj.getUpdatedSamVersionAvaliable();
@@ -584,6 +605,16 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
 
             public void put(WpPlanningBoardVORowImpl obj, Object value) {
                 obj.setUpdatedSamVersionAvaliable((Boolean)value);
+            }
+        }
+        ,
+        WpMonthListVO {
+            public Object get(WpPlanningBoardVORowImpl obj) {
+                return obj.getWpMonthListVO();
+            }
+
+            public void put(WpPlanningBoardVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
             }
         }
         ;
@@ -672,7 +703,10 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
     public static final int CURRENTSAMVERSION = AttributesEnum.CurrentSamVersion.index();
     public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
     public static final int STYLESETUPID = AttributesEnum.StyleSetupId.index();
+    public static final int PREVMONTHSQTY = AttributesEnum.PrevMonthsQty.index();
+    public static final int REMAININGQTY = AttributesEnum.RemainingQty.index();
     public static final int UPDATEDSAMVERSIONAVALIABLE = AttributesEnum.UpdatedSamVersionAvaliable.index();
+    public static final int WPMONTHLISTVO = AttributesEnum.WpMonthListVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1558,6 +1592,38 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for the calculated attribute PrevMonthsQty.
+     * @return the PrevMonthsQty
+     */
+    public Number getPrevMonthsQty() {
+        return (Number) getAttributeInternal(PREVMONTHSQTY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute PrevMonthsQty.
+     * @param value value to set the  PrevMonthsQty
+     */
+    public void setPrevMonthsQty(Number value) {
+        setAttributeInternal(PREVMONTHSQTY, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute RemainingQty.
+     * @return the RemainingQty
+     */
+    public Number getRemainingQty() {
+        return (Number) getAttributeInternal(REMAININGQTY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute RemainingQty.
+     * @param value value to set the  RemainingQty
+     */
+    public void setRemainingQty(Number value) {
+        setAttributeInternal(REMAININGQTY, value);
+    }
+
+    /**
      * Gets the attribute value for the calculated attribute UpdatedSamVersionAvaliable.
      * @return the UpdatedSamVersionAvaliable
      */
@@ -1571,6 +1637,20 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      */
     public void setUpdatedSamVersionAvaliable(Boolean value) {
         setAttributeInternal(UPDATEDSAMVERSIONAVALIABLE, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link WpMonthListVO.
+     */
+    public Row getWpMonthListVO() {
+        return (Row)getAttributeInternal(WPMONTHLISTVO);
+    }
+
+    /**
+     * Sets the master-detail link WpMonthListVO between this object and <code>value</code>.
+     */
+    public void setWpMonthListVO(Row value) {
+        setAttributeInternal(WPMONTHLISTVO, value);
     }
 
     /**
@@ -1588,7 +1668,11 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
                   //  System.out.println("============ "+dayName + "  total  "+total);
                 }
 
-            }        
+            }   
+          
+          
+       this.setMonthlyTotal(total);  
+
         return total;
      
         
@@ -1600,7 +1684,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the MONTHLY_TOTAL
      */
     public void setMonthlyTotal(Number value) {
-       
+        
         Number total = new Number(0);
         String dayName = null;
             for (int i=1;i<=31; i++  ){
@@ -1614,7 +1698,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
             }        
 
         
-        
+        System.out.println(" vo setMonthlyTotal  " +  total);
         
         
         setAttributeInternal(MONTHLYTOTAL,total);

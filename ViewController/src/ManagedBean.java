@@ -25,6 +25,7 @@ import model.view.MonthSearchVOImpl;
 
 import model.view.MonthSearchVORowImpl;
 
+import model.view.PopulateStylesVOImpl;
 import model.view.PopulateStylesVORowImpl;
 import model.view.WpMonthListVOImpl;
 
@@ -43,6 +44,8 @@ import oracle.adf.view.rich.component.rich.input.RichInputText;
 import oracle.adf.view.rich.context.AdfFacesContext;
 
 import oracle.adf.view.rich.event.DialogEvent;
+
+import oracle.adf.view.rich.event.PopupFetchEvent;
 
 import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
@@ -530,4 +533,15 @@ public class ManagedBean {
        
                
      }
+
+    public void populateStylePopUpFetchListener(PopupFetchEvent popupFetchEvent) {
+        // Add event code here...
+         String currnetMontId = appM.getWpMonthListVO1().getCurrentRow().getAttribute("MonthId").toString()   ;
+      
+        PopulateStylesVOImpl populateStyles = (PopulateStylesVOImpl)appM.getPopulateStylesVO1();
+        populateStyles.setp_month_id(currnetMontId);
+        populateStyles.executeQuery();
+            
+            
+    }
 }
