@@ -136,8 +136,24 @@
                               binding="#{ManagedBean.planningBoardLoadTable}"
                               partialTriggers="::soc1 ::soc2 ::cb5"
                               rowSelection="single">
-                      <af:column id="c74" align="center" width="980">
+                      <af:column id="c74" align="center" width="900">
                         <af:outputText value="Wet Section Load (%)" id="ot1"/>
+                      </af:column>
+                      <af:column
+                                 id="c177" align="center" sortable="true"
+                                 filterable="true" width="75"
+                                 inlineStyle="background-color:rgb(177,202,233);">
+                        <af:inputText value="Avg:  #{row.bindings.AvgLoad.inputValue}"
+                                      label="#{bindings.WpPlanningBoardLoadVO1.hints.AvgLoad.label}"
+                                      required="#{bindings.WpPlanningBoardLoadVO1.hints.AvgLoad.mandatory}"
+                                      columns="#{bindings.WpPlanningBoardLoadVO1.hints.AvgLoad.displayWidth}"
+                                      maximumLength="#{bindings.WpPlanningBoardLoadVO1.hints.AvgLoad.precision}"
+                                      shortDesc="#{bindings.WpPlanningBoardLoadVO1.hints.AvgLoad.tooltip}"
+                                      id="it103" readOnly="true">
+                          <f:validator binding="#{row.bindings.AvgLoad.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardLoadVO1.hints.AvgLoad.format}"/>
+                        </af:inputText>
                       </af:column>
                       <af:column sortProperty="MonthId" filterable="false"
                                  sortable="false" id="c4" width="75"
@@ -2479,6 +2495,24 @@
                                  headerText="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.SectionName.label}"
                                  id="c132" align="center" width="120">
                         <af:outputText value="#{row.SectionName}" id="ot46"/>
+                      </af:column>
+                      <af:column headerText="Avg Load"
+                                 id="c178" align="center" sortable="true"
+                                 filterable="true" width="70"
+                                 sortProperty="AvgLoad"
+                                 inlineStyle="font-weight:bold; background-color:rgb(198,216,233);">
+                        <af:inputText value="#{row.bindings.AvgLoad.inputValue}"
+                                      label="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.AvgLoad.label}"
+                                      required="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.AvgLoad.mandatory}"
+                                      columns="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.AvgLoad.displayWidth}"
+                                      maximumLength="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.AvgLoad.precision}"
+                                      shortDesc="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.AvgLoad.tooltip}"
+                                      id="it111" readOnly="true"
+                                      inlineStyle="font-weight:bold; font-size:small;">
+                          <f:validator binding="#{row.bindings.AvgLoad.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardAllSectionLoadVO1.hints.AvgLoad.format}"/>
+                        </af:inputText>
                       </af:column>
                       <af:column sortProperty="D1" filterable="true"
                                  sortable="true"

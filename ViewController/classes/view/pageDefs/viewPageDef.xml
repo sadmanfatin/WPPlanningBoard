@@ -116,6 +116,7 @@
           <Item Value="D29"/>
           <Item Value="D30"/>
           <Item Value="D31"/>
+          <Item Value="AvgLoad"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -457,6 +458,7 @@
           <Item Value="D29"/>
           <Item Value="D30"/>
           <Item Value="D31"/>
+          <Item Value="AvgLoad"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

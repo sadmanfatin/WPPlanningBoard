@@ -25,7 +25,7 @@
 from   
 
 (
-select lv.month_id, lv.org_id,lv.wp_section_id, lv.section_name,  lv.day, lv.load  from WP_DAILY_ALL_SECTION_LOAD_V lv
+select lv.month_id, lv.org_id,lv.wp_section_id, lv.section_name,  lv.day, lv.load,   round ( avg (lv.load  )  over (partition by lv.month_id , lv.org_id  , lv.wp_section_id)  ) AVG_LOAD  from WP_DAILY_ALL_SECTION_LOAD_V lv
 )
 pivot (  max(load) for day in (
                                  'D1' D1   ,'D2' D2  ,'D3' D3, 'D4' D4, 'D5' D5,'D6' D6 ,'D7' D7, 'D8' D8,'D9' D9, 'D10' D10, 
@@ -90,6 +90,20 @@ pivot (  max(load) for day in (
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AvgLoad"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="AVG_LOAD"
+    Expression="AVG_LOAD"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
