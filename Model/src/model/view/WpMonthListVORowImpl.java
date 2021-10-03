@@ -97,6 +97,26 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        MonthNumber {
+            public Object get(WpMonthListVORowImpl obj) {
+                return obj.getMonthNumber();
+            }
+
+            public void put(WpMonthListVORowImpl obj, Object value) {
+                obj.setMonthNumber((Number)value);
+            }
+        }
+        ,
+        MonthSerial {
+            public Object get(WpMonthListVORowImpl obj) {
+                return obj.getMonthSerial();
+            }
+
+            public void put(WpMonthListVORowImpl obj, Object value) {
+                obj.setMonthSerial((Number)value);
+            }
+        }
+        ,
         NumberOfDays {
             public Object get(WpMonthListVORowImpl obj) {
                 return obj.getNumberOfDays();
@@ -570,6 +590,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
     public static final int YEAR = AttributesEnum.Year.index();
     public static final int ORGID = AttributesEnum.OrgId.index();
     public static final int WEEKLYHOLIDAY = AttributesEnum.WeeklyHoliday.index();
+    public static final int MONTHNUMBER = AttributesEnum.MonthNumber.index();
+    public static final int MONTHSERIAL = AttributesEnum.MonthSerial.index();
     public static final int NUMBEROFDAYS = AttributesEnum.NumberOfDays.index();
     public static final int WORKINGDAYCOUNT = AttributesEnum.WorkingdayCount.index();
     public static final int HOLIDAYCOUNT = AttributesEnum.HolidayCount.index();
@@ -1339,6 +1361,38 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
         setAttributeInternal(AVERAGEPERDAY, value);
     }
 
+
+    /**
+     * Gets the attribute value for MONTH_SERIAL using the alias name MonthSerial.
+     * @return the MONTH_SERIAL
+     */
+    public Number getMonthSerial() {
+        return (Number) getAttributeInternal(MONTHSERIAL);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for MONTH_SERIAL using the alias name MonthSerial.
+     * @param value value to set the MONTH_SERIAL
+     */
+    public void setMonthSerial(Number value) {
+        setAttributeInternal(MONTHSERIAL, value);
+    }
+
+    /**
+     * Gets the attribute value for MONTH_NUMBER using the alias name MonthNumber.
+     * @return the MONTH_NUMBER
+     */
+    public Number getMonthNumber() {
+        return (Number) getAttributeInternal(MONTHNUMBER);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for MONTH_NUMBER using the alias name MonthNumber.
+     * @param value value to set the MONTH_NUMBER
+     */
+    public void setMonthNumber(Number value) {
+        setAttributeInternal(MONTHNUMBER, value);
+    }
 
     /**
      * Gets the associated <code>Row</code> using master-detail link MonthSearchVO.

@@ -222,4 +222,12 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewLinkImpl getWpMonthListVO_vs_MonthWiseDailyProcessQtyVO_vl1() {
         return (ViewLinkImpl)findViewLink("WpMonthListVO_vs_MonthWiseDailyProcessQtyVO_vl1");
     }
+
+    /**
+     * Container's getter for PopulateStyleFromPreviousMonthVO1.
+     * @return PopulateStyleFromPreviousMonthVO1
+     */
+    public ViewObjectImpl getPopulateStyleFromPreviousMonthVO1() {
+        return (ViewObjectImpl)findViewObject("PopulateStyleFromPreviousMonthVO1");
+    }
 }

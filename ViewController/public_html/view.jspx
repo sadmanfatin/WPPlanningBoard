@@ -668,7 +668,7 @@
                               styleClass="AFStretchWidth"
                               inlineStyle="width:3400.0px;" rendered="true"
                               binding="#{ManagedBean.planningBoardTable}"
-                              partialTriggers="::soc1 ::soc2 ::cb4"
+                              partialTriggers="::soc1 ::soc2 ::cb4 ::cb2"
                               autoHeightRows="50">
                       <af:column sortProperty="PlanningBoardId"
                                  filterable="true" sortable="true"
@@ -708,14 +708,14 @@
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.SystemId.label}"
                                  id="c35" width="70" align="center"
-                                 visible="false">
+                                 visible="true">
                         <af:inputText value="#{row.bindings.SystemId.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.SystemId.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.SystemId.mandatory}"
                                       columns="#{bindings.WpPlanningBoardVO1.hints.SystemId.displayWidth}"
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.SystemId.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.SystemId.tooltip}"
-                                      id="it66">
+                                      id="it66" readOnly="true">
                           <f:validator binding="#{row.bindings.SystemId.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.SystemId.format}"/>
@@ -859,6 +859,40 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.OrderQty.format}"/>
                         </af:outputText>
+                      </af:column>
+                      <af:column headerText="Previous Months Qty"
+                                 id="c199" align="center" width="70"
+                                 sortProperty="PrevMonthsQty" sortable="true"
+                                 filterable="true">
+                        <af:inputText value="#{row.bindings.PrevMonthsQty.inputValue}"
+                                      label="#{bindings.WpPlanningBoardVO1.hints.PrevMonthsQty.label}"
+                                      required="#{bindings.WpPlanningBoardVO1.hints.PrevMonthsQty.mandatory}"
+                                      columns="#{bindings.WpPlanningBoardVO1.hints.PrevMonthsQty.displayWidth}"
+                                      maximumLength="#{bindings.WpPlanningBoardVO1.hints.PrevMonthsQty.precision}"
+                                      shortDesc="#{bindings.WpPlanningBoardVO1.hints.PrevMonthsQty.tooltip}"
+                                      id="it131" autoSubmit="true"
+                                      readOnly="true" partialTriggers="::cb5">
+                          <f:validator binding="#{row.bindings.PrevMonthsQty.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardVO1.hints.PrevMonthsQty.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column headerText="Remaining Qty"
+                                 id="c200" align="center" width="70"
+                                 sortProperty="RemainingQty" sortable="true"
+                                 filterable="true">
+                        <af:inputText value="#{row.bindings.RemainingQty.inputValue}"
+                                      label="#{bindings.WpPlanningBoardVO1.hints.RemainingQty.label}"
+                                      required="#{bindings.WpPlanningBoardVO1.hints.RemainingQty.mandatory}"
+                                      columns="#{bindings.WpPlanningBoardVO1.hints.RemainingQty.displayWidth}"
+                                      maximumLength="#{bindings.WpPlanningBoardVO1.hints.RemainingQty.precision}"
+                                      shortDesc="#{bindings.WpPlanningBoardVO1.hints.RemainingQty.tooltip}"
+                                      id="it132" autoSubmit="true"
+                                      readOnly="true" partialTriggers="::cb5">
+                          <f:validator binding="#{row.bindings.RemainingQty.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardVO1.hints.RemainingQty.format}"/>
+                        </af:inputText>
                       </af:column>
                       <af:column headerText="Monthly Total"
                                  id="c30" align="center"
@@ -3075,8 +3109,339 @@
                               actionListener="#{ManagedBean.updateSamVersion}"/>
           </af:panelWindow>
         </af:popup>
-        <af:popup id="p3">
-          <af:panelWindow id="pw2"/>
+        <af:popup id="p3" contentDelivery="lazyUncached"
+                  popupFetchListener="#{ManagedBean.pupylateStyleFromPrevMonthPopUpFetchListener}">
+          <af:dialog id="d3"
+                     dialogListener="#{ManagedBean.populateStyleFromPrevMonthDialogListener}">
+            <af:panelHeader text="Populate Prev Month Style" id="ph8">
+              <af:table value="#{bindings.PopulateStyleFromPreviousMonthVO1.collectionModel}"
+                        var="row"
+                        rows="#{bindings.PopulateStyleFromPreviousMonthVO1.rangeSize}"
+                        emptyText="#{bindings.PopulateStyleFromPreviousMonthVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.PopulateStyleFromPreviousMonthVO1.rangeSize}"
+                        rowBandingInterval="0"
+                        filterModel="#{bindings.PopulateStyleFromPreviousMonthVO1Query.queryDescriptor}"
+                        queryListener="#{bindings.PopulateStyleFromPreviousMonthVO1Query.processQuery}"
+                        filterVisible="true" varStatus="vs"
+                        selectedRowKeys="#{bindings.PopulateStyleFromPreviousMonthVO1.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.PopulateStyleFromPreviousMonthVO1.collectionModel.makeCurrent}"
+                        rowSelection="single" id="t9"
+                        inlineStyle="width:1300.0px;">
+                <af:column headerText="Select"
+                           id="c198" align="center" sortable="true"
+                           filterable="true" width="60">
+                  <af:selectBooleanCheckbox value="#{row.bindings.PrevStyleCheckBox.inputValue}"
+                                            label="#{row.bindings.PrevStyleCheckBox.label}"
+                                            shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.PrevStyleCheckBox.tooltip}"
+                                            id="sbc2" autoSubmit="true"/>
+                </af:column>
+                <af:column sortProperty="MonthId" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthId.label}"
+                           id="c183" width="60" align="center" visible="false">
+                  <af:inputText value="#{row.bindings.MonthId.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthId.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthId.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthId.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthId.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthId.tooltip}"
+                                id="it129" readOnly="true">
+                    <f:validator binding="#{row.bindings.MonthId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="Month"
+                           id="c201" align="center" sortable="true"
+                           filterable="true" width="60">
+                  <af:inputText value="#{row.bindings.MonthName.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthName.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthName.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthName.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthName.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthName.tooltip}"
+                                id="it133" readOnly="true">
+                    <f:validator binding="#{row.bindings.MonthName.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.label}"
+                           id="c202" align="center" sortable="true"
+                           filterable="true" width="60">
+                  <af:inputText value="#{row.bindings.Year.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.tooltip}"
+                                id="it134" readOnly="true">
+                    <f:validator binding="#{row.bindings.Year.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="SystemId" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.SystemId.label}"
+                           id="c190" width="60" align="center">
+                  <af:inputText value="#{row.bindings.SystemId.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.SystemId.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.SystemId.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.SystemId.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.SystemId.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.SystemId.tooltip}"
+                                id="it118" readOnly="true">
+                    <f:validator binding="#{row.bindings.SystemId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.SystemId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="BuyerName" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.BuyerName.label}"
+                           id="c185" width="140" align="center">
+                  <af:inputText value="#{row.bindings.BuyerName.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.BuyerName.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.BuyerName.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.BuyerName.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.BuyerName.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.BuyerName.tooltip}"
+                                id="it125" readOnly="true">
+                    <f:validator binding="#{row.bindings.BuyerName.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Season" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Season.label}"
+                           id="c192" align="center">
+                  <af:inputText value="#{row.bindings.Season.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Season.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Season.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Season.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Season.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Season.tooltip}"
+                                id="it113" readOnly="true">
+                    <f:validator binding="#{row.bindings.Season.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Style" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Style.label}"
+                           id="c184" align="center">
+                  <af:inputText value="#{row.bindings.Style.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Style.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Style.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Style.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Style.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Style.tooltip}"
+                                id="it114" readOnly="true">
+                    <f:validator binding="#{row.bindings.Style.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Color" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Color.label}"
+                           id="c191" align="center">
+                  <af:inputText value="#{row.bindings.Color.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Color.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Color.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Color.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Color.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Color.tooltip}"
+                                id="it117" readOnly="true">
+                    <f:validator binding="#{row.bindings.Color.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="WashName" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.WashName.label}"
+                           id="c196" align="center">
+                  <af:inputText value="#{row.bindings.WashName.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.WashName.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.WashName.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.WashName.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.WashName.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.WashName.tooltip}"
+                                id="it127" readOnly="true">
+                    <f:validator binding="#{row.bindings.WashName.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Remarks" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Remarks.label}"
+                           id="c182" align="center">
+                  <af:inputText value="#{row.bindings.Remarks.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Remarks.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Remarks.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Remarks.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Remarks.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Remarks.tooltip}"
+                                id="it128" readOnly="true">
+                    <f:validator binding="#{row.bindings.Remarks.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="OrgId" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrgId.label}"
+                           id="c181" visible="false">
+                  <af:inputText value="#{row.bindings.OrgId.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrgId.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrgId.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrgId.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrgId.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrgId.tooltip}"
+                                id="it115" readOnly="true">
+                    <f:validator binding="#{row.bindings.OrgId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrgId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="OrderQty" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrderQty.label}"
+                           id="c187" width="70" align="center">
+                  <af:inputText value="#{row.bindings.OrderQty.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrderQty.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrderQty.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrderQty.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrderQty.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrderQty.tooltip}"
+                                id="it123" readOnly="true">
+                    <f:validator binding="#{row.bindings.OrderQty.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrderQty.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="MonthlyTotal" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthlyTotal.label}"
+                           id="c188" width="70" align="center">
+                  <af:inputText value="#{row.bindings.MonthlyTotal.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthlyTotal.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthlyTotal.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthlyTotal.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthlyTotal.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthlyTotal.tooltip}"
+                                id="it124" readOnly="true">
+                    <f:validator binding="#{row.bindings.MonthlyTotal.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthlyTotal.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="PrevMonthsQty" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.PrevMonthsQty.label}"
+                           id="c186" width="70" align="center">
+                  <af:inputText value="#{row.bindings.PrevMonthsQty.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.PrevMonthsQty.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.PrevMonthsQty.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.PrevMonthsQty.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.PrevMonthsQty.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.PrevMonthsQty.tooltip}"
+                                id="it119" readOnly="true">
+                    <f:validator binding="#{row.bindings.PrevMonthsQty.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.PrevMonthsQty.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="RemainingQty" filterable="true"
+                           sortable="true"
+                           headerText="Remaining Qty"
+                           id="c193" width="70" align="center">
+                  <af:inputText value="#{row.bindings.RemainingQty.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.RemainingQty.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.RemainingQty.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.RemainingQty.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.RemainingQty.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.RemainingQty.tooltip}"
+                                id="it116" readOnly="true">
+                    <f:validator binding="#{row.bindings.RemainingQty.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.RemainingQty.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="LastDayQty" filterable="true"
+                           sortable="true"
+                           headerText="Last Day Qty"
+                           id="c194" width="70" align="center">
+                  <af:inputText value="#{row.bindings.LastDayQty.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.LastDayQty.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.LastDayQty.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.LastDayQty.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.LastDayQty.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.LastDayQty.tooltip}"
+                                id="it130" readOnly="true">
+                    <f:validator binding="#{row.bindings.LastDayQty.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.LastDayQty.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="BuyerId" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.BuyerId.label}"
+                           id="c180" visible="false">
+                  <af:inputText value="#{row.bindings.BuyerId.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.BuyerId.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.BuyerId.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.BuyerId.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.BuyerId.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.BuyerId.tooltip}"
+                                id="it121" readOnly="true">
+                    <f:validator binding="#{row.bindings.BuyerId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.BuyerId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="CurrentSamVersion" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.CurrentSamVersion.label}"
+                           id="c197" width="60" visible="false">
+                  <af:inputText value="#{row.bindings.CurrentSamVersion.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.CurrentSamVersion.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.CurrentSamVersion.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.CurrentSamVersion.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.CurrentSamVersion.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.CurrentSamVersion.tooltip}"
+                                id="it120" readOnly="true">
+                    <f:validator binding="#{row.bindings.CurrentSamVersion.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.CurrentSamVersion.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="AvailableSamVersion" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.AvailableSamVersion.label}"
+                           id="c189" width="60" visible="false">
+                  <af:inputText value="#{row.bindings.AvailableSamVersion.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.AvailableSamVersion.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.AvailableSamVersion.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.AvailableSamVersion.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.AvailableSamVersion.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.AvailableSamVersion.tooltip}"
+                                id="it126" readOnly="true">
+                    <f:validator binding="#{row.bindings.AvailableSamVersion.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.AvailableSamVersion.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="StyleSetupId" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.StyleSetupId.label}"
+                           id="c195" visible="false">
+                  <af:inputText value="#{row.bindings.StyleSetupId.inputValue}"
+                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.StyleSetupId.label}"
+                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.StyleSetupId.mandatory}"
+                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.StyleSetupId.displayWidth}"
+                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.StyleSetupId.precision}"
+                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.StyleSetupId.tooltip}"
+                                id="it122" readOnly="true">
+                    <f:validator binding="#{row.bindings.StyleSetupId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.StyleSetupId.format}"/>
+                  </af:inputText>
+                </af:column>
+              </af:table>
+            </af:panelHeader>
+          </af:dialog>
         </af:popup>
       </af:form>
     </af:document>

@@ -466,16 +466,16 @@ public class PopulateStylesVORowImpl extends ViewRowImpl {
     }
 
     /**
-     * Gets the attribute value for the calculated attribute CheckBox.
-     * @return the CheckBox
+     * Gets the attribute value for the calculated attribute PrevStyleCheckBox.
+     * @return the PrevStyleCheckBox
      */
     public String getCheckBox() {
         return (String) getAttributeInternal(CHECKBOX);
     }
 
     /**
-     * Sets <code>value</code> as the attribute value for the calculated attribute CheckBox.
-     * @param value value to set the  CheckBox
+     * Sets <code>value</code> as the attribute value for the calculated attribute PrevStyleCheckBox.
+     * @param value value to set the  PrevStyleCheckBox
      */
     public void setCheckBox(String value) {
         setAttributeInternal(CHECKBOX, value);

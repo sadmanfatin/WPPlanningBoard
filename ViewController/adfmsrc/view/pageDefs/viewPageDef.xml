@@ -48,6 +48,12 @@
     <searchRegion Binds="MonthWiseDailyProcessQtyVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="MonthWiseDailyProcessQtyVO1Query"/>
+    <iterator Binds="PopulateStyleFromPreviousMonthVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="PopulateStyleFromPreviousMonthVO1Iterator"/>
+    <searchRegion Binds="PopulateStyleFromPreviousMonthVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="PopulateStyleFromPreviousMonthVO1Query"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="OrgVO1Iterator" id="OrgName">
@@ -175,6 +181,8 @@
           <Item Value="OrderQty"/>
           <Item Value="UpdatedSamVersionAvaliable"/>
           <Item Value="ProductionUnitShortName"/>
+          <Item Value="PrevMonthsQty"/>
+          <Item Value="RemainingQty"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -510,5 +518,44 @@
         <Item Value="HolidayCount"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="PopulateStyleFromPreviousMonthVO1Iterator"
+          id="PopulateStyleFromPreviousMonthVO1">
+      <nodeDefinition DefName="model.view.PopulateStyleFromPreviousMonthVO"
+                      Name="PopulateStyleFromPreviousMonthVO10">
+        <AttrNames>
+          <Item Value="MonthId"/>
+          <Item Value="SystemId"/>
+          <Item Value="Remarks"/>
+          <Item Value="OrgId"/>
+          <Item Value="OrderQty"/>
+          <Item Value="MonthlyTotal"/>
+          <Item Value="PrevMonthsQty"/>
+          <Item Value="RemainingQty"/>
+          <Item Value="LastDayQty"/>
+          <Item Value="BuyerId"/>
+          <Item Value="BuyerName"/>
+          <Item Value="Season"/>
+          <Item Value="Style"/>
+          <Item Value="Color"/>
+          <Item Value="WashName"/>
+          <Item Value="CurrentSamVersion"/>
+          <Item Value="AvailableSamVersion"/>
+          <Item Value="StyleSetupId"/>
+          <Item Value="PrevStyleCheckBox" Binds="PrevStyleCheckBox"/>
+          <Item Value="MonthName"/>
+          <Item Value="Year"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <button IterBinding="PopulateStyleFromPreviousMonthVO1Iterator"
+            id="PrevStyleCheckBox" DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="PrevStyleCheckBox"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="y"/>
+        <Item Value="n"/>
+      </ValueList>
+    </button>
   </bindings>
 </pageDefinition>

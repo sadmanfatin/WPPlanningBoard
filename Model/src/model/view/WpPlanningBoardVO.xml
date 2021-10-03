@@ -20,6 +20,7 @@
   <SQLQuery>
     <![CDATA[SELECT WpPlanningBoardEO.PLANNING_BOARD_ID, 
        WpPlanningBoardEO.MONTH_ID, 
+       ML.MONTH_SERIAL,
        WpPlanningBoardEO.SYSTEM_ID, 
        WpPlanningBoardEO.REMARKS, 
        WpPlanningBoardEO.CREATED_BY, 
@@ -74,26 +75,28 @@
        SS.SAM_VERSION CURRENT_SAM_VERSION,       
       SS.AVAILABLE_SAM_VERSION   ,      
          SS.STYLE_SETUP_ID,
-       ( SELECT SUM(QUANTITY) 
+       ( SELECT  nvl(  SUM(QUANTITY)  , 0 )
        FROM WP_DAILY_STYLE_QUANTITY SQ    
        WHERE SQ.SYSTEM_ID =   WPPLANNINGBOARDEO.SYSTEM_ID AND SQ.ORG_ID = WPPLANNINGBOARDEO.ORG_ID 
-       AND SQ.MONTH_ID < WPPLANNINGBOARDEO.MONTH_ID    ) PREV_MONTHS_QTY, 
+       AND SQ.MONTH_SERIAL < ML.MONTH_SERIAL    ) PREV_MONTHS_QTY, 
            
       PV.ORDER_QTY - (
       
-      WPPLANNINGBOARDEO.MONTHLY_TOTAL + ( SELECT SUM(QUANTITY) 
+      WPPLANNINGBOARDEO.MONTHLY_TOTAL + ( SELECT nvl(  SUM(QUANTITY)  , 0 )
        FROM WP_DAILY_STYLE_QUANTITY SQ    
        WHERE SQ.SYSTEM_ID =   WPPLANNINGBOARDEO.SYSTEM_ID AND SQ.ORG_ID = WPPLANNINGBOARDEO.ORG_ID 
-       AND SQ.MONTH_ID < WPPLANNINGBOARDEO.MONTH_ID    )
+       AND SQ.MONTH_SERIAL < ML.MONTH_SERIAL  )
       
       ) REMAINING_QTY
            
-FROM WP_PLANNING_BOARD WpPlanningBoardEO, 
-WP_STYLE_SETUP SS,
- POC_SYSTEM_ID_VIEW PV
+    FROM WP_PLANNING_BOARD WpPlanningBoardEO, 
+    WP_STYLE_SETUP SS,
+     WP_MONTH_LIST ML,
+     POC_SYSTEM_ID_VIEW PV
    
  WHERE WpPlanningBoardEO.SYSTEM_ID = PV.SYSTEM_ID
  AND PV.SYSTEM_ID = SS.SYSTEM_ID
+ and WpPlanningBoardEO.MONTH_ID = ML.MONTH_ID
  AND WpPlanningBoardEO.ORG_ID = SS.ORG_ID]]>
   </SQLQuery>
   <EntityUsage
@@ -112,6 +115,20 @@ WP_STYLE_SETUP SS,
     EntityAttrName="MonthId"
     EntityUsage="WpPlanningBoardEO"
     AliasName="MONTH_ID"/>
+  <ViewAttribute
+    Name="MonthSerial"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="MONTH_SERIAL"
+    Expression="MONTH_SERIAL"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewAttribute
     Name="SystemId"
     PrecisionRule="true"
@@ -551,7 +568,6 @@ WP_STYLE_SETUP SS,
   </ViewAttribute>
   <ViewAttribute
     Name="ProductionUnitShortName"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="4000"
@@ -620,7 +636,6 @@ WP_STYLE_SETUP SS,
   </ViewAttribute>
   <ViewAttribute
     Name="PrevMonthsQty"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -634,7 +649,6 @@ WP_STYLE_SETUP SS,
   </ViewAttribute>
   <ViewAttribute
     Name="RemainingQty"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"

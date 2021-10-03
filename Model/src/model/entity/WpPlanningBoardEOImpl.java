@@ -1181,7 +1181,7 @@ public class WpPlanningBoardEOImpl extends EntityImpl {
      * @return the MonthlyTotal
      */
     public Number getMonthlyTotal() {
-        System.out.println(" eo getMonthlyTotal  " +  getAttributeInternal(MONTHLYTOTAL)); 
+       // System.out.println(" eo getMonthlyTotal  " +  getAttributeInternal(MONTHLYTOTAL)); 
         return (Number)getAttributeInternal(MONTHLYTOTAL);
     }
 
@@ -1191,7 +1191,7 @@ public class WpPlanningBoardEOImpl extends EntityImpl {
      */
     public void setMonthlyTotal(Number value) {
         
-        System.out.println(" eo setMonthlyTotal  " +  value); 
+       // System.out.println(" eo setMonthlyTotal  " +  value); 
         setAttributeInternal(MONTHLYTOTAL, value);
     }
 

@@ -81,6 +81,28 @@
       <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="MonthNumber"
+    ColumnName="MONTH_NUMBER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WP_MONTH_LIST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MonthSerial"
+    ColumnName="MONTH_SERIAL"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="WP_MONTH_LIST">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="WpPlanningBoardEO"
     Association="model.entity.WP_PLANNING_BOARD_R01_Assoc"

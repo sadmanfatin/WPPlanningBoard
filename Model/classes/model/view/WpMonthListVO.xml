@@ -23,6 +23,8 @@
        WpMonthListEO.YEAR, 
        WpMonthListEO.ORG_ID, 
        WpMonthListEO.WEEKLY_HOLIDAY,
+       WpMonthListEO.MONTH_NUMBER,
+       WpMonthListEO.MONTH_SERIAL,
        extract (day from  last_day(to_date(WpMonthListEO.MONTH_NAME||'/'|| WpMonthListEO.YEAR , 'Month/yyyy' )) ) number_of_days,
        
        (select count ( *)  from WP_holiday_calendar hc where hc.month_id  =  WpMonthListEO.month_id and  hc.WORKING_STATUS = 'Workingday')  Workingday_counT,
@@ -69,6 +71,18 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     EntityAttrName="WeeklyHoliday"
     EntityUsage="WpMonthListEO"
     AliasName="WEEKLY_HOLIDAY"/>
+  <ViewAttribute
+    Name="MonthNumber"
+    PrecisionRule="true"
+    EntityAttrName="MonthNumber"
+    EntityUsage="WpMonthListEO"
+    AliasName="MONTH_NUMBER"/>
+  <ViewAttribute
+    Name="MonthSerial"
+    PrecisionRule="true"
+    EntityAttrName="MonthSerial"
+    EntityUsage="WpMonthListEO"
+    AliasName="MONTH_SERIAL"/>
   <ViewAttribute
     Name="NumberOfDays"
     IsPersistent="false"

@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PopulateStyleFromPreviousMonthVO"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="model.view.PopulateStyleFromPreviousMonthVORowImpl"
+  ComponentClass="model.view.PopulateStyleFromPreviousMonthVOImpl">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.view.PopulateStyleFromPreviousMonthVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="p_month_serial"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery>
+    <![CDATA[SELECT 
+       PB.MONTH_ID, 
+       ML.MONTH_NUMBER,
+       ML.MONTH_NAME,
+       ML.YEAR,
+       ML.MONTH_SERIAL,
+       PB.SYSTEM_ID, 
+       PB.REMARKS, 
+       PB.ORG_ID,
+       PV.ORDER_QTY ,     
+       PB.MONTHLY_TOTAL  ,   
+                    
+       ( SELECT  NVL(   SUM(QUANTITY)  , 0)
+       FROM WP_DAILY_STYLE_QUANTITY SQ    
+       WHERE SQ.SYSTEM_ID =   PB.SYSTEM_ID AND SQ.ORG_ID = PB.ORG_ID 
+       AND SQ.MONTH_SERIAL < ML.MONTH_SERIAL    )   PREV_MONTHS_QTY,  
+                 
+      PV.ORDER_QTY -    (      
+      PB.MONTHLY_TOTAL +    ( SELECT  NVL(   SUM(    QUANTITY) , 0)
+       FROM WP_DAILY_STYLE_QUANTITY SQ    
+       WHERE SQ.SYSTEM_ID =   PB.SYSTEM_ID AND SQ.ORG_ID = PB.ORG_ID 
+       AND SQ.MONTH_SERIAL < ML.MONTH_SERIAL     )      
+      ) REMAINING_QTY,
+      
+       APPS.WP_LAST_DAY_QTY(       PB.MONTH_ID,   PB.SYSTEM_ID , TO_DATE( ML.NUMBER_OF_DAYS||'/'||  ML.MONTH_NUMBER  ||'/' || ML.YEAR , 'dd/mm/yyyy' )      )  LAST_DAY_QTY,
+      
+       PV.BUYER_ID, 
+       PV.BUYER_NAME ,
+       PV.SEASON, 
+       PV.STYLE ,   
+       PV.COLOR, 
+       PV.WASH_NAME ,      
+       SS.SAM_VERSION CURRENT_SAM_VERSION,       
+       SS.AVAILABLE_SAM_VERSION   ,      
+       SS.STYLE_SETUP_ID ,
+       APPS.ORG_ID_TO_ORG_SHORT_NAME(SS.PRODUCTION_UNIT) PRODUCTION_UNIT_SHORT_NAME              
+        FROM WP_PLANNING_BOARD PB, 
+        WP_STYLE_SETUP SS,
+        WP_MONTH_LIST ML, 
+        POC_SYSTEM_ID_VIEW PV
+       
+     WHERE PB.SYSTEM_ID = PV.SYSTEM_ID
+     AND PV.SYSTEM_ID = SS.SYSTEM_ID
+     AND PB.ORG_ID = SS.ORG_ID
+     AND ML.MONTH_ID =  PB.MONTH_ID
+ AND   PV.ORDER_QTY -    (      
+      PB.MONTHLY_TOTAL +    ( SELECT  NVL(   SUM(    QUANTITY) , 0)
+       FROM WP_DAILY_STYLE_QUANTITY SQ    
+       WHERE SQ.SYSTEM_ID =   PB.SYSTEM_ID AND SQ.ORG_ID = PB.ORG_ID 
+      AND SQ.MONTH_SERIAL < ML.MONTH_SERIAL    )      
+      )   > 0     -- remaining qty > 0
+ 
+ AND ML.MONTH_SERIAL = (SELECT MAX(ML2.MONTH_SERIAL) FROM WP_MONTH_LIST ML2 WHERE ML2.ORG_ID  = ML.ORG_ID AND ML2.MONTH_SERIAL  < :p_month_serial  )
+ 
+ AND NOT EXISTS (SELECT SYSTEM_ID FROM  WP_PLANNING_BOARD PB2, WP_MONTH_LIST ML2  WHERE   ML2.MONTH_ID = PB2.MONTH_ID AND    PB2.SYSTEM_ID = PB.SYSTEM_ID AND ML2.MONTH_SERIAL  =   :p_month_serial  )
+ 
+ ORDER BY PB.MONTH_ID]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="MonthId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="MONTH_ID"
+    Expression="MONTH_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MonthNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="MONTH_NUMBER"
+    Expression="MONTH_NUMBER"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MonthName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="MONTH_NAME"
+    Expression="MONTH_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Year"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="YEAR"
+    Expression="YEAR"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MonthSerial"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="MONTH_SERIAL"
+    Expression="MONTH_SERIAL"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SystemId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="SYSTEM_ID"
+    Expression="SYSTEM_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Remarks"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="REMARKS"
+    Expression="REMARKS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ORG_ID"
+    Expression="ORG_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrderQty"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ORDER_QTY"
+    Expression="ORDER_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MonthlyTotal"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="MONTHLY_TOTAL"
+    Expression="MONTHLY_TOTAL"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PrevMonthsQty"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="PREV_MONTHS_QTY"
+    Expression="PREV_MONTHS_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RemainingQty"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="REMAINING_QTY"
+    Expression="REMAINING_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastDayQty"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="LAST_DAY_QTY"
+    Expression="LAST_DAY_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerId"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="BUYER_ID"
+    Expression="BUYER_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BUYER_NAME"
+    Expression="BUYER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Season"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SEASON"
+    Expression="SEASON"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Style"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STYLE"
+    Expression="STYLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Color"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COLOR"
+    Expression="COLOR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WashName"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="WASH_NAME"
+    Expression="WASH_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CurrentSamVersion"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="CURRENT_SAM_VERSION"
+    Expression="CURRENT_SAM_VERSION"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AvailableSamVersion"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="AVAILABLE_SAM_VERSION"
+    Expression="AVAILABLE_SAM_VERSION"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StyleSetupId"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="STYLE_SETUP_ID"
+    Expression="STYLE_SETUP_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProductionUnitShortName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PRODUCTION_UNIT_SHORT_NAME"
+    Expression="PRODUCTION_UNIT_SHORT_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PrevStyleCheckBox"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

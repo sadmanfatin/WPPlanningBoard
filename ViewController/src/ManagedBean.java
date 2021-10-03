@@ -25,6 +25,8 @@ import model.view.MonthSearchVOImpl;
 
 import model.view.MonthSearchVORowImpl;
 
+import model.view.PopulateStyleFromPreviousMonthVOImpl;
+import model.view.PopulateStyleFromPreviousMonthVORowImpl;
 import model.view.PopulateStylesVOImpl;
 import model.view.PopulateStylesVORowImpl;
 import model.view.WpMonthListVOImpl;
@@ -236,7 +238,7 @@ public class ManagedBean {
 //
 //        Object o = r.getWpMonthListVO().getAttribute("NumberOfDays");
 //
-         System.out.println("--------------  last day of month "+lastDayOfMonth );
+//         System.out.println("--------------  last day of month "+lastDayOfMonth );
 //       // System.out.println("--------------  last day of month " + o);
 
 
@@ -378,16 +380,12 @@ public class ManagedBean {
 
     private void populateStyle() {
         
-        
-        
-        ViewObject populateStylesVo = appM.getPopulateStylesVO1();
-        
-        ViewObject  planningBoardVo = appM.getWpPlanningBoardVO1();
-        
-          PopulateStylesVORowImpl   populateStylesRow = null;
-           WpPlanningBoardVORowImpl  planningBoardRow = null; 
+        ViewObject populateStylesVo = appM.getPopulateStylesVO1();       
+        ViewObject  planningBoardVo = appM.getWpPlanningBoardVO1();        
+        PopulateStylesVORowImpl   populateStylesRow = null;
+        WpPlanningBoardVORowImpl  planningBoardRow = null; 
             
-           String flag= null;
+        String flag= null;
 
         Row rows[] =  populateStylesVo.getAllRowsInRange();
         for (Row row : rows) {
@@ -399,11 +397,10 @@ public class ManagedBean {
                 
                 if ( flag != null &&  flag.equals("y")) {
                     
-                   System.out.println(  "flag != null &&  flag.equals(\"y\")");
-                    
-                    planningBoardRow = (WpPlanningBoardVORowImpl)planningBoardVo.createRow();
-                
-                 //    planningBoardRow.setOrgId(   new Number (populateStylesRow.getOrgId()));
+                   System.out.println(  "flag != null &&  flag.equals(\"y\")");  
+                   
+                    planningBoardRow = (WpPlanningBoardVORowImpl)planningBoardVo.createRow();                
+                 //   planningBoardRow.setOrgId(   new Number (populateStylesRow.getOrgId()));
                  //   planningBoardRow.setOrgName(populateStylesRow.getOrgName());
                     planningBoardRow.setSystemId(populateStylesRow.getSystemId());   
                     planningBoardRow.setBuyerId(populateStylesRow.getBuyerId());
@@ -451,6 +448,7 @@ public class ManagedBean {
         this.executeOperation("Commit");
         
         appM.getWpPlanningBoardLoadVO1().executeQuery();
+        this.refreshQueryKeepingCurrentRow(appM.getWpPlanningBoardVO1());
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardLoadTable());
      
         
@@ -543,5 +541,103 @@ public class ManagedBean {
         populateStyles.executeQuery();
             
             
+    }
+
+    public void pupylateStyleFromPrevMonthPopUpFetchListener(PopupFetchEvent popupFetchEvent) {
+        // Add event code here...
+        String currentMonthSerial = null;
+        try {
+
+            currentMonthSerial = appM.getWpMonthListVO1().getCurrentRow().getAttribute("MonthSerial").toString();
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }
+        
+       
+        PopulateStyleFromPreviousMonthVOImpl popFromPrevMonthVO = (PopulateStyleFromPreviousMonthVOImpl)appM.getPopulateStyleFromPreviousMonthVO1();
+        popFromPrevMonthVO.setp_month_serial(currentMonthSerial);
+        popFromPrevMonthVO.executeQuery();
+        
+    }
+
+    public void populateStyleFromPrevMonthDialogListener(DialogEvent dialogEvent) {
+        // Add event code here...
+        
+        if (dialogEvent.getOutcome().name().equals("ok")) {
+            System.out.println("dialogEvent.getOutcome().name().equals(\"ok\")" );
+        
+            populatePrevMonthStyle();
+            
+            
+         AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardLoadTable());
+            AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardTable());
+            
+        } else if (dialogEvent.getOutcome().name().equals("cancel")) {
+            ;
+        }
+        
+       
+        
+    }
+
+    private void populatePrevMonthStyle() {
+        
+        System.out.println("======= populateStyleFromPrevMonthDialogListener  ====================");
+        ViewObject populateStylesVo = appM.getPopulateStyleFromPreviousMonthVO1();
+        ViewObject  planningBoardVo = appM.getWpPlanningBoardVO1();
+        PopulateStyleFromPreviousMonthVORowImpl   populateStylesRow = null;
+        WpPlanningBoardVORowImpl  planningBoardRow = null;
+         
+        String flag= null;
+         Number prevMonthsQty = null;   
+         
+        Row rows[] =  populateStylesVo.getAllRowsInRange();
+        for (Row row : rows) {
+         populateStylesRow = (PopulateStyleFromPreviousMonthVORowImpl)row;
+         
+        System.out.println("=======  loop count  ====================");
+         try {
+             flag =   populateStylesRow.getPrevStyleCheckBox();
+             
+             /************  thin month's monthly total = previous month's MonthlyTotal + previous month's PrevMonthsQty  ****************/
+             
+             prevMonthsQty = populateStylesRow.getMonthlyTotal().add(populateStylesRow.getPrevMonthsQty());  //this mom
+             
+             System.out.println("=======  flag  ====================" + flag);
+             if ( flag != null &&  flag.equals("y")) {
+                 
+                 
+                System.out.println(  "flag != null &&  flag.equals(\"y\")");  
+                
+                 planningBoardRow = (WpPlanningBoardVORowImpl)planningBoardVo.createRow();                
+              //   planningBoardRow.setOrgId(   new Number (populateStylesRow.getOrgId()));
+              //   planningBoardRow.setOrgName(populateStylesRow.getOrgName());
+                 planningBoardRow.setSystemId(populateStylesRow.getSystemId());   
+                 planningBoardRow.setBuyerId(populateStylesRow.getBuyerId());
+                 planningBoardRow.setBuyerName(populateStylesRow.getBuyerName());
+                 planningBoardRow.setSeason(populateStylesRow.getSeason());
+                 planningBoardRow.setStyle(populateStylesRow.getStyle());
+                 planningBoardRow.setColor(populateStylesRow.getColor());
+                 planningBoardRow.setWashName(populateStylesRow.getWashName());
+                 planningBoardRow.setProductionUnitShortName(populateStylesRow.getProductionUnitShortName());
+                 planningBoardRow.setOrderQty(populateStylesRow.getOrderQty()); 
+                 planningBoardRow.setPrevMonthsQty(prevMonthsQty);
+                 planningBoardRow.setRemainingQty(populateStylesRow.getRemainingQty());
+                 planningBoardRow.setCurrentSamVersion(populateStylesRow.getCurrentSamVersion());
+                 planningBoardRow.setAvailableSamVersion(populateStylesRow.getAvailableSamVersion());
+             
+                planningBoardVo.insertRow(planningBoardRow);
+                 
+
+             }
+                 
+         } catch (Exception e) {
+            e.printStackTrace() ;
+         }
+
+        }
+        
+        
     }
 }

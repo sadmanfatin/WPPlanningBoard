@@ -38,6 +38,16 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        MonthSerial {
+            public Object get(WpPlanningBoardVORowImpl obj) {
+                return obj.getMonthSerial();
+            }
+
+            public void put(WpPlanningBoardVORowImpl obj, Object value) {
+                obj.setMonthSerial((Number)value);
+            }
+        }
+        ,
         SystemId {
             public Object get(WpPlanningBoardVORowImpl obj) {
                 return obj.getSystemId();
@@ -649,6 +659,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
 
     public static final int PLANNINGBOARDID = AttributesEnum.PlanningBoardId.index();
     public static final int MONTHID = AttributesEnum.MonthId.index();
+    public static final int MONTHSERIAL = AttributesEnum.MonthSerial.index();
     public static final int SYSTEMID = AttributesEnum.SystemId.index();
     public static final int REMARKS = AttributesEnum.Remarks.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
@@ -752,6 +763,22 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      */
     public void setMonthId(Number value) {
         setAttributeInternal(MONTHID, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute MonthSerial.
+     * @return the MonthSerial
+     */
+    public Number getMonthSerial() {
+        return (Number) getAttributeInternal(MONTHSERIAL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute MonthSerial.
+     * @param value value to set the  MonthSerial
+     */
+    public void setMonthSerial(Number value) {
+        setAttributeInternal(MONTHSERIAL, value);
     }
 
     /**
@@ -1698,7 +1725,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
             }        
 
         
-        System.out.println(" vo setMonthlyTotal  " +  total);
+      //  System.out.println(" vo setMonthlyTotal  " +  total);
         
         
         setAttributeInternal(MONTHLYTOTAL,total);

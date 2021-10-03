@@ -93,6 +93,26 @@ public class WpMonthListEOImpl extends EntityImpl {
             }
         }
         ,
+        MonthNumber {
+            public Object get(WpMonthListEOImpl obj) {
+                return obj.getMonthNumber();
+            }
+
+            public void put(WpMonthListEOImpl obj, Object value) {
+                obj.setMonthNumber((Number)value);
+            }
+        }
+        ,
+        MonthSerial {
+            public Object get(WpMonthListEOImpl obj) {
+                return obj.getMonthSerial();
+            }
+
+            public void put(WpMonthListEOImpl obj, Object value) {
+                obj.setMonthSerial((Number)value);
+            }
+        }
+        ,
         WpPlanningBoardEO {
             public Object get(WpMonthListEOImpl obj) {
                 return obj.getWpPlanningBoardEO();
@@ -146,6 +166,8 @@ public class WpMonthListEOImpl extends EntityImpl {
     public static final int YEAR = AttributesEnum.Year.index();
     public static final int ORGID = AttributesEnum.OrgId.index();
     public static final int WEEKLYHOLIDAY = AttributesEnum.WeeklyHoliday.index();
+    public static final int MONTHNUMBER = AttributesEnum.MonthNumber.index();
+    public static final int MONTHSERIAL = AttributesEnum.MonthSerial.index();
     public static final int WPPLANNINGBOARDEO = AttributesEnum.WpPlanningBoardEO.index();
     public static final int WPPLANNINGBOARDLOADEO = AttributesEnum.WpPlanningBoardLoadEO.index();
 
@@ -244,6 +266,38 @@ public class WpMonthListEOImpl extends EntityImpl {
      */
     public void setWeeklyHoliday(String value) {
         setAttributeInternal(WEEKLYHOLIDAY, value);
+    }
+
+    /**
+     * Gets the attribute value for MonthNumber, using the alias name MonthNumber.
+     * @return the MonthNumber
+     */
+    public Number getMonthNumber() {
+        return (Number)getAttributeInternal(MONTHNUMBER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for MonthNumber.
+     * @param value value to set the MonthNumber
+     */
+    public void setMonthNumber(Number value) {
+        setAttributeInternal(MONTHNUMBER, value);
+    }
+
+    /**
+     * Gets the attribute value for MonthSerial, using the alias name MonthSerial.
+     * @return the MonthSerial
+     */
+    public Number getMonthSerial() {
+        return (Number)getAttributeInternal(MONTHSERIAL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for MonthSerial.
+     * @param value value to set the MonthSerial
+     */
+    public void setMonthSerial(Number value) {
+        setAttributeInternal(MONTHSERIAL, value);
     }
 
     /**

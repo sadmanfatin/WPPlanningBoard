@@ -53,6 +53,9 @@
   <ViewUsage
     Name="MonthWiseDailyProcessQtyVO1"
     ViewObjectName="model.view.MonthWiseDailyProcessQtyVO"/>
+  <ViewUsage
+    Name="PopulateStyleFromPreviousMonthVO1"
+    ViewObjectName="model.view.PopulateStyleFromPreviousMonthVO"/>
   <ViewLinkUsage
     Name="MonthSearchVO_vs_WpMonthListVO_vl1"
     ViewLinkObjectName="model.view.MonthSearchVO_vs_WpMonthListVO_vl"
