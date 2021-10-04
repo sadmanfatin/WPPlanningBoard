@@ -3,7 +3,7 @@
 <!---->
 <ViewLink
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="MonthSearchVO_vs_WpMonthListVO_vl"
+  Name="WpMonthListVO_vs_MonthWiseDailyProcessQtyVO_vl"
   Version="11.1.1.62.29"
   InheritPersonalization="true">
   <DesignTime>
@@ -12,38 +12,32 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="model.view.MonthSearchVO_vs_WpMonthListVO_vl_LABEL"/>
+        ResId="model.viewlinks.WpMonthListVO_vs_MonthWiseDailyProcessQtyVO_vl_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <ViewLinkDefEnd
-    Name="MonthSearchVO"
-    Cardinality="1"
-    Owner="model.view.MonthSearchVO"
-    Source="true">
-    <DesignTime>
-      <Attr Name="_accessor" Value="true"/>
-      <Attr Name="_finderName" Value="MonthSearchVO"/>
-      <Attr Name="_isUpdateable" Value="true"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="model.view.MonthSearchVO.OrgId"/>
-      <Item Value="model.view.MonthSearchVO.MonthName"/>
-      <Item Value="model.view.MonthSearchVO.Year"/>
-    </AttrArray>
-  </ViewLinkDefEnd>
-  <ViewLinkDefEnd
     Name="WpMonthListVO"
     Cardinality="1"
-    Owner="model.view.WpMonthListVO">
+    Owner="model.view.WpMonthListVO"
+    Source="true">
     <DesignTime>
       <Attr Name="_finderName" Value="WpMonthListVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
-      <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.view.WpMonthListVO.OrgId"/>
-      <Item Value="model.view.WpMonthListVO.MonthName"/>
-      <Item Value="model.view.WpMonthListVO.Year"/>
+      <Item Value="model.view.WpMonthListVO.MonthId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="MonthWiseDailyProcessQtyVO"
+    Cardinality="-1"
+    Owner="model.view.MonthWiseDailyProcessQtyVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="MonthWiseDailyProcessQtyVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.view.MonthWiseDailyProcessQtyVO.MonthId"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

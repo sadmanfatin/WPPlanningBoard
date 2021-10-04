@@ -3,7 +3,7 @@
 <!---->
 <ViewLink
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="WpMonthListVO_vs_WpPlanningBoardFreezeLoadVO_vl"
+  Name="OrgVO_vs_PopulateStyles_vl"
   Version="11.1.1.62.29"
   InheritPersonalization="true">
   <DesignTime>
@@ -12,32 +12,32 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="model.view.WpMonthListVO_vs_WpPlanningBoardFreezeLoadVO_vl_LABEL"/>
+        ResId="model.viewlinks.OrgVO_vs_PopulateStyles_vl_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <ViewLinkDefEnd
-    Name="WpMonthListVO"
+    Name="OrgVO"
     Cardinality="1"
-    Owner="model.view.WpMonthListVO"
+    Owner="model.view.OrgVO"
     Source="true">
     <DesignTime>
-      <Attr Name="_finderName" Value="WpMonthListVO"/>
+      <Attr Name="_finderName" Value="OrgVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.view.WpMonthListVO.MonthId"/>
+      <Item Value="model.view.OrgVO.OrgId"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
-    Name="WpPlanningBoardFreezeLoadVO"
+    Name="PopulateStylesVO"
     Cardinality="-1"
-    Owner="model.view.WpPlanningBoardFreezeLoadVO">
+    Owner="model.view.PopulateStylesVO">
     <DesignTime>
-      <Attr Name="_finderName" Value="WpPlanningBoardFreezeLoadVO"/>
+      <Attr Name="_finderName" Value="PopulateStylesVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.view.WpPlanningBoardFreezeLoadVO.MonthId"/>
+      <Item Value="model.view.PopulateStylesVO.OrgId"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

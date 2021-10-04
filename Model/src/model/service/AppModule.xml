@@ -64,67 +64,67 @@
     ViewObjectName="model.view.WpPlanningBoardFreezeLoadVO"/>
   <ViewLinkUsage
     Name="MonthSearchVO_vs_WpMonthListVO_vl1"
-    ViewLinkObjectName="model.view.MonthSearchVO_vs_WpMonthListVO_vl"
+    ViewLinkObjectName="model.viewlinks.MonthSearchVO_vs_WpMonthListVO_vl"
     SrcViewUsageName="model.service.AppModule.MonthSearchVO1"
     DstViewUsageName="model.service.AppModule.WpMonthListVO1"
     Reversed="false"/>
   <ViewLinkUsage
     Name="WpMonthListVO_vs_WpHolidayCalendarVO_vl1"
-    ViewLinkObjectName="model.view.WpMonthListVO_vs_WpHolidayCalendarVO_vl"
+    ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_WpHolidayCalendarVO_vl"
     SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
     DstViewUsageName="model.service.AppModule.WpHolidayCalendarVO1"
     Reversed="false"/>
   <ViewLinkUsage
     Name="WpMonthListVO_vs_WpPlanningBoardVO_vl1"
-    ViewLinkObjectName="model.view.WpMonthListVO_vs_WpPlanningBoardVO_vl"
+    ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_WpPlanningBoardVO_vl"
     SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
     DstViewUsageName="model.service.AppModule.WpPlanningBoardVO1"
     Reversed="false"/>
   <ViewLinkUsage
     Name="WpMonthListVO_vs_WpPlanningBoardLoadVO_vl1"
-    ViewLinkObjectName="model.view.WpMonthListVO_vs_WpPlanningBoardLoadVO_vl"
+    ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_WpPlanningBoardLoadVO_vl"
     SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
     DstViewUsageName="model.service.AppModule.WpPlanningBoardLoadVO1"
     Reversed="false"/>
   <ViewLinkUsage
     Name="OrgVO_vs_PopulateStyles_vl1"
-    ViewLinkObjectName="model.view.OrgVO_vs_PopulateStyles_vl"
+    ViewLinkObjectName="model.viewlinks.OrgVO_vs_PopulateStyles_vl"
     SrcViewUsageName="model.service.AppModule.OrgVO1"
     DstViewUsageName="model.service.AppModule.PopulateStylesVO1"
     Reversed="false"/>
   <ViewLinkUsage
     Name="WpMonthListVO_vs_BuyerWiseMonthlyQtyVO_vl1"
-    ViewLinkObjectName="model.view.WpMonthListVO_vs_BuyerWiseMonthlyQtyVO_vl"
+    ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_BuyerWiseMonthlyQtyVO_vl"
     SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
     DstViewUsageName="model.service.AppModule.BuyerWiseMonthlyQtyVO1"
     Reversed="false"/>
   <ViewLinkUsage
     Name="WpMonthListVO_vs_ProductionUnitWiseMonthlyQtyVO_vl1"
-    ViewLinkObjectName="model.view.WpMonthListVO_vs_ProductionUnitWiseMonthlyQtyVO_vl"
+    ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_ProductionUnitWiseMonthlyQtyVO_vl"
     SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
     DstViewUsageName="model.service.AppModule.ProductionUnitWiseMonthlyQtyVO1"
     Reversed="false"/>
   <ViewLinkUsage
     Name="WpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl1"
-    ViewLinkObjectName="model.view.WpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl"
+    ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl"
     SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
     DstViewUsageName="model.service.AppModule.WpPlanningBoardAllSectionLoadVO1"
     Reversed="false"/>
   <ViewLinkUsage
     Name="WpMonthListVO_vs_MonthWiseDailyProcessQtyVO_vl1"
-    ViewLinkObjectName="model.view.WpMonthListVO_vs_MonthWiseDailyProcessQtyVO_vl"
+    ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_MonthWiseDailyProcessQtyVO_vl"
     SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
     DstViewUsageName="model.service.AppModule.MonthWiseDailyProcessQtyVO1"
     Reversed="false"/>
   <ViewLinkUsage
     Name="WpMonthListVO_vs_WpPlanningBoardFreezeVO_vl1"
-    ViewLinkObjectName="model.view.WpMonthListVO_vs_WpPlanningBoardFreezeVO_vl"
+    ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_WpPlanningBoardFreezeVO_vl"
     SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
     DstViewUsageName="model.service.AppModule.WpPlanningBoardFreezeVO1"
     Reversed="false"/>
   <ViewLinkUsage
     Name="WpMonthListVO_vs_WpPlanningBoardFreezeLoadVO_vl1"
-    ViewLinkObjectName="model.view.WpMonthListVO_vs_WpPlanningBoardFreezeLoadVO_vl"
+    ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_WpPlanningBoardFreezeLoadVO_vl"
     SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
     DstViewUsageName="model.service.AppModule.WpPlanningBoardFreezeLoadVO1"
     Reversed="false"/>

@@ -154,7 +154,7 @@
   </ViewAttribute>
   <ViewLinkAccessor
     Name="WpMonthListVO"
-    ViewLink="model.view.MonthSearchVO_vs_WpMonthListVO_vl"
+    ViewLink="model.viewlinks.MonthSearchVO_vs_WpMonthListVO_vl"
     Type="oracle.jbo.Row"
     IsUpdateable="false"/>
   <ResourceBundle>

@@ -711,7 +711,7 @@
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.SystemId.label}"
                                  id="c35" width="70" align="center"
-                                 visible="true">
+                                 visible="true" styleClass="h1">
                         <af:inputText value="#{row.bindings.SystemId.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.SystemId.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.SystemId.mandatory}"

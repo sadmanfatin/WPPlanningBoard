@@ -3,7 +3,7 @@
 <!---->
 <ViewLink
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="WpMonthListVO_vs_WpPlanningBoardFreezeVO_vl"
+  Name="WpMonthListVO_vs_ProductionUnitWiseMonthlyQtyVO_vl"
   Version="11.1.1.62.29"
   InheritPersonalization="true">
   <DesignTime>
@@ -12,7 +12,7 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="model.view.WpMonthListVO_vs_WpPlanningBoardFreezeVO_vl_LABEL"/>
+        ResId="model.viewlinks.WpMonthListVO_vs_ProductionUnitWiseMonthlyQtyVO_vl_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <ViewLinkDefEnd
@@ -29,15 +29,15 @@
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
-    Name="WpPlanningBoardFreezeVO"
+    Name="ProductionUnitWiseMonthlyQtyVO"
     Cardinality="-1"
-    Owner="model.view.WpPlanningBoardFreezeVO">
+    Owner="model.view.ProductionUnitWiseMonthlyQtyVO">
     <DesignTime>
-      <Attr Name="_finderName" Value="WpPlanningBoardFreezeVO"/>
+      <Attr Name="_finderName" Value="ProductionUnitWiseMonthlyQtyVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.view.WpPlanningBoardFreezeVO.MonthId"/>
+      <Item Value="model.view.ProductionUnitWiseMonthlyQtyVO.MonthId"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

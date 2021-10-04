@@ -3,7 +3,7 @@
 <!---->
 <ViewLink
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="OrgVO_vs_PopulateStyles_vl"
+  Name="MonthSearchVO_vs_WpMonthListVO_vl"
   Version="11.1.1.62.29"
   InheritPersonalization="true">
   <DesignTime>
@@ -12,32 +12,38 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="model.view.OrgVO_vs_PopulateStyles_vl_LABEL"/>
+        ResId="model.viewlinks.MonthSearchVO_vs_WpMonthListVO_vl_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <ViewLinkDefEnd
-    Name="OrgVO"
+    Name="MonthSearchVO"
     Cardinality="1"
-    Owner="model.view.OrgVO"
+    Owner="model.view.MonthSearchVO"
     Source="true">
     <DesignTime>
-      <Attr Name="_finderName" Value="OrgVO"/>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="MonthSearchVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.view.OrgVO.OrgId"/>
+      <Item Value="model.view.MonthSearchVO.OrgId"/>
+      <Item Value="model.view.MonthSearchVO.MonthName"/>
+      <Item Value="model.view.MonthSearchVO.Year"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
-    Name="PopulateStylesVO"
-    Cardinality="-1"
-    Owner="model.view.PopulateStylesVO">
+    Name="WpMonthListVO"
+    Cardinality="1"
+    Owner="model.view.WpMonthListVO">
     <DesignTime>
-      <Attr Name="_finderName" Value="PopulateStylesVO"/>
+      <Attr Name="_finderName" Value="WpMonthListVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.view.PopulateStylesVO.OrgId"/>
+      <Item Value="model.view.WpMonthListVO.OrgId"/>
+      <Item Value="model.view.WpMonthListVO.MonthName"/>
+      <Item Value="model.view.WpMonthListVO.Year"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

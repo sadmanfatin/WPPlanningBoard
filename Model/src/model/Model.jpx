@@ -44,6 +44,13 @@
       ObjectType="JboPackage">
       <DesignTime>
          <Attr Name="_VO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="viewlinks"
+      PackageName="model.viewlinks"
+      ObjectType="JboPackage">
+      <DesignTime>
          <Attr Name="_VL" Value="true"/>
       </DesignTime>
    </Containee>

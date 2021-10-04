@@ -673,7 +673,7 @@
   </ViewAttribute>
   <ViewLinkAccessor
     Name="WpMonthListVO"
-    ViewLink="model.view.WpMonthListVO_vs_WpPlanningBoardVO_vl"
+    ViewLink="model.viewlinks.WpMonthListVO_vs_WpPlanningBoardVO_vl"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>

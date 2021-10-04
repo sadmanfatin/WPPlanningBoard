@@ -3,16 +3,17 @@
 <!---->
 <ViewLink
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="WpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl"
+  Name="WpMonthListVO_vs_WpPlanningBoardVO_vl"
   Version="11.1.1.62.29"
-  InheritPersonalization="true">
+  InheritPersonalization="true"
+  EntityAssociation="model.entity.WP_PLANNING_BOARD_R01_Assoc">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="model.view.WpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl_LABEL"/>
+        ResId="model.viewlinks.WpMonthListVO_vs_WpPlanningBoardVO_vl_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <ViewLinkDefEnd
@@ -21,6 +22,7 @@
     Owner="model.view.WpMonthListVO"
     Source="true">
     <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
       <Attr Name="_finderName" Value="WpMonthListVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
@@ -29,15 +31,15 @@
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
-    Name="WpPlanningBoardAllSectionLoadVO"
+    Name="WpPlanningBoardVO"
     Cardinality="-1"
-    Owner="model.view.WpPlanningBoardAllSectionLoadVO">
+    Owner="model.view.WpPlanningBoardVO">
     <DesignTime>
-      <Attr Name="_finderName" Value="WpPlanningBoardAllSectionLoadVO"/>
+      <Attr Name="_finderName" Value="WpPlanningBoardVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.view.WpPlanningBoardAllSectionLoadVO.MonthId"/>
+      <Item Value="model.view.WpPlanningBoardVO.MonthId"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

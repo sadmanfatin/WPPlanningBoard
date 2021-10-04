@@ -452,53 +452,53 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
   </ViewAttribute>
   <ViewLinkAccessor
     Name="MonthSearchVO"
-    ViewLink="model.view.MonthSearchVO_vs_WpMonthListVO_vl"
+    ViewLink="model.viewlinks.MonthSearchVO_vs_WpMonthListVO_vl"
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="WpPlanningBoardVO"
-    ViewLink="model.view.WpMonthListVO_vs_WpPlanningBoardVO_vl"
+    ViewLink="model.viewlinks.WpMonthListVO_vs_WpPlanningBoardVO_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="WpPlanningBoardLoadVO"
-    ViewLink="model.view.WpMonthListVO_vs_WpPlanningBoardLoadVO_vl"
+    ViewLink="model.viewlinks.WpMonthListVO_vs_WpPlanningBoardLoadVO_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="WpHolidayCalendarVO"
-    ViewLink="model.view.WpMonthListVO_vs_WpHolidayCalendarVO_vl"
+    ViewLink="model.viewlinks.WpMonthListVO_vs_WpHolidayCalendarVO_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="BuyerWiseMonthlyQtyVO"
-    ViewLink="model.view.WpMonthListVO_vs_BuyerWiseMonthlyQtyVO_vl"
+    ViewLink="model.viewlinks.WpMonthListVO_vs_BuyerWiseMonthlyQtyVO_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="ProductionUnitWiseMonthlyQtyVO"
-    ViewLink="model.view.WpMonthListVO_vs_ProductionUnitWiseMonthlyQtyVO_vl"
+    ViewLink="model.viewlinks.WpMonthListVO_vs_ProductionUnitWiseMonthlyQtyVO_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="WpPlanningBoardAllSectionLoadVO"
-    ViewLink="model.view.WpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl"
+    ViewLink="model.viewlinks.WpMonthListVO_vs_WpPlanningBoardAllSectionLoad_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="MonthWiseDailyProcessQtyVO"
-    ViewLink="model.view.WpMonthListVO_vs_MonthWiseDailyProcessQtyVO_vl"
+    ViewLink="model.viewlinks.WpMonthListVO_vs_MonthWiseDailyProcessQtyVO_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="WpPlanningBoardFreezeVO"
-    ViewLink="model.view.WpMonthListVO_vs_WpPlanningBoardFreezeVO_vl"
+    ViewLink="model.viewlinks.WpMonthListVO_vs_WpPlanningBoardFreezeVO_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="WpPlanningBoardFreezeLoadVO"
-    ViewLink="model.view.WpMonthListVO_vs_WpPlanningBoardFreezeLoadVO_vl"
+    ViewLink="model.viewlinks.WpMonthListVO_vs_WpPlanningBoardFreezeLoadVO_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

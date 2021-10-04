@@ -3,7 +3,7 @@
 <!---->
 <ViewLink
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="WpMonthListVO_vs_WpPlanningBoardLoadVO_vl"
+  Name="MonthSearchVO_vs_WpMonthListVO_vl"
   Version="11.1.1.62.29"
   InheritPersonalization="true">
   <DesignTime>
@@ -12,32 +12,38 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="model.view.WpMonthListVO_vs_WpPlanningBoardLoadVO_vl_LABEL"/>
+        ResId="model.viewlinks.MonthSearchVO_vs_WpMonthListVO_vl_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <ViewLinkDefEnd
-    Name="WpMonthListVO"
+    Name="MonthSearchVO"
     Cardinality="1"
-    Owner="model.view.WpMonthListVO"
+    Owner="model.view.MonthSearchVO"
     Source="true">
     <DesignTime>
-      <Attr Name="_finderName" Value="WpMonthListVO"/>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="MonthSearchVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.view.WpMonthListVO.MonthId"/>
+      <Item Value="model.view.MonthSearchVO.OrgId"/>
+      <Item Value="model.view.MonthSearchVO.MonthName"/>
+      <Item Value="model.view.MonthSearchVO.Year"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
-    Name="WpPlanningBoardLoadVO"
-    Cardinality="-1"
-    Owner="model.view.WpPlanningBoardLoadVO">
+    Name="WpMonthListVO"
+    Cardinality="1"
+    Owner="model.view.WpMonthListVO">
     <DesignTime>
-      <Attr Name="_finderName" Value="WpPlanningBoardLoadVO"/>
+      <Attr Name="_finderName" Value="WpMonthListVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.view.WpPlanningBoardLoadVO.MonthId"/>
+      <Item Value="model.view.WpMonthListVO.OrgId"/>
+      <Item Value="model.view.WpMonthListVO.MonthName"/>
+      <Item Value="model.view.WpMonthListVO.Year"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

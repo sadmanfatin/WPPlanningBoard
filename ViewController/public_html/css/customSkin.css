@@ -43,6 +43,15 @@ af|table::data-row {
     height: 25px;
 }
 
+af|column::column-header-cell-content {
+    /*color: white;
+    font-weight: bold;
+    font-size:medium;
+    text-align: center;
+    background-color: #3f5c9a;
+    padding: 3px;*/
+}
+
 
 .newStyleColor af|co::content {
     background-color:rgb(214,231,255);

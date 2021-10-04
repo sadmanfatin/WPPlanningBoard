@@ -65,7 +65,7 @@ AND ORGANIZATION_ID = :p_org_id]]>
   </ViewAttribute>
   <ViewLinkAccessor
     Name="PopulateStylesVO"
-    ViewLink="model.view.OrgVO_vs_PopulateStyles_vl"
+    ViewLink="model.viewlinks.OrgVO_vs_PopulateStyles_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>
