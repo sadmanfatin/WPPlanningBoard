@@ -556,6 +556,26 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
                 obj.setAttributeInternal(index(), value);
             }
         }
+        ,
+        WpPlanningBoardFreezeVO {
+            public Object get(WpMonthListVORowImpl obj) {
+                return obj.getWpPlanningBoardFreezeVO();
+            }
+
+            public void put(WpMonthListVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        WpPlanningBoardFreezeLoadVO {
+            public Object get(WpMonthListVORowImpl obj) {
+                return obj.getWpPlanningBoardFreezeLoadVO();
+            }
+
+            public void put(WpMonthListVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -636,6 +656,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
     public static final int PRODUCTIONUNITWISEMONTHLYQTYVO = AttributesEnum.ProductionUnitWiseMonthlyQtyVO.index();
     public static final int WPPLANNINGBOARDALLSECTIONLOADVO = AttributesEnum.WpPlanningBoardAllSectionLoadVO.index();
     public static final int MONTHWISEDAILYPROCESSQTYVO = AttributesEnum.MonthWiseDailyProcessQtyVO.index();
+    public static final int WPPLANNINGBOARDFREEZEVO = AttributesEnum.WpPlanningBoardFreezeVO.index();
+    public static final int WPPLANNINGBOARDFREEZELOADVO = AttributesEnum.WpPlanningBoardFreezeLoadVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1458,6 +1480,20 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the associated <code>RowIterator</code> using master-detail link WpPlanningBoardFreezeVO.
+     */
+    public RowIterator getWpPlanningBoardFreezeVO() {
+        return (RowIterator)getAttributeInternal(WPPLANNINGBOARDFREEZEVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link WpPlanningBoardFreezeLoadVO.
+     */
+    public RowIterator getWpPlanningBoardFreezeLoadVO() {
+        return (RowIterator)getAttributeInternal(WPPLANNINGBOARDFREEZELOADVO);
+    }
+
+    /**
      * getAttrInvokeAccessor: generated method. Do not modify.
      * @param index the index identifying the attribute
      * @param attrDef the attribute
@@ -1491,19 +1527,5 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
     }
     
     
-    public void  updateLoadRowEntry(){
-        String currentMonthId = this.getMonthId().toString();          
-        String statement = "BEGIN APPS.WP_UPDATE_LOAD_ROW_ENTRY(:1); END;";
-        CallableStatement cs =  appM.getDBTransaction().createCallableStatement(statement, 1);
-          
-        try {
-            cs.setInt(1, Integer.parseInt(currentMonthId));
-            cs.execute();
-        }
-        catch(Exception e){
-           e.printStackTrace() ;
-        }    
-        
-    }
     
 }

@@ -13,7 +13,7 @@ import oracle.jbo.server.TransactionEvent;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class WpPlanningBoardLoadEOImpl extends EntityImpl {
+public class WpPlanningBoardFreezeLoadEOImpl extends EntityImpl {
     private static EntityDefImpl mDefinitionObject;
 
     /**
@@ -21,361 +21,361 @@ public class WpPlanningBoardLoadEOImpl extends EntityImpl {
      */
     public enum AttributesEnum {
         PlanningBoardLoadId {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getPlanningBoardLoadId();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setPlanningBoardLoadId((Number)value);
             }
         }
         ,
         MonthId {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getMonthId();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setMonthId((Number)value);
             }
         }
         ,
         WpSectionId {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getWpSectionId();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setWpSectionId((Number)value);
             }
         }
         ,
         D1 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD1();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD1((Number)value);
             }
         }
         ,
         D2 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD2();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD2((Number)value);
             }
         }
         ,
         D3 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD3();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD3((Number)value);
             }
         }
         ,
         D4 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD4();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD4((Number)value);
             }
         }
         ,
         D5 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD5();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD5((Number)value);
             }
         }
         ,
         D6 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD6();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD6((Number)value);
             }
         }
         ,
         D7 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD7();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD7((Number)value);
             }
         }
         ,
         D8 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD8();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD8((Number)value);
             }
         }
         ,
         D9 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD9();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD9((Number)value);
             }
         }
         ,
         D10 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD10();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD10((Number)value);
             }
         }
         ,
         D11 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD11();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD11((Number)value);
             }
         }
         ,
         D12 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD12();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD12((Number)value);
             }
         }
         ,
         D13 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD13();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD13((Number)value);
             }
         }
         ,
         D14 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD14();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD14((Number)value);
             }
         }
         ,
         D15 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD15();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD15((Number)value);
             }
         }
         ,
         D16 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD16();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD16((Number)value);
             }
         }
         ,
         D17 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD17();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD17((Number)value);
             }
         }
         ,
         D18 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD18();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD18((Number)value);
             }
         }
         ,
         D19 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD19();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD19((Number)value);
             }
         }
         ,
         D20 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD20();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD20((Number)value);
             }
         }
         ,
         D21 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD21();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD21((Number)value);
             }
         }
         ,
         D22 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD22();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD22((Number)value);
             }
         }
         ,
         D23 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD23();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD23((Number)value);
             }
         }
         ,
         D24 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD24();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD24((Number)value);
             }
         }
         ,
         D25 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD25();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD25((Number)value);
             }
         }
         ,
         D26 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD26();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD26((Number)value);
             }
         }
         ,
         D27 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD27();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD27((Number)value);
             }
         }
         ,
         D28 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD28();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD28((Number)value);
             }
         }
         ,
         D29 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD29();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD29((Number)value);
             }
         }
         ,
         D30 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD30();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD30((Number)value);
             }
         }
         ,
         D31 {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getD31();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setD31((Number)value);
             }
         }
         ,
         OrgId {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getOrgId();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setOrgId((Number)value);
             }
         }
         ,
         WpMonthListEO {
-            public Object get(WpPlanningBoardLoadEOImpl obj) {
+            public Object get(WpPlanningBoardFreezeLoadEOImpl obj) {
                 return obj.getWpMonthListEO();
             }
 
-            public void put(WpPlanningBoardLoadEOImpl obj, Object value) {
+            public void put(WpPlanningBoardFreezeLoadEOImpl obj, Object value) {
                 obj.setWpMonthListEO((WpMonthListEOImpl)value);
             }
         }
@@ -383,13 +383,13 @@ public class WpPlanningBoardLoadEOImpl extends EntityImpl {
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
 
-        public abstract Object get(WpPlanningBoardLoadEOImpl object);
+        public abstract Object get(WpPlanningBoardFreezeLoadEOImpl object);
 
-        public abstract void put(WpPlanningBoardLoadEOImpl object,
+        public abstract void put(WpPlanningBoardFreezeLoadEOImpl object,
                                  Object value);
 
         public int index() {
-            return AttributesEnum.firstIndex() + ordinal();
+            return WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.firstIndex() + ordinal();
         }
 
         public static int firstIndex() {
@@ -397,59 +397,59 @@ public class WpPlanningBoardLoadEOImpl extends EntityImpl {
         }
 
         public static int count() {
-            return AttributesEnum.firstIndex() + AttributesEnum.staticValues().length;
+            return WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.firstIndex() + WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.staticValues().length;
         }
 
         public static AttributesEnum[] staticValues() {
             if (vals == null) {
-                vals = AttributesEnum.values();
+                vals = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.values();
             }
             return vals;
         }
     }
 
 
-    public static final int PLANNINGBOARDLOADID = AttributesEnum.PlanningBoardLoadId.index();
-    public static final int MONTHID = AttributesEnum.MonthId.index();
-    public static final int WPSECTIONID = AttributesEnum.WpSectionId.index();
-    public static final int D1 = AttributesEnum.D1.index();
-    public static final int D2 = AttributesEnum.D2.index();
-    public static final int D3 = AttributesEnum.D3.index();
-    public static final int D4 = AttributesEnum.D4.index();
-    public static final int D5 = AttributesEnum.D5.index();
-    public static final int D6 = AttributesEnum.D6.index();
-    public static final int D7 = AttributesEnum.D7.index();
-    public static final int D8 = AttributesEnum.D8.index();
-    public static final int D9 = AttributesEnum.D9.index();
-    public static final int D10 = AttributesEnum.D10.index();
-    public static final int D11 = AttributesEnum.D11.index();
-    public static final int D12 = AttributesEnum.D12.index();
-    public static final int D13 = AttributesEnum.D13.index();
-    public static final int D14 = AttributesEnum.D14.index();
-    public static final int D15 = AttributesEnum.D15.index();
-    public static final int D16 = AttributesEnum.D16.index();
-    public static final int D17 = AttributesEnum.D17.index();
-    public static final int D18 = AttributesEnum.D18.index();
-    public static final int D19 = AttributesEnum.D19.index();
-    public static final int D20 = AttributesEnum.D20.index();
-    public static final int D21 = AttributesEnum.D21.index();
-    public static final int D22 = AttributesEnum.D22.index();
-    public static final int D23 = AttributesEnum.D23.index();
-    public static final int D24 = AttributesEnum.D24.index();
-    public static final int D25 = AttributesEnum.D25.index();
-    public static final int D26 = AttributesEnum.D26.index();
-    public static final int D27 = AttributesEnum.D27.index();
-    public static final int D28 = AttributesEnum.D28.index();
-    public static final int D29 = AttributesEnum.D29.index();
-    public static final int D30 = AttributesEnum.D30.index();
-    public static final int D31 = AttributesEnum.D31.index();
-    public static final int ORGID = AttributesEnum.OrgId.index();
-    public static final int WPMONTHLISTEO = AttributesEnum.WpMonthListEO.index();
+    public static final int PLANNINGBOARDLOADID = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.PlanningBoardLoadId.index();
+    public static final int MONTHID = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.MonthId.index();
+    public static final int WPSECTIONID = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.WpSectionId.index();
+    public static final int D1 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D1.index();
+    public static final int D2 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D2.index();
+    public static final int D3 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D3.index();
+    public static final int D4 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D4.index();
+    public static final int D5 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D5.index();
+    public static final int D6 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D6.index();
+    public static final int D7 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D7.index();
+    public static final int D8 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D8.index();
+    public static final int D9 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D9.index();
+    public static final int D10 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D10.index();
+    public static final int D11 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D11.index();
+    public static final int D12 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D12.index();
+    public static final int D13 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D13.index();
+    public static final int D14 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D14.index();
+    public static final int D15 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D15.index();
+    public static final int D16 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D16.index();
+    public static final int D17 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D17.index();
+    public static final int D18 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D18.index();
+    public static final int D19 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D19.index();
+    public static final int D20 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D20.index();
+    public static final int D21 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D21.index();
+    public static final int D22 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D22.index();
+    public static final int D23 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D23.index();
+    public static final int D24 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D24.index();
+    public static final int D25 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D25.index();
+    public static final int D26 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D26.index();
+    public static final int D27 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D27.index();
+    public static final int D28 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D28.index();
+    public static final int D29 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D29.index();
+    public static final int D30 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D30.index();
+    public static final int D31 = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.D31.index();
+    public static final int ORGID = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.OrgId.index();
+    public static final int WPMONTHLISTEO = WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.WpMonthListEO.index();
 
     /**
      * This is the default constructor (do not remove).
      */
-    public WpPlanningBoardLoadEOImpl() {
+    public WpPlanningBoardFreezeLoadEOImpl() {
     }
 
 
@@ -458,7 +458,7 @@ public class WpPlanningBoardLoadEOImpl extends EntityImpl {
      */
     public static synchronized EntityDefImpl getDefinitionObject() {
         if (mDefinitionObject == null) {
-            mDefinitionObject = EntityDefImpl.findDefObject("model.entity.WpPlanningBoardLoadEO");
+            mDefinitionObject = EntityDefImpl.findDefObject("model.entity.WpPlanningBoardFreezeLoadEO");
         }
         return mDefinitionObject;
     }
@@ -1034,8 +1034,8 @@ public class WpPlanningBoardLoadEOImpl extends EntityImpl {
      */
     protected Object getAttrInvokeAccessor(int index,
                                            AttributeDefImpl attrDef) throws Exception {
-        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
-            return AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].get(this);
+        if ((index >= WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.firstIndex()) && (index < WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.count())) {
+            return WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.staticValues()[index - WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.firstIndex()].get(this);
         }
         return super.getAttrInvokeAccessor(index, attrDef);
     }
@@ -1050,8 +1050,8 @@ public class WpPlanningBoardLoadEOImpl extends EntityImpl {
      */
     protected void setAttrInvokeAccessor(int index, Object value,
                                          AttributeDefImpl attrDef) throws Exception {
-        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
-            AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].put(this, value);
+        if ((index >= WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.firstIndex()) && (index < WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.count())) {
+            WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.staticValues()[index - WpPlanningBoardFreezeLoadEOImpl.AttributesEnum.firstIndex()].put(this, value);
             return;
         }
         super.setAttrInvokeAccessor(index, value, attrDef);

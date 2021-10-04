@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import model.service.common.AppModule;
 
 import model.view.MonthSearchVOImpl;
+import model.view.PopulateStyleFromPreviousMonthVOImpl;
 import model.view.PopulateStylesVOImpl;
 import model.view.WpMonthListVOImpl;
 
@@ -229,5 +230,37 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewObjectImpl getPopulateStyleFromPreviousMonthVO1() {
         return (ViewObjectImpl)findViewObject("PopulateStyleFromPreviousMonthVO1");
+    }
+
+    /**
+     * Container's getter for WpPlanningBoardFreezeVO1.
+     * @return WpPlanningBoardFreezeVO1
+     */
+    public ViewObjectImpl getWpPlanningBoardFreezeVO1() {
+        return (ViewObjectImpl)findViewObject("WpPlanningBoardFreezeVO1");
+    }
+
+    /**
+     * Container's getter for WpMonthListVO_vs_WpPlanningBoardFreezeVO_vl1.
+     * @return WpMonthListVO_vs_WpPlanningBoardFreezeVO_vl1
+     */
+    public ViewLinkImpl getWpMonthListVO_vs_WpPlanningBoardFreezeVO_vl1() {
+        return (ViewLinkImpl)findViewLink("WpMonthListVO_vs_WpPlanningBoardFreezeVO_vl1");
+    }
+
+    /**
+     * Container's getter for WpPlanningBoardFreezeLoadVO1.
+     * @return WpPlanningBoardFreezeLoadVO1
+     */
+    public ViewObjectImpl getWpPlanningBoardFreezeLoadVO1() {
+        return (ViewObjectImpl)findViewObject("WpPlanningBoardFreezeLoadVO1");
+    }
+
+    /**
+     * Container's getter for WpMonthListVO_vs_WpPlanningBoardFreezeLoadVO_vl1.
+     * @return WpMonthListVO_vs_WpPlanningBoardFreezeLoadVO_vl1
+     */
+    public ViewLinkImpl getWpMonthListVO_vs_WpPlanningBoardFreezeLoadVO_vl1() {
+        return (ViewLinkImpl)findViewLink("WpMonthListVO_vs_WpPlanningBoardFreezeLoadVO_vl1");
     }
 }

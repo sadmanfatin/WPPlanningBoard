@@ -54,6 +54,18 @@
     <searchRegion Binds="PopulateStyleFromPreviousMonthVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="PopulateStyleFromPreviousMonthVO1Query"/>
+    <iterator Binds="WpPlanningBoardFreezeLoadVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="WpPlanningBoardFreezeLoadVO1Iterator"/>
+    <searchRegion Binds="WpPlanningBoardFreezeLoadVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="WpPlanningBoardFreezeLoadVO1Query"/>
+    <iterator Binds="WpPlanningBoardFreezeVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="WpPlanningBoardFreezeVO1Iterator"/>
+    <searchRegion Binds="WpPlanningBoardFreezeVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="WpPlanningBoardFreezeVO1Query"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="OrgVO1Iterator" id="OrgName">
@@ -557,5 +569,100 @@
         <Item Value="n"/>
       </ValueList>
     </button>
+    <tree IterBinding="WpPlanningBoardFreezeLoadVO1Iterator"
+          id="WpPlanningBoardFreezeLoadVO1">
+      <nodeDefinition DefName="model.view.WpPlanningBoardFreezeLoadVO"
+                      Name="WpPlanningBoardFreezeLoadVO10">
+        <AttrNames>
+          <Item Value="PlanningBoardFreezeLoadId"/>
+          <Item Value="MonthId"/>
+          <Item Value="OrgId"/>
+          <Item Value="WpSectionId"/>
+          <Item Value="AvgLoad"/>
+          <Item Value="D1"/>
+          <Item Value="D2"/>
+          <Item Value="D3"/>
+          <Item Value="D4"/>
+          <Item Value="D5"/>
+          <Item Value="D6"/>
+          <Item Value="D7"/>
+          <Item Value="D8"/>
+          <Item Value="D9"/>
+          <Item Value="D10"/>
+          <Item Value="D11"/>
+          <Item Value="D12"/>
+          <Item Value="D13"/>
+          <Item Value="D14"/>
+          <Item Value="D15"/>
+          <Item Value="D16"/>
+          <Item Value="D17"/>
+          <Item Value="D18"/>
+          <Item Value="D19"/>
+          <Item Value="D20"/>
+          <Item Value="D21"/>
+          <Item Value="D22"/>
+          <Item Value="D23"/>
+          <Item Value="D24"/>
+          <Item Value="D25"/>
+          <Item Value="D26"/>
+          <Item Value="D27"/>
+          <Item Value="D28"/>
+          <Item Value="D29"/>
+          <Item Value="D30"/>
+          <Item Value="D31"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="WpPlanningBoardFreezeVO1Iterator"
+          id="WpPlanningBoardFreezeVO1">
+      <nodeDefinition DefName="model.view.WpPlanningBoardFreezeVO"
+                      Name="WpPlanningBoardFreezeVO10">
+        <AttrNames>
+          <Item Value="PlanningBoardId"/>
+          <Item Value="MonthId"/>
+          <Item Value="SystemId"/>
+          <Item Value="Remarks"/>
+          <Item Value="MonthlyTotal"/>
+          <Item Value="D1"/>
+          <Item Value="D2"/>
+          <Item Value="D3"/>
+          <Item Value="D4"/>
+          <Item Value="D5"/>
+          <Item Value="D6"/>
+          <Item Value="D7"/>
+          <Item Value="D8"/>
+          <Item Value="D9"/>
+          <Item Value="D10"/>
+          <Item Value="D11"/>
+          <Item Value="D12"/>
+          <Item Value="D13"/>
+          <Item Value="D14"/>
+          <Item Value="D15"/>
+          <Item Value="D16"/>
+          <Item Value="D17"/>
+          <Item Value="D18"/>
+          <Item Value="D19"/>
+          <Item Value="D20"/>
+          <Item Value="D21"/>
+          <Item Value="D22"/>
+          <Item Value="D23"/>
+          <Item Value="D24"/>
+          <Item Value="D25"/>
+          <Item Value="D26"/>
+          <Item Value="D27"/>
+          <Item Value="D28"/>
+          <Item Value="D29"/>
+          <Item Value="D30"/>
+          <Item Value="D31"/>
+          <Item Value="OrgId"/>
+          <Item Value="OrderQty"/>
+          <Item Value="CurrentSamVersion"/>
+          <Item Value="AvailableSamVersion"/>
+          <Item Value="StyleSetupId"/>
+          <Item Value="PrevMonthsQty"/>
+          <Item Value="RemainingQty"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

@@ -3,15 +3,15 @@
 <!---->
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="WpPlanningBoardLoadEO"
+  Name="WpPlanningBoardFreezeLoadEO"
   Version="11.1.1.62.29"
   InheritPersonalization="true"
   DBObjectType="table"
-  DBObjectName="WP_PLANNING_BOARD_LOAD"
+  DBObjectName="WP_PLANNING_BOARD_FREEZE_LOAD"
   AliasName="WpPlanningBoardLoadEO"
   BindingStyle="OracleName"
   UseGlueCode="false"
-  RowClass="model.entity.WpPlanningBoardLoadEOImpl">
+  RowClass="model.entity.WpPlanningBoardFreezeLoadEOImpl">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Init|Access|DML"/>
     <AttrArray Name="_publishEvents"/>
@@ -24,7 +24,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD"
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD"
     PrimaryKey="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
@@ -36,7 +36,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -47,7 +47,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -58,7 +58,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -69,7 +69,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -80,7 +80,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -91,7 +91,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -102,7 +102,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -113,7 +113,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -124,7 +124,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -135,7 +135,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -146,7 +146,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -157,7 +157,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -168,7 +168,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -179,7 +179,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -190,7 +190,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -201,7 +201,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -212,7 +212,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -223,7 +223,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -234,7 +234,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -245,7 +245,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -256,7 +256,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -267,7 +267,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -278,7 +278,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -289,7 +289,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -300,7 +300,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -311,7 +311,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -322,7 +322,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -333,7 +333,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -344,7 +344,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -355,7 +355,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -366,7 +366,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -377,7 +377,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -388,7 +388,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -399,7 +399,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="WP_PLANNING_BOARD_LOAD">
+    TableName="WP_PLANNING_BOARD_FREEZE_LOAD">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -418,7 +418,8 @@
       <Attr Name="_DBObjectName" Value="WP_PLANNING_BOARD_LOAD_PK"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.entity.WpPlanningBoardLoadEO.PlanningBoardLoadId"/>
+      <Item
+        Value="model.entity.WpPlanningBoardFreezeLoadEO.PlanningBoardLoadId"/>
     </AttrArray>
   </Key>
   <Key
@@ -429,7 +430,7 @@
       <Attr Name="_DBObjectName" Value="WP_PLANNING_BOARD_LOAD_R01"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.entity.WpPlanningBoardLoadEO.MonthId"/>
+      <Item Value="model.entity.WpPlanningBoardFreezeLoadEO.MonthId"/>
     </AttrArray>
   </Key>
 </Entity>

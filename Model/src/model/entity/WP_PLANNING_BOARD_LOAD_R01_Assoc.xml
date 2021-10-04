@@ -28,15 +28,15 @@
   <AssociationEnd
     Name="WpPlanningBoardLoadEO"
     Cardinality="-1"
-    Owner="model.entity.WpPlanningBoardLoadEO">
+    Owner="model.entity.WpPlanningBoardFreezeLoadEO">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
       <Attr Name="_finderName" Value="WpPlanningBoardLoadEO"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.entity.WpPlanningBoardLoadEO.MonthId"/>
-      <Item Value="model.entity.WpPlanningBoardLoadEO.OrgId"/>
+      <Item Value="model.entity.WpPlanningBoardFreezeLoadEO.MonthId"/>
+      <Item Value="model.entity.WpPlanningBoardFreezeLoadEO.OrgId"/>
     </AttrArray>
   </AssociationEnd>
 </Association>

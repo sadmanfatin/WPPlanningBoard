@@ -93,7 +93,6 @@ public class ManagedBean {
 
         //     System.out.println("========================== onPageLoad not isPostback  ====================== ");         
              setCurrentMonthFromList();   
-             updateLoadEntryForMonth();
              hideAndDisableInvalidDateCulumns();
                   
         }
@@ -115,14 +114,6 @@ public class ManagedBean {
                     
        }
 
-
-    private void updateLoadEntryForMonth() {
-        WpMonthListVOImpl monthListVo = (WpMonthListVOImpl)appM.getWpMonthListVO1();
-        
-        WpMonthListVORowImpl montListVoCurrentRow = (WpMonthListVORowImpl)monthListVo.getCurrentRow();
-        montListVoCurrentRow.updateLoadRowEntry();  // this method will entry for section wise load (Planning Board Load) for month
-        
-    }
 
     public void setPlanningBoardLoadTable(RichTable planningBoardLoadTable) {
         this.planningBoardLoadTable = planningBoardLoadTable;
@@ -590,7 +581,7 @@ public class ManagedBean {
         WpPlanningBoardVORowImpl  planningBoardRow = null;
          
         String flag= null;
-         Number prevMonthsQty = null;   
+        Number prevMonthsQty = null;   
          
         Row rows[] =  populateStylesVo.getAllRowsInRange();
         for (Row row : rows) {
@@ -637,6 +628,37 @@ public class ManagedBean {
          }
 
         }
+        
+        
+    }
+
+    public void freezeMonthlyPlan(DialogEvent dialogEvent) {
+        // Add event code here...
+        if (dialogEvent.getOutcome().name().equals("yes")) {  
+            
+          String currentMonthId = null;                              
+          currentMonthId  =  appM.getWpMonthListVO1().getCurrentRow().getAttribute("MonthId").toString();        
+          freezePlan(currentMonthId);
+        }
+        
+    }
+
+
+    private void freezePlan(String currentMonthId) {
+        
+        String statement = "BEGIN APPS.WP_FREEZE_MONTHLY_PLAN(:1); END;";
+        CallableStatement cs =  appM.getDBTransaction().createCallableStatement(statement, 1);
+               
+        try {
+            cs.setInt(1, Integer.parseInt(currentMonthId));
+            cs.execute();
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            ;
+        }    
+        
+        
         
         
     }
