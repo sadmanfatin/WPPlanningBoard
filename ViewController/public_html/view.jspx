@@ -3129,7 +3129,7 @@
                         inlineStyle="width:1300.0px;">
                 <af:column headerText="Select"
                            id="c198" align="center" sortable="true"
-                           filterable="true" width="60">
+                           filterable="true" width="50">
                   <af:selectBooleanCheckbox value="#{row.bindings.PrevStyleCheckBox.inputValue}"
                                             label="#{row.bindings.PrevStyleCheckBox.label}"
                                             shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.PrevStyleCheckBox.tooltip}"
@@ -3151,34 +3151,6 @@
                                       pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthId.format}"/>
                   </af:inputText>
                 </af:column>
-                <af:column headerText="Month"
-                           id="c201" align="center" sortable="true"
-                           filterable="true" width="60">
-                  <af:inputText value="#{row.bindings.MonthName.inputValue}"
-                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthName.label}"
-                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthName.mandatory}"
-                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthName.displayWidth}"
-                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthName.precision}"
-                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthName.tooltip}"
-                                id="it133" readOnly="true">
-                    <f:validator binding="#{row.bindings.MonthName.validator}"/>
-                  </af:inputText>
-                </af:column>
-                <af:column headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.label}"
-                           id="c202" align="center" sortable="true"
-                           filterable="true" width="60">
-                  <af:inputText value="#{row.bindings.Year.inputValue}"
-                                label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.label}"
-                                required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.mandatory}"
-                                columns="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.displayWidth}"
-                                maximumLength="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.precision}"
-                                shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.tooltip}"
-                                id="it134" readOnly="true">
-                    <f:validator binding="#{row.bindings.Year.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.format}"/>
-                  </af:inputText>
-                </af:column>
                 <af:column sortProperty="SystemId" filterable="true"
                            sortable="true"
                            headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.SystemId.label}"
@@ -3194,6 +3166,19 @@
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.SystemId.format}"/>
                   </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthName.label}"
+                           id="c201" align="center" sortable="true"
+                           filterable="true" width="80">
+                  <af:outputText value="#{row.MonthName}" id="ot103"/>
+                </af:column>
+                <af:column headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.label}"
+                           id="c202" align="center" sortable="true"
+                           filterable="true" width="60">
+                  <af:outputText value="#{row.Year}" id="ot104">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.format}"/>
+                  </af:outputText>
                 </af:column>
                 <af:column sortProperty="BuyerName" filterable="true"
                            sortable="true"
@@ -3298,7 +3283,7 @@
                 <af:column sortProperty="OrderQty" filterable="true"
                            sortable="true"
                            headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrderQty.label}"
-                           id="c187" width="70" align="center">
+                           id="c187" width="60" align="center">
                   <af:inputText value="#{row.bindings.OrderQty.inputValue}"
                                 label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrderQty.label}"
                                 required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrderQty.mandatory}"
@@ -3314,7 +3299,7 @@
                 <af:column sortProperty="MonthlyTotal" filterable="true"
                            sortable="true"
                            headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthlyTotal.label}"
-                           id="c188" width="70" align="center">
+                           id="c188" width="60" align="center">
                   <af:inputText value="#{row.bindings.MonthlyTotal.inputValue}"
                                 label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthlyTotal.label}"
                                 required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthlyTotal.mandatory}"
@@ -3330,7 +3315,7 @@
                 <af:column sortProperty="PrevMonthsQty" filterable="true"
                            sortable="true"
                            headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.PrevMonthsQty.label}"
-                           id="c186" width="70" align="center">
+                           id="c186" width="60" align="center">
                   <af:inputText value="#{row.bindings.PrevMonthsQty.inputValue}"
                                 label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.PrevMonthsQty.label}"
                                 required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.PrevMonthsQty.mandatory}"
@@ -3346,7 +3331,7 @@
                 <af:column sortProperty="RemainingQty" filterable="true"
                            sortable="true"
                            headerText="Remaining Qty"
-                           id="c193" width="70" align="center">
+                           id="c193" width="60" align="center">
                   <af:inputText value="#{row.bindings.RemainingQty.inputValue}"
                                 label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.RemainingQty.label}"
                                 required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.RemainingQty.mandatory}"
@@ -3362,7 +3347,7 @@
                 <af:column sortProperty="LastDayQty" filterable="true"
                            sortable="true"
                            headerText="Last Day Qty"
-                           id="c194" width="70" align="center">
+                           id="c194" width="60" align="center">
                   <af:inputText value="#{row.bindings.LastDayQty.inputValue}"
                                 label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.LastDayQty.label}"
                                 required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.LastDayQty.mandatory}"
