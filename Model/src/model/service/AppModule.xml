@@ -62,6 +62,12 @@
   <ViewUsage
     Name="WpPlanningBoardFreezeLoadVO1"
     ViewObjectName="model.view.WpPlanningBoardFreezeLoadVO"/>
+  <ViewUsage
+    Name="StyleWiseMonthlyQtyVO1"
+    ViewObjectName="model.view.StyleWiseMonthlyQtyVO"/>
+  <ViewUsage
+    Name="StyleWiseShipmentVO1"
+    ViewObjectName="model.view.StyleWiseShipmentVO"/>
   <ViewLinkUsage
     Name="MonthSearchVO_vs_WpMonthListVO_vl1"
     ViewLinkObjectName="model.viewlinks.MonthSearchVO_vs_WpMonthListVO_vl"
@@ -127,6 +133,18 @@
     ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_WpPlanningBoardFreezeLoadVO_vl"
     SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
     DstViewUsageName="model.service.AppModule.WpPlanningBoardFreezeLoadVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="Buyer_Style_MonthlyQty_vl1"
+    ViewLinkObjectName="model.viewlinks.Buyer_Style_MonthlyQty_vl"
+    SrcViewUsageName="model.service.AppModule.BuyerWiseMonthlyQtyVO1"
+    DstViewUsageName="model.service.AppModule.StyleWiseMonthlyQtyVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="PlanningBoardVO_vs_StyleWiseShipmentVO_vl1"
+    ViewLinkObjectName="model.viewlinks.PlanningBoardVO_vs_StyleWiseShipmentVO_vl"
+    SrcViewUsageName="model.service.AppModule.WpPlanningBoardVO1"
+    DstViewUsageName="model.service.AppModule.StyleWiseShipmentVO1"
     Reversed="false"/>
   <ClientInterface>
     <Method

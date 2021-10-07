@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PlanningBoardVO_vs_StyleWiseShipmentVO_vl"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.viewlinks.PlanningBoardVO_vs_StyleWiseShipmentVO_vl_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="WpPlanningBoardVO"
+    Cardinality="1"
+    Owner="model.view.WpPlanningBoardVO"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="WpPlanningBoardVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.view.WpPlanningBoardVO.PocId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="StyleWiseShipmentVO"
+    Cardinality="-1"
+    Owner="model.view.StyleWiseShipmentVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="StyleWiseShipmentVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.view.StyleWiseShipmentVO.PocId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

@@ -3,6 +3,7 @@ package model.view;
 import model.entity.WpPlanningBoardEOImpl;
 
 import oracle.jbo.Row;
+import oracle.jbo.RowIterator;
 import oracle.jbo.domain.Date;
 import oracle.jbo.domain.Number;
 import oracle.jbo.server.AttributeDefImpl;
@@ -45,6 +46,16 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
 
             public void put(WpPlanningBoardVORowImpl obj, Object value) {
                 obj.setMonthSerial((Number)value);
+            }
+        }
+        ,
+        PocId {
+            public Object get(WpPlanningBoardVORowImpl obj) {
+                return obj.getPocId();
+            }
+
+            public void put(WpPlanningBoardVORowImpl obj, Object value) {
+                obj.setPocId((Number)value);
             }
         }
         ,
@@ -627,6 +638,16 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
                 obj.setAttributeInternal(index(), value);
             }
         }
+        ,
+        StyleWiseShipmentVO {
+            public Object get(WpPlanningBoardVORowImpl obj) {
+                return obj.getStyleWiseShipmentVO();
+            }
+
+            public void put(WpPlanningBoardVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -660,6 +681,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
     public static final int PLANNINGBOARDID = AttributesEnum.PlanningBoardId.index();
     public static final int MONTHID = AttributesEnum.MonthId.index();
     public static final int MONTHSERIAL = AttributesEnum.MonthSerial.index();
+    public static final int POCID = AttributesEnum.PocId.index();
     public static final int SYSTEMID = AttributesEnum.SystemId.index();
     public static final int REMARKS = AttributesEnum.Remarks.index();
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
@@ -718,6 +740,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
     public static final int REMAININGQTY = AttributesEnum.RemainingQty.index();
     public static final int UPDATEDSAMVERSIONAVALIABLE = AttributesEnum.UpdatedSamVersionAvaliable.index();
     public static final int WPMONTHLISTVO = AttributesEnum.WpMonthListVO.index();
+    public static final int STYLEWISESHIPMENTVO = AttributesEnum.StyleWiseShipmentVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -779,6 +802,22 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      */
     public void setMonthSerial(Number value) {
         setAttributeInternal(MONTHSERIAL, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute PocId.
+     * @return the PocId
+     */
+    public Number getPocId() {
+        return (Number) getAttributeInternal(POCID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute PocId.
+     * @param value value to set the  PocId
+     */
+    public void setPocId(Number value) {
+        setAttributeInternal(POCID, value);
     }
 
     /**
@@ -1678,6 +1717,13 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      */
     public void setWpMonthListVO(Row value) {
         setAttributeInternal(WPMONTHLISTVO, value);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link StyleWiseShipmentVO.
+     */
+    public RowIterator getStyleWiseShipmentVO() {
+        return (RowIterator)getAttributeInternal(STYLEWISESHIPMENTVO);
     }
 
     /**

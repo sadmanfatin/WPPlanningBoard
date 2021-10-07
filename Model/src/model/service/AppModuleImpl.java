@@ -35,7 +35,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     //      System.out.println("====================  set session values    ================================");
                 
           orgId = "343";
-        userId = "5219";
+          userId = "5219";
 
     //       System.out.println(" orgId "+ orgId  + "  data type  "+ orgId.getClass().getName());
     //
@@ -262,5 +262,38 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getWpMonthListVO_vs_WpPlanningBoardFreezeLoadVO_vl1() {
         return (ViewLinkImpl)findViewLink("WpMonthListVO_vs_WpPlanningBoardFreezeLoadVO_vl1");
+    }
+
+
+    /**
+     * Container's getter for StyleWiseMonthlyQtyVO1.
+     * @return StyleWiseMonthlyQtyVO1
+     */
+    public ViewObjectImpl getStyleWiseMonthlyQtyVO1() {
+        return (ViewObjectImpl)findViewObject("StyleWiseMonthlyQtyVO1");
+    }
+
+    /**
+     * Container's getter for Buyer_Style_MonthlyQty_vl1.
+     * @return Buyer_Style_MonthlyQty_vl1
+     */
+    public ViewLinkImpl getBuyer_Style_MonthlyQty_vl1() {
+        return (ViewLinkImpl)findViewLink("Buyer_Style_MonthlyQty_vl1");
+    }
+
+    /**
+     * Container's getter for StyleWiseShipmentVO1.
+     * @return StyleWiseShipmentVO1
+     */
+    public ViewObjectImpl getStyleWiseShipmentVO1() {
+        return (ViewObjectImpl)findViewObject("StyleWiseShipmentVO1");
+    }
+
+    /**
+     * Container's getter for PlanningBoardVO_vs_StyleWiseShipmentVO_vl1.
+     * @return PlanningBoardVO_vs_StyleWiseShipmentVO_vl1
+     */
+    public ViewLinkImpl getPlanningBoardVO_vs_StyleWiseShipmentVO_vl1() {
+        return (ViewLinkImpl)findViewLink("PlanningBoardVO_vs_StyleWiseShipmentVO_vl1");
     }
 }

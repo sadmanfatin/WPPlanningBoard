@@ -3,7 +3,7 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="BuyerWiseMonthlyQtyVO"
+  Name="StyleWiseMonthlyQtyVO"
   Version="11.1.1.62.29"
   InheritPersonalization="true"
   BindingStyle="OracleName"
@@ -16,12 +16,14 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="model.view.BuyerWiseMonthlyQtyVO_LABEL"/>
+        ResId="model.view.StyleWiseMonthlyQtyVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>
-    <![CDATA[SELECT SQ.MONTH_ID,   
- POC.BUYER_NAME,  
+    <![CDATA[SELECT SQ.MONTH_ID,  
+poc.buyer_id, 
+ POC.BUYER_NAME,
+ poc.style,  
  SUM( SQ.QUANTITY) WASH_QUANTITY,
  ROUND( SUM( SQ.QUANTITY) / (  (SELECT COUNT ( *)  FROM WP_HOLIDAY_CALENDAR HC WHERE HC.MONTH_ID  =  SQ.MONTH_ID AND  HC.WORKING_STATUS = 'Workingday') ) )   AVERAGE_PER_DAY,
    
@@ -29,8 +31,7 @@
 FROM WP_DAILY_STYLE_QUANTITY SQ,
 POC_SYSTEM_ID_VIEW  POC
 WHERE SQ.SYSTEM_ID = POC.SYSTEM_ID
-
-GROUP BY    SQ.MONTH_ID,  POC.BUYER_ID, POC.BUYER_NAME]]>
+GROUP BY    SQ.MONTH_ID,  POC.BUYER_ID, POC.BUYER_NAME,poc.style]]>
   </SQLQuery>
   <ViewAttribute
     Name="MonthId"
@@ -41,6 +42,20 @@ GROUP BY    SQ.MONTH_ID,  POC.BUYER_ID, POC.BUYER_NAME]]>
     ColumnType="NUMBER"
     AliasName="MONTH_ID"
     Expression="MONTH_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="BUYER_ID"
+    Expression="BUYER_ID"
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
@@ -59,6 +74,21 @@ GROUP BY    SQ.MONTH_ID,  POC.BUYER_ID, POC.BUYER_NAME]]>
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Style"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STYLE"
+    Expression="STYLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
@@ -103,11 +133,6 @@ GROUP BY    SQ.MONTH_ID,  POC.BUYER_ID, POC.BUYER_NAME]]>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </ViewAttribute>
-  <ViewLinkAccessor
-    Name="StyleWiseMonthlyQtyVO"
-    ViewLink="model.viewlinks.Buyer_Style_MonthlyQty_vl"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

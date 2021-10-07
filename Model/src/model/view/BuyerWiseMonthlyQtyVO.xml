@@ -103,6 +103,11 @@ GROUP BY    SQ.MONTH_ID,  POC.BUYER_ID, POC.BUYER_NAME]]>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewLinkAccessor
+    Name="StyleWiseMonthlyQtyVO"
+    ViewLink="model.viewlinks.Buyer_Style_MonthlyQty_vl"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

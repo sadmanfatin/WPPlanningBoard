@@ -66,6 +66,12 @@
     <searchRegion Binds="WpPlanningBoardFreezeVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="WpPlanningBoardFreezeVO1Query"/>
+    <iterator Binds="StyleWiseMonthlyQtyVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="StyleWiseMonthlyQtyVO1Iterator"/>
+    <iterator Binds="StyleWiseShipmentVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="StyleWiseShipmentVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="OrgVO1Iterator" id="OrgName">
@@ -661,6 +667,36 @@
           <Item Value="StyleSetupId"/>
           <Item Value="PrevMonthsQty"/>
           <Item Value="RemainingQty"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="StyleWiseMonthlyQtyVO1Iterator"
+          id="StyleWiseMonthlyQtyVO1">
+      <nodeDefinition DefName="model.view.StyleWiseMonthlyQtyVO"
+                      Name="StyleWiseMonthlyQtyVO10">
+        <AttrNames>
+          <Item Value="MonthId"/>
+          <Item Value="BuyerId"/>
+          <Item Value="BuyerName"/>
+          <Item Value="Style"/>
+          <Item Value="WashQuantity"/>
+          <Item Value="AveragePerDay"/>
+          <Item Value="WashPercentage"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="StyleWiseShipmentVO1Iterator" id="StyleWiseShipmentVO1">
+      <nodeDefinition DefName="model.view.StyleWiseShipmentVO"
+                      Name="StyleWiseShipmentVO10">
+        <AttrNames>
+          <Item Value="PocId"/>
+          <Item Value="BuyerId"/>
+          <Item Value="Season"/>
+          <Item Value="Style"/>
+          <Item Value="Color"/>
+          <Item Value="WashName"/>
+          <Item Value="Qty"/>
+          <Item Value="ShipDate"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
