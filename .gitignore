@@ -8,3 +8,6 @@
 *.ear
 *.class
 *.war
+*.class
+*.cdi_javac
+*.cdi_javac
