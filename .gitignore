@@ -12,3 +12,9 @@
 *.cdi_javac
 *.cdi_javac
 *.class
+*.war
+*.ear
+*.cdi_javac
+*.ear
+*.cdi_javac
+*.class
