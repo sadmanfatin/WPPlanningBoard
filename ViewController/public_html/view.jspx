@@ -1851,7 +1851,7 @@
                         </f:facet>
                         
                       </af:column>
-                      <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.CurrentSamVersion.label}"
+                      <af:column headerText="Current Sam Version"
                                  id="c98" width="55">
                         <af:inputText value="#{row.bindings.CurrentSamVersion.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.CurrentSamVersion.label}"
@@ -1866,7 +1866,7 @@
                         </af:inputText>
                                                 <f:facet name="footer"/>
                       </af:column>
-                      <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.AvailableSamVersion.label}"
+                      <af:column headerText="Available Sam Version"
                                  id="c97" width="55">
                         <af:inputText value="#{row.bindings.AvailableSamVersion.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.AvailableSamVersion.label}"
