@@ -648,6 +648,16 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
                 obj.setAttributeInternal(index(), value);
             }
         }
+        ,
+        StyleWiseSectionProcessSamVO {
+            public Object get(WpPlanningBoardVORowImpl obj) {
+                return obj.getStyleWiseSectionProcessSamVO();
+            }
+
+            public void put(WpPlanningBoardVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -741,6 +751,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
     public static final int UPDATEDSAMVERSIONAVALIABLE = AttributesEnum.UpdatedSamVersionAvaliable.index();
     public static final int WPMONTHLISTVO = AttributesEnum.WpMonthListVO.index();
     public static final int STYLEWISESHIPMENTVO = AttributesEnum.StyleWiseShipmentVO.index();
+    public static final int STYLEWISESECTIONPROCESSSAMVO = AttributesEnum.StyleWiseSectionProcessSamVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1724,6 +1735,13 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      */
     public RowIterator getStyleWiseShipmentVO() {
         return (RowIterator)getAttributeInternal(STYLEWISESHIPMENTVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link StyleWiseSectionProcessSamVO.
+     */
+    public RowIterator getStyleWiseSectionProcessSamVO() {
+        return (RowIterator)getAttributeInternal(STYLEWISESECTIONPROCESSSAMVO);
     }
 
     /**

@@ -72,6 +72,9 @@
     <iterator Binds="StyleWiseShipmentVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="StyleWiseShipmentVO1Iterator"/>
+    <iterator Binds="StyleWiseSectionProcessSamVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="StyleWiseSectionProcessSamVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="OrgVO1Iterator" id="OrgName">
@@ -700,5 +703,88 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="StyleWiseSectionProcessSamVO1Iterator"
+                     id="StyleSetupId">
+      <AttrNames>
+        <Item Value="StyleSetupId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="StyleWiseSectionProcessSamVO1Iterator"
+                     id="OrgId">
+      <AttrNames>
+        <Item Value="OrgId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="StyleWiseSectionProcessSamVO1Iterator"
+                     id="SystemId">
+      <AttrNames>
+        <Item Value="SystemId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="StyleWiseSectionProcessSamVO1Iterator"
+                     id="BuyerName">
+      <AttrNames>
+        <Item Value="BuyerName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="StyleWiseSectionProcessSamVO1Iterator"
+                     id="Season">
+      <AttrNames>
+        <Item Value="Season"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="StyleWiseSectionProcessSamVO1Iterator"
+                     id="Style">
+      <AttrNames>
+        <Item Value="Style"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="StyleWiseSectionProcessSamVO1Iterator"
+                     id="Color">
+      <AttrNames>
+        <Item Value="Color"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="StyleWiseSectionProcessSamVO1Iterator"
+                     id="WashName">
+      <AttrNames>
+        <Item Value="WashName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="StyleWiseSectionProcessSamVO1Iterator"
+                     id="SectionName">
+      <AttrNames>
+        <Item Value="SectionName"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="StyleWiseSectionProcessSamVO1Iterator"
+          id="StyleWiseSectionProcessSamVO1">
+      <nodeDefinition DefName="model.view.StyleWiseSectionProcessSamVO"
+                      Name="StyleWiseSectionProcessSamVO10">
+        <AttrNames>
+          <Item Value="StyleSetupId"/>
+          <Item Value="OrgId"/>
+          <Item Value="SystemId"/>
+          <Item Value="SamVersion"/>
+          <Item Value="BuyerName"/>
+          <Item Value="Season"/>
+          <Item Value="Style"/>
+          <Item Value="Color"/>
+          <Item Value="WashName"/>
+          <Item Value="SectionName"/>
+          <Item Value="ProcessSeq"/>
+          <Item Value="ProcessName"/>
+          <Item Value="BatchQty"/>
+          <Item Value="BatchTime"/>
+          <Item Value="Sam"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="WpPlanningBoardVO1Iterator"
+                     id="CurrentSamVersion">
+      <AttrNames>
+        <Item Value="CurrentSamVersion"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

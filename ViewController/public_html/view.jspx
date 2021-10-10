@@ -800,7 +800,8 @@
                                  id="c62" align="center" sortable="true"
                                  filterable="true" sortProperty="Style"
                                  filterFeatures="caseInsensitive">
-                        <af:commandLink text="#{row.bindings.Style.inputValue}" id="cl2">
+                        <af:commandLink text="#{row.bindings.Style.inputValue}" id="cl2"
+                                        inlineStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;">
                           <af:showPopupBehavior popupId="::p5"/>
                         </af:commandLink>
                       </af:column>
@@ -823,13 +824,10 @@
                                  id="c67" align="center" sortable="true"
                                  filterable="true" sortProperty="WashName"
                                  filterFeatures="caseInsensitive">
-                        <af:inputText id="cl1"
-                                      value="#{row.bindings.WashName.inputValue}"
-                                      label="#{bindings.WpPlanningBoardVO1.hints.WashName.label}"
-                                      readOnly="true"
-                                      contentStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;">
-                          <af:showPopupBehavior/>
-                        </af:inputText>
+                        <af:commandLink text="#{row.bindings.WashName.inputValue}" id="cl3"
+                                        inlineStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;">
+                          <af:showPopupBehavior popupId="::p6"/>
+                        </af:commandLink>
                       </af:column>
                       <af:column sortProperty="Remarks" filterable="true"
                                  sortable="true"
@@ -4399,6 +4397,158 @@
                     <af:convertDateTime pattern="#{bindings.StyleWiseShipmentVO1.hints.ShipDate.format}"
                                         dateStyle="medium"/>
                   </af:inputDate>
+                </af:column>
+              </af:table>
+            </af:panelHeader>
+          </af:panelWindow>
+        </af:popup>
+        <af:popup id="p6" contentDelivery="lazyUncached">
+          <af:panelWindow id="pw3">
+            <af:panelHeader text="Process  Detail" id="ph10">
+              <f:facet name="context"/>
+              <f:facet name="menuBar"/>
+              <f:facet name="toolbar"/>
+              <f:facet name="legend"/>
+              <f:facet name="info"/>
+              <af:panelFormLayout id="pfl4"
+                                  inlineStyle="border-color:rgb(234,242,255); border-style:inherit; border-width:medium; margin-bottom:10px; background-color:rgb(215,223,245);">
+                <af:panelLabelAndMessage label="#{bindings.Color.hints.label}"
+                                         id="plam2">
+                  <af:outputText value="#{bindings.Color.inputValue}"
+                                 id="ot201"/>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="#{bindings.Style.hints.label}"
+                                         id="plam1">
+                  <af:outputText value="#{bindings.Style.inputValue}"
+                                 id="ot200"/>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="#{bindings.WashName.hints.label}"
+                                         id="plam4">
+                  <af:outputText value="#{bindings.WashName.inputValue}"
+                                 id="ot202"/>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="#{bindings.CurrentSamVersion.hints.label}"
+                                         id="plam3">
+                  <af:outputText value="#{bindings.CurrentSamVersion.inputValue}"
+                                 id="ot203">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.CurrentSamVersion.format}"/>
+                  </af:outputText>
+                </af:panelLabelAndMessage>
+              </af:panelFormLayout>
+              <af:table value="#{bindings.StyleWiseSectionProcessSamVO1.collectionModel}"
+                        var="row"
+                        rows="#{bindings.StyleWiseSectionProcessSamVO1.rangeSize}"
+                        emptyText="#{bindings.StyleWiseSectionProcessSamVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.StyleWiseSectionProcessSamVO1.rangeSize}"
+                        rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.StyleWiseSectionProcessSamVO1.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.StyleWiseSectionProcessSamVO1.collectionModel.makeCurrent}" id="t14"
+                        inlineStyle="width:600.0px;" width="537">
+                <af:column sortProperty="StyleSetupId" sortable="false"
+                           headerText="#{bindings.StyleWiseSectionProcessSamVO1.hints.StyleSetupId.label}"
+                           id="c306" visible="false">
+                  <af:outputText value="#{row.StyleSetupId}" id="ot198">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.StyleWiseSectionProcessSamVO1.hints.StyleSetupId.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="OrgId" sortable="false"
+                           headerText="#{bindings.StyleWiseSectionProcessSamVO1.hints.OrgId.label}"
+                           id="c304" visible="false">
+                  <af:outputText value="#{row.OrgId}" id="ot191">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.StyleWiseSectionProcessSamVO1.hints.OrgId.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="SystemId" sortable="false"
+                           headerText="#{bindings.StyleWiseSectionProcessSamVO1.hints.SystemId.label}"
+                           id="c301" visible="false">
+                  <af:outputText value="#{row.SystemId}" id="ot197">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.StyleWiseSectionProcessSamVO1.hints.SystemId.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="SamVersion" sortable="false"
+                           headerText="#{bindings.StyleWiseSectionProcessSamVO1.hints.SamVersion.label}"
+                           id="c305" visible="false">
+                  <af:outputText value="#{row.SamVersion}" id="ot194">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.StyleWiseSectionProcessSamVO1.hints.SamVersion.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="BuyerName" sortable="false"
+                           headerText="#{bindings.StyleWiseSectionProcessSamVO1.hints.BuyerName.label}"
+                           id="c308" visible="false">
+                  <af:outputText value="#{row.BuyerName}" id="ot192"/>
+                </af:column>
+                <af:column sortProperty="Season" sortable="false"
+                           headerText="#{bindings.StyleWiseSectionProcessSamVO1.hints.Season.label}"
+                           id="c296" visible="false">
+                  <af:outputText value="#{row.Season}" id="ot193"/>
+                </af:column>
+                <af:column sortProperty="Style" sortable="false"
+                           headerText="#{bindings.StyleWiseSectionProcessSamVO1.hints.Style.label}"
+                           id="c294" visible="false">
+                  <af:outputText value="#{row.Style}" id="ot190"/>
+                </af:column>
+                <af:column sortProperty="Color" sortable="false"
+                           headerText="#{bindings.StyleWiseSectionProcessSamVO1.hints.Color.label}"
+                           id="c300" visible="false">
+                  <af:outputText value="#{row.Color}" id="ot195"/>
+                </af:column>
+                <af:column sortProperty="WashName" sortable="false"
+                           headerText="#{bindings.StyleWiseSectionProcessSamVO1.hints.WashName.label}"
+                           id="c307" visible="false">
+                  <af:outputText value="#{row.WashName}" id="ot196"/>
+                </af:column>
+                <af:column sortProperty="SectionName" sortable="true"
+                           headerText="Section Name"
+                           id="c299" align="left" filterable="true"
+                           width="150">
+                  <af:outputText value="#{row.SectionName}" id="ot199"/>
+                </af:column>
+                <af:column sortProperty="ProcessName" sortable="true"
+                           headerText="Process Name"
+                           id="c298" align="left" filterable="true"
+                           width="150">
+                  <af:outputText value="#{row.ProcessName}" id="ot187"/>
+                </af:column>
+                <af:column sortProperty="ProcessSeq" sortable="true"
+                           headerText="Process Sequence"
+                           id="c303" align="center" filterable="true"
+                           width="50">
+                  <af:outputText value="#{row.ProcessSeq}" id="ot186">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.StyleWiseSectionProcessSamVO1.hints.ProcessSeq.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="BatchQty" sortable="true"
+                           headerText="Batch Qty"
+                           id="c295" align="center" filterable="true"
+                           width="50">
+                  <af:outputText value="#{row.BatchQty}" id="ot188">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.StyleWiseSectionProcessSamVO1.hints.BatchQty.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="BatchTime" sortable="true"
+                           headerText="Batch Time"
+                           id="c297" align="center" filterable="true"
+                           width="50">
+                  <af:outputText value="#{row.BatchTime}" id="ot185">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.StyleWiseSectionProcessSamVO1.hints.BatchTime.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Sam" sortable="true"
+                           headerText="#{bindings.StyleWiseSectionProcessSamVO1.hints.Sam.label}"
+                           id="c302" align="center" filterable="true"
+                           width="50">
+                  <af:outputText value="#{row.Sam}" id="ot189">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.StyleWiseSectionProcessSamVO1.hints.Sam.format}"/>
+                  </af:outputText>
                 </af:column>
               </af:table>
             </af:panelHeader>

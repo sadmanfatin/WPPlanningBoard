@@ -698,4 +698,9 @@
     ViewLink="model.viewlinks.PlanningBoardVO_vs_StyleWiseShipmentVO_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="StyleWiseSectionProcessSamVO"
+    ViewLink="model.viewlinks.PlanningBoardVO_vs_StyleWiseSectionProcessSamVO_vl"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

@@ -296,4 +296,20 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewLinkImpl getPlanningBoardVO_vs_StyleWiseShipmentVO_vl1() {
         return (ViewLinkImpl)findViewLink("PlanningBoardVO_vs_StyleWiseShipmentVO_vl1");
     }
+
+    /**
+     * Container's getter for StyleWiseSectionProcessSamVO1.
+     * @return StyleWiseSectionProcessSamVO1
+     */
+    public ViewObjectImpl getStyleWiseSectionProcessSamVO1() {
+        return (ViewObjectImpl)findViewObject("StyleWiseSectionProcessSamVO1");
+    }
+
+    /**
+     * Container's getter for PlanningBoardVO_vs_StyleWiseSectionProcessSamVO_vl1.
+     * @return PlanningBoardVO_vs_StyleWiseSectionProcessSamVO_vl1
+     */
+    public ViewLinkImpl getPlanningBoardVO_vs_StyleWiseSectionProcessSamVO_vl1() {
+        return (ViewLinkImpl)findViewLink("PlanningBoardVO_vs_StyleWiseSectionProcessSamVO_vl1");
+    }
 }
