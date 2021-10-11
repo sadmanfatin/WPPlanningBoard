@@ -4287,7 +4287,7 @@
                         selectedRowKeys="#{bindings.StyleWiseShipmentVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.StyleWiseShipmentVO1.collectionModel.makeCurrent}"
                         rowSelection="single" id="t13"
-                        inlineStyle="width:600.0px;">
+                        inlineStyle="width:600.0px;" partialTriggers="::t2">
                 <af:column sortProperty="PocId" sortable="false"
                            headerText="#{bindings.StyleWiseShipmentVO1.hints.PocId.label}"
                            id="c287" visible="false">
@@ -4410,32 +4410,6 @@
               <f:facet name="toolbar"/>
               <f:facet name="legend"/>
               <f:facet name="info"/>
-              <af:panelFormLayout id="pfl4"
-                                  inlineStyle="border-color:rgb(234,242,255); border-style:inherit; border-width:medium; margin-bottom:10px; background-color:rgb(215,223,245);">
-                <af:panelLabelAndMessage label="#{bindings.Color.hints.label}"
-                                         id="plam2">
-                  <af:outputText value="#{bindings.Color.inputValue}"
-                                 id="ot201"/>
-                </af:panelLabelAndMessage>
-                <af:panelLabelAndMessage label="#{bindings.Style.hints.label}"
-                                         id="plam1">
-                  <af:outputText value="#{bindings.Style.inputValue}"
-                                 id="ot200"/>
-                </af:panelLabelAndMessage>
-                <af:panelLabelAndMessage label="#{bindings.WashName.hints.label}"
-                                         id="plam4">
-                  <af:outputText value="#{bindings.WashName.inputValue}"
-                                 id="ot202"/>
-                </af:panelLabelAndMessage>
-                <af:panelLabelAndMessage label="#{bindings.CurrentSamVersion.hints.label}"
-                                         id="plam3">
-                  <af:outputText value="#{bindings.CurrentSamVersion.inputValue}"
-                                 id="ot203">
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.CurrentSamVersion.format}"/>
-                  </af:outputText>
-                </af:panelLabelAndMessage>
-              </af:panelFormLayout>
               <af:table value="#{bindings.StyleWiseSectionProcessSamVO1.collectionModel}"
                         var="row"
                         rows="#{bindings.StyleWiseSectionProcessSamVO1.rangeSize}"
@@ -4444,7 +4418,8 @@
                         rowBandingInterval="0"
                         selectedRowKeys="#{bindings.StyleWiseSectionProcessSamVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.StyleWiseSectionProcessSamVO1.collectionModel.makeCurrent}" id="t14"
-                        inlineStyle="width:600.0px;" width="537">
+                        inlineStyle="width:600.0px;" width="537"
+                        partialTriggers="::t2">
                 <af:column sortProperty="StyleSetupId" sortable="false"
                            headerText="#{bindings.StyleWiseSectionProcessSamVO1.hints.StyleSetupId.label}"
                            id="c306" visible="false">
