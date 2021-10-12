@@ -29,40 +29,34 @@
     Type="java.lang.String"/>
   <SQLQuery>
     <![CDATA[SELECT DISTINCT
-POCL.SYSTEM_ID, 
-POCH.LC_UNIT, 
-  APPS.ORG_ID_TO_ORG_NAME(POCH.LC_UNIT) LC_UNIT_NAME, 
-  
-SS.PRODUCTION_UNIT, 
-  APPS.ORG_ID_TO_ORG_NAME(SS.PRODUCTION_UNIT)   PRODUCTION_UNIT_NAME,
-POCH.BUYER_ID, 
- APPS.XX_OM_BUYER_NAME_FOR_ID(POCH.BUYER_ID) BUYER_NAME ,
-POCH.SEASON, 
-POCH.STYLE ,   
-POCL.COLOR, 
-POCL.WASH_NAME , 
-POCH.ORDER_QTY ,
-ss.org_id,
-       SS.SAM_VERSION CURRENT_SAM_VERSION,       
-        (
-            SELECT  nvl(  MAX(SV.SAM_VERSION),0) FROM  WP_STYLE_WISE_PROCESS_SAM_V SV  WHERE  SV.SYSTEM_ID = SS.SYSTEM_ID
-            AND  SV.ORG_ID =  SS.ORG_ID
-               
-        )  AVAILABLE_SAM_VERSION     
+    SS.SYSTEM_ID, 
+    PV.LC_UNIT, 
+    APPS.ORG_ID_TO_ORG_NAME(PV.LC_UNIT) LC_UNIT_NAME, 
+      
+    SS.PRODUCTION_UNIT, 
+    APPS.ORG_ID_TO_ORG_NAME(SS.PRODUCTION_UNIT)   PRODUCTION_UNIT_NAME,
+    PV.BUYER_ID, 
+    APPS.XX_OM_BUYER_NAME_FOR_ID(PV.BUYER_ID) BUYER_NAME ,
+    PV.SEASON, 
+    PV.STYLE ,   
+    PV.COLOR, 
+    PV.WASH_NAME , 
+    PV.ORDER_QTY ,
+    SS.ORG_ID,
+    SS.SAM_VERSION CURRENT_SAM_VERSION,       
+    SS.AVAILABLE_SAM_VERSION     
 
+    FROM WP_STYLE_SETUP SS,
+         POC_SYSTEM_ID_VIEW PV
 
-FROM
-   wp_style_setup ss,
- XX_OM_POC_H_T POCH,
-XX_OM_POC_L_T POCL 
-WHERE POCH.POC_ID = POCL.POC_ID
-and ss.system_id = pocl.system_id
+    WHERE 1=1
+    AND SS.SYSTEM_ID = PV.SYSTEM_ID
 
-and not exists (select  pb.system_id from wp_planning_board pb where pb.system_id =  pocl.system_id
-                 and  ss.org_id = (select org_id from wp_month_list ml where  ml.month_id = pb.month_id)
-      and pb.month_id = :p_month_id      
+        AND NOT EXISTS (SELECT  PB.SYSTEM_ID FROM WP_PLANNING_BOARD PB WHERE PB.SYSTEM_ID =  PV.SYSTEM_ID
+                 AND  SS.ORG_ID = (SELECT ORG_ID FROM WP_MONTH_LIST ML WHERE  ML.MONTH_ID = PB.MONTH_ID)
+      AND PB.MONTH_ID = :p_month_id      
                     )
-order by pocl.system_id desc]]>
+ORDER BY SS.SYSTEM_ID DESC]]>
   </SQLQuery>
   <ViewAttribute
     Name="SystemId"

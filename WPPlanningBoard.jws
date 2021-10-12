@@ -81,4 +81,9 @@
          <string v="WPPlanningBoard_application1"/>
       </list>
    </hash>
+   <hash n="oracle.mds.internal.dt.ide.CustOptions">
+      <list n="customizationLibraries">
+         <hash/>
+      </list>
+   </hash>
 </jws:workspace>
