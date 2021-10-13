@@ -139,15 +139,28 @@
                               styleClass="AFStretchWidth"
                               clientComponent="true"
                               binding="#{ManagedBean.planningBoardLoadTable}"
-                              partialTriggers="::soc1 ::soc2 ::cb5"
-                              rowSelection="single">
-                      <af:column id="c74" align="center" width="1035">
+                              partialTriggers="::soc1 ::soc2 ::cb5">
+                      <af:column id="c74" align="center" width="1100">
                         <af:outputText value="Wet Section Load (%)" id="ot1"/>
                       </af:column>
                       <af:column
+                                 id="c309" visible="false">
+                        <af:inputText value="#{row.bindings.LoadLimit.inputValue}"
+                                      label="#{bindings.WpPlanningBoardLoadVO1.hints.LoadLimit.label}"
+                                      required="#{bindings.WpPlanningBoardLoadVO1.hints.LoadLimit.mandatory}"
+                                      columns="#{bindings.WpPlanningBoardLoadVO1.hints.LoadLimit.displayWidth}"
+                                      maximumLength="#{bindings.WpPlanningBoardLoadVO1.hints.LoadLimit.precision}"
+                                      shortDesc="#{bindings.WpPlanningBoardLoadVO1.hints.LoadLimit.tooltip}"
+                                      id="it143">
+                          <f:validator binding="#{row.bindings.LoadLimit.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardLoadVO1.hints.LoadLimit.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column
                                  id="c177" align="center" sortable="true"
-                                 filterable="true" width="125"
-                                 inlineStyle="background-color:rgb(199,217,255);">
+                                 filterable="true" width="60"
+                                 styleClass="avgload">
                         <af:inputText value="Avg:  #{row.bindings.AvgLoad.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.AvgLoad.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.AvgLoad.mandatory}"
@@ -192,7 +205,8 @@
                       </af:column>
                       <af:column sortProperty="D1" filterable="false"
                                  sortable="false" id="c18" width="55"
-                                 align="center">
+                                 align="center"
+                                 styleClass="#{ row.bindings.D1.inputValue == null ? '' :  row.bindings.D1.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D1.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D1.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D1.mandatory}"
@@ -207,7 +221,8 @@
                       </af:column>
                       <af:column sortProperty="D2" filterable="false"
                                  sortable="false" id="c2" width="55"
-                                 align="center">
+                                 align="center"
+                               styleClass="#{ row.bindings.D2.inputValue == null ? '' :  row.bindings.D2.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D2.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D2.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D2.mandatory}"
@@ -222,7 +237,8 @@
                       </af:column>
                       <af:column sortProperty="D3" filterable="false"
                                  sortable="false" id="c20" width="55"
-                                 align="center">
+                                 align="center"
+                                styleClass="#{ row.bindings.D3.inputValue == null ? '' :  row.bindings.D3.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D3.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D3.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D3.mandatory}"
@@ -237,7 +253,8 @@
                       </af:column>
                       <af:column sortProperty="D4" filterable="false"
                                  sortable="false" id="c32" width="55"
-                                 align="center">
+                                 align="center"
+                                styleClass="#{ row.bindings.D4.inputValue == null ? '' :  row.bindings.D4.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D4.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D4.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D4.mandatory}"
@@ -252,7 +269,8 @@
                       </af:column>
                       <af:column sortProperty="D5" filterable="false"
                                  sortable="false" id="c25" width="55"
-                                 align="center">
+                                 align="center"
+                                 styleClass="#{ row.bindings.D5.inputValue == null ? '' :  row.bindings.D5.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D5.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D5.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D5.mandatory}"
@@ -267,7 +285,8 @@
                       </af:column>
                       <af:column sortProperty="D6" filterable="false"
                                  sortable="false" id="c17" width="55"
-                                 align="center">
+                                 align="center"
+                                styleClass="#{ row.bindings.D6.inputValue == null ? '' :  row.bindings.D6.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D6.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D6.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D6.mandatory}"
@@ -282,7 +301,8 @@
                       </af:column>
                       <af:column sortProperty="D7" filterable="false"
                                  sortable="false" id="c3" width="55"
-                                 align="center">
+                                 align="center"
+                                styleClass="#{ row.bindings.D7.inputValue == null ? '' :  row.bindings.D7.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D7.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D7.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D7.mandatory}"
@@ -297,7 +317,8 @@
                       </af:column>
                       <af:column sortProperty="D8" filterable="false"
                                  sortable="false" id="c28" width="55"
-                                 align="center">
+                                 align="center"     
+                                 styleClass="#{ row.bindings.D18.inputValue == null ? '' :  row.bindings.D8.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D8.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D8.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D8.mandatory}"
@@ -312,7 +333,8 @@
                       </af:column>
                       <af:column sortProperty="D9" filterable="false"
                                  sortable="false" id="c14" width="55"
-                                 align="center">
+                                 align="center"      
+                                styleClass="#{ row.bindings.D9.inputValue == null ? '' :  row.bindings.D9.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D9.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D9.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D9.mandatory}"
@@ -327,7 +349,8 @@
                       </af:column>
                       <af:column sortProperty="D10" filterable="false"
                                  sortable="false" id="c31" width="55"
-                                 align="center">
+                                 align="center"      
+                                 styleClass="#{ row.bindings.D10.inputValue == null ? '' :  row.bindings.D10.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D10.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D10.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D10.mandatory}"
@@ -342,7 +365,8 @@
                       </af:column>
                       <af:column sortProperty="D11" filterable="false"
                                  sortable="false" id="c27" width="55"
-                                 align="center">
+                                 align="center"      
+                                  styleClass="#{ row.bindings.D11.inputValue == null ? '' :  row.bindings.D11.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D11.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D11.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D11.mandatory}"
@@ -357,7 +381,8 @@
                       </af:column>
                       <af:column sortProperty="D12" filterable="false"
                                  sortable="false" id="c15" width="55"
-                                 align="center">
+                                 align="center"      
+                                   styleClass="#{ row.bindings.D12.inputValue == null ? '' :  row.bindings.D12.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D12.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D12.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D12.mandatory}"
@@ -372,7 +397,8 @@
                       </af:column>
                       <af:column sortProperty="D13" filterable="false"
                                  sortable="false" id="c29" width="55"
-                                 align="center">
+                                 align="center"      
+                                    styleClass="#{ row.bindings.D13.inputValue == null ? '' :  row.bindings.D13.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D13.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D13.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D13.mandatory}"
@@ -387,7 +413,8 @@
                       </af:column>
                       <af:column sortProperty="D14" filterable="false"
                                  sortable="false" id="c10" width="55"
-                                 align="center">
+                                 align="center"      
+                                     styleClass="#{ row.bindings.D14.inputValue == null ? '' :  row.bindings.D14.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D14.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D14.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D14.mandatory}"
@@ -402,7 +429,8 @@
                       </af:column>
                       <af:column sortProperty="D15" filterable="false"
                                  sortable="false" id="c9" width="55"
-                                 align="center">
+                                 align="center"      
+                                    styleClass="#{ row.bindings.D15.inputValue == null ? '' :  row.bindings.D15.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D15.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D15.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D15.mandatory}"
@@ -417,7 +445,8 @@
                       </af:column>
                       <af:column sortProperty="D16" filterable="false"
                                  sortable="false" id="c33" width="55"
-                                 align="center">
+                                 align="center"      
+                                     styleClass="#{ row.bindings.D16.inputValue == null ? '' :  row.bindings.D16.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D16.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D16.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D16.mandatory}"
@@ -432,7 +461,8 @@
                       </af:column>
                       <af:column sortProperty="D17" filterable="false"
                                  sortable="false" id="c24" width="55"
-                                 align="center">
+                                 align="center"      
+                                 styleClass="#{ row.bindings.D17.inputValue == null ? '' :  row.bindings.D17.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D17.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D17.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D17.mandatory}"
@@ -447,7 +477,8 @@
                       </af:column>
                       <af:column sortProperty="D18" filterable="false"
                                  sortable="false" id="c11" width="55"
-                                 align="center">
+                                 align="center"      
+                                     styleClass="#{ row.bindings.D18.inputValue == null ? '' :  row.bindings.D18.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D18.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D18.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D18.mandatory}"
@@ -462,7 +493,8 @@
                       </af:column>
                       <af:column sortProperty="D19" filterable="false"
                                  sortable="false" id="c21" width="55"
-                                 align="center">
+                                 align="center"      
+                                     styleClass="#{ row.bindings.D19.inputValue == null ? '' :  row.bindings.D19.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D19.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D19.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D19.mandatory}"
@@ -477,7 +509,8 @@
                       </af:column>
                       <af:column sortProperty="D20" filterable="false"
                                  sortable="false" id="c19" width="55"
-                                 align="center">
+                                 align="center"      
+                                     styleClass="#{ row.bindings.D20.inputValue == null ? '' :  row.bindings.D20.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D20.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D20.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D20.mandatory}"
@@ -492,7 +525,8 @@
                       </af:column>
                       <af:column sortProperty="D21" filterable="false"
                                  sortable="false" id="c12" width="55"
-                                 align="center">
+                                 align="center"      
+                                styleClass="#{ row.bindings.D21.inputValue == null ? '' :  row.bindings.D21.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D21.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D21.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D21.mandatory}"
@@ -507,7 +541,8 @@
                       </af:column>
                       <af:column sortProperty="D22" filterable="false"
                                  sortable="false" id="c16" width="55"
-                                 align="center">
+                                 align="center"      
+                                  styleClass="#{ row.bindings.D22.inputValue == null ? '' :  row.bindings.D22.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D22.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D22.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D22.mandatory}"
@@ -522,7 +557,8 @@
                       </af:column>
                       <af:column sortProperty="D23" filterable="false"
                                  sortable="false" id="c23" width="55"
-                                 align="center">
+                                 align="center"      
+                                   styleClass="#{ row.bindings.D23.inputValue == null ? '' :  row.bindings.D23.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D23.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D23.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D23.mandatory}"
@@ -537,7 +573,8 @@
                       </af:column>
                       <af:column sortProperty="D24" filterable="false"
                                  sortable="false" id="c7" width="55"
-                                 align="center">
+                                 align="center"      
+                                    styleClass="#{ row.bindings.D24.inputValue == null ? '' :  row.bindings.D24.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D24.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D24.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D24.mandatory}"
@@ -552,7 +589,7 @@
                       </af:column>
                       <af:column sortProperty="D25" filterable="false"
                                  sortable="false" id="c1" width="55"
-                                 align="center">
+                                 styleClass="#{ row.bindings.D25.inputValue == null ? '' :  row.bindings.D25.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D25.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D25.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D25.mandatory}"
@@ -567,7 +604,8 @@
                       </af:column>
                       <af:column sortProperty="D26" filterable="false"
                                  sortable="false" id="c13" width="55"
-                                 align="center">
+                                 align="center"      
+                                    styleClass="#{ row.bindings.D26.inputValue == null ? '' :  row.bindings.D26.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D26.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D26.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D26.mandatory}"
@@ -582,7 +620,8 @@
                       </af:column>
                       <af:column sortProperty="D27" filterable="false"
                                  sortable="false" id="c8" width="55"
-                                 align="center">
+                                 align="center"      
+                                    styleClass="#{ row.bindings.D27.inputValue == null ? '' :  row.bindings.D27.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D27.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D27.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D27.mandatory}"
@@ -597,7 +636,8 @@
                       </af:column>
                       <af:column sortProperty="D28" filterable="false"
                                  sortable="false" id="c5" width="55"
-                                 align="center">
+                                 align="center"      
+                                   styleClass="#{ row.bindings.D28.inputValue == null ? '' :  row.bindings.D28.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D28.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D28.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D28.mandatory}"
@@ -612,7 +652,8 @@
                       </af:column>
                       <af:column sortProperty="D29" filterable="false"
                                  sortable="false" id="c6" width="55"
-                                 align="center">
+                                 align="center"      
+                                    styleClass="#{ row.bindings.D29.inputValue == null ? '' :  row.bindings.D29.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D29.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D29.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D29.mandatory}"
@@ -627,7 +668,8 @@
                       </af:column>
                       <af:column sortProperty="D30" filterable="false"
                                  sortable="false" id="c22" width="55"
-                                 align="center">
+                                 align="center"      
+                                styleClass="#{ row.bindings.D30.inputValue == null ? '' :  row.bindings.D30.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D30.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D30.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D30.mandatory}"
@@ -642,7 +684,8 @@
                       </af:column>
                       <af:column sortProperty="D31" filterable="false"
                                  sortable="false" id="c26" width="55"
-                                 align="center">
+                                 align="center"      
+                                   styleClass="#{ row.bindings.D31.inputValue == null ? '' :  row.bindings.D31.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D31.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D31.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D31.mandatory}"

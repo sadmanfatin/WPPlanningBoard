@@ -53,6 +53,23 @@ af|column::column-header-cell-content {
 }
 
 
-.newStyleColor af|co::content {
-    background-color:rgb(214,231,255);
+
+af|column::column-data-cell-content {
+   /*background-color:rgb(255,176,170);*/
 }
+.customColumnColor af|column::data-cell{
+   /*background-color:rgb(255,176,170);*/
+}
+
+af|column::data-cell.overload{
+   background-color:rgb(255,176,170);
+    
+}
+af|column::data-cell.underload{
+   background-color:rgb(180,255,191);    
+}
+af|column::data-cell.avgload{
+background-color:rgb(158,195,255);
+    
+}
+
