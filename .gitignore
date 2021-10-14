@@ -21,3 +21,5 @@
 *.ear
 *.war
 *.class
+*.class
+*.cdi_javac
