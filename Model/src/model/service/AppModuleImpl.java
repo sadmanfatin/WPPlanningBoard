@@ -224,13 +224,6 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         return (ViewLinkImpl)findViewLink("WpMonthListVO_vs_MonthWiseDailyProcessQtyVO_vl1");
     }
 
-    /**
-     * Container's getter for PopulateStyleFromPreviousMonthVO1.
-     * @return PopulateStyleFromPreviousMonthVO1
-     */
-    public ViewObjectImpl getPopulateStyleFromPreviousMonthVO1() {
-        return (ViewObjectImpl)findViewObject("PopulateStyleFromPreviousMonthVO1");
-    }
 
     /**
      * Container's getter for WpPlanningBoardFreezeVO1.
@@ -311,5 +304,21 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewLinkImpl getPlanningBoardVO_vs_StyleWiseSectionProcessSamVO_vl1() {
         return (ViewLinkImpl)findViewLink("PlanningBoardVO_vs_StyleWiseSectionProcessSamVO_vl1");
+    }
+
+    /**
+     * Container's getter for PopulateStyleFromPreviousMonthVO1.
+     * @return PopulateStyleFromPreviousMonthVO1
+     */
+    public PopulateStyleFromPreviousMonthVOImpl getPopulateStyleFromPreviousMonthVO1() {
+        return (PopulateStyleFromPreviousMonthVOImpl)findViewObject("PopulateStyleFromPreviousMonthVO1");
+    }
+
+    /**
+     * Container's getter for OrgVO_vs_PopulateStyleFromPreviousMonthVO_vl1.
+     * @return OrgVO_vs_PopulateStyleFromPreviousMonthVO_vl1
+     */
+    public ViewLinkImpl getOrgVO_vs_PopulateStyleFromPreviousMonthVO_vl1() {
+        return (ViewLinkImpl)findViewLink("OrgVO_vs_PopulateStyleFromPreviousMonthVO_vl1");
     }
 }

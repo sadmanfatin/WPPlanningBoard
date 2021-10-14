@@ -54,9 +54,6 @@
     Name="MonthWiseDailyProcessQtyVO1"
     ViewObjectName="model.view.MonthWiseDailyProcessQtyVO"/>
   <ViewUsage
-    Name="PopulateStyleFromPreviousMonthVO1"
-    ViewObjectName="model.view.PopulateStyleFromPreviousMonthVO"/>
-  <ViewUsage
     Name="WpPlanningBoardFreezeVO1"
     ViewObjectName="model.view.WpPlanningBoardFreezeVO"/>
   <ViewUsage
@@ -71,6 +68,9 @@
   <ViewUsage
     Name="StyleWiseSectionProcessSamVO1"
     ViewObjectName="model.view.StyleWiseSectionProcessSamVO"/>
+  <ViewUsage
+    Name="PopulateStyleFromPreviousMonthVO1"
+    ViewObjectName="model.view.PopulateStyleFromPreviousMonthVO"/>
   <ViewLinkUsage
     Name="MonthSearchVO_vs_WpMonthListVO_vl1"
     ViewLinkObjectName="model.viewlinks.MonthSearchVO_vs_WpMonthListVO_vl"
@@ -154,6 +154,12 @@
     ViewLinkObjectName="model.viewlinks.PlanningBoardVO_vs_StyleWiseSectionProcessSamVO_vl"
     SrcViewUsageName="model.service.AppModule.WpPlanningBoardVO1"
     DstViewUsageName="model.service.AppModule.StyleWiseSectionProcessSamVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="OrgVO_vs_PopulateStyleFromPreviousMonthVO_vl1"
+    ViewLinkObjectName="model.viewlinks.OrgVO_vs_PopulateStyleFromPreviousMonthVO_vl"
+    SrcViewUsageName="model.service.AppModule.OrgVO1"
+    DstViewUsageName="model.service.AppModule.PopulateStyleFromPreviousMonthVO1"
     Reversed="false"/>
   <ClientInterface>
     <Method
