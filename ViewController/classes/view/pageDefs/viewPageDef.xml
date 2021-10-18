@@ -489,6 +489,7 @@
           <Item Value="D30"/>
           <Item Value="D31"/>
           <Item Value="AvgLoad"/>
+          <Item Value="LoadLimit"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

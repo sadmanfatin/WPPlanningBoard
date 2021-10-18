@@ -540,6 +540,18 @@ pivot (  max(load) for day in (
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </ViewAttribute>
+    <ViewAttribute
+    Name="LoadLimit"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression><![CDATA[100]]></TransientExpression>
+  </ViewAttribute>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
