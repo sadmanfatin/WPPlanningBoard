@@ -16,7 +16,7 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="model.view.StyleWiseMonthlyQtyVO_LABEL"/>
+        ResId="model.view.monthlysummary.StyleWiseMonthlyQtyVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>

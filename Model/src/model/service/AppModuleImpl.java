@@ -321,4 +321,36 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewLinkImpl getOrgVO_vs_PopulateStyleFromPreviousMonthVO_vl1() {
         return (ViewLinkImpl)findViewLink("OrgVO_vs_PopulateStyleFromPreviousMonthVO_vl1");
     }
+
+    /**
+     * Container's getter for FabricationWiseMonthlyQtyVO1.
+     * @return FabricationWiseMonthlyQtyVO1
+     */
+    public ViewObjectImpl getFabricationWiseMonthlyQtyVO1() {
+        return (ViewObjectImpl)findViewObject("FabricationWiseMonthlyQtyVO1");
+    }
+
+    /**
+     * Container's getter for WpMonthListVO_vs_FabricationWiseMonthlyQtyVO_vl1.
+     * @return WpMonthListVO_vs_FabricationWiseMonthlyQtyVO_vl1
+     */
+    public ViewLinkImpl getWpMonthListVO_vs_FabricationWiseMonthlyQtyVO_vl1() {
+        return (ViewLinkImpl)findViewLink("WpMonthListVO_vs_FabricationWiseMonthlyQtyVO_vl1");
+    }
+
+    /**
+     * Container's getter for WashTypeWiseMonthlyQtyVO1.
+     * @return WashTypeWiseMonthlyQtyVO1
+     */
+    public ViewObjectImpl getWashTypeWiseMonthlyQtyVO1() {
+        return (ViewObjectImpl)findViewObject("WashTypeWiseMonthlyQtyVO1");
+    }
+
+    /**
+     * Container's getter for WpMonthListVO_vs_WashTypeWiseMonthlyQtyVO_vl1.
+     * @return WpMonthListVO_vs_WashTypeWiseMonthlyQtyVO_vl1
+     */
+    public ViewLinkImpl getWpMonthListVO_vs_WashTypeWiseMonthlyQtyVO_vl1() {
+        return (ViewLinkImpl)findViewLink("WpMonthListVO_vs_WashTypeWiseMonthlyQtyVO_vl1");
+    }
 }

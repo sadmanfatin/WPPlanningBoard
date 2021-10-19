@@ -31,13 +31,13 @@
   <ViewLinkDefEnd
     Name="BuyerWiseMonthlyQtyVO"
     Cardinality="-1"
-    Owner="model.view.BuyerWiseMonthlyQtyVO">
+    Owner="model.view.monthlysummary.BuyerWiseMonthlyQtyVO">
     <DesignTime>
       <Attr Name="_finderName" Value="BuyerWiseMonthlyQtyVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.view.BuyerWiseMonthlyQtyVO.MonthId"/>
+      <Item Value="model.view.monthlysummary.BuyerWiseMonthlyQtyVO.MonthId"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

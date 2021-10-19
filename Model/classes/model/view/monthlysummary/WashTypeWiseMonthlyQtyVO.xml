@@ -3,7 +3,7 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="BuyerWiseMonthlyQtyVO"
+  Name="WashTypeWiseMonthlyQtyVO"
   Version="11.1.1.62.29"
   InheritPersonalization="true"
   BindingStyle="OracleName"
@@ -16,21 +16,18 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="model.view.BuyerWiseMonthlyQtyVO_LABEL"/>
+        ResId="model.view.monthlysummary.WashTypeWiseMonthlyQtyVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>
-    <![CDATA[SELECT SQ.MONTH_ID,   
- POC.BUYER_NAME,  
- SUM( SQ.QUANTITY) WASH_QUANTITY,
- ROUND( SUM( SQ.QUANTITY) / (  (SELECT COUNT ( *)  FROM WP_HOLIDAY_CALENDAR HC WHERE HC.MONTH_ID  =  SQ.MONTH_ID AND  HC.WORKING_STATUS = 'Workingday') ) )   AVERAGE_PER_DAY,
-   
- ROUND( ( SUM( SQ.QUANTITY)/  (SELECT SUM(QUANTITY )   FROM   WP_DAILY_STYLE_QUANTITY SQ2 WHERE SQ2.MONTH_ID = SQ.MONTH_ID )  )* 100) WASH_PERCENTAGE
-FROM WP_DAILY_STYLE_QUANTITY SQ,
-POC_SYSTEM_ID_VIEW  POC
-WHERE SQ.SYSTEM_ID = POC.SYSTEM_ID
-
-GROUP BY    SQ.MONTH_ID,  POC.BUYER_ID, POC.BUYER_NAME]]>
+    <![CDATA[SELECT   PB.MONTH_ID, ML.MONTH_NAME, ML.YEAR,  PB.ORG_ID,   SS.WASH_TYPE, SUM( PB.MONTHLY_TOTAL) TOTAL 
+FROM WP_PLANNING_BOARD  PB,
+WP_STYLE_SETUP SS,
+WP_MONTH_LIST ML
+WHERE PB.SYSTEM_ID  = SS.SYSTEM_ID
+AND PB.ORG_ID = SS.ORG_ID
+AND ML.MONTH_ID = PB.MONTH_ID
+GROUP BY PB.MONTH_ID, ML.MONTH_NAME, ML.YEAR,  PB.ORG_ID,  SS.WASH_TYPE]]>
   </SQLQuery>
   <ViewAttribute
     Name="MonthId"
@@ -43,71 +40,81 @@ GROUP BY    SQ.MONTH_ID,  POC.BUYER_ID, POC.BUYER_NAME]]>
     Expression="MONTH_ID"
     SQLType="NUMERIC">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
+      <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
-    Name="BuyerName"
+    Name="MonthName"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Precision="4000"
+    Precision="100"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    AliasName="BUYER_NAME"
-    Expression="BUYER_NAME"
+    AliasName="MONTH_NAME"
+    Expression="MONTH_NAME"
     SQLType="VARCHAR">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="4000"/>
+      <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
-    Name="WashQuantity"
+    Name="Year"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    AliasName="WASH_QUANTITY"
-    Expression="WASH_QUANTITY"
+    AliasName="YEAR"
+    Expression="YEAR"
     SQLType="NUMERIC">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
+      <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
-    Name="AveragePerDay"
+    Name="OrgId"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    AliasName="AVERAGE_PER_DAY"
-    Expression="AVERAGE_PER_DAY"
+    AliasName="ORG_ID"
+    Expression="ORG_ID"
     SQLType="NUMERIC">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
+      <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
-    Name="WashPercentage"
+    Name="WashType"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="WASH_TYPE"
+    Expression="WASH_TYPE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Total"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    AliasName="WASH_PERCENTAGE"
-    Expression="WASH_PERCENTAGE"
+    AliasName="TOTAL"
+    Expression="TOTAL"
     SQLType="NUMERIC">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
+      <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
   </ViewAttribute>
-  <ViewLinkAccessor
-    Name="StyleWiseMonthlyQtyVO"
-    ViewLink="model.viewlinks.Buyer_Style_MonthlyQty_vl"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

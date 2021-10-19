@@ -18,28 +18,28 @@
   <ViewLinkDefEnd
     Name="BuyerWiseMonthlyQtyVO"
     Cardinality="1"
-    Owner="model.view.BuyerWiseMonthlyQtyVO"
+    Owner="model.view.monthlysummary.BuyerWiseMonthlyQtyVO"
     Source="true">
     <DesignTime>
       <Attr Name="_finderName" Value="BuyerWiseMonthlyQtyVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.view.BuyerWiseMonthlyQtyVO.MonthId"/>
-      <Item Value="model.view.BuyerWiseMonthlyQtyVO.BuyerName"/>
+      <Item Value="model.view.monthlysummary.BuyerWiseMonthlyQtyVO.MonthId"/>
+      <Item Value="model.view.monthlysummary.BuyerWiseMonthlyQtyVO.BuyerName"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
     Name="StyleWiseMonthlyQtyVO"
     Cardinality="-1"
-    Owner="model.view.StyleWiseMonthlyQtyVO">
+    Owner="model.view.monthlysummary.StyleWiseMonthlyQtyVO">
     <DesignTime>
       <Attr Name="_finderName" Value="StyleWiseMonthlyQtyVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.view.StyleWiseMonthlyQtyVO.MonthId"/>
-      <Item Value="model.view.StyleWiseMonthlyQtyVO.BuyerName"/>
+      <Item Value="model.view.monthlysummary.StyleWiseMonthlyQtyVO.MonthId"/>
+      <Item Value="model.view.monthlysummary.StyleWiseMonthlyQtyVO.BuyerName"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

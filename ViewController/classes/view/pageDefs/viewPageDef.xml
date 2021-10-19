@@ -423,7 +423,7 @@
     </attributeValues>
     <tree IterBinding="BuyerWiseMonthlyQtyVO1Iterator"
           id="BuyerWiseMonthlyQtyVO1">
-      <nodeDefinition DefName="model.view.BuyerWiseMonthlyQtyVO"
+      <nodeDefinition DefName="model.view.monthlysummary.BuyerWiseMonthlyQtyVO"
                       Name="BuyerWiseMonthlyQtyVO10">
         <AttrNames>
           <Item Value="MonthId"/>
@@ -436,7 +436,7 @@
     </tree>
     <tree IterBinding="ProductionUnitWiseMonthlyQtyVO1Iterator"
           id="ProductionUnitWiseMonthlyQtyVO1">
-      <nodeDefinition DefName="model.view.ProductionUnitWiseMonthlyQtyVO"
+      <nodeDefinition DefName="model.view.monthlysummary.ProductionUnitWiseMonthlyQtyVO"
                       Name="ProductionUnitWiseMonthlyQtyVO10">
         <AttrNames>
           <Item Value="MonthId"/>
@@ -677,7 +677,7 @@
     </tree>
     <tree IterBinding="StyleWiseMonthlyQtyVO1Iterator"
           id="StyleWiseMonthlyQtyVO1">
-      <nodeDefinition DefName="model.view.StyleWiseMonthlyQtyVO"
+      <nodeDefinition DefName="model.view.monthlysummary.StyleWiseMonthlyQtyVO"
                       Name="StyleWiseMonthlyQtyVO10">
         <AttrNames>
           <Item Value="MonthId"/>

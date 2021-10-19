@@ -3,7 +3,7 @@
 <!---->
 <ViewLink
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="WpMonthListVO_vs_BuyerWiseMonthlyQtyVO_vl"
+  Name="WpMonthListVO_vs_FabricationWiseMonthlyQtyVO_vl"
   Version="11.1.1.62.29"
   InheritPersonalization="true">
   <DesignTime>
@@ -12,7 +12,7 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="model.viewlinks.WpMonthListVO_vs_BuyerWiseMonthlyQtyVO_vl_LABEL"/>
+        ResId="model.viewlinks.WpMonthListVO_vs_FabricationWiseMonthlyQtyVO_vl_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <ViewLinkDefEnd
@@ -29,15 +29,16 @@
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
-    Name="BuyerWiseMonthlyQtyVO"
+    Name="FabricationWiseMonthlyQtyVO"
     Cardinality="-1"
-    Owner="model.view.monthlysummary.BuyerWiseMonthlyQtyVO">
+    Owner="model.view.monthlysummary.FabricationWiseMonthlyQtyVO">
     <DesignTime>
-      <Attr Name="_finderName" Value="BuyerWiseMonthlyQtyVO"/>
+      <Attr Name="_finderName" Value="FabricationWiseMonthlyQtyVO"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.view.monthlysummary.BuyerWiseMonthlyQtyVO.MonthId"/>
+      <Item
+        Value="model.view.monthlysummary.FabricationWiseMonthlyQtyVO.MonthId"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

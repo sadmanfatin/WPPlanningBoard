@@ -576,6 +576,26 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
                 obj.setAttributeInternal(index(), value);
             }
         }
+        ,
+        FabricationWiseMonthlyQtyVO {
+            public Object get(WpMonthListVORowImpl obj) {
+                return obj.getFabricationWiseMonthlyQtyVO();
+            }
+
+            public void put(WpMonthListVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        WashTypeWiseMonthlyQtyVO {
+            public Object get(WpMonthListVORowImpl obj) {
+                return obj.getWashTypeWiseMonthlyQtyVO();
+            }
+
+            public void put(WpMonthListVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -658,6 +678,8 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
     public static final int MONTHWISEDAILYPROCESSQTYVO = AttributesEnum.MonthWiseDailyProcessQtyVO.index();
     public static final int WPPLANNINGBOARDFREEZEVO = AttributesEnum.WpPlanningBoardFreezeVO.index();
     public static final int WPPLANNINGBOARDFREEZELOADVO = AttributesEnum.WpPlanningBoardFreezeLoadVO.index();
+    public static final int FABRICATIONWISEMONTHLYQTYVO = AttributesEnum.FabricationWiseMonthlyQtyVO.index();
+    public static final int WASHTYPEWISEMONTHLYQTYVO = AttributesEnum.WashTypeWiseMonthlyQtyVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1491,6 +1513,20 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      */
     public RowIterator getWpPlanningBoardFreezeLoadVO() {
         return (RowIterator)getAttributeInternal(WPPLANNINGBOARDFREEZELOADVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link FabricationWiseMonthlyQtyVO.
+     */
+    public RowIterator getFabricationWiseMonthlyQtyVO() {
+        return (RowIterator)getAttributeInternal(FABRICATIONWISEMONTHLYQTYVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link WashTypeWiseMonthlyQtyVO.
+     */
+    public RowIterator getWashTypeWiseMonthlyQtyVO() {
+        return (RowIterator)getAttributeInternal(WASHTYPEWISEMONTHLYQTYVO);
     }
 
     /**

@@ -43,10 +43,10 @@
     ViewObjectName="model.view.PopulateStylesVO"/>
   <ViewUsage
     Name="BuyerWiseMonthlyQtyVO1"
-    ViewObjectName="model.view.BuyerWiseMonthlyQtyVO"/>
+    ViewObjectName="model.view.monthlysummary.BuyerWiseMonthlyQtyVO"/>
   <ViewUsage
     Name="ProductionUnitWiseMonthlyQtyVO1"
-    ViewObjectName="model.view.ProductionUnitWiseMonthlyQtyVO"/>
+    ViewObjectName="model.view.monthlysummary.ProductionUnitWiseMonthlyQtyVO"/>
   <ViewUsage
     Name="WpPlanningBoardAllSectionLoadVO1"
     ViewObjectName="model.view.WpPlanningBoardAllSectionLoadVO"/>
@@ -61,7 +61,7 @@
     ViewObjectName="model.view.WpPlanningBoardFreezeLoadVO"/>
   <ViewUsage
     Name="StyleWiseMonthlyQtyVO1"
-    ViewObjectName="model.view.StyleWiseMonthlyQtyVO"/>
+    ViewObjectName="model.view.monthlysummary.StyleWiseMonthlyQtyVO"/>
   <ViewUsage
     Name="StyleWiseShipmentVO1"
     ViewObjectName="model.view.StyleWiseShipmentVO"/>
@@ -71,6 +71,12 @@
   <ViewUsage
     Name="PopulateStyleFromPreviousMonthVO1"
     ViewObjectName="model.view.PopulateStyleFromPreviousMonthVO"/>
+  <ViewUsage
+    Name="FabricationWiseMonthlyQtyVO1"
+    ViewObjectName="model.view.monthlysummary.FabricationWiseMonthlyQtyVO"/>
+  <ViewUsage
+    Name="WashTypeWiseMonthlyQtyVO1"
+    ViewObjectName="model.view.monthlysummary.WashTypeWiseMonthlyQtyVO"/>
   <ViewLinkUsage
     Name="MonthSearchVO_vs_WpMonthListVO_vl1"
     ViewLinkObjectName="model.viewlinks.MonthSearchVO_vs_WpMonthListVO_vl"
@@ -160,6 +166,18 @@
     ViewLinkObjectName="model.viewlinks.OrgVO_vs_PopulateStyleFromPreviousMonthVO_vl"
     SrcViewUsageName="model.service.AppModule.OrgVO1"
     DstViewUsageName="model.service.AppModule.PopulateStyleFromPreviousMonthVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="WpMonthListVO_vs_FabricationWiseMonthlyQtyVO_vl1"
+    ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_FabricationWiseMonthlyQtyVO_vl"
+    SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
+    DstViewUsageName="model.service.AppModule.FabricationWiseMonthlyQtyVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="WpMonthListVO_vs_WashTypeWiseMonthlyQtyVO_vl1"
+    ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_WashTypeWiseMonthlyQtyVO_vl"
+    SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
+    DstViewUsageName="model.service.AppModule.WashTypeWiseMonthlyQtyVO1"
     Reversed="false"/>
   <ClientInterface>
     <Method

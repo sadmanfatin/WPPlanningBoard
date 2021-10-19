@@ -39,6 +39,14 @@
       </DesignTime>
    </Containee>
    <Containee
+      Name="monthlysummary"
+      PackageName="model.view.monthlysummary"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
       Name="view"
       PackageName="model.view"
       ObjectType="JboPackage">

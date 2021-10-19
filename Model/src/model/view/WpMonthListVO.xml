@@ -8,13 +8,13 @@
   InheritPersonalization="true"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full"
-  UseGlueCode="false"
   RowClass="model.view.WpMonthListVORowImpl"
-  ComponentClass="model.view.WpMonthListVOImpl">
+  ComponentClass="model.view.WpMonthListVOImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
   <DesignTime>
-    <Attr Name="_isExpertMode" Value="true"/>
     <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <SQLQuery>
@@ -131,7 +131,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-      <ViewAttribute
+  <ViewAttribute
     Name="D2Total"
     IsSelected="false"
     IsPersistent="false"
@@ -140,7 +140,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-      <ViewAttribute
+  <ViewAttribute
     Name="D3Total"
     IsSelected="false"
     IsPersistent="false"
@@ -149,8 +149,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D4Total"
     IsSelected="false"
     IsPersistent="false"
@@ -159,8 +158,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D5Total"
     IsSelected="false"
     IsPersistent="false"
@@ -169,8 +167,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D6Total"
     IsSelected="false"
     IsPersistent="false"
@@ -179,8 +176,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D7Total"
     IsSelected="false"
     IsPersistent="false"
@@ -189,8 +185,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D8Total"
     IsSelected="false"
     IsPersistent="false"
@@ -199,8 +194,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D9Total"
     IsSelected="false"
     IsPersistent="false"
@@ -209,8 +203,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D10Total"
     IsSelected="false"
     IsPersistent="false"
@@ -219,8 +212,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D11Total"
     IsSelected="false"
     IsPersistent="false"
@@ -229,8 +221,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D12Total"
     IsSelected="false"
     IsPersistent="false"
@@ -239,8 +230,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D13Total"
     IsSelected="false"
     IsPersistent="false"
@@ -249,8 +239,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D14Total"
     IsSelected="false"
     IsPersistent="false"
@@ -259,8 +248,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D15Total"
     IsSelected="false"
     IsPersistent="false"
@@ -269,8 +257,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D16Total"
     IsSelected="false"
     IsPersistent="false"
@@ -279,8 +266,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D17Total"
     IsSelected="false"
     IsPersistent="false"
@@ -289,8 +275,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D18Total"
     IsSelected="false"
     IsPersistent="false"
@@ -299,8 +284,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D19Total"
     IsSelected="false"
     IsPersistent="false"
@@ -309,8 +293,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D20Total"
     IsSelected="false"
     IsPersistent="false"
@@ -319,8 +302,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D21Total"
     IsSelected="false"
     IsPersistent="false"
@@ -329,8 +311,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D22Total"
     IsSelected="false"
     IsPersistent="false"
@@ -339,8 +320,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D23Total"
     IsSelected="false"
     IsPersistent="false"
@@ -349,8 +329,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D24Total"
     IsSelected="false"
     IsPersistent="false"
@@ -359,8 +338,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-      <ViewAttribute
+  <ViewAttribute
     Name="D25Total"
     IsSelected="false"
     IsPersistent="false"
@@ -369,8 +347,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-         <ViewAttribute
+  <ViewAttribute
     Name="D26Total"
     IsSelected="false"
     IsPersistent="false"
@@ -379,8 +356,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-         <ViewAttribute
+  <ViewAttribute
     Name="D27Total"
     IsSelected="false"
     IsPersistent="false"
@@ -389,8 +365,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-         <ViewAttribute
+  <ViewAttribute
     Name="D28Total"
     IsSelected="false"
     IsPersistent="false"
@@ -399,8 +374,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-         <ViewAttribute
+  <ViewAttribute
     Name="D29Total"
     IsSelected="false"
     IsPersistent="false"
@@ -409,8 +383,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-         <ViewAttribute
+  <ViewAttribute
     Name="D30Total"
     IsSelected="false"
     IsPersistent="false"
@@ -419,9 +392,7 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-    
-    
-             <ViewAttribute
+  <ViewAttribute
     Name="D31Total"
     IsSelected="false"
     IsPersistent="false"
@@ -499,6 +470,16 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
   <ViewLinkAccessor
     Name="WpPlanningBoardFreezeLoadVO"
     ViewLink="model.viewlinks.WpMonthListVO_vs_WpPlanningBoardFreezeLoadVO_vl"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="FabricationWiseMonthlyQtyVO"
+    ViewLink="model.viewlinks.WpMonthListVO_vs_FabricationWiseMonthlyQtyVO_vl"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="WashTypeWiseMonthlyQtyVO"
+    ViewLink="model.viewlinks.WpMonthListVO_vs_WashTypeWiseMonthlyQtyVO_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>
