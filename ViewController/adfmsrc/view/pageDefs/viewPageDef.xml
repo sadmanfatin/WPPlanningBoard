@@ -33,7 +33,7 @@
     <iterator Binds="BuyerWiseMonthlyQtyVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="BuyerWiseMonthlyQtyVO1Iterator"/>
-    <iterator Binds="ProductionUnitWiseMonthlyQtyVO1" RangeSize="25"
+    <iterator Binds="ProductionUnitWiseMonthlyQtyVO1" RangeSize="-1"
               DataControl="AppModuleDataControl"
               id="ProductionUnitWiseMonthlyQtyVO1Iterator"/>
     <iterator Binds="WpPlanningBoardAllSectionLoadVO1" RangeSize="25"
@@ -75,6 +75,12 @@
     <iterator Binds="StyleWiseSectionProcessSamVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="StyleWiseSectionProcessSamVO1Iterator"/>
+    <iterator Binds="FabricationWiseMonthlyQtyVO1" RangeSize="-1"
+              DataControl="AppModuleDataControl"
+              id="FabricationWiseMonthlyQtyVO1Iterator"/>
+    <iterator Binds="WashTypeWiseMonthlyQtyVO1" RangeSize="-1"
+              DataControl="AppModuleDataControl"
+              id="WashTypeWiseMonthlyQtyVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="OrgVO1Iterator" id="OrgName">
@@ -728,5 +734,67 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <graph IterBinding="ProductionUnitWiseMonthlyQtyVO1Iterator"
+           id="ProductionUnitWiseMonthlyQtyVO11"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="PIE">
+      <graphDataMap leafOnly="true">
+        <series>
+          <item value="ProductionUnitShortName"/>
+        </series>
+        <groups>
+          <data>
+            <item value="WashQuantity"/>
+          </data>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <tree IterBinding="FabricationWiseMonthlyQtyVO1Iterator"
+          id="FabricationWiseMonthlyQtyVO1">
+      <nodeDefinition DefName="model.view.monthlysummary.FabricationWiseMonthlyQtyVO"
+                      Name="FabricationWiseMonthlyQtyVO10">
+        <AttrNames>
+          <Item Value="Fabrication"/>
+          <Item Value="Total"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <graph IterBinding="FabricationWiseMonthlyQtyVO1Iterator"
+           id="FabricationWiseMonthlyQtyVO11"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="PIE">
+      <graphDataMap leafOnly="true">
+        <series>
+          <item value="Fabrication"/>
+        </series>
+        <groups>
+          <data>
+            <item value="Total"/>
+          </data>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <tree IterBinding="WashTypeWiseMonthlyQtyVO1Iterator"
+          id="WashTypeWiseMonthlyQtyVO1">
+      <nodeDefinition DefName="model.view.monthlysummary.WashTypeWiseMonthlyQtyVO"
+                      Name="WashTypeWiseMonthlyQtyVO10">
+        <AttrNames>
+          <Item Value="WashType"/>
+          <Item Value="Total"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <graph IterBinding="WashTypeWiseMonthlyQtyVO1Iterator"
+           id="WashTypeWiseMonthlyQtyVO11"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="PIE">
+      <graphDataMap leafOnly="true">
+        <series>
+          <item value="WashType" label="Total"/>
+        </series>
+        <groups>
+          <data>
+            <item value="Total"/>
+          </data>
+        </groups>
+      </graphDataMap>
+    </graph>
   </bindings>
 </pageDefinition>

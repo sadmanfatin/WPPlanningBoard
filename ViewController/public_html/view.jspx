@@ -2,7 +2,8 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
           xmlns:f="http://java.sun.com/jsf/core"
           xmlns:h="http://java.sun.com/jsf/html"
-          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
   <f:view beforePhase="#{ManagedBean.onPageLoad}">
     <af:document id="d1">
@@ -1930,335 +1931,504 @@
                   </f:facet>
                 </af:showDetailItem>
                 <af:showDetailItem text="Dashboard" id="sdi2">
-                  <af:panelDashboard id="pd1" columns="2" rowHeight="260px"
-                                     styleClass="AFStretchWidth"
-                                     inlineStyle="height:700.0px;">
-                    <af:panelGroupLayout id="pgl38"
-                                         inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
-                      <af:panelHeader text="Wrking Day" id="ph3">
-                        <f:facet name="context"/>
-                        <f:facet name="menuBar"/>
-                        <f:facet name="toolbar"/>
-                        <f:facet name="legend"/>
-                        <f:facet name="info"/>
-                        <af:panelFormLayout id="pfl3"
-                                            partialTriggers="soc1 soc2"
-                                            inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
-                          <af:inputText value="#{bindings.WorkingdayCount.inputValue}"
-                                        label="#{bindings.WorkingdayCount.hints.label}"
-                                        required="#{bindings.WorkingdayCount.hints.mandatory}"
-                                        columns="#{bindings.WorkingdayCount.hints.displayWidth}"
-                                        maximumLength="#{bindings.WorkingdayCount.hints.precision}"
-                                        shortDesc="#{bindings.WorkingdayCount.hints.tooltip}"
-                                        id="it97" readOnly="true"
-                                        inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
-                            <f:validator binding="#{bindings.WorkingdayCount.validator}"/>
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.WorkingdayCount.format}"/>
-                          </af:inputText>
-                          <af:inputText value="#{bindings.MonthlyGrandTotal.inputValue}"
-                                        label="#{bindings.MonthlyGrandTotal.hints.label}"
-                                        required="#{bindings.MonthlyGrandTotal.hints.mandatory}"
-                                        columns="#{bindings.MonthlyGrandTotal.hints.displayWidth}"
-                                        maximumLength="#{bindings.MonthlyGrandTotal.hints.precision}"
-                                        shortDesc="#{bindings.MonthlyGrandTotal.hints.tooltip}"
-                                        id="it96" readOnly="true"
-                                        inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
-                            <f:validator binding="#{bindings.MonthlyGrandTotal.validator}"/>
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.MonthlyGrandTotal.format}"/>
-                          </af:inputText>
-                          <af:inputText value="#{bindings.AveragePerDay.inputValue}"
-                                        label="#{bindings.AveragePerDay.hints.label}"
-                                        required="#{bindings.AveragePerDay.hints.mandatory}"
-                                        columns="#{bindings.AveragePerDay.hints.displayWidth}"
-                                        maximumLength="#{bindings.AveragePerDay.hints.precision}"
-                                        shortDesc="#{bindings.AveragePerDay.hints.tooltip}"
-                                        id="it95" readOnly="true"
-                                        inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
-                            <f:validator binding="#{bindings.AveragePerDay.validator}"/>
-                            <af:convertNumber groupingUsed="false"
-                                              pattern="#{bindings.AveragePerDay.format}"/>
-                          </af:inputText>
-                        </af:panelFormLayout>
-                      </af:panelHeader>
-                    </af:panelGroupLayout>
-                    <af:panelGroupLayout id="pgl35"
-                                         inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
-                      <af:panelHeader text="Buyer Wise Monthly View" id="ph4">
-                        <f:facet name="context"/>
-                        <f:facet name="menuBar"/>
-                        <f:facet name="toolbar"/>
-                        <f:facet name="legend"/>
-                        <f:facet name="info"/>
-                        <af:panelGroupLayout id="pgl41" layout="horizontal">
-                          <af:table value="#{bindings.BuyerWiseMonthlyQtyVO1.collectionModel}"
-                                    var="row"
-                                    rows="#{bindings.BuyerWiseMonthlyQtyVO1.rangeSize}"
-                                    emptyText="#{bindings.BuyerWiseMonthlyQtyVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                    fetchSize="#{bindings.BuyerWiseMonthlyQtyVO1.rangeSize}"
-                                    rowBandingInterval="0"
-                                    selectedRowKeys="#{bindings.BuyerWiseMonthlyQtyVO1.collectionModel.selectedRow}"
-                                    selectionListener="#{bindings.BuyerWiseMonthlyQtyVO1.collectionModel.makeCurrent}"
-                                    rowSelection="single" id="t5" width="361"
-                                    partialTriggers="::soc1 ::soc2"
-                                    inlineStyle="height:220.0px;">
-                            <af:column sortProperty="MonthId" sortable="false"
-                                       headerText="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.label}"
-                                       id="c75" visible="false">
-                              <af:inputText value="#{row.bindings.MonthId.inputValue}"
-                                            label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.label}"
-                                            required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.mandatory}"
-                                            columns="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.displayWidth}"
-                                            maximumLength="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.precision}"
-                                            shortDesc="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.tooltip}"
-                                            id="it102">
-                                <f:validator binding="#{row.bindings.MonthId.validator}"/>
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.format}"/>
-                              </af:inputText>
-                            </af:column>
-                            <af:column sortProperty="BuyerName" sortable="false"
-                                       headerText="Buyer Name"
-                                       id="c78" width="150" align="center">
-                              <af:inputText value="#{row.bindings.BuyerName.inputValue}"
-                                            label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.label}"
-                                            required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.mandatory}"
-                                            columns="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.displayWidth}"
-                                            maximumLength="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.precision}"
-                                            shortDesc="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.tooltip}"
-                                            id="it101">
-                                <f:validator binding="#{row.bindings.BuyerName.validator}"/>
-                              </af:inputText>
-                            </af:column>
-                            <af:column sortProperty="WashQuantity"
-                                       sortable="false"
-                                       headerText="Wash Quantity"
-                                       id="c76" width="60" align="center">
-                              <af:inputText value="#{row.bindings.WashQuantity.inputValue}"
-                                            label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.label}"
-                                            required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.mandatory}"
-                                            columns="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.displayWidth}"
-                                            maximumLength="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.precision}"
-                                            shortDesc="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.tooltip}"
-                                            id="it100">
-                                <f:validator binding="#{row.bindings.WashQuantity.validator}"/>
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.format}"/>
-                              </af:inputText>
-                            </af:column>
-                            <af:column sortProperty="AveragePerDay"
-                                       sortable="false"
-                                       headerText="Average Per Day"
-                                       id="c99" width="60" align="center">
-                              <af:inputText value="#{row.bindings.AveragePerDay.inputValue}"
-                                            label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
-                                            required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.mandatory}"
-                                            columns="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.displayWidth}"
-                                            maximumLength="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.precision}"
-                                            shortDesc="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.tooltip}"
-                                            id="it99">
-                                <f:validator binding="#{row.bindings.AveragePerDay.validator}"/>
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.format}"/>
-                              </af:inputText>
-                            </af:column>
-                            <af:column sortProperty="WashPercentage"
-                                       sortable="false"
-                                       headerText="Wash Percentage (%)"
-                                       id="c77" width="60" align="center">
-                              <af:inputText value="#{row.bindings.WashPercentage.inputValue}"
-                                            label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.label}"
-                                            required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.mandatory}"
-                                            columns="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.displayWidth}"
-                                            maximumLength="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.precision}"
-                                            shortDesc="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.tooltip}"
-                                            id="it98">
-                                <f:validator binding="#{row.bindings.WashPercentage.validator}"/>
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.format}"/>
-                              </af:inputText>
-                            </af:column>
-                          </af:table>
-                          <af:spacer width="10" height="10" id="s2"/>
-                          <af:table value="#{bindings.StyleWiseMonthlyQtyVO1.collectionModel}"
-                                    var="row"
-                                    rows="#{bindings.StyleWiseMonthlyQtyVO1.rangeSize}"
-                                    emptyText="#{bindings.StyleWiseMonthlyQtyVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                    fetchSize="#{bindings.StyleWiseMonthlyQtyVO1.rangeSize}"
-                                    rowBandingInterval="0"
-                                    selectedRowKeys="#{bindings.StyleWiseMonthlyQtyVO1.collectionModel.selectedRow}"
-                                    selectionListener="#{bindings.StyleWiseMonthlyQtyVO1.collectionModel.makeCurrent}"
-                                    rowSelection="single" id="t12"
-                                    inlineStyle="height:220.0px;"
-                                    partialTriggers="::t5">
-                            <af:column sortProperty="Style" sortable="false"
-                                       headerText="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.label}"
-                                       id="c288" align="center">
-                              <af:inputText value="#{row.bindings.Style.inputValue}"
-                                            label="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.label}"
-                                            required="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.mandatory}"
-                                            columns="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.displayWidth}"
-                                            maximumLength="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.precision}"
-                                            shortDesc="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.tooltip}"
-                                            id="it137">
-                                <f:validator binding="#{row.bindings.Style.validator}"/>
-                              </af:inputText>
-                            </af:column>
-                            <af:column sortProperty="WashQuantity"
-                                       sortable="false"
-                                       headerText="Wash Quantity"
-                                       id="c285" width="60" align="center">
-                              <af:inputText value="#{row.bindings.WashQuantity.inputValue}"
-                                            label="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.label}"
-                                            required="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.mandatory}"
-                                            columns="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.displayWidth}"
-                                            maximumLength="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.precision}"
-                                            shortDesc="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.tooltip}"
-                                            id="it138">
-                                <f:validator binding="#{row.bindings.WashQuantity.validator}"/>
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.format}"/>
-                              </af:inputText>
-                            </af:column>
-                            <af:column sortProperty="AveragePerDay"
-                                       sortable="false"
-                                       headerText="Average Per Day"
-                                       id="c282" width="60" align="center">
-                              <af:inputText value="#{row.bindings.AveragePerDay.inputValue}"
-                                            label="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
-                                            required="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.mandatory}"
-                                            columns="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.displayWidth}"
-                                            maximumLength="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.precision}"
-                                            shortDesc="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.tooltip}"
-                                            id="it133">
-                                <f:validator binding="#{row.bindings.AveragePerDay.validator}"/>
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.format}"/>
-                              </af:inputText>
-                            </af:column>
-                            <af:column sortProperty="WashPercentage"
-                                       sortable="false"
-                                       headerText="Wash Percentage (%)"
-                                       id="c286" width="60" align="center">
-                              <af:inputText value="#{row.bindings.WashPercentage.inputValue}"
-                                            label="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.label}"
-                                            required="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.mandatory}"
-                                            columns="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.displayWidth}"
-                                            maximumLength="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.precision}"
-                                            shortDesc="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.tooltip}"
-                                            id="it139">
-                                <f:validator binding="#{row.bindings.WashPercentage.validator}"/>
-                                <af:convertNumber groupingUsed="false"
-                                                  pattern="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.format}"/>
-                              </af:inputText>
-                            </af:column>
-                          </af:table>
-                        </af:panelGroupLayout>
-                      </af:panelHeader>
-                    </af:panelGroupLayout>
-                    <af:panelGroupLayout id="pgl36"
-                                         inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
-                      <af:panelHeader text="Unit Wise Delivery qty" id="ph5">
-                        <f:facet name="context"/>
-                        <f:facet name="menuBar"/>
-                        <f:facet name="toolbar"/>
-                        <f:facet name="legend"/>
-                        <f:facet name="info"/>
-                        <af:table value="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel}"
-                                  var="row"
-                                  rows="#{bindings.ProductionUnitWiseMonthlyQtyVO1.rangeSize}"
-                                  emptyText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                  fetchSize="#{bindings.ProductionUnitWiseMonthlyQtyVO1.rangeSize}"
-                                  rowBandingInterval="0"
-                                  selectedRowKeys="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel.selectedRow}"
-                                  selectionListener="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel.makeCurrent}"
-                                  rowSelection="single" id="t6"
-                                  partialTriggers="::soc1 ::soc2"
-                                  autoHeightRows="5"
-                                  inlineStyle="height:200.0px; width:545px;">
-                          <af:column sortProperty="MonthId" sortable="false"
-                                     headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.label}"
-                                     id="c100" visible="false">
-                            <af:inputText value="#{row.bindings.MonthId.inputValue}"
-                                          label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.label}"
-                                          required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.mandatory}"
-                                          columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.displayWidth}"
-                                          maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.precision}"
-                                          shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.tooltip}"
-                                          id="it105">
-                              <f:validator binding="#{row.bindings.MonthId.validator}"/>
+                  <af:panelStretchLayout id="psl2" dimensionsFrom="children"
+                                         inlineStyle="width:100.0%;"
+                                         rendered="false">
+                    <f:facet name="center"/>
+                  </af:panelStretchLayout>
+                  <af:panelGroupLayout id="pgl42" layout="scroll">
+                    <af:panelDashboard id="pd1" columns="2" rowHeight="360px"
+                                       styleClass="AFStretchWidth"
+                                       dimensionsFrom="children">
+                      <af:panelGroupLayout id="pgl38"
+                                           inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                        <af:panelHeader text="Wrking Day" id="ph3">
+                          <f:facet name="context"/>
+                          <f:facet name="menuBar"/>
+                          <f:facet name="toolbar"/>
+                          <f:facet name="legend"/>
+                          <f:facet name="info"/>
+                          <af:panelFormLayout id="pfl3"
+                                              partialTriggers="soc1 soc2"
+                                              inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                            <af:inputText value="#{bindings.WorkingdayCount.inputValue}"
+                                          label="#{bindings.WorkingdayCount.hints.label}"
+                                          required="#{bindings.WorkingdayCount.hints.mandatory}"
+                                          columns="#{bindings.WorkingdayCount.hints.displayWidth}"
+                                          maximumLength="#{bindings.WorkingdayCount.hints.precision}"
+                                          shortDesc="#{bindings.WorkingdayCount.hints.tooltip}"
+                                          id="it97" readOnly="true"
+                                          inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                              <f:validator binding="#{bindings.WorkingdayCount.validator}"/>
                               <af:convertNumber groupingUsed="false"
-                                                pattern="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.format}"/>
+                                                pattern="#{bindings.WorkingdayCount.format}"/>
                             </af:inputText>
-                          </af:column>
-                          <af:column sortProperty="ProductionUnitShortName"
-                                     sortable="true"
-                                     headerText="Production Unit"
-                                     id="c102" align="center" filterable="true">
-                            <af:inputText value="#{row.bindings.ProductionUnitShortName.inputValue}"
-                                          label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnitShortName.label}"
-                                          required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnitShortName.mandatory}"
-                                          columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnitShortName.displayWidth}"
-                                          maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnitShortName.precision}"
-                                          shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnitShortName.tooltip}"
-                                          id="it92" readOnly="true">
-                              <f:validator binding="#{row.bindings.ProductionUnitShortName.validator}"/>
-                            </af:inputText>
-                          </af:column>
-                          <af:column sortProperty="WashQuantity"
-                                     sortable="true"
-                                     headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.label}"
-                                     id="c101" align="center">
-                            <af:inputText value="#{row.bindings.WashQuantity.inputValue}"
-                                          label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.label}"
-                                          required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.mandatory}"
-                                          columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.displayWidth}"
-                                          maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.precision}"
-                                          shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.tooltip}"
-                                          id="it107">
-                              <f:validator binding="#{row.bindings.WashQuantity.validator}"/>
+                            <af:inputText value="#{bindings.MonthlyGrandTotal.inputValue}"
+                                          label="#{bindings.MonthlyGrandTotal.hints.label}"
+                                          required="#{bindings.MonthlyGrandTotal.hints.mandatory}"
+                                          columns="#{bindings.MonthlyGrandTotal.hints.displayWidth}"
+                                          maximumLength="#{bindings.MonthlyGrandTotal.hints.precision}"
+                                          shortDesc="#{bindings.MonthlyGrandTotal.hints.tooltip}"
+                                          id="it96" readOnly="true"
+                                          inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                              <f:validator binding="#{bindings.MonthlyGrandTotal.validator}"/>
                               <af:convertNumber groupingUsed="false"
-                                                pattern="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.format}"/>
+                                                pattern="#{bindings.MonthlyGrandTotal.format}"/>
                             </af:inputText>
-                          </af:column>
-                          <af:column sortProperty="AveragePerDay"
-                                     sortable="true"
-                                     headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
-                                     id="c103" align="center">
-                            <af:inputText value="#{row.bindings.AveragePerDay.inputValue}"
-                                          label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
-                                          required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.mandatory}"
-                                          columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.displayWidth}"
-                                          maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.precision}"
-                                          shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.tooltip}"
-                                          id="it106">
-                              <f:validator binding="#{row.bindings.AveragePerDay.validator}"/>
+                            <af:inputText value="#{bindings.AveragePerDay.inputValue}"
+                                          label="#{bindings.AveragePerDay.hints.label}"
+                                          required="#{bindings.AveragePerDay.hints.mandatory}"
+                                          columns="#{bindings.AveragePerDay.hints.displayWidth}"
+                                          maximumLength="#{bindings.AveragePerDay.hints.precision}"
+                                          shortDesc="#{bindings.AveragePerDay.hints.tooltip}"
+                                          id="it95" readOnly="true"
+                                          inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                              <f:validator binding="#{bindings.AveragePerDay.validator}"/>
                               <af:convertNumber groupingUsed="false"
-                                                pattern="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.format}"/>
+                                                pattern="#{bindings.AveragePerDay.format}"/>
                             </af:inputText>
-                          </af:column>
-                          <af:column sortProperty="WashPercentage"
-                                     sortable="true"
-                                     headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.label}"
-                                     id="c104" align="center">
-                            <af:inputText value="#{row.bindings.WashPercentage.inputValue}"
-                                          label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.label}"
-                                          required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.mandatory}"
-                                          columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.displayWidth}"
-                                          maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.precision}"
-                                          shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.tooltip}"
-                                          id="it104">
-                              <f:validator binding="#{row.bindings.WashPercentage.validator}"/>
-                              <af:convertNumber groupingUsed="false"
-                                                pattern="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.format}"/>
-                            </af:inputText>
-                          </af:column>
-                        </af:table>
-                      </af:panelHeader>
-                    </af:panelGroupLayout>
-                    <af:panelGroupLayout id="pgl37"/>
-                  </af:panelDashboard>
+                          </af:panelFormLayout>
+                        </af:panelHeader>
+                      </af:panelGroupLayout>
+                      <af:panelGroupLayout id="pgl35"
+                                           inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                        <af:panelHeader text="Buyer Wise Monthly View" id="ph4">
+                          <f:facet name="context"/>
+                          <f:facet name="menuBar"/>
+                          <f:facet name="toolbar"/>
+                          <f:facet name="legend"/>
+                          <f:facet name="info"/>
+                          <af:panelGroupLayout id="pgl41" layout="horizontal">
+                            <af:table value="#{bindings.BuyerWiseMonthlyQtyVO1.collectionModel}"
+                                      var="row"
+                                      rows="#{bindings.BuyerWiseMonthlyQtyVO1.rangeSize}"
+                                      emptyText="#{bindings.BuyerWiseMonthlyQtyVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      fetchSize="#{bindings.BuyerWiseMonthlyQtyVO1.rangeSize}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.BuyerWiseMonthlyQtyVO1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.BuyerWiseMonthlyQtyVO1.collectionModel.makeCurrent}"
+                                      rowSelection="single" id="t5" width="361"
+                                      partialTriggers="::soc1 ::soc2"
+                                      inlineStyle="height:220.0px;">
+                              <af:column sortProperty="MonthId" sortable="false"
+                                         headerText="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.label}"
+                                         id="c75" visible="false">
+                                <af:inputText value="#{row.bindings.MonthId.inputValue}"
+                                              label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.label}"
+                                              required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.mandatory}"
+                                              columns="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.displayWidth}"
+                                              maximumLength="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.precision}"
+                                              shortDesc="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.tooltip}"
+                                              id="it102">
+                                  <f:validator binding="#{row.bindings.MonthId.validator}"/>
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.BuyerWiseMonthlyQtyVO1.hints.MonthId.format}"/>
+                                </af:inputText>
+                              </af:column>
+                              <af:column sortProperty="BuyerName"
+                                         sortable="false"
+                                         headerText="Buyer Name" id="c78"
+                                         width="150" align="center">
+                                <af:inputText value="#{row.bindings.BuyerName.inputValue}"
+                                              label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.label}"
+                                              required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.mandatory}"
+                                              columns="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.displayWidth}"
+                                              maximumLength="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.precision}"
+                                              shortDesc="#{bindings.BuyerWiseMonthlyQtyVO1.hints.BuyerName.tooltip}"
+                                              id="it101">
+                                  <f:validator binding="#{row.bindings.BuyerName.validator}"/>
+                                </af:inputText>
+                              </af:column>
+                              <af:column sortProperty="WashQuantity"
+                                         sortable="false"
+                                         headerText="Wash Quantity" id="c76"
+                                         width="60" align="center">
+                                <af:inputText value="#{row.bindings.WashQuantity.inputValue}"
+                                              label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.label}"
+                                              required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.mandatory}"
+                                              columns="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.displayWidth}"
+                                              maximumLength="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.precision}"
+                                              shortDesc="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.tooltip}"
+                                              id="it100">
+                                  <f:validator binding="#{row.bindings.WashQuantity.validator}"/>
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashQuantity.format}"/>
+                                </af:inputText>
+                              </af:column>
+                              <af:column sortProperty="AveragePerDay"
+                                         sortable="false"
+                                         headerText="Average Per Day" id="c99"
+                                         width="60" align="center">
+                                <af:inputText value="#{row.bindings.AveragePerDay.inputValue}"
+                                              label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
+                                              required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.mandatory}"
+                                              columns="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.displayWidth}"
+                                              maximumLength="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.precision}"
+                                              shortDesc="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.tooltip}"
+                                              id="it99">
+                                  <f:validator binding="#{row.bindings.AveragePerDay.validator}"/>
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.BuyerWiseMonthlyQtyVO1.hints.AveragePerDay.format}"/>
+                                </af:inputText>
+                              </af:column>
+                              <af:column sortProperty="WashPercentage"
+                                         sortable="false"
+                                         headerText="Wash Percentage (%)"
+                                         id="c77" width="60" align="center">
+                                <af:inputText value="#{row.bindings.WashPercentage.inputValue}"
+                                              label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.label}"
+                                              required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.mandatory}"
+                                              columns="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.displayWidth}"
+                                              maximumLength="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.precision}"
+                                              shortDesc="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.tooltip}"
+                                              id="it98">
+                                  <f:validator binding="#{row.bindings.WashPercentage.validator}"/>
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.format}"/>
+                                </af:inputText>
+                              </af:column>
+                            </af:table>
+                            <af:spacer width="10" height="10" id="s2"/>
+                            <af:table value="#{bindings.StyleWiseMonthlyQtyVO1.collectionModel}"
+                                      var="row"
+                                      rows="#{bindings.StyleWiseMonthlyQtyVO1.rangeSize}"
+                                      emptyText="#{bindings.StyleWiseMonthlyQtyVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      fetchSize="#{bindings.StyleWiseMonthlyQtyVO1.rangeSize}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.StyleWiseMonthlyQtyVO1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.StyleWiseMonthlyQtyVO1.collectionModel.makeCurrent}"
+                                      rowSelection="single" id="t12"
+                                      inlineStyle="height:220.0px;"
+                                      partialTriggers="::t5">
+                              <af:column sortProperty="Style" sortable="false"
+                                         headerText="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.label}"
+                                         id="c288" align="center">
+                                <af:inputText value="#{row.bindings.Style.inputValue}"
+                                              label="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.label}"
+                                              required="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.mandatory}"
+                                              columns="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.displayWidth}"
+                                              maximumLength="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.precision}"
+                                              shortDesc="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.tooltip}"
+                                              id="it137">
+                                  <f:validator binding="#{row.bindings.Style.validator}"/>
+                                </af:inputText>
+                              </af:column>
+                              <af:column sortProperty="WashQuantity"
+                                         sortable="false"
+                                         headerText="Wash Quantity" id="c285"
+                                         width="60" align="center">
+                                <af:inputText value="#{row.bindings.WashQuantity.inputValue}"
+                                              label="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.label}"
+                                              required="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.mandatory}"
+                                              columns="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.displayWidth}"
+                                              maximumLength="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.precision}"
+                                              shortDesc="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.tooltip}"
+                                              id="it138">
+                                  <f:validator binding="#{row.bindings.WashQuantity.validator}"/>
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.format}"/>
+                                </af:inputText>
+                              </af:column>
+                              <af:column sortProperty="AveragePerDay"
+                                         sortable="false"
+                                         headerText="Average Per Day" id="c282"
+                                         width="60" align="center">
+                                <af:inputText value="#{row.bindings.AveragePerDay.inputValue}"
+                                              label="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
+                                              required="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.mandatory}"
+                                              columns="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.displayWidth}"
+                                              maximumLength="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.precision}"
+                                              shortDesc="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.tooltip}"
+                                              id="it133">
+                                  <f:validator binding="#{row.bindings.AveragePerDay.validator}"/>
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.format}"/>
+                                </af:inputText>
+                              </af:column>
+                              <af:column sortProperty="WashPercentage"
+                                         sortable="false"
+                                         headerText="Wash Percentage (%)"
+                                         id="c286" width="60" align="center">
+                                <af:inputText value="#{row.bindings.WashPercentage.inputValue}"
+                                              label="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.label}"
+                                              required="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.mandatory}"
+                                              columns="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.displayWidth}"
+                                              maximumLength="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.precision}"
+                                              shortDesc="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.tooltip}"
+                                              id="it139">
+                                  <f:validator binding="#{row.bindings.WashPercentage.validator}"/>
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.format}"/>
+                                </af:inputText>
+                              </af:column>
+                            </af:table>
+                          </af:panelGroupLayout>
+                        </af:panelHeader>
+                      </af:panelGroupLayout>
+                      <af:panelGroupLayout id="pgl36"
+                                           inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                        <af:panelHeader text="Unit Wise Delivery qty" id="ph5">
+                          <f:facet name="context"/>
+                          <f:facet name="menuBar"/>
+                          <f:facet name="toolbar"/>
+                          <f:facet name="legend"/>
+                          <f:facet name="info"/>
+                          <af:panelGroupLayout id="pgl43" layout="horizontal"
+                                               valign="top">
+                            <af:table value="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel}"
+                                      var="row"
+                                      rows="#{bindings.ProductionUnitWiseMonthlyQtyVO1.rangeSize}"
+                                      emptyText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      fetchSize="#{bindings.ProductionUnitWiseMonthlyQtyVO1.rangeSize}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel.makeCurrent}"
+                                      rowSelection="single" id="t6"
+                                      partialTriggers="::soc1 ::soc2"
+                                      autoHeightRows="5"
+                                      inlineStyle="height:200.0px; width:545px;"
+                                      width="313">
+                              <af:column sortProperty="MonthId" sortable="false"
+                                         headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.label}"
+                                         id="c100" visible="false">
+                                <af:inputText value="#{row.bindings.MonthId.inputValue}"
+                                              label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.label}"
+                                              required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.mandatory}"
+                                              columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.displayWidth}"
+                                              maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.precision}"
+                                              shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.tooltip}"
+                                              id="it105">
+                                  <f:validator binding="#{row.bindings.MonthId.validator}"/>
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.format}"/>
+                                </af:inputText>
+                              </af:column>
+                              <af:column sortProperty="ProductionUnitShortName"
+                                         sortable="true"
+                                         headerText="Production Unit" id="c102"
+                                         align="center" filterable="true"
+                                         width="70">
+                                <af:inputText value="#{row.bindings.ProductionUnitShortName.inputValue}"
+                                              label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnitShortName.label}"
+                                              required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnitShortName.mandatory}"
+                                              columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnitShortName.displayWidth}"
+                                              maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnitShortName.precision}"
+                                              shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.ProductionUnitShortName.tooltip}"
+                                              id="it92" readOnly="true">
+                                  <f:validator binding="#{row.bindings.ProductionUnitShortName.validator}"/>
+                                </af:inputText>
+                              </af:column>
+                              <af:column sortProperty="WashQuantity"
+                                         sortable="true"
+                                         headerText="Wash Quantity" id="c101"
+                                         align="center" width="70">
+                                <af:inputText value="#{row.bindings.WashQuantity.inputValue}"
+                                              label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.label}"
+                                              required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.mandatory}"
+                                              columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.displayWidth}"
+                                              maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.precision}"
+                                              shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.tooltip}"
+                                              id="it107">
+                                  <f:validator binding="#{row.bindings.WashQuantity.validator}"/>
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashQuantity.format}"/>
+                                </af:inputText>
+                              </af:column>
+                              <af:column sortProperty="AveragePerDay"
+                                         sortable="true"
+                                         headerText="Average Per Day" id="c103"
+                                         align="center" width="70">
+                                <af:inputText value="#{row.bindings.AveragePerDay.inputValue}"
+                                              label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
+                                              required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.mandatory}"
+                                              columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.displayWidth}"
+                                              maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.precision}"
+                                              shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.tooltip}"
+                                              id="it106">
+                                  <f:validator binding="#{row.bindings.AveragePerDay.validator}"/>
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.AveragePerDay.format}"/>
+                                </af:inputText>
+                              </af:column>
+                              <af:column sortProperty="WashPercentage"
+                                         sortable="true"
+                                         headerText="Wash Percentage" id="c104"
+                                         align="center" width="70">
+                                <af:inputText value="#{row.bindings.WashPercentage.inputValue}"
+                                              label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.label}"
+                                              required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.mandatory}"
+                                              columns="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.displayWidth}"
+                                              maximumLength="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.precision}"
+                                              shortDesc="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.tooltip}"
+                                              id="it104">
+                                  <f:validator binding="#{row.bindings.WashPercentage.validator}"/>
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.format}"/>
+                                </af:inputText>
+                              </af:column>
+                            </af:table>
+                            <dvt:pieGraph id="pieGraph1"
+                                          value="#{bindings.ProductionUnitWiseMonthlyQtyVO11.graphModel}"
+                                          subType="PIE"
+                                          inlineStyle="height:330.0px;"
+                                          contentDelivery="immediate">
+                              <dvt:background>
+                                <dvt:specialEffects/>
+                              </dvt:background>
+                              <dvt:graphPieFrame/>
+                              <dvt:seriesSet>
+                                <dvt:series/>
+                              </dvt:seriesSet>
+                              <dvt:sliceLabel textType="LD_TEXT_VALUE"
+                                              autoPrecision="off"
+                                              scaling="none">
+                                <dvt:graphFont id="graphFont2" size="12"
+                                               bold="false" color="#ffffff"/>
+                              </dvt:sliceLabel>
+                              <dvt:pieLabel rendered="true"/>
+                              <dvt:legendArea automaticPlacement="AP_NEVER"
+                                              position="LAP_RIGHT"
+                                              alongGraphEdge="true"/>
+                              <dvt:slice labelPosition="LP_INSIDE"/>
+                              <dvt:legendText id="legendText1">
+                                <dvt:graphFont id="graphFont1" size="12"
+                                               bold="false"/>
+                              </dvt:legendText>
+                            </dvt:pieGraph>
+                          </af:panelGroupLayout>
+                        </af:panelHeader>
+                      </af:panelGroupLayout>
+                      <af:panelGroupLayout id="pgl37"
+                                           inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                        <af:panelHeader text="Fabrication Type Wise Qty" id="ph11">
+                          <f:facet name="context"/>
+                          <f:facet name="menuBar"/>
+                          <f:facet name="toolbar"/>
+                          <f:facet name="legend"/>
+                          <f:facet name="info"/>
+                          <af:panelGroupLayout id="pgl44" layout="horizontal"
+                                               valign="top">
+                            <af:table value="#{bindings.FabricationWiseMonthlyQtyVO1.collectionModel}"
+                                      var="row"
+                                      rows="#{bindings.FabricationWiseMonthlyQtyVO1.rangeSize}"
+                                      emptyText="#{bindings.FabricationWiseMonthlyQtyVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      fetchSize="#{bindings.FabricationWiseMonthlyQtyVO1.rangeSize}"
+                                      rowBandingInterval="0" id="t15"
+                                      width="231" inlineStyle="height:127px;">
+                              <af:column sortProperty="Fabrication"
+                                         sortable="false"
+                                         headerText="#{bindings.FabricationWiseMonthlyQtyVO1.hints.Fabrication.label}"
+                                         id="c312" align="center">
+                                <af:outputText value="#{row.Fabrication}"
+                                               id="ot200"/>
+                              </af:column>
+                              <af:column sortProperty="Total" sortable="false"
+                                         headerText="#{bindings.FabricationWiseMonthlyQtyVO1.hints.Total.label}"
+                                         id="c311" align="center">
+                                <af:outputText value="#{row.Total}" id="ot201">
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.FabricationWiseMonthlyQtyVO1.hints.Total.format}"/>
+                                </af:outputText>
+                              </af:column>
+                            </af:table>
+                            <dvt:pieGraph id="pieGraph2"
+                                          value="#{bindings.FabricationWiseMonthlyQtyVO11.graphModel}"
+                                          subType="PIE"
+                                          inlineStyle="height:320.0px;"
+                                          dynamicResize="FIXED_SIZE"
+                                          contentDelivery="immediate">
+                              <dvt:background>
+                                <dvt:specialEffects/>
+                              </dvt:background>
+                              <dvt:graphPieFrame>
+                                <dvt:specialEffects id="specialEffects1"/>
+                              </dvt:graphPieFrame>
+                              <dvt:seriesSet>
+                                <dvt:series/>
+                              </dvt:seriesSet>
+                              <dvt:sliceLabel textType="LD_TEXT_VALUE"
+                                              autoPrecision="off"
+                                              scaling="none">
+                                <dvt:graphFont id="graphFont3" size="12"
+                                               color="#ffffff"/>
+                              </dvt:sliceLabel>
+                              <dvt:pieLabel rendered="true"/>
+                              <dvt:legendArea automaticPlacement="AP_NEVER"
+                                              alongGraphEdge="true"/>
+                              <dvt:slice labelPosition="LP_INSIDE"/>
+                              <dvt:legendText>
+                                <dvt:graphFont size="12"/>
+                              </dvt:legendText>
+                            </dvt:pieGraph>
+                          </af:panelGroupLayout>
+                        </af:panelHeader>
+                      </af:panelGroupLayout>
+                      <af:panelGroupLayout id="panelGroupLayout3"
+                                           inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                        <af:panelHeader text="Wash Type Wise Qty" id="ph12">
+                          <f:facet name="context"/>
+                          <f:facet name="menuBar"/>
+                          <f:facet name="toolbar"/>
+                          <f:facet name="legend"/>
+                          <f:facet name="info"/>
+                          <af:panelGroupLayout id="pgl45" layout="horizontal">
+                            <af:table value="#{bindings.WashTypeWiseMonthlyQtyVO1.collectionModel}"
+                                      var="row"
+                                      rows="#{bindings.WashTypeWiseMonthlyQtyVO1.rangeSize}"
+                                      emptyText="#{bindings.WashTypeWiseMonthlyQtyVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      fetchSize="#{bindings.WashTypeWiseMonthlyQtyVO1.rangeSize}"
+                                      rowBandingInterval="0" id="t16">
+                              <af:column sortProperty="WashType"
+                                         sortable="false"
+                                         headerText="#{bindings.WashTypeWiseMonthlyQtyVO1.hints.WashType.label}"
+                                         id="c314">
+                                <af:outputText value="#{row.WashType}"
+                                               id="ot202"/>
+                              </af:column>
+                              <af:column sortProperty="Total" sortable="false"
+                                         headerText="#{bindings.WashTypeWiseMonthlyQtyVO1.hints.Total.label}"
+                                         id="c313">
+                                <af:outputText value="#{row.Total}" id="ot203">
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.WashTypeWiseMonthlyQtyVO1.hints.Total.format}"/>
+                                </af:outputText>
+                              </af:column>
+                            </af:table>
+                            <dvt:pieGraph id="pieGraph3"
+                                          value="#{bindings.WashTypeWiseMonthlyQtyVO11.graphModel}"
+                                          subType="PIE">
+                              <dvt:background>
+                                <dvt:specialEffects/>
+                              </dvt:background>
+                              <dvt:graphPieFrame/>
+                              <dvt:seriesSet>
+                                <dvt:series/>
+                              </dvt:seriesSet>
+                              <dvt:sliceLabel textType="LD_TEXT_VALUE">
+                                <dvt:graphFont id="graphFont4" size="12"
+                                               color="#ffffff"/>
+                              </dvt:sliceLabel>
+                              <dvt:pieLabel rendered="true"/>
+                              <dvt:legendArea automaticPlacement="AP_NEVER"/>
+                              <dvt:slice labelPosition="LP_INSIDE"/>
+                              <dvt:legendText>
+                                <dvt:graphFont size="12"/>
+                              </dvt:legendText>
+                            </dvt:pieGraph>
+                          </af:panelGroupLayout>
+                        </af:panelHeader>
+                      </af:panelGroupLayout>
+                      <af:panelGroupLayout id="panelGroupLayout2">
+                        <af:panelHeader text="panelHeader 3" id="ph13">
+                          <f:facet name="context"/>
+                          <f:facet name="menuBar"/>
+                          <f:facet name="toolbar"/>
+                          <f:facet name="legend"/>
+                          <f:facet name="info"/>
+                        </af:panelHeader>
+                      </af:panelGroupLayout>
+                    </af:panelDashboard>
+                  </af:panelGroupLayout>
                 </af:showDetailItem>
                 <af:showDetailItem text="Process Wise Qty" id="sdi4">
                   <af:panelHeader text="Dayly Process Qty" id="ph7">
