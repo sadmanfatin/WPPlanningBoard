@@ -3929,7 +3929,8 @@
                   popupFetchListener="#{ManagedBean.populateStylePopUpFetchListener}">
           <af:dialog id="d2"
                      dialogListener="#{ManagedBean.populateStyleDialogueListener}">
-            <af:panelHeader text="Populate Style" id="ph2">
+            <af:panelHeader text="Populate Style" id="ph2"
+                            styleClass="AFStretchWidth">
               <f:facet name="context"/>
               <f:facet name="menuBar"/>
               <f:facet name="toolbar"/>
@@ -3944,9 +3945,9 @@
                         selectedRowKeys="#{bindings.PopulateStylesVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.PopulateStylesVO1.collectionModel.makeCurrent}"
                         rowSelection="single" id="t4"
-                        inlineStyle="width:1300.0px;">
+                        styleClass="AFStretchWidth">
                 <af:column headerText="Select"
-                           id="c92" align="center" width="60">
+                           id="c92" align="center" width="40">
                   <af:selectBooleanCheckbox value="#{row.bindings.CheckBox.inputValue}"
                                             label="#{row.bindings.CheckBox.label}"
                                             shortDesc="#{bindings.PopulateStylesVO1.hints.CheckBox.tooltip}"
@@ -3955,7 +3956,7 @@
                 <af:column sortProperty="SystemId" filterable="true"
                            sortable="true"
                            headerText="System Id"
-                           id="c85" align="center" width="70"
+                           id="c85" align="center" width="50"
                            filterFeatures="caseInsensitive">
                   <af:inputText value="#{row.bindings.SystemId.inputValue}"
                                 label="#{bindings.PopulateStylesVO1.hints.SystemId.label}"
@@ -3963,7 +3964,7 @@
                                 columns="#{bindings.PopulateStylesVO1.hints.SystemId.displayWidth}"
                                 maximumLength="#{bindings.PopulateStylesVO1.hints.SystemId.precision}"
                                 shortDesc="#{bindings.PopulateStylesVO1.hints.SystemId.tooltip}"
-                                id="it79">
+                                id="it79" readOnly="true">
                     <f:validator binding="#{row.bindings.SystemId.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.PopulateStylesVO1.hints.SystemId.format}"/>
@@ -3989,7 +3990,7 @@
                            sortable="true"
                            headerText="LC Unit Nmae"
                            id="c84" align="center" width="150"
-                           filterFeatures="caseInsensitive">
+                           filterFeatures="caseInsensitive" visible="true">
                   <af:inputText value="#{row.bindings.LcUnitName.inputValue}"
                                 label="#{bindings.PopulateStylesVO1.hints.LcUnitName.label}"
                                 required="#{bindings.PopulateStylesVO1.hints.LcUnitName.mandatory}"
@@ -4027,7 +4028,7 @@
                                 columns="#{bindings.PopulateStylesVO1.hints.ProductionUnitName.displayWidth}"
                                 maximumLength="#{bindings.PopulateStylesVO1.hints.ProductionUnitName.precision}"
                                 shortDesc="#{bindings.PopulateStylesVO1.hints.ProductionUnitName.tooltip}"
-                                id="it81">
+                                id="it81" readOnly="true">
                     <f:validator binding="#{row.bindings.ProductionUnitName.validator}"/>
                   </af:inputText>
                 </af:column>
@@ -4058,7 +4059,7 @@
                                 columns="#{bindings.PopulateStylesVO1.hints.BuyerName.displayWidth}"
                                 maximumLength="#{bindings.PopulateStylesVO1.hints.BuyerName.precision}"
                                 shortDesc="#{bindings.PopulateStylesVO1.hints.BuyerName.tooltip}"
-                                id="it84">
+                                id="it84" readOnly="true">
                     <f:validator binding="#{row.bindings.BuyerName.validator}"/>
                   </af:inputText>
                 </af:column>
@@ -4073,7 +4074,7 @@
                                 columns="#{bindings.PopulateStylesVO1.hints.Season.displayWidth}"
                                 maximumLength="#{bindings.PopulateStylesVO1.hints.Season.precision}"
                                 shortDesc="#{bindings.PopulateStylesVO1.hints.Season.tooltip}"
-                                id="it78">
+                                id="it78" readOnly="true">
                     <f:validator binding="#{row.bindings.Season.validator}"/>
                   </af:inputText>
                 </af:column>
@@ -4088,7 +4089,7 @@
                                 columns="#{bindings.PopulateStylesVO1.hints.Style.displayWidth}"
                                 maximumLength="#{bindings.PopulateStylesVO1.hints.Style.precision}"
                                 shortDesc="#{bindings.PopulateStylesVO1.hints.Style.tooltip}"
-                                id="it77">
+                                id="it77" readOnly="true">
                     <f:validator binding="#{row.bindings.Style.validator}"/>
                   </af:inputText>
                 </af:column>
@@ -4103,7 +4104,7 @@
                                 columns="#{bindings.PopulateStylesVO1.hints.Color.displayWidth}"
                                 maximumLength="#{bindings.PopulateStylesVO1.hints.Color.precision}"
                                 shortDesc="#{bindings.PopulateStylesVO1.hints.Color.tooltip}"
-                                id="it82">
+                                id="it82" readOnly="true">
                     <f:validator binding="#{row.bindings.Color.validator}"/>
                   </af:inputText>
                 </af:column>
@@ -4118,7 +4119,7 @@
                                 columns="#{bindings.PopulateStylesVO1.hints.WashName.displayWidth}"
                                 maximumLength="#{bindings.PopulateStylesVO1.hints.WashName.precision}"
                                 shortDesc="#{bindings.PopulateStylesVO1.hints.WashName.tooltip}"
-                                id="it80">
+                                id="it80" readOnly="true">
                     <f:validator binding="#{row.bindings.WashName.validator}"/>
                   </af:inputText>
                 </af:column>
@@ -4133,7 +4134,7 @@
                                 columns="#{bindings.PopulateStylesVO1.hints.OrderQty.displayWidth}"
                                 maximumLength="#{bindings.PopulateStylesVO1.hints.OrderQty.precision}"
                                 shortDesc="#{bindings.PopulateStylesVO1.hints.OrderQty.tooltip}"
-                                id="it74">
+                                id="it74" readOnly="true">
                     <f:validator binding="#{row.bindings.OrderQty.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.PopulateStylesVO1.hints.OrderQty.format}"/>
@@ -4156,7 +4157,7 @@
                   </af:inputText>
                 </af:column>
                 <af:column headerText="Current Sam Version"
-                           id="c94" width="70" filterFeatures="caseInsensitive"
+                           id="c94" width="60" filterFeatures="caseInsensitive"
                            align="center">
                   <af:inputText value="#{row.bindings.CurrentSamVersion.inputValue}"
                                 label="#{bindings.PopulateStylesVO1.hints.CurrentSamVersion.label}"
@@ -4164,14 +4165,14 @@
                                 columns="#{bindings.PopulateStylesVO1.hints.CurrentSamVersion.displayWidth}"
                                 maximumLength="#{bindings.PopulateStylesVO1.hints.CurrentSamVersion.precision}"
                                 shortDesc="#{bindings.PopulateStylesVO1.hints.CurrentSamVersion.tooltip}"
-                                id="it88">
+                                id="it88" readOnly="true">
                     <f:validator binding="#{row.bindings.CurrentSamVersion.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.PopulateStylesVO1.hints.CurrentSamVersion.format}"/>
                   </af:inputText>
                 </af:column>
                 <af:column headerText="Available Sam Version"
-                           id="c93" width="70" filterFeatures="caseInsensitive"
+                           id="c93" width="60" filterFeatures="caseInsensitive"
                            align="center">
                   <af:inputText value="#{row.bindings.AvailableSamVersion.inputValue}"
                                 label="#{bindings.PopulateStylesVO1.hints.AvailableSamVersion.label}"
@@ -4179,7 +4180,7 @@
                                 columns="#{bindings.PopulateStylesVO1.hints.AvailableSamVersion.displayWidth}"
                                 maximumLength="#{bindings.PopulateStylesVO1.hints.AvailableSamVersion.precision}"
                                 shortDesc="#{bindings.PopulateStylesVO1.hints.AvailableSamVersion.tooltip}"
-                                id="it87">
+                                id="it87" readOnly="true">
                     <f:validator binding="#{row.bindings.AvailableSamVersion.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.PopulateStylesVO1.hints.AvailableSamVersion.format}"/>
@@ -4212,10 +4213,10 @@
                         selectedRowKeys="#{bindings.PopulateStyleFromPreviousMonthVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.PopulateStyleFromPreviousMonthVO1.collectionModel.makeCurrent}"
                         rowSelection="single" id="t9"
-                        inlineStyle="width:1330.0px;">
+                        styleClass="AFStretchWidth">
                 <af:column headerText="Select"
                            id="c198" align="center" sortable="true"
-                           filterable="true" width="50">
+                           filterable="true" width="40">
                   <af:selectBooleanCheckbox value="#{row.bindings.PrevStyleCheckBox.inputValue}"
                                             label="#{row.bindings.PrevStyleCheckBox.label}"
                                             shortDesc="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.PrevStyleCheckBox.tooltip}"
@@ -4240,7 +4241,7 @@
                 <af:column sortProperty="SystemId" filterable="true"
                            sortable="true"
                            headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.SystemId.label}"
-                           id="c190" width="60" align="center">
+                           id="c190" width="50" align="center">
                   <af:inputText value="#{row.bindings.SystemId.inputValue}"
                                 label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.SystemId.label}"
                                 required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.SystemId.mandatory}"
@@ -4255,12 +4256,12 @@
                 </af:column>
                 <af:column headerText="Month"
                            id="c201" align="center" sortable="true"
-                           filterable="true" width="70">
+                           filterable="true" width="60">
                   <af:outputText value="#{row.MonthName}" id="ot103"/>
                 </af:column>
                 <af:column headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.label}"
                            id="c202" align="center" sortable="true"
-                           filterable="true" width="55">
+                           filterable="true" width="50">
                   <af:outputText value="#{row.Year}" id="ot104">
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Year.format}"/>
@@ -4285,7 +4286,7 @@
                            sortable="true"
                            headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Season.label}"
                            id="c192" align="center"
-                           filterFeatures="caseInsensitive">
+                           filterFeatures="caseInsensitive" width="80">
                   <af:inputText value="#{row.bindings.Season.inputValue}"
                                 label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Season.label}"
                                 required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Season.mandatory}"
@@ -4314,7 +4315,7 @@
                 <af:column sortProperty="Color" filterable="true"
                            sortable="true"
                            headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Color.label}"
-                           id="c191" align="center" width="120"
+                           id="c191" align="center" width="110"
                            filterFeatures="caseInsensitive">
                   <af:inputText value="#{row.bindings.Color.inputValue}"
                                 label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Color.label}"
@@ -4329,7 +4330,7 @@
                 <af:column sortProperty="WashName" filterable="true"
                            sortable="true"
                            headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.WashName.label}"
-                           id="c196" align="center" width="120"
+                           id="c196" align="center" width="110"
                            filterFeatures="caseInsensitive">
                   <af:inputText value="#{row.bindings.WashName.inputValue}"
                                 label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.WashName.label}"
@@ -4345,7 +4346,7 @@
                            sortable="true"
                            headerText="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Remarks.label}"
                            id="c182" align="center"
-                           filterFeatures="caseInsensitive">
+                           filterFeatures="caseInsensitive" width="70">
                   <af:inputText value="#{row.bindings.Remarks.inputValue}"
                                 label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Remarks.label}"
                                 required="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.Remarks.mandatory}"
@@ -4375,7 +4376,7 @@
                 <af:column sortProperty="OrderQty" filterable="true"
                            sortable="true"
                            headerText="Order Qty"
-                           id="c187" width="60" align="center"
+                           id="c187" width="55" align="center"
                            filterFeatures="caseInsensitive">
                   <af:inputText value="#{row.bindings.OrderQty.inputValue}"
                                 label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.OrderQty.label}"
@@ -4392,7 +4393,7 @@
                 <af:column sortProperty="MonthlyTotal" filterable="true"
                            sortable="true"
                            headerText="MonthlyTotal Qty"
-                           id="c188" width="60" align="center"
+                           id="c188" width="55" align="center"
                            filterFeatures="caseInsensitive">
                   <af:inputText value="#{row.bindings.MonthlyTotal.inputValue}"
                                 label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.MonthlyTotal.label}"
@@ -4409,7 +4410,7 @@
                 <af:column sortProperty="PrevMonthsQty" filterable="true"
                            sortable="true"
                            headerText="Prev Months Qty"
-                           id="c186" width="60" align="center"
+                           id="c186" width="55" align="center"
                            filterFeatures="caseInsensitive">
                   <af:inputText value="#{row.bindings.PrevMonthsQty.inputValue}"
                                 label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.PrevMonthsQty.label}"
@@ -4426,7 +4427,7 @@
                 <af:column sortProperty="RemainingQty" filterable="true"
                            sortable="true"
                            headerText="Remaining Qty"
-                           id="c193" width="60" align="center"
+                           id="c193" width="55" align="center"
                            filterFeatures="caseInsensitive">
                   <af:inputText value="#{row.bindings.RemainingQty.inputValue}"
                                 label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.RemainingQty.label}"
@@ -4443,7 +4444,7 @@
                 <af:column sortProperty="LastDayQty" filterable="true"
                            sortable="true"
                            headerText="Last Day Qty"
-                           id="c194" width="60" align="center"
+                           id="c194" width="55" align="center"
                            filterFeatures="caseInsensitive">
                   <af:inputText value="#{row.bindings.LastDayQty.inputValue}"
                                 label="#{bindings.PopulateStyleFromPreviousMonthVO1.hints.LastDayQty.label}"
