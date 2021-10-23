@@ -783,10 +783,11 @@
                       <af:column id="c174" width="80"
                                  align="center">
                         <af:commandButton text="Update Sam" id="cb6"
-                                          actionListener="#{ManagedBean.updateSamVersion}"
                                           partialSubmit="true"
                                           inlineStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;"
-                                          visible="#{row.bindings.UpdatedSamVersionAvaliable.inputValue}"/>
+                                          visible="#{row.bindings.UpdatedSamVersionAvaliable.inputValue}">
+                          <af:showPopupBehavior popupId="::p7"/>
+                        </af:commandButton>
                         <f:facet name="footer">
                           <af:outputLabel value="Total:" id="ol1"
                                           inlineStyle="font-size:small; font-weight:bold;"/>
@@ -2396,7 +2397,9 @@
                             </af:table>
                             <dvt:pieGraph id="pieGraph3"
                                           value="#{bindings.WashTypeWiseMonthlyQtyVO11.graphModel}"
-                                          subType="PIE">
+                                          subType="PIE"
+                                          inlineStyle="height:330.0px;"
+                                          contentDelivery="immediate">
                               <dvt:background>
                                 <dvt:specialEffects/>
                               </dvt:background>
@@ -2404,16 +2407,16 @@
                               <dvt:seriesSet>
                                 <dvt:series/>
                               </dvt:seriesSet>
-                              <dvt:sliceLabel textType="LD_TEXT_VALUE">
+                              <dvt:sliceLabel textType="LD_TEXT_VALUE"
+                                              scaling="none"
+                                              autoPrecision="off">
                                 <dvt:graphFont id="graphFont4" size="12"
                                                color="#ffffff"/>
                               </dvt:sliceLabel>
                               <dvt:pieLabel rendered="true"/>
-                              <dvt:legendArea automaticPlacement="AP_NEVER"/>
+                              <dvt:legendArea automaticPlacement="AP_NEVER"
+                                              alongGraphEdge="true"/>
                               <dvt:slice labelPosition="LP_INSIDE"/>
-                              <dvt:legendText>
-                                <dvt:graphFont size="12"/>
-                              </dvt:legendText>
                             </dvt:pieGraph>
                           </af:panelGroupLayout>
                         </af:panelHeader>
@@ -4787,6 +4790,127 @@
               </af:table>
             </af:panelHeader>
           </af:panelWindow>
+        </af:popup>
+        <af:popup id="p7" contentDelivery="lazyUncached">
+          <af:dialog id="d5" type="none">
+            <af:panelHeader text="Sam version Comparison" id="ph14">
+              <f:facet name="context"/>
+              <f:facet name="menuBar"/>
+              <f:facet name="toolbar">
+                <af:toolbar id="t17">
+                  <af:commandButton text="Update version" id="cb11"
+                                    actionListener="#{ManagedBean.updateSamVersion}"/>
+                </af:toolbar>
+              </f:facet>
+              <f:facet name="legend"/>
+              <f:facet name="info"/>
+              <af:panelFormLayout id="pfl4"
+                                  inlineStyle="width:360px; background-color:rgb(221,225,243);">
+                <af:panelLabelAndMessage label="#{bindings.Style.hints.label}"
+                                         id="plam3">
+                  <af:outputText value="#{bindings.Style.inputValue}"
+                                 id="ot204"/>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="#{bindings.Color.hints.label}"
+                                         id="plam1">
+                  <af:outputText value="#{bindings.Color.inputValue}"
+                                 id="ot205"/>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="Wash Name" id="plam5">
+                  <af:outputText value="#{bindings.WashName.inputValue}"
+                                 id="ot206"/>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="Current Sam Version" id="plam4">
+                  <af:outputText value="#{bindings.CurrentSamVersion.inputValue}"
+                                 id="ot209">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.CurrentSamVersion.format}"/>
+                  </af:outputText>
+                </af:panelLabelAndMessage>
+                <af:panelLabelAndMessage label="Available Sam Version"
+                                         id="plam2">
+                  <af:outputText value="#{bindings.AvailableSamVersion.inputValue}"
+                                 id="ot208">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.AvailableSamVersion.format}"/>
+                  </af:outputText>
+                </af:panelLabelAndMessage>
+              </af:panelFormLayout>
+              <af:table value="#{bindings.CurrentSamVsAvailableSamVO1.collectionModel}"
+                        var="row"
+                        rows="#{bindings.CurrentSamVsAvailableSamVO1.rangeSize}"
+                        emptyText="#{bindings.CurrentSamVsAvailableSamVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.CurrentSamVsAvailableSamVO1.rangeSize}"
+                        rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.CurrentSamVsAvailableSamVO1.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.CurrentSamVsAvailableSamVO1.collectionModel.makeCurrent}"
+                        rowSelection="single" id="t18"
+                        inlineStyle="width:360.0px;">
+                <f:facet name="footer"/>
+                <af:column sortProperty="OrgId" sortable="false"
+                           headerText="#{bindings.CurrentSamVsAvailableSamVO1.hints.OrgId.label}"
+                           id="c64" visible="false">
+                  <af:outputText value="#{row.OrgId}" id="ot14">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.CurrentSamVsAvailableSamVO1.hints.OrgId.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="SystemId" sortable="false"
+                           headerText="#{bindings.CurrentSamVsAvailableSamVO1.hints.SystemId.label}"
+                           id="c67" visible="false">
+                  <af:outputText value="#{row.SystemId}" id="ot15">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.CurrentSamVsAvailableSamVO1.hints.SystemId.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="WpProcessId" sortable="false"
+                           headerText="#{bindings.CurrentSamVsAvailableSamVO1.hints.WpProcessId.label}"
+                           id="c60" visible="false">
+                  <af:outputText value="#{row.WpProcessId}" id="ot20">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.CurrentSamVsAvailableSamVO1.hints.WpProcessId.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="ProcessName" sortable="false"
+                           headerText="Process Name" id="c315" width="180"
+                           align="center">
+                  <af:outputText value="#{row.ProcessName}" id="ot207"/>
+                </af:column>
+                <af:column sortProperty="CurrentSam" sortable="false"
+                           headerText="Current Sam" id="c316" align="center"
+                           width="70">
+                  <af:outputText value="#{row.CurrentSam}" id="ot210">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.CurrentSamVsAvailableSamVO1.hints.CurrentSam.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="AvailableSam" sortable="false"
+                           headerText="Available Sam" id="c317" align="center"
+                           width="70">
+                  <af:outputText value="#{row.AvailableSam}" id="ot211">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.CurrentSamVsAvailableSamVO1.hints.AvailableSam.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="CurrentSamVersion" sortable="false"
+                           headerText="#{bindings.CurrentSamVsAvailableSamVO1.hints.CurrentSamVersion.label}"
+                           id="c68" visible="false">
+                  <af:outputText value="#{row.CurrentSamVersion}" id="ot18">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.CurrentSamVsAvailableSamVO1.hints.CurrentSamVersion.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="AvailableSamVersion" sortable="false"
+                           headerText="#{bindings.CurrentSamVsAvailableSamVO1.hints.AvailableSamVersion.label}"
+                           id="c66" visible="false">
+                  <af:outputText value="#{row.AvailableSamVersion}" id="ot17">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.CurrentSamVsAvailableSamVO1.hints.AvailableSamVersion.format}"/>
+                  </af:outputText>
+                </af:column>
+              </af:table>
+            </af:panelHeader>
+          </af:dialog>
         </af:popup>
       </af:form>
     </af:document>

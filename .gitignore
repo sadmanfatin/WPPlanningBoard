@@ -26,3 +26,4 @@
 *.ear
 Model/classes/.data/Model.cdi_javac
 deploy/WPPlanningBoard_application1.ear
+*.png

@@ -77,6 +77,9 @@
   <ViewUsage
     Name="WashTypeWiseMonthlyQtyVO1"
     ViewObjectName="model.view.monthlysummary.WashTypeWiseMonthlyQtyVO"/>
+  <ViewUsage
+    Name="CurrentSamVsAvailableSamVO1"
+    ViewObjectName="model.view.CurrentSamVsAvailableSamVO"/>
   <ViewLinkUsage
     Name="MonthSearchVO_vs_WpMonthListVO_vl1"
     ViewLinkObjectName="model.viewlinks.MonthSearchVO_vs_WpMonthListVO_vl"
@@ -178,6 +181,12 @@
     ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_WashTypeWiseMonthlyQtyVO_vl"
     SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
     DstViewUsageName="model.service.AppModule.WashTypeWiseMonthlyQtyVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="WpPlanningBoardVO_vs_CurrentSamVsAvailableSamVO_vl1"
+    ViewLinkObjectName="model.viewlinks.WpPlanningBoardVO_vs_CurrentSamVsAvailableSamVO_vl"
+    SrcViewUsageName="model.service.AppModule.WpPlanningBoardVO1"
+    DstViewUsageName="model.service.AppModule.CurrentSamVsAvailableSamVO1"
     Reversed="false"/>
   <ClientInterface>
     <Method

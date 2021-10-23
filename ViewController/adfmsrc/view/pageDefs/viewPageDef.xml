@@ -81,6 +81,9 @@
     <iterator Binds="WashTypeWiseMonthlyQtyVO1" RangeSize="-1"
               DataControl="AppModuleDataControl"
               id="WashTypeWiseMonthlyQtyVO1Iterator"/>
+    <iterator Binds="CurrentSamVsAvailableSamVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="CurrentSamVsAvailableSamVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="OrgVO1Iterator" id="OrgName">
@@ -782,12 +785,55 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="WpPlanningBoardVO1Iterator" id="Color">
+      <AttrNames>
+        <Item Value="Color"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpPlanningBoardVO1Iterator" id="Style">
+      <AttrNames>
+        <Item Value="Style"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpPlanningBoardVO1Iterator" id="WashName">
+      <AttrNames>
+        <Item Value="WashName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpPlanningBoardVO1Iterator"
+                     id="CurrentSamVersion">
+      <AttrNames>
+        <Item Value="CurrentSamVersion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="WpPlanningBoardVO1Iterator"
+                     id="AvailableSamVersion">
+      <AttrNames>
+        <Item Value="AvailableSamVersion"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="CurrentSamVsAvailableSamVO1Iterator"
+          id="CurrentSamVsAvailableSamVO1">
+      <nodeDefinition DefName="model.view.CurrentSamVsAvailableSamVO"
+                      Name="CurrentSamVsAvailableSamVO10">
+        <AttrNames>
+          <Item Value="OrgId"/>
+          <Item Value="SystemId"/>
+          <Item Value="WpProcessId"/>
+          <Item Value="ProcessName"/>
+          <Item Value="CurrentSam"/>
+          <Item Value="AvailableSam"/>
+          <Item Value="CurrentSamVersion"/>
+          <Item Value="AvailableSamVersion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
     <graph IterBinding="WashTypeWiseMonthlyQtyVO1Iterator"
            id="WashTypeWiseMonthlyQtyVO11"
            xmlns="http://xmlns.oracle.com/adfm/dvt" type="PIE">
       <graphDataMap leafOnly="true">
         <series>
-          <item value="WashType" label="Total"/>
+          <item value="WashType"/>
         </series>
         <groups>
           <data>
