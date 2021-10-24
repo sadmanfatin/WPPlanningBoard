@@ -20,7 +20,7 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>
-    <![CDATA[select oiv.poc_id, oiv.buyer_id,    oiv.season , oiv.style,  oiv.color, oiv.wash_name, oiv.qty, oiv.shipdate ship_date
+    <![CDATA[select oiv.poc_id, oiv.buyer_id,    oiv.season , oiv.style,  oiv.color, oiv.wash_name, oiv.BPO, oiv.qty, oiv.shipdate ship_date
  from XX_ORDER_INFO_V  oiv 
  where 1=1
  and oiv.CLASSIFICATION = 'BPO'
@@ -117,6 +117,21 @@
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
+    Name="Bpo"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BPO"
+    Expression="BPO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
     Name="Qty"
     IsUpdateable="false"
     IsPersistent="false"
@@ -139,7 +154,7 @@
     ColumnType="DATE"
     AliasName="SHIP_DATE"
     Expression="SHIP_DATE"
-    SQLType="TIMESTAMP">
+    SQLType="DATE">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="7"/>
     </DesignTime>

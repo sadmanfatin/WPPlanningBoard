@@ -711,6 +711,7 @@
           <Item Value="WashName"/>
           <Item Value="Qty"/>
           <Item Value="ShipDate"/>
+          <Item Value="Bpo"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

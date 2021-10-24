@@ -4549,8 +4549,8 @@
                         rowBandingInterval="0"
                         selectedRowKeys="#{bindings.StyleWiseShipmentVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.StyleWiseShipmentVO1.collectionModel.makeCurrent}"
-                        rowSelection="single" id="t13"
-                        inlineStyle="width:600.0px;" partialTriggers="::t2">
+                        rowSelection="single" id="t13" partialTriggers="::t2"
+                        styleClass="AFStretchWidth">
                 <af:column sortProperty="PocId" sortable="false"
                            headerText="#{bindings.StyleWiseShipmentVO1.hints.PocId.label}"
                            id="c287" visible="false">
@@ -4596,7 +4596,7 @@
                 </af:column>
                 <af:column sortProperty="Style" sortable="false"
                            headerText="#{bindings.StyleWiseShipmentVO1.hints.Style.label}"
-                           id="c290" width="120" align="center">
+                           id="c290" width="140" align="center">
                   <af:inputText value="#{row.bindings.Style.inputValue}"
                                 label="#{bindings.StyleWiseShipmentVO1.hints.Style.label}"
                                 required="#{bindings.StyleWiseShipmentVO1.hints.Style.mandatory}"
@@ -4631,6 +4631,18 @@
                                 shortDesc="#{bindings.StyleWiseShipmentVO1.hints.WashName.tooltip}"
                                 id="it142">
                     <f:validator binding="#{row.bindings.WashName.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column headerText="#{bindings.StyleWiseShipmentVO1.hints.Bpo.label}"
+                           id="c318" width="140">
+                  <af:inputText value="#{row.bindings.Bpo.inputValue}"
+                                label="#{bindings.StyleWiseShipmentVO1.hints.Bpo.label}"
+                                required="#{bindings.StyleWiseShipmentVO1.hints.Bpo.mandatory}"
+                                columns="#{bindings.StyleWiseShipmentVO1.hints.Bpo.displayWidth}"
+                                maximumLength="#{bindings.StyleWiseShipmentVO1.hints.Bpo.precision}"
+                                shortDesc="#{bindings.StyleWiseShipmentVO1.hints.Bpo.tooltip}"
+                                id="it145" readOnly="true">
+                    <f:validator binding="#{row.bindings.Bpo.validator}"/>
                   </af:inputText>
                 </af:column>
                 <af:column sortProperty="Qty" sortable="false"

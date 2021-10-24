@@ -27,3 +27,7 @@
 Model/classes/.data/Model.cdi_javac
 deploy/WPPlanningBoard_application1.ear
 *.png
+ViewController/classes/.wlsjsps/jsp_servlet/__view_jspx.class
+Model/classes/model/view/StyleWiseShipmentVO.xml
+Model/classes/model/service/AppModuleImpl.class
+Model/classes/.data/Model.cdi_javac
