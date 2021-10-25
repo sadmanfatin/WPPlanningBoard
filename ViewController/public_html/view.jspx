@@ -845,9 +845,10 @@
                                  id="c62" align="center" sortable="true"
                                  filterable="true" sortProperty="Style"
                                  filterFeatures="caseInsensitive">
-                        <af:commandLink text="#{row.bindings.Style.inputValue}" id="cl2"
-                                        inlineStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;">
-                          <af:showPopupBehavior popupId="::p5"/>
+                        <af:commandLink text="#{row.bindings.Style.inputValue}" id="cl2">
+                          <af:showPopupBehavior popupId="::p5"
+                                                align="endBefore"
+                                                alignId="c62"/>
                         </af:commandLink>
                       </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.Color.label}"
@@ -869,9 +870,9 @@
                                  id="c67" align="center" sortable="true"
                                  filterable="true" sortProperty="WashName"
                                  filterFeatures="caseInsensitive">
-                        <af:commandLink text="#{row.bindings.WashName.inputValue}" id="cl3"
-                                        inlineStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;">
-                          <af:showPopupBehavior popupId="::p6"/>
+                        <af:commandLink text="#{row.bindings.WashName.inputValue}" id="cl3">
+                          <af:showPopupBehavior popupId="::p6"
+                                                align="endBefore" alignId="c67"/>
                         </af:commandLink>
                       </af:column>
                       <af:column sortProperty="Remarks" filterable="true"
@@ -4550,7 +4551,7 @@
                         selectedRowKeys="#{bindings.StyleWiseShipmentVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.StyleWiseShipmentVO1.collectionModel.makeCurrent}"
                         rowSelection="single" id="t13" partialTriggers="::t2"
-                        styleClass="AFStretchWidth">
+                        inlineStyle="width:720.0px;">
                 <af:column sortProperty="PocId" sortable="false"
                            headerText="#{bindings.StyleWiseShipmentVO1.hints.PocId.label}"
                            id="c287" visible="false">
@@ -4647,7 +4648,7 @@
                 </af:column>
                 <af:column sortProperty="Qty" sortable="false"
                            headerText="#{bindings.StyleWiseShipmentVO1.hints.Qty.label}"
-                           id="c284" width="70" align="center">
+                           id="c284" width="60" align="center">
                   <af:inputText value="#{row.bindings.Qty.inputValue}"
                                 label="#{bindings.StyleWiseShipmentVO1.hints.Qty.label}"
                                 required="#{bindings.StyleWiseShipmentVO1.hints.Qty.mandatory}"
@@ -4662,7 +4663,7 @@
                 </af:column>
                 <af:column sortProperty="ShipDate" sortable="false"
                            headerText="Ship Date"
-                           id="c283" align="center">
+                           id="c283" align="center" width="90">
                   <af:inputDate value="#{row.bindings.ShipDate.inputValue}"
                                 label="#{bindings.StyleWiseShipmentVO1.hints.ShipDate.label}"
                                 required="#{bindings.StyleWiseShipmentVO1.hints.ShipDate.mandatory}"
