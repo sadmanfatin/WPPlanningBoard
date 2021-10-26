@@ -107,21 +107,24 @@
                   <af:panelFormLayout id="pfl2" rows="1" maxColumns="7"
                                       inlineStyle="border-style:solid; border-width:thin; background-color:rgb(248,248,265); border-color:rgb(198,198,198); margin-bottom:2px; padding:3.0px; height:25px; ">
                     <af:commandButton text="Populate From Previous Month"
-                                      id="cb2">
+                                      id="cb2" icon="/icons/pop-up-512.png">
                       <af:showPopupBehavior popupId="p3"/>
                     </af:commandButton>
                     <af:commandButton text="Freeze Plan" id="cb8"
                                       partialSubmit="true">
                       <af:showPopupBehavior popupId="p4"/>
                     </af:commandButton>
-                    <af:commandButton text="Populate Style" id="cb3">
+                    <af:commandButton text="Populate Style" id="cb3"
+                                      icon="/icons/pop-up-512.png">
                       <af:showPopupBehavior popupId="p1"/>
                     </af:commandButton>
                     <af:commandButton actionListener="#{bindings.Delete.execute}"
-                                      text="Delete" id="cb4"/>
+                                      text="Delete" id="cb4"
+                                      icon="/icons/delete_red - Copy.png"/>
                     <af:commandButton actionListener="#{ManagedBean.save}"
                                       text="Save" id="cb5"
-                                      partialSubmit="true"/>
+                                      partialSubmit="true"
+                                      icon="/icons/check_sign_icon_green.png"/>
                   </af:panelFormLayout>
                   <af:panelGroupLayout id="pgl3" layout="scroll">
                     <af:table value="#{bindings.WpPlanningBoardLoadVO1.collectionModel}"
