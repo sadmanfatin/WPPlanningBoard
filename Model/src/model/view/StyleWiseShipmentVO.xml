@@ -24,7 +24,9 @@
  from XX_ORDER_INFO_V  oiv 
  where 1=1
  and oiv.CLASSIFICATION = 'BPO'
- order by  oiv.style, oiv.shipdate]]>
+ and oiv.BPO_STATUS = 1
+ and oiv.qty != 0
+ order by  oiv.style, oiv.shipdate desc]]>
   </SQLQuery>
   <ViewAttribute
     Name="PocId"
