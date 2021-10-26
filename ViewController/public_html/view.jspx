@@ -928,7 +928,8 @@
                                       maximumLength="#{bindings.WpPlanningBoardVO1.hints.RemainingQty.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.RemainingQty.tooltip}"
                                       id="it132" autoSubmit="true"
-                                      readOnly="true" partialTriggers="::cb5">
+                                      readOnly="true"
+                                      partialTriggers="::cb5 it44 it58 it71 it51 it42 it53 it40 it65 it46 it52 it57 it55 it37 it54 it45 it61 it69 it64 it43 it63 it60 it67 it62 it41 it39 it48 it38 it70 it59 it56 it36 it93 it94">
                           <f:validator binding="#{row.bindings.RemainingQty.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.RemainingQty.format}"/>
@@ -1932,7 +1933,8 @@
                     </af:toolbar>
                   </f:facet>
                 </af:showDetailItem>
-                <af:showDetailItem text="Dashboard" id="sdi2">
+                <af:showDetailItem text="Dashboard" id="sdi2"
+                                   disclosureListener="#{ManagedBean.dashboardTabDisclosureListener}">
                   <af:panelStretchLayout id="psl2" dimensionsFrom="children"
                                          inlineStyle="width:100.0%;"
                                          rendered="false">
@@ -2184,8 +2186,7 @@
                                       fetchSize="#{bindings.ProductionUnitWiseMonthlyQtyVO1.rangeSize}"
                                       rowBandingInterval="0"
                                       selectedRowKeys="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel.selectedRow}"
-                                      selectionListener="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel.makeCurrent}"
-                                      rowSelection="single" id="t6"
+                                      selectionListener="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel.makeCurrent}" id="t6"
                                       partialTriggers="::soc1 ::soc2"
                                       autoHeightRows="5"
                                       inlineStyle="height:200.0px; width:545px;"
@@ -2434,7 +2435,8 @@
                     </af:panelDashboard>
                   </af:panelGroupLayout>
                 </af:showDetailItem>
-                <af:showDetailItem text="Process Wise Qty" id="sdi4">
+                <af:showDetailItem text="Process Wise Qty" id="sdi4"
+                                   disclosureListener="#{ManagedBean.procesWiseQtyTabDisclosureListener}">
                   <af:panelHeader text="Dayly Process Qty" id="ph7">
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
@@ -2777,7 +2779,8 @@
                     </af:table>
                   </af:panelHeader>
                 </af:showDetailItem>
-                <af:showDetailItem text="Section Load" id="sdi3">
+                <af:showDetailItem text="Section Load" id="sdi3"
+                                   disclosureListener="#{ManagedBean.sectionLoadTabDisclosureListener}">
                   <af:panelHeader text="All section Load (%)" id="ph6">
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
@@ -3178,7 +3181,8 @@
                     </af:table>
                   </af:panelHeader>
                 </af:showDetailItem>
-                <af:showDetailItem text="Freeze Plan" id="sdi5">
+                <af:showDetailItem text="Freeze Plan" id="sdi5"
+                                   disclosureListener="#{ManagedBean.freezePlanTabDisclosureListener}">
                   <af:panelGroupLayout id="pgl40" layout="scroll">
                     <af:table value="#{bindings.WpPlanningBoardFreezeLoadVO1.collectionModel}"
                               var="row"
@@ -4537,7 +4541,17 @@
         <af:popup id="p5" contentDelivery="lazyUncached">
           <af:panelWindow id="pw2">
             <af:panelHeader text="Style Wise Shipment Info" id="ph9">
-              <f:facet name="context"/>
+              <f:facet name="context">
+                <af:group id="g2">
+                  <af:spacer width="20" height="10" id="s3"/>
+                  <af:commandButton text="Show In Excel" id="cb9"
+                                    icon="/icons/excel.png">
+                    <af:exportCollectionActionListener exportedId="t13"
+                                                       type="excelHTML"
+                                                       filename="ShipmentDateInfo.xls"/>
+                  </af:commandButton>
+                </af:group>
+              </f:facet>
               <f:facet name="menuBar"/>
               <f:facet name="toolbar"/>
               <f:facet name="legend"/>
@@ -4551,7 +4565,7 @@
                         selectedRowKeys="#{bindings.StyleWiseShipmentVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.StyleWiseShipmentVO1.collectionModel.makeCurrent}"
                         rowSelection="single" id="t13" partialTriggers="::t2"
-                        inlineStyle="width:720.0px;">
+                        inlineStyle="width:720px; ">
                 <af:column sortProperty="PocId" sortable="false"
                            headerText="#{bindings.StyleWiseShipmentVO1.hints.PocId.label}"
                            id="c287" visible="false">
@@ -4635,7 +4649,7 @@
                   </af:inputText>
                 </af:column>
                 <af:column headerText="#{bindings.StyleWiseShipmentVO1.hints.Bpo.label}"
-                           id="c318" width="140">
+                           id="c318" width="140" align="center">
                   <af:inputText value="#{row.bindings.Bpo.inputValue}"
                                 label="#{bindings.StyleWiseShipmentVO1.hints.Bpo.label}"
                                 required="#{bindings.StyleWiseShipmentVO1.hints.Bpo.mandatory}"

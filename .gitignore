@@ -1,19 +1,24 @@
+#OS Cruft
+.DS_Store
+Thumbs.db
 
-*.jdb
-*.jdb
-*.jws
+# Compiled class file
 *.class
-*.jdb
-*.cdi_javac
-*.ear
-*.class
-*.war
-*.class
-*.cdi_javac
-*.cdi_javac
-*.class
+
+# Log files
+*.log
+
+# Archives
+*.jar
 *.war
 *.ear
+
+# Misc
+*.sso
+
+# Unwanted directories
+classes/
+deploy/
 *.cdi_javac
 *.ear
 *.cdi_javac
@@ -29,5 +34,8 @@ deploy/WPPlanningBoard_application1.ear
 *.png
 ViewController/classes/.wlsjsps/jsp_servlet/__view_jspx.class
 Model/classes/model/view/StyleWiseShipmentVO.xml
+Model/classes/model/service/AppModuleImpl.class
+Model/classes/.data/Model.cdi_javac
+ViewController/classes/.wlsjsps/jsp_servlet/__view_jspx.class
 Model/classes/model/service/AppModuleImpl.class
 Model/classes/.data/Model.cdi_javac

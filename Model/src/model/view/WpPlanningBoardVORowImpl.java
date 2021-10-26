@@ -1700,7 +1700,10 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @return the RemainingQty
      */
     public Number getRemainingQty() {
-        return (Number) getAttributeInternal(REMAININGQTY);
+
+        Number remainingQty = this.getOrderQty().subtract(this.getMonthlyTotal().add(this.getPrevMonthsQty()));
+          return (remainingQty);                                                                                                      
+       // return (Number) getAttributeInternal(REMAININGQTY);
     }
 
     /**
@@ -1726,6 +1729,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
     public void setUpdatedSamVersionAvaliable(Boolean value) {
         setAttributeInternal(UPDATEDSAMVERSIONAVALIABLE, value);
     }
+
 
     /**
      * Gets the associated <code>Row</code> using master-detail link WpMonthListVO.

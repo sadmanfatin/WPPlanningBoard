@@ -56,6 +56,9 @@ import oracle.jbo.Key;
 import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
 import oracle.jbo.domain.Number;
+import oracle.jbo.server.ViewObjectImpl;
+
+import org.apache.myfaces.trinidad.event.DisclosureEvent;
 
 public class ManagedBean {
     private RichTable planningBoardLoadTable;
@@ -662,4 +665,32 @@ public class ManagedBean {
         
         
     }
+
+    public void dashboardTabDisclosureListener(DisclosureEvent disclosureEvent) {
+        // Add event code here...
+        appM.getProductionUnitWiseMonthlyQtyVO1().executeQuery();
+        appM.getBuyerWiseMonthlyQtyVO1().executeQuery();
+        appM.getFabricationWiseMonthlyQtyVO1().executeQuery();
+        appM.getWashTypeWiseMonthlyQtyVO1().executeQuery();
+             
+        
+    }
+    
+    public void procesWiseQtyTabDisclosureListener(DisclosureEvent disclosureEvent) {
+        // Add event code here...
+        appM.getMonthWiseDailyProcessQtyVO1().executeQuery();
+        
+    }
+    public void sectionLoadTabDisclosureListener(DisclosureEvent disclosureEvent) {
+        // Add event code here...
+        appM.getWpPlanningBoardAllSectionLoadVO1().executeQuery();
+    }
+    public void freezePlanTabDisclosureListener(DisclosureEvent disclosureEvent) {
+        // Add event code here...
+        appM.getWpPlanningBoardFreezeVO1().executeQuery();
+        appM.getWpPlanningBoardFreezeLoadVO1().executeQuery();
+        
+    }
+    
+    
 }
