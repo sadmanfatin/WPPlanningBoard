@@ -369,4 +369,20 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewLinkImpl getWpPlanningBoardVO_vs_CurrentSamVsAvailableSamVO_vl1() {
         return (ViewLinkImpl)findViewLink("WpPlanningBoardVO_vs_CurrentSamVsAvailableSamVO_vl1");
     }
+
+    /**
+     * Container's getter for WpSectionSamOfStyleVO1.
+     * @return WpSectionSamOfStyleVO1
+     */
+    public ViewObjectImpl getWpSectionSamOfStyleVO1() {
+        return (ViewObjectImpl)findViewObject("WpSectionSamOfStyleVO1");
+    }
+
+    /**
+     * Container's getter for WpPlanningBoardVO_vs_WpSectionSamOfStyleVO_vl1.
+     * @return WpPlanningBoardVO_vs_WpSectionSamOfStyleVO_vl1
+     */
+    public ViewLinkImpl getWpPlanningBoardVO_vs_WpSectionSamOfStyleVO_vl1() {
+        return (ViewLinkImpl)findViewLink("WpPlanningBoardVO_vs_WpSectionSamOfStyleVO_vl1");
+    }
 }
