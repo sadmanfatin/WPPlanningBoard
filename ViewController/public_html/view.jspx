@@ -105,26 +105,33 @@
                 <af:showDetailItem text="Planning Board" id="sdi1"
                                    styleClass="AFStretchWidth">
                   <af:panelFormLayout id="pfl2" rows="1" maxColumns="7"
-                                      inlineStyle="border-style:solid; border-width:thin; background-color:rgb(248,248,265); border-color:rgb(198,198,198); margin-bottom:2px; padding:3.0px; height:25px; ">
-                    <af:commandButton text="Populate From Previous Month"
-                                      id="cb2" icon="/icons/pop-up-512.png">
-                      <af:showPopupBehavior popupId="p3"/>
-                    </af:commandButton>
-                    <af:commandButton text="Freeze Plan" id="cb8"
-                                      partialSubmit="true">
-                      <af:showPopupBehavior popupId="p4"/>
-                    </af:commandButton>
-                    <af:commandButton text="Populate Style" id="cb3"
-                                      icon="/icons/pop-up-512.png">
-                      <af:showPopupBehavior popupId="p1"/>
-                    </af:commandButton>
-                    <af:commandButton actionListener="#{bindings.Delete.execute}"
-                                      text="Delete" id="cb4"
-                                      icon="/icons/delete_red - Copy.png"/>
-                    <af:commandButton actionListener="#{ManagedBean.save}"
-                                      text="Save" id="cb5"
-                                      partialSubmit="true"
-                                      icon="/icons/check_sign_icon_green.png"/>
+                                      inlineStyle="border-style:solid; border-width:thin; background-color:rgb(248,248,265); border-color:rgb(198,198,198); padding:3px; margin-top:2.0px;margin-bottom:2.0px;">
+                    <af:panelGroupLayout id="pgl46">
+                      <af:commandButton text="Populate Style" id="cb3"
+                                        icon="/icons/popup Icon.png">
+                        <af:showPopupBehavior popupId="p1"/>
+                      </af:commandButton>
+                      <af:spacer width="10" height="10" id="spacer4"/>
+                      <af:commandButton text="Populate From Previous Month"
+                                        id="cb2" icon="/icons/popup Icon.png">
+                        <af:showPopupBehavior popupId="p3"/>
+                      </af:commandButton>
+                      <af:spacer width="10" height="10" id="s4"/>
+                      <af:commandButton actionListener="#{bindings.Delete.execute}"
+                                        text="Delete" id="cb4"
+                                        icon="/icons/delete_red - Copy.png"/>
+                      <af:spacer width="10" height="10" id="spacer3"/>
+                      <af:commandButton actionListener="#{ManagedBean.save}"
+                                        text="Save" id="cb5"
+                                        partialSubmit="true"
+                                        icon="/icons/check_sign_icon_green.png"/>
+                      <af:spacer width="100" height="10" id="spacer5"/>
+                      <af:commandButton text="Freeze Plan" id="cb8"
+                                        partialSubmit="true"
+                                        icon="/icons/Lock Icon 3.png">
+                        <af:showPopupBehavior popupId="p4"/>
+                      </af:commandButton>
+                    </af:panelGroupLayout>
                   </af:panelFormLayout>
                   <af:panelGroupLayout id="pgl3" layout="scroll">
                     <af:table value="#{bindings.WpPlanningBoardLoadVO1.collectionModel}"
@@ -322,7 +329,7 @@
                       <af:column sortProperty="D8" filterable="false"
                                  sortable="false" id="c28" width="55"
                                  align="center"     
-                                 styleClass="#{ row.bindings.D18.inputValue == null ? '' :  row.bindings.D8.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
+                                 styleClass="#{ row.bindings.D8.inputValue == null ? '' :  row.bindings.D8.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D8.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D8.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D8.mandatory}"
@@ -593,7 +600,8 @@
                       </af:column>
                       <af:column sortProperty="D25" filterable="false"
                                  sortable="false" id="c1" width="55"
-                                 styleClass="#{ row.bindings.D25.inputValue == null ? '' :  row.bindings.D25.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
+                                 styleClass="#{ row.bindings.D25.inputValue == null ? '' :  row.bindings.D25.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }"
+                                 align="center">
                         <af:inputText value="#{row.bindings.D25.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D25.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D25.mandatory}"
