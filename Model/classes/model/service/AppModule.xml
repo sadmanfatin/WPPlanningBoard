@@ -80,6 +80,12 @@
   <ViewUsage
     Name="CurrentSamVsAvailableSamVO1"
     ViewObjectName="model.view.CurrentSamVsAvailableSamVO"/>
+  <ViewUsage
+    Name="WpSectionSamOfStyleVO1"
+    ViewObjectName="model.view.WpSectionSamOfStyleVO"/>
+  <ViewUsage
+    Name="WpMonthlySectionCapacityVO1"
+    ViewObjectName="model.view.WpMonthlySectionCapacityVO"/>
   <ViewLinkUsage
     Name="MonthSearchVO_vs_WpMonthListVO_vl1"
     ViewLinkObjectName="model.viewlinks.MonthSearchVO_vs_WpMonthListVO_vl"
@@ -187,6 +193,18 @@
     ViewLinkObjectName="model.viewlinks.WpPlanningBoardVO_vs_CurrentSamVsAvailableSamVO_vl"
     SrcViewUsageName="model.service.AppModule.WpPlanningBoardVO1"
     DstViewUsageName="model.service.AppModule.CurrentSamVsAvailableSamVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="WpPlanningBoardVO_vs_WpSectionSamOfStyleVO_vl1"
+    ViewLinkObjectName="model.viewlinks.WpPlanningBoardVO_vs_WpSectionSamOfStyleVO_vl"
+    SrcViewUsageName="model.service.AppModule.WpPlanningBoardVO1"
+    DstViewUsageName="model.service.AppModule.WpSectionSamOfStyleVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="WpMonthListVO_vs_WpMonthlySectionCapacityVO_vl1"
+    ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_WpMonthlySectionCapacityVO_vl"
+    SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
+    DstViewUsageName="model.service.AppModule.WpMonthlySectionCapacityVO1"
     Reversed="false"/>
   <ClientInterface>
     <Method

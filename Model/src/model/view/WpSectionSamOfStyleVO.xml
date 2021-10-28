@@ -211,6 +211,9 @@ SOS.SECTION_TYPE
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </ViewAttribute>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="WpSectionId"/>
+  </AttrArray>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

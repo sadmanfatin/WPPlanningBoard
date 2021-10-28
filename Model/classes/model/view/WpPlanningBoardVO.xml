@@ -708,4 +708,9 @@
     ViewLink="model.viewlinks.WpPlanningBoardVO_vs_CurrentSamVsAvailableSamVO_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="WpSectionSamOfStyleVO"
+    ViewLink="model.viewlinks.WpPlanningBoardVO_vs_WpSectionSamOfStyleVO_vl"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

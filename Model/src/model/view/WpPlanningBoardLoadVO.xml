@@ -102,7 +102,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D1"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -116,7 +115,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D2"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -130,7 +128,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D3"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -144,7 +141,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D4"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -158,7 +154,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D5"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -172,7 +167,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D6"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -186,7 +180,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D7"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -200,7 +193,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D8"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -214,7 +206,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D9"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -228,7 +219,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D10"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -242,7 +232,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D11"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -256,7 +245,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D12"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -270,7 +258,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D13"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -284,7 +271,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D14"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -298,7 +284,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D15"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -312,7 +297,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D16"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -326,7 +310,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D17"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -340,7 +323,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D18"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -354,7 +336,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D19"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -368,7 +349,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D20"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -382,7 +362,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D21"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -396,7 +375,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D22"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -410,7 +388,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D23"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -424,7 +401,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D24"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -438,7 +414,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D25"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -452,7 +427,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D26"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -466,7 +440,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D27"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -480,7 +453,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D28"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -494,7 +466,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D29"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -508,7 +479,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D30"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -522,7 +492,6 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D31"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"

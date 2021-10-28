@@ -3,69 +3,92 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="WpPlanningBoardLoadVO"
+  Name="WpMonthlySectionCapacityVO"
   Version="11.1.1.62.29"
   InheritPersonalization="true"
   BindingStyle="OracleName"
   CustomQuery="true"
   PageIterMode="Full"
-  UseGlueCode="false">
+  UseGlueCode="false"
+  FetchMode="FETCH_AS_NEEDED"
+  RangeSize="10"
+  FetchSize="10">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.view.WpMonthlySectionCapacityVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
   <SQLQuery>
-    <![CDATA[select 
-*
-from   
-
-(
-select lv.month_id, lv.org_id,lv.wp_section_id, lv.section_name,  lv.day, lv.load  ,  round ( avg (lv.load  )  over (partition by lv.month_id , lv.org_id  , lv.wp_section_id)  ) AVG_LOAD   from WP_DAILY_WET_SECTION_LOAD_V lv
-)
-pivot (  max(load) for day in (
-                                 'D1' D1   ,'D2' D2  ,'D3' D3, 'D4' D4, 'D5' D5,'D6' D6 ,'D7' D7, 'D8' D8,'D9' D9, 'D10' D10, 
-                                 'D11' D11 ,'D12' D12 ,'D13' D13, 'D14' D14, 'D15' D15,'D16' D16 ,'D17' D17, 'D18' D18,'D19' D19, 'D20' D20, 
-                                 'D21' D21,'D22' D22 ,'D23' D23, 'D24' D24, 'D25' D25,'D26' D26 ,'D27' D27, 'D28' D28,'D29' D29,'D30' D30,'D31' D31 
-                                 )
-)]]>
+    <![CDATA[SELECT 
+    MCV.WP_SECTION_ID, 
+    MCV.UNIT_SECTION_ID,
+    MCV.SECTION_NAME,
+    MCV.ORG_ID,
+    MCV.ORG_NAME,
+    MCV.MONTH_ID,
+    MCV.MONTH_NAME,
+    MCV.YEAR,
+    MCV.D1,
+    MCV.D2,
+    MCV.D3,
+    MCV.D4,
+    MCV.D5,
+    MCV.D6,
+    MCV.D7,
+    MCV.D8,
+    MCV.D9,
+    MCV.D10,
+    MCV.D11,
+    MCV.D12,
+    MCV.D13,
+    MCV.D14,
+    MCV.D15,
+    MCV.D16,
+    MCV.D17,
+    MCV.D18,
+    MCV.D19,
+    MCV.D20,
+    MCV.D21,
+    MCV.D22,
+    MCV.D23,
+    MCV.D24,
+    MCV.D25,
+    MCV.D26,
+    MCV.D27,
+    MCV.D28,
+    MCV.D29,
+    MCV.D30,
+    MCV.D31
+from APPS.WP_MONTH_WISE_SEC_CAPACITY_V MCV]]>
   </SQLQuery>
   <ViewAttribute
-    Name="MonthId"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    AliasName="MONTH_ID"
-    Expression="MONTH_ID"
-    SQLType="NUMERIC">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="OrgId"
+    Name="WpSectionId"
     IsUpdateable="false"
     IsPersistent="false"
     IsNotNull="true"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    AliasName="ORG_ID"
-    Expression="ORG_ID"
+    AliasName="WP_SECTION_ID"
+    Expression="WP_SECTION_ID"
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
-    Name="WpSectionId"
+    Name="UnitSectionId"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    AliasName="WP_SECTION_ID"
-    Expression="WP_SECTION_ID"
+    AliasName="UNIT_SECTION_ID"
+    Expression="UNIT_SECTION_ID"
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
@@ -87,14 +110,72 @@ pivot (  max(load) for day in (
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
-    Name="AvgLoad"
+    Name="OrgId"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    AliasName="AVG_LOAD"
-    Expression="AVG_LOAD"
+    AliasName="ORG_ID"
+    Expression="ORG_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="ORG_NAME"
+    Expression="ORG_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MonthId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="MONTH_ID"
+    Expression="MONTH_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MonthName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="27"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="MONTH_NAME"
+    Expression="MONTH_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="27"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Year"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="YEAR"
+    Expression="YEAR"
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
@@ -102,6 +183,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D1"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -115,6 +197,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D2"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -128,6 +211,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D3"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -141,6 +225,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D4"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -154,6 +239,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D5"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -167,6 +253,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D6"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -180,6 +267,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D7"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -193,6 +281,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D8"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -206,6 +295,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D9"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -219,6 +309,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D10"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -232,6 +323,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D11"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -245,6 +337,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D12"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -258,6 +351,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D13"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -271,6 +365,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D14"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -284,6 +379,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D15"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -297,6 +393,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D16"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -310,6 +407,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D17"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -323,6 +421,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D18"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -336,6 +435,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D19"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -349,6 +449,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D20"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -362,6 +463,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D21"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -375,6 +477,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D22"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -388,6 +491,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D23"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -401,6 +505,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D24"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -414,6 +519,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D25"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -427,6 +533,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D26"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -440,6 +547,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D27"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -453,6 +561,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D28"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -466,6 +575,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D29"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -479,6 +589,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D30"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -492,6 +603,7 @@ pivot (  max(load) for day in (
   </ViewAttribute>
   <ViewAttribute
     Name="D31"
+    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"
@@ -503,43 +615,11 @@ pivot (  max(load) for day in (
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </ViewAttribute>
-  <ViewAttribute
-    Name="LoadLimit"
-    IsUpdateable="false"
-    IsSelected="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    AliasName="VIEW_ATTR"
-    SQLType="NUMERIC">
-    <TransientExpression><![CDATA[100]]></TransientExpression>
-  </ViewAttribute>
-  <ViewCriteria
-    Name="WpPlanningBoardLoadVOCriteria"
-    ViewObjectName="model.view.WpPlanningBoardLoadVO"
-    Conjunction="AND">
-    <Properties>
-      <CustomProperties>
-        <Property
-          Name="displayOperators"
-          Value="InAdvancedMode"/>
-        <Property
-          Name="autoExecute"
-          Value="false"/>
-        <Property
-          Name="allowConjunctionOverride"
-          Value="true"/>
-        <Property
-          Name="showInList"
-          Value="true"/>
-        <Property
-          Name="mode"
-          Value="Basic"/>
-      </CustomProperties>
-    </Properties>
-  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="WpSectionId"/>
   </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

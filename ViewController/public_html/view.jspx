@@ -361,14 +361,16 @@
                       <af:column sortProperty="D10" filterable="false"
                                  sortable="false" id="c31" width="55"
                                  align="center"      
-                                 styleClass="#{ row.bindings.D10.inputValue == null ? '' :  row.bindings.D10.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
+                                 styleClass="#{ row.bindings.D10.inputValue == null ? '' :  row.bindings.D10.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }"
+                                 partialTriggers="::t2:it52">
                         <af:inputText value="#{row.bindings.D10.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D10.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D10.mandatory}"
                                       columns="#{bindings.WpPlanningBoardLoadVO1.hints.D10.displayWidth}"
                                       maximumLength="#{bindings.WpPlanningBoardLoadVO1.hints.D10.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardLoadVO1.hints.D10.tooltip}"
-                                      id="it7" readOnly="true">
+                                      id="it7" readOnly="true"
+                                      partialTriggers="::t2:it52">
                           <f:validator binding="#{row.bindings.D10.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardLoadVO1.hints.D10.format}"/>

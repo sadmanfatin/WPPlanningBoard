@@ -2,8 +2,16 @@ package model.view;
 
 import model.entity.WpPlanningBoardEOImpl;
 
+import model.service.AppModuleImpl;
+
+import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCBindingContainer;
+import oracle.adf.model.binding.DCDataControl;
+
+import oracle.jbo.Key;
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
+import oracle.jbo.ViewObject;
 import oracle.jbo.domain.Date;
 import oracle.jbo.domain.Number;
 import oracle.jbo.server.AttributeDefImpl;
@@ -15,9 +23,30 @@ import oracle.jbo.server.ViewRowImpl;
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
 public class WpPlanningBoardVORowImpl extends ViewRowImpl {
+    
+    AppModuleImpl appM = getAppModuleImpl();
+    
+    
+    
+    public AppModuleImpl getAppModuleImpl() {
+        DCBindingContainer bindingContainer =
+            (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        //BindingContext bindingContext = BindingContext.getCurrent();
+        DCDataControl dc =
+            bindingContainer.findDataControl("AppModuleDataControl"); // Name of application module in datacontrolBinding.cpx
+        AppModuleImpl appM = (AppModuleImpl)dc.getDataProvider();
+        return appM;
+    }
+    
+    
+    
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. Do not modify.
      */
+    
+    
+    
+    
     public enum AttributesEnum {
         PlanningBoardId {
             public Object get(WpPlanningBoardVORowImpl obj) {
@@ -1111,7 +1140,70 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D10
      */
     public void setD10(Number value) {
+        ViewObject sectionLoadVo = appM.getWpPlanningBoardLoadVO1();
+        Row sectionLoadVoRow = sectionLoadVo.getCurrentRow();
+        Number sectionId = (Number)sectionLoadVoRow.getAttribute("WpSectionId");
+        System.out.println(" =======================  load row  sectionId = "+ sectionId );
+        ViewObject sectionCapacityVo = appM.getWpMonthlySectionCapacityVO1();
+        Row sectionCapacityVoRow = null;
+      
+        Number sectionCapacity = null;
+                
+        Number newLoad = null;
+        Number oldLoad = (Number)sectionLoadVoRow.getAttribute("D10");
+        if(oldLoad == null){
+            oldLoad = new Number(0);
+        }
+        Number oldQty =  this.getD10();
+        if(oldQty == null){
+            oldQty = new Number(0);
+        }
+        
+        Number newQty =  value;
+        if(newQty == null){
+            newQty = new Number(0);
+        }
+        Number qtyDifference = newQty.subtract(oldQty);
+        RowIterator sectionSamOfStyleRows =  this.getWpSectionSamOfStyleVO();
+        Row sectionSamOfStyleRow;
+      //  Number sectionId = null; 
+        Number sectionSam = null;
+        Number samDifference =  null;
+
+        Number loadDifference = null;
+        sectionCapacityVoRow = sectionCapacityVo.getRow(new Key(new Object[]{sectionId }));
+       System.out.println("========= sectionCapacityVoRow =========== "+ sectionCapacityVoRow);
+       
+        sectionCapacity = (Number)sectionCapacityVoRow.getAttribute("D10");
+       
+        sectionSamOfStyleRow = sectionSamOfStyleRows.getRow(new Key(new Object[]{sectionId}));
+        
+        
+      //  sectionId = (Number)sectionSamOfStyleRow.getAttribute("StyleSetupId");
+        
+        sectionSam = (Number)sectionSamOfStyleRow.getAttribute("SectionSam");
+        
+        samDifference = qtyDifference.multiply(sectionSam);
+        
+        loadDifference = samDifference.divide(sectionCapacity) ;
+        loadDifference = loadDifference.multiply(100);
+        
+        loadDifference = (Number)loadDifference.round(0);
+        
+        
+        System.out.println("=================== loadDifference difference ====== "+  loadDifference);
+        
+        newLoad = oldLoad.add(loadDifference);
+      //  System.out.println("===================  newLoad  ====== "+   newLoad );
+         
+        sectionLoadVoRow.setAttribute("D10", newLoad);
+         
+       // System.out.println();
+        
+
+        
         setAttributeInternal(D10, value);
+    
     }
 
     /**
