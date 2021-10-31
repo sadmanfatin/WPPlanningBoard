@@ -515,6 +515,54 @@ pivot (  max(load) for day in (
     SQLType="NUMERIC">
     <TransientExpression><![CDATA[100]]></TransientExpression>
   </ViewAttribute>
+  <ViewAttribute
+    Name="UnderLoad"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression><![CDATA[59]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ModerateLoad"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression><![CDATA[89]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OverLoad"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression><![CDATA[1000]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StandardLoad"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC">
+    <TransientExpression><![CDATA[100]]></TransientExpression>
+  </ViewAttribute>
   <ViewCriteria
     Name="WpPlanningBoardLoadVOCriteria"
     ViewObjectName="model.view.WpPlanningBoardLoadVO"

@@ -61,18 +61,20 @@ af|column::column-data-cell-content {
    /*background-color:rgb(255,176,170);*/
 }
 
-af|column::data-cell.overload{
-   background-color:rgb(255,176,170);
-    
-}
 af|column::data-cell.underload{
    background-color:rgb(180,255,191);    
 }
 af|column::data-cell.moderateload{
-   background-color:rgb(180,255,191);    
+  background-color:White;
 }
 af|column::data-cell.standardload{
-   background-color:rgb(180,255,191);    
+   background-color:rgb(255,255,148);  
+}
+af|column::data-cell.overload{
+   background-color:rgb(255,176,170);  
+}
+af|column::data-cell.disableload{
+   background-color:rgb(200,200,200);    
 }
 
 af|column::data-cell.avgload{

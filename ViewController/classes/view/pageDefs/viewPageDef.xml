@@ -154,6 +154,10 @@
           <Item Value="D31"/>
           <Item Value="AvgLoad"/>
           <Item Value="LoadLimit"/>
+          <Item Value="UnderLoad"/>
+          <Item Value="ModerateLoad"/>
+          <Item Value="StandardLoad"/>
+          <Item Value="OverLoad"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

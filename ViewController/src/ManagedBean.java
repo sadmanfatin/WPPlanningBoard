@@ -66,6 +66,7 @@ public class ManagedBean {
     Map<String, Integer> daysColumnsWithValue ;
    List <Integer> holidayDayNoList ;
     private RichInputText numberOfDays;
+    private RichColumn d10Load;
 
     public ManagedBean() {
         
@@ -691,6 +692,12 @@ public class ManagedBean {
         appM.getWpPlanningBoardFreezeLoadVO1().executeQuery();
         
     }
-    
-    
+
+
+    public void planningBoardValueChangeListener(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardLoadTable());
+    }
+
+  
 }

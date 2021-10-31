@@ -169,6 +169,62 @@
                         </af:inputText>
                       </af:column>
                       <af:column
+                                 id="c319" visible="false">
+                        <af:inputText value="#{row.bindings.UnderLoad.inputValue}"
+                                      label="#{bindings.WpPlanningBoardLoadVO1.hints.UnderLoad.label}"
+                                      required="#{bindings.WpPlanningBoardLoadVO1.hints.UnderLoad.mandatory}"
+                                      columns="#{bindings.WpPlanningBoardLoadVO1.hints.UnderLoad.displayWidth}"
+                                      maximumLength="#{bindings.WpPlanningBoardLoadVO1.hints.UnderLoad.precision}"
+                                      shortDesc="#{bindings.WpPlanningBoardLoadVO1.hints.UnderLoad.tooltip}"
+                                      id="it146">
+                          <f:validator binding="#{row.bindings.UnderLoad.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardLoadVO1.hints.UnderLoad.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column
+                                 id="c320" visible="false">
+                        <af:inputText value="#{row.bindings.ModerateLoad.inputValue}"
+                                      label="#{bindings.WpPlanningBoardLoadVO1.hints.ModerateLoad.label}"
+                                      required="#{bindings.WpPlanningBoardLoadVO1.hints.ModerateLoad.mandatory}"
+                                      columns="#{bindings.WpPlanningBoardLoadVO1.hints.ModerateLoad.displayWidth}"
+                                      maximumLength="#{bindings.WpPlanningBoardLoadVO1.hints.ModerateLoad.precision}"
+                                      shortDesc="#{bindings.WpPlanningBoardLoadVO1.hints.ModerateLoad.tooltip}"
+                                      id="it147">
+                          <f:validator binding="#{row.bindings.ModerateLoad.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardLoadVO1.hints.ModerateLoad.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column
+                                 id="c321" visible="false">
+                        <af:inputText value="#{row.bindings.StandardLoad.inputValue}"
+                                      label="#{bindings.WpPlanningBoardLoadVO1.hints.StandardLoad.label}"
+                                      required="#{bindings.WpPlanningBoardLoadVO1.hints.StandardLoad.mandatory}"
+                                      columns="#{bindings.WpPlanningBoardLoadVO1.hints.StandardLoad.displayWidth}"
+                                      maximumLength="#{bindings.WpPlanningBoardLoadVO1.hints.StandardLoad.precision}"
+                                      shortDesc="#{bindings.WpPlanningBoardLoadVO1.hints.StandardLoad.tooltip}"
+                                      id="it148">
+                          <f:validator binding="#{row.bindings.StandardLoad.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardLoadVO1.hints.StandardLoad.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column
+                                 id="c322" visible="false">
+                        <af:inputText value="#{row.bindings.OverLoad.inputValue}"
+                                      label="#{bindings.WpPlanningBoardLoadVO1.hints.OverLoad.label}"
+                                      required="#{bindings.WpPlanningBoardLoadVO1.hints.OverLoad.mandatory}"
+                                      columns="#{bindings.WpPlanningBoardLoadVO1.hints.OverLoad.displayWidth}"
+                                      maximumLength="#{bindings.WpPlanningBoardLoadVO1.hints.OverLoad.precision}"
+                                      shortDesc="#{bindings.WpPlanningBoardLoadVO1.hints.OverLoad.tooltip}"
+                                      id="it149">
+                          <f:validator binding="#{row.bindings.OverLoad.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardLoadVO1.hints.OverLoad.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column
                                  id="c177" align="center" sortable="true"
                                  filterable="true" width="60"
                                  styleClass="avgload">
@@ -313,7 +369,7 @@
                       <af:column sortProperty="D7" filterable="false"
                                  sortable="false" id="c3" width="55"
                                  align="center"
-                                styleClass="#{ row.bindings.D7.inputValue == null ? '' :  row.bindings.D7.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
+                                styleClass="#{ row.bindings.D7.inputValue == null ? 'disableload' :  row.bindings.D7.inputValue &lt;=  row.bindings.UnderLoad.inputValue ?   'underload'  :  row.bindings.D7.inputValue &lt;=  row.bindings.ModerateLoad.inputValue ?  'moderateload'  : row.bindings.D7.inputValue &lt;=  row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload' }">
                         <af:inputText value="#{row.bindings.D7.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D7.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D7.mandatory}"
@@ -361,16 +417,14 @@
                       <af:column sortProperty="D10" filterable="false"
                                  sortable="false" id="c31" width="55"
                                  align="center"      
-                                 styleClass="#{ row.bindings.D10.inputValue == null ? '' :  row.bindings.D10.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }"
-                                 partialTriggers="::t2:it52">
+                                 styleClass="#{ row.bindings.D10.inputValue == null ? '' :  row.bindings.D10.inputValue >  row.bindings.LoadLimit.inputValue ?   'overload' : 'underload' }">
                         <af:inputText value="#{row.bindings.D10.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D10.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.D10.mandatory}"
                                       columns="#{bindings.WpPlanningBoardLoadVO1.hints.D10.displayWidth}"
                                       maximumLength="#{bindings.WpPlanningBoardLoadVO1.hints.D10.precision}"
                                       shortDesc="#{bindings.WpPlanningBoardLoadVO1.hints.D10.tooltip}"
-                                      id="it7" readOnly="true"
-                                      partialTriggers="::t2:it52">
+                                      id="it7" readOnly="true">
                           <f:validator binding="#{row.bindings.D10.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardLoadVO1.hints.D10.format}"/>
@@ -989,7 +1043,7 @@
                                       id="it44"
                                       contentStyle="text-align:center;"
                                       autoSubmit="true" autoTab="true"
-                                      valueChangeListener="#{ManagedBean.styleQtyValueChangeListener}">
+                                      valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D1.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D1.format}"/>
@@ -1020,7 +1074,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D2.tooltip}"
                                       id="it58"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D2.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D2.format}"/>
@@ -1051,7 +1106,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D3.tooltip}"
                                       id="it71"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D3.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D3.format}"/>
@@ -1081,7 +1137,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D4.tooltip}"
                                       id="it51"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D4.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D4.format}"/>
@@ -1111,7 +1168,9 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D5.tooltip}"
                                       id="it42"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                        valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
+
                           <f:validator binding="#{row.bindings.D5.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D5.format}"/>
@@ -1141,7 +1200,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D6.tooltip}"
                                       id="it53"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                      valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D6.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D6.format}"/>
@@ -1171,7 +1231,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D7.tooltip}"
                                       id="it40"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D7.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D7.format}"/>
@@ -1201,7 +1262,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D8.tooltip}"
                                       id="it65"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D8.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D8.format}"/>
@@ -1231,7 +1293,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D9.tooltip}"
                                       id="it46"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D9.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D9.format}"/>
@@ -1261,7 +1324,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D10.tooltip}"
                                       id="it52"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                      valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D10.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D10.format}"/>
@@ -1291,7 +1355,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D11.tooltip}"
                                       id="it57"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D11.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D11.format}"/>
@@ -1321,7 +1386,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D12.tooltip}"
                                       id="it55"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D12.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D12.format}"/>
@@ -1351,7 +1417,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D13.tooltip}"
                                       id="it37"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D13.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D13.format}"/>
@@ -1381,7 +1448,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D14.tooltip}"
                                       id="it54"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D14.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D14.format}"/>
@@ -1411,7 +1479,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D15.tooltip}"
                                       id="it45"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D15.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D15.format}"/>
@@ -1441,7 +1510,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D16.tooltip}"
                                       id="it61"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D16.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D16.format}"/>
@@ -1471,7 +1541,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D17.tooltip}"
                                       id="it69"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D17.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D17.format}"/>
@@ -1501,7 +1572,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D18.tooltip}"
                                       id="it64"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D18.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D18.format}"/>
@@ -1531,7 +1603,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D19.tooltip}"
                                       id="it43"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D19.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D19.format}"/>
@@ -1561,7 +1634,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D20.tooltip}"
                                       id="it63"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D20.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D20.format}"/>
@@ -1590,7 +1664,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D21.tooltip}"
                                       id="it60"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D21.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D21.format}"/>
@@ -1620,7 +1695,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D22.tooltip}"
                                       id="it67"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D22.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D22.format}"/>
@@ -1650,7 +1726,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D23.tooltip}"
                                       id="it62"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D23.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D23.format}"/>
@@ -1680,7 +1757,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D24.tooltip}"
                                       id="it41"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D24.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D24.format}"/>
@@ -1710,7 +1788,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D25.tooltip}"
                                       id="it39"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D25.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D25.format}"/>
@@ -1740,7 +1819,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D26.tooltip}"
                                       id="it48"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D26.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D26.format}"/>
@@ -1770,7 +1850,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D27.tooltip}"
                                       id="it38"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D27.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D27.format}"/>
@@ -1800,7 +1881,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D28.tooltip}"
                                       id="it70"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D28.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D28.format}"/>
@@ -1830,7 +1912,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D29.tooltip}"
                                       id="it59"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D29.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D29.format}"/>
@@ -1860,7 +1943,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D30.tooltip}"
                                       id="it56"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D30.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D30.format}"/>
@@ -1890,7 +1974,8 @@
                                       shortDesc="#{bindings.WpPlanningBoardVO1.hints.D31.tooltip}"
                                       id="it36"
                                       contentStyle="text-align:center;"
-                                      autoSubmit="true" autoTab="true">
+                                      autoSubmit="true" autoTab="true"
+                                       valueChangeListener="#{ManagedBean.planningBoardValueChangeListener}">
                           <f:validator binding="#{row.bindings.D31.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.D31.format}"/>

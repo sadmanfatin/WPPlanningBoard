@@ -37,9 +37,77 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
         AppModuleImpl appM = (AppModuleImpl)dc.getDataProvider();
         return appM;
     }
-    
-    
-    
+
+    private void updateLoadPercentage(String columnName, Number newQty) {
+        ViewObject sectionLoadVo = appM.getWpPlanningBoardLoadVO1();
+        Row sectionLoadVoRow = sectionLoadVo.getCurrentRow();
+        Number sectionId = (Number)sectionLoadVoRow.getAttribute("WpSectionId");
+       // System.out.println(" =======================  load row  sectionId = "+ sectionId );
+        ViewObject sectionCapacityVo = appM.getWpMonthlySectionCapacityVO1();
+        Row sectionCapacityVoRow = null;
+        
+        Number sectionCapacity = null;
+                
+        Number newLoad = null;
+        Number oldLoad = (Number)sectionLoadVoRow.getAttribute(columnName);
+        if(oldLoad == null){
+            oldLoad = new Number(0);
+        }
+        Number oldQty = (Number)this.getAttribute(columnName);
+        if(oldQty == null){
+            oldQty = new Number(0);
+        }
+             
+        if(newQty == null){
+            newQty = new Number(0);
+        }
+        Number qtyDifference = newQty.subtract(oldQty);
+        RowIterator sectionSamOfStyleRows =  this.getWpSectionSamOfStyleVO();
+        Row sectionSamOfStyleRow;
+        //  Number sectionId = null;
+        Number sectionSam = null;
+        Number samDifference =  null;
+
+        Number loadDifference = null;
+        sectionCapacityVoRow = sectionCapacityVo.getRow(new Key(new Object[]{sectionId }));
+        
+      //  System.out.println("========= sectionCapacityVoRow =========== "+ sectionCapacityVoRow);
+        
+        sectionCapacity = (Number)sectionCapacityVoRow.getAttribute(columnName);
+        
+        sectionSamOfStyleRow = sectionSamOfStyleRows.getRow(new Key(new Object[]{sectionId}));
+        
+        
+        //  sectionId = (Number)sectionSamOfStyleRow.getAttribute("StyleSetupId");
+        
+        sectionSam = (Number)sectionSamOfStyleRow.getAttribute("SectionSam");
+        
+        samDifference = qtyDifference.multiply(sectionSam);
+      //  System.out.println("======== sam difference ========== "+samDifference);
+        
+        loadDifference = samDifference.divide(sectionCapacity) ;
+       // System.out.println("======== loadDifference ========== "+loadDifference);
+        
+        
+        loadDifference = loadDifference.multiply(100);
+      //  System.out.println("======== loadDifference 100 multiple ========== "+loadDifference);
+                 
+    //    System.out.println("========  oldLoad ========== "+ oldLoad);
+        
+        newLoad = oldLoad.add(loadDifference);
+        
+     //   System.out.println("========  newLoad ========== "+ newLoad);
+         
+        newLoad = (Number)newLoad.round(0);
+        
+      //  System.out.println("========  newLoad round========== "+ newLoad.round(0));
+         
+        sectionLoadVoRow.setAttribute(columnName, newLoad);
+         
+        // System.out.println();
+    }
+
+
     /**
      * AttributesEnum: generated enum for identifying attributes and accessors. Do not modify.
      */
@@ -991,12 +1059,10 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D1
      */
     public void setD1(Number value) {
+        
+        updateLoadPercentage("D1",value);
         setAttributeInternal(D1, value);
         
-        this.setMonthlyTotal(this.getMonthlyTotal());
-        
-     
-  
     }
 
     /**
@@ -1012,6 +1078,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D2
      */
     public void setD2(Number value) {
+        updateLoadPercentage("D2",value);
         setAttributeInternal(D2, value);
     }
 
@@ -1028,6 +1095,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D3
      */
     public void setD3(Number value) {
+        updateLoadPercentage("D3",value);
         setAttributeInternal(D3, value);
     }
 
@@ -1044,6 +1112,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D4
      */
     public void setD4(Number value) {
+        updateLoadPercentage("D4",value);
         setAttributeInternal(D4, value);
     }
 
@@ -1060,6 +1129,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D5
      */
     public void setD5(Number value) {
+        updateLoadPercentage("D5",value);
         setAttributeInternal(D5, value);
     }
 
@@ -1076,6 +1146,8 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D6
      */
     public void setD6(Number value) {
+        
+        updateLoadPercentage("D6",value);
         setAttributeInternal(D6, value);
     }
 
@@ -1092,6 +1164,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D7
      */
     public void setD7(Number value) {
+        updateLoadPercentage("D7",value);
         setAttributeInternal(D7, value);
     }
 
@@ -1108,6 +1181,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D8
      */
     public void setD8(Number value) {
+        updateLoadPercentage("D8",value);
         setAttributeInternal(D8, value);
     }
 
@@ -1124,6 +1198,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D9
      */
     public void setD9(Number value) {
+        updateLoadPercentage("D9",value);
         setAttributeInternal(D9, value);
     }
 
@@ -1139,70 +1214,10 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * Sets <code>value</code> as attribute value for D10 using the alias name D10.
      * @param value value to set the D10
      */
-    public void setD10(Number value) {
-        ViewObject sectionLoadVo = appM.getWpPlanningBoardLoadVO1();
-        Row sectionLoadVoRow = sectionLoadVo.getCurrentRow();
-        Number sectionId = (Number)sectionLoadVoRow.getAttribute("WpSectionId");
-        System.out.println(" =======================  load row  sectionId = "+ sectionId );
-        ViewObject sectionCapacityVo = appM.getWpMonthlySectionCapacityVO1();
-        Row sectionCapacityVoRow = null;
-      
-        Number sectionCapacity = null;
-                
-        Number newLoad = null;
-        Number oldLoad = (Number)sectionLoadVoRow.getAttribute("D10");
-        if(oldLoad == null){
-            oldLoad = new Number(0);
-        }
-        Number oldQty =  this.getD10();
-        if(oldQty == null){
-            oldQty = new Number(0);
-        }
+    public void setD10(Number value) {    
         
-        Number newQty =  value;
-        if(newQty == null){
-            newQty = new Number(0);
-        }
-        Number qtyDifference = newQty.subtract(oldQty);
-        RowIterator sectionSamOfStyleRows =  this.getWpSectionSamOfStyleVO();
-        Row sectionSamOfStyleRow;
-      //  Number sectionId = null; 
-        Number sectionSam = null;
-        Number samDifference =  null;
-
-        Number loadDifference = null;
-        sectionCapacityVoRow = sectionCapacityVo.getRow(new Key(new Object[]{sectionId }));
-       System.out.println("========= sectionCapacityVoRow =========== "+ sectionCapacityVoRow);
-       
-        sectionCapacity = (Number)sectionCapacityVoRow.getAttribute("D10");
-       
-        sectionSamOfStyleRow = sectionSamOfStyleRows.getRow(new Key(new Object[]{sectionId}));
-        
-        
-      //  sectionId = (Number)sectionSamOfStyleRow.getAttribute("StyleSetupId");
-        
-        sectionSam = (Number)sectionSamOfStyleRow.getAttribute("SectionSam");
-        
-        samDifference = qtyDifference.multiply(sectionSam);
-        
-        loadDifference = samDifference.divide(sectionCapacity) ;
-        loadDifference = loadDifference.multiply(100);
-        
-        loadDifference = (Number)loadDifference.round(0);
-        
-        
-        System.out.println("=================== loadDifference difference ====== "+  loadDifference);
-        
-        newLoad = oldLoad.add(loadDifference);
-      //  System.out.println("===================  newLoad  ====== "+   newLoad );
-         
-        sectionLoadVoRow.setAttribute("D10", newLoad);
-         
-       // System.out.println();
-        
-
-        
-        setAttributeInternal(D10, value);
+       updateLoadPercentage("D10",value);       
+       setAttributeInternal(D10, value);
     
     }
 
@@ -1219,6 +1234,8 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D11
      */
     public void setD11(Number value) {
+        
+        updateLoadPercentage("D11",value);
         setAttributeInternal(D11, value);
     }
 
@@ -1235,6 +1252,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D12
      */
     public void setD12(Number value) {
+        updateLoadPercentage("D12",value);
         setAttributeInternal(D12, value);
     }
 
@@ -1251,6 +1269,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D13
      */
     public void setD13(Number value) {
+        updateLoadPercentage("D13",value);
         setAttributeInternal(D13, value);
     }
 
@@ -1267,6 +1286,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D14
      */
     public void setD14(Number value) {
+        updateLoadPercentage("D4",value);
         setAttributeInternal(D14, value);
     }
 
@@ -1283,6 +1303,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D15
      */
     public void setD15(Number value) {
+        updateLoadPercentage("D15",value);
         setAttributeInternal(D15, value);
     }
 
@@ -1299,6 +1320,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D16
      */
     public void setD16(Number value) {
+        updateLoadPercentage("D16",value);
         setAttributeInternal(D16, value);
     }
 
@@ -1315,6 +1337,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D17
      */
     public void setD17(Number value) {
+        updateLoadPercentage("D17",value);
         setAttributeInternal(D17, value);
     }
 
@@ -1331,6 +1354,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D18
      */
     public void setD18(Number value) {
+        updateLoadPercentage("D18",value);
         setAttributeInternal(D18, value);
     }
 
@@ -1347,6 +1371,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D19
      */
     public void setD19(Number value) {
+        updateLoadPercentage("D19",value);
         setAttributeInternal(D19, value);
     }
 
@@ -1363,6 +1388,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D20
      */
     public void setD20(Number value) {
+        updateLoadPercentage("D20",value);
         setAttributeInternal(D20, value);
     }
 
@@ -1379,6 +1405,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D21
      */
     public void setD21(Number value) {
+        updateLoadPercentage("D21",value);
         setAttributeInternal(D21, value);
     }
 
@@ -1395,6 +1422,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D22
      */
     public void setD22(Number value) {
+            updateLoadPercentage("D22",value);
         setAttributeInternal(D22, value);
     }
 
@@ -1411,6 +1439,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D23
      */
     public void setD23(Number value) {
+        updateLoadPercentage("D23",value);
         setAttributeInternal(D23, value);
     }
 
@@ -1427,6 +1456,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D24
      */
     public void setD24(Number value) {
+        updateLoadPercentage("D24",value);
         setAttributeInternal(D24, value);
     }
 
@@ -1443,6 +1473,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D25
      */
     public void setD25(Number value) {
+        updateLoadPercentage("D25",value);
         setAttributeInternal(D25, value);
     }
 
@@ -1459,6 +1490,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D26
      */
     public void setD26(Number value) {
+        updateLoadPercentage("D26",value);
         setAttributeInternal(D26, value);
     }
 
@@ -1475,6 +1507,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D27
      */
     public void setD27(Number value) {
+        updateLoadPercentage("D27",value);
         setAttributeInternal(D27, value);
     }
 
@@ -1491,6 +1524,8 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D28
      */
     public void setD28(Number value) {
+        
+        updateLoadPercentage("D28",value);
         setAttributeInternal(D28, value);
     }
 
@@ -1507,6 +1542,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D29
      */
     public void setD29(Number value) {
+        updateLoadPercentage("D29",value);
         setAttributeInternal(D29, value);
     }
 
@@ -1523,6 +1559,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D30
      */
     public void setD30(Number value) {
+        updateLoadPercentage("D30",value);
         setAttributeInternal(D30, value);
     }
 
@@ -1539,6 +1576,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D31
      */
     public void setD31(Number value) {
+        updateLoadPercentage("D31",value);
         setAttributeInternal(D31, value);
     }
 
