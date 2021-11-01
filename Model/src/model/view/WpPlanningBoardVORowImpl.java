@@ -71,36 +71,36 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
         Number loadDifference = null;
         sectionCapacityVoRow = sectionCapacityVo.getRow(new Key(new Object[]{sectionId }));
         
-      //  System.out.println("========= sectionCapacityVoRow =========== "+ sectionCapacityVoRow);
+    //    System.out.println("========= sectionCapacityVoRow =========== "+ sectionCapacityVoRow);
         
         sectionCapacity = (Number)sectionCapacityVoRow.getAttribute(columnName);
         
         sectionSamOfStyleRow = sectionSamOfStyleRows.getRow(new Key(new Object[]{sectionId}));
         
         
-        //  sectionId = (Number)sectionSamOfStyleRow.getAttribute("StyleSetupId");
+         sectionId = (Number)sectionSamOfStyleRow.getAttribute("StyleSetupId");
         
         sectionSam = (Number)sectionSamOfStyleRow.getAttribute("SectionSam");
         
         samDifference = qtyDifference.multiply(sectionSam);
-      //  System.out.println("======== sam difference ========== "+samDifference);
+   //     System.out.println("======== sam difference ========== "+samDifference);
         
         loadDifference = samDifference.divide(sectionCapacity) ;
        // System.out.println("======== loadDifference ========== "+loadDifference);
         
         
         loadDifference = loadDifference.multiply(100);
-      //  System.out.println("======== loadDifference 100 multiple ========== "+loadDifference);
+        System.out.println("======== loadDifference 100 multiple ========== "+loadDifference);
                  
     //    System.out.println("========  oldLoad ========== "+ oldLoad);
         
         newLoad = oldLoad.add(loadDifference);
         
-     //   System.out.println("========  newLoad ========== "+ newLoad);
+    //    System.out.println("========  newLoad ========== "+ newLoad);
          
         newLoad = (Number)newLoad.round(0);
         
-      //  System.out.println("========  newLoad round========== "+ newLoad.round(0));
+     // System.out.println("========  newLoad round========== "+ newLoad.round(0));
          
         sectionLoadVoRow.setAttribute(columnName, newLoad);
          
@@ -1286,7 +1286,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      * @param value value to set the D14
      */
     public void setD14(Number value) {
-        updateLoadPercentage("D4",value);
+        updateLoadPercentage("D14",value);
         setAttributeInternal(D14, value);
     }
 

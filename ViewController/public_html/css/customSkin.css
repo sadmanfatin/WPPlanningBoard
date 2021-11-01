@@ -68,7 +68,7 @@ af|column::data-cell.moderateload{
   background-color:White;
 }
 af|column::data-cell.standardload{
-   background-color:rgb(255,255,148);  
+   background-color:rgb(255,255,130);  
 }
 af|column::data-cell.overload{
    background-color:rgb(255,176,170);  
