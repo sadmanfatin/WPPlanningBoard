@@ -409,11 +409,10 @@ public class ManagedBean {
                     planningBoardRow.setProductionUnit(populateStylesRow.getProductionUnit());
                     planningBoardRow.setProductionUnitName(populateStylesRow.getProductionUnitName());
                     planningBoardRow.setOrderQty(populateStylesRow.getOrderQty());
-                    
-                  
+                    planningBoardRow.setPrevMonthsQty(populateStylesRow.getPrevMonthsQty());                  
                     planningBoardRow.setCurrentSamVersion(populateStylesRow.getCurrentSamVersion());
                     planningBoardRow.setAvailableSamVersion(populateStylesRow.getAvailableSamVersion());
-                   
+                    planningBoardRow.setStyleSetupId(populateStylesRow.getStyleSetupId());
 
                    planningBoardVo.insertRow(planningBoardRow);
                     

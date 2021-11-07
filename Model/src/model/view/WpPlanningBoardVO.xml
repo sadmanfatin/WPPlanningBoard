@@ -637,7 +637,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="StyleSetupId"
-    IsUpdateable="false"
     IsPersistent="false"
     IsNotNull="true"
     PrecisionRule="true"

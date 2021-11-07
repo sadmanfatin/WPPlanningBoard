@@ -134,6 +134,16 @@ public class PopulateStylesVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        PrevMonthsQty {
+            public Object get(PopulateStylesVORowImpl obj) {
+                return obj.getPrevMonthsQty();
+            }
+
+            public void put(PopulateStylesVORowImpl obj, Object value) {
+                obj.setPrevMonthsQty((Number)value);
+            }
+        }
+        ,
         OrgId {
             public Object get(PopulateStylesVORowImpl obj) {
                 return obj.getOrgId();
@@ -161,6 +171,16 @@ public class PopulateStylesVORowImpl extends ViewRowImpl {
 
             public void put(PopulateStylesVORowImpl obj, Object value) {
                 obj.setAvailableSamVersion((Number)value);
+            }
+        }
+        ,
+        StyleSetupId {
+            public Object get(PopulateStylesVORowImpl obj) {
+                return obj.getStyleSetupId();
+            }
+
+            public void put(PopulateStylesVORowImpl obj, Object value) {
+                obj.setStyleSetupId((Number)value);
             }
         }
         ,
@@ -214,9 +234,11 @@ public class PopulateStylesVORowImpl extends ViewRowImpl {
     public static final int COLOR = AttributesEnum.Color.index();
     public static final int WASHNAME = AttributesEnum.WashName.index();
     public static final int ORDERQTY = AttributesEnum.OrderQty.index();
+    public static final int PREVMONTHSQTY = AttributesEnum.PrevMonthsQty.index();
     public static final int ORGID = AttributesEnum.OrgId.index();
     public static final int CURRENTSAMVERSION = AttributesEnum.CurrentSamVersion.index();
     public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
+    public static final int STYLESETUPID = AttributesEnum.StyleSetupId.index();
     public static final int CHECKBOX = AttributesEnum.CheckBox.index();
 
     /**
@@ -418,6 +440,22 @@ public class PopulateStylesVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for the calculated attribute PrevMonthsQty.
+     * @return the PrevMonthsQty
+     */
+    public Number getPrevMonthsQty() {
+        return (Number) getAttributeInternal(PREVMONTHSQTY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute PrevMonthsQty.
+     * @param value value to set the  PrevMonthsQty
+     */
+    public void setPrevMonthsQty(Number value) {
+        setAttributeInternal(PREVMONTHSQTY, value);
+    }
+
+    /**
      * Gets the attribute value for the calculated attribute OrgId.
      * @return the OrgId
      */
@@ -463,6 +501,22 @@ public class PopulateStylesVORowImpl extends ViewRowImpl {
      */
     public void setAvailableSamVersion(Number value) {
         setAttributeInternal(AVAILABLESAMVERSION, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute StyleSetupId.
+     * @return the StyleSetupId
+     */
+    public Number getStyleSetupId() {
+        return (Number) getAttributeInternal(STYLESETUPID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute StyleSetupId.
+     * @param value value to set the  StyleSetupId
+     */
+    public void setStyleSetupId(Number value) {
+        setAttributeInternal(STYLESETUPID, value);
     }
 
     /**

@@ -78,7 +78,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
         sectionSamOfStyleRow = sectionSamOfStyleRows.getRow(new Key(new Object[]{sectionId}));
         
         
-         sectionId = (Number)sectionSamOfStyleRow.getAttribute("StyleSetupId");
+       //  sectionId = (Number)sectionSamOfStyleRow.getAttribute("StyleSetupId");
         
         sectionSam = (Number)sectionSamOfStyleRow.getAttribute("SectionSam");
         

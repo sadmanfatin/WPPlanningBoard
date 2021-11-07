@@ -42,10 +42,15 @@
     PV.COLOR, 
     PV.WASH_NAME , 
     PV.ORDER_QTY ,
+           ( SELECT  NVL(   SUM(QUANTITY)  , 0)
+       FROM WP_DAILY_STYLE_QUANTITY SQ    
+       WHERE SQ.SYSTEM_ID =   SS.SYSTEM_ID AND SQ.ORG_ID = SS.ORG_ID 
+ 
+        )   PREV_MONTHS_QTY, 
     SS.ORG_ID,
     SS.SAM_VERSION CURRENT_SAM_VERSION,       
-    SS.AVAILABLE_SAM_VERSION     
-
+    SS.AVAILABLE_SAM_VERSION     ,
+    SS.STYLE_SETUP_ID
     FROM WP_STYLE_SETUP SS,
          POC_SYSTEM_ID_VIEW PV
 
@@ -235,6 +240,19 @@ ORDER BY SS.SYSTEM_ID DESC]]>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
+    Name="PrevMonthsQty"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="PREV_MONTHS_QTY"
+    Expression="PREV_MONTHS_QTY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
     Name="OrgId"
     IsUpdateable="false"
     IsPersistent="false"
@@ -271,6 +289,21 @@ ORDER BY SS.SYSTEM_ID DESC]]>
     ColumnType="NUMBER"
     AliasName="AVAILABLE_SAM_VERSION"
     Expression="AVAILABLE_SAM_VERSION"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StyleSetupId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="STYLE_SETUP_ID"
+    Expression="STYLE_SETUP_ID"
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
