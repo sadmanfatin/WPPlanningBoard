@@ -39,3 +39,6 @@ Model/classes/.data/Model.cdi_javac
 ViewController/classes/.wlsjsps/jsp_servlet/__view_jspx.class
 Model/classes/model/service/AppModuleImpl.class
 Model/classes/.data/Model.cdi_javac
+*.class
+*.class
+Model/classes/model/view/WpPlanningBoardVORowImpl$AttributesEnum$10.class

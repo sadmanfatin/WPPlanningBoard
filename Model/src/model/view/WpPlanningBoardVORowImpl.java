@@ -41,7 +41,15 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
     private void updateLoadPercentage(String columnName, Number newQty) {
         ViewObject sectionLoadVo = appM.getWpPlanningBoardLoadVO1();
         Row sectionLoadVoRow = sectionLoadVo.getCurrentRow();
-        Number sectionId = (Number)sectionLoadVoRow.getAttribute("WpSectionId");
+        Number sectionId ;
+
+        try {
+            sectionId = (Number)sectionLoadVoRow.getAttribute("WpSectionId");
+        } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+            return;
+        }
        // System.out.println(" =======================  load row  sectionId = "+ sectionId );
         ViewObject sectionCapacityVo = appM.getWpMonthlySectionCapacityVO1();
         Row sectionCapacityVoRow = null;

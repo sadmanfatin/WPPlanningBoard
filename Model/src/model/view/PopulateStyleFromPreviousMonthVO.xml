@@ -52,7 +52,7 @@
        AND SQ.MONTH_SERIAL < ML.MONTH_SERIAL     )      
       ) REMAINING_QTY,
       
-       APPS.WP_LAST_DAY_QTY(       PB.MONTH_ID,   PB.SYSTEM_ID , TO_DATE( ML.NUMBER_OF_DAYS||'/'||  ML.MONTH_NUMBER  ||'/' || ML.YEAR , 'dd/mm/yyyy' )      )  LAST_DAY_QTY,
+        APPS.WP_LAST_DAY_QTY( PB.MONTH_ID,   PB.SYSTEM_ID )  LAST_DAY_QTY,
       
        PV.BUYER_ID, 
        PV.BUYER_NAME ,
