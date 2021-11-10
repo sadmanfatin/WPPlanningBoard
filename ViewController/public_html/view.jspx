@@ -772,8 +772,7 @@
                               styleClass="AFStretchWidth"
                               inlineStyle="width:3400.0px;" rendered="true"
                               binding="#{ManagedBean.planningBoardTable}"
-                              partialTriggers="::soc1 ::soc2 ::cb4 ::cb2"
-                              autoHeightRows="50">
+                              partialTriggers="::soc1 ::soc2 ::cb4 ::cb2">
                       <af:column sortProperty="PlanningBoardId"
                                  filterable="true" sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.PlanningBoardId.label}"
@@ -810,8 +809,8 @@
                       </af:column>
                       <af:column sortProperty="SystemId" filterable="true"
                                  sortable="true"
-                                 headerText="#{bindings.WpPlanningBoardVO1.hints.SystemId.label}"
-                                 id="c35" width="70" align="center"
+                                 headerText="System Id"
+                                 id="c35" width="50" align="center"
                                  visible="true" styleClass="h1">
                         <af:inputText value="#{row.bindings.SystemId.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.SystemId.label}"
@@ -837,7 +836,7 @@
                           <f:validator binding="#{row.bindings.UpdatedSamVersionAvaliable.validator}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column id="c174" width="80"
+                      <af:column id="c174" width="70"
                                  align="center">
                         <af:commandButton text="Update Sam" id="cb6"
                                           partialSubmit="true"
@@ -853,7 +852,7 @@
                       <af:column headerText="Production Unit"
                                  id="c96" align="center" sortable="true"
                                  sortProperty="ProductionUnitShortName"
-                                 width="55" filterable="true"
+                                 width="50" filterable="true"
                                  filterFeatures="caseInsensitive">
                         <af:inputText value="#{row.bindings.ProductionUnitShortName.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitShortName.label}"
@@ -867,7 +866,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.BuyerName.label}"
-                                 id="c41" width="140" align="center"
+                                 id="c41" width="120" align="center"
                                  sortable="true" filterable="true"
                                  sortProperty="BuyerName"
                                  filterFeatures="caseInsensitive">
@@ -886,7 +885,7 @@
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.Season.label}"
                                  id="c53" align="center" sortable="true"
                                  filterable="true" sortProperty="Season"
-                                 filterFeatures="caseInsensitive">
+                                 filterFeatures="caseInsensitive" width="90">
                         <af:inputText value="#{row.bindings.Season.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.Season.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.Season.mandatory}"
