@@ -790,33 +790,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <attributeValues IterBinding="WpPlanningBoardVO1Iterator" id="Color">
-      <AttrNames>
-        <Item Value="Color"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="WpPlanningBoardVO1Iterator" id="Style">
-      <AttrNames>
-        <Item Value="Style"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="WpPlanningBoardVO1Iterator" id="WashName">
-      <AttrNames>
-        <Item Value="WashName"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="WpPlanningBoardVO1Iterator"
-                     id="CurrentSamVersion">
-      <AttrNames>
-        <Item Value="CurrentSamVersion"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="WpPlanningBoardVO1Iterator"
-                     id="AvailableSamVersion">
-      <AttrNames>
-        <Item Value="AvailableSamVersion"/>
-      </AttrNames>
-    </attributeValues>
     <tree IterBinding="CurrentSamVsAvailableSamVO1Iterator"
           id="CurrentSamVsAvailableSamVO1">
       <nodeDefinition DefName="model.view.CurrentSamVsAvailableSamVO"

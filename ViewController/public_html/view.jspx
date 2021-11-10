@@ -151,7 +151,7 @@
                               clientComponent="true"
                               binding="#{ManagedBean.planningBoardLoadTable}"
                               partialTriggers="::soc1 ::soc2 ::cb5">
-                      <af:column id="c74" align="center" width="1100">
+                      <af:column id="c74" align="center" width="1035">
                         <af:outputText value="Wet Section Load (%)" id="ot1"/>
                       </af:column>
                       <af:column
@@ -4919,38 +4919,6 @@
               </f:facet>
               <f:facet name="legend"/>
               <f:facet name="info"/>
-              <af:panelFormLayout id="pfl4"
-                                  inlineStyle="width:360px; background-color:rgb(221,225,243);">
-                <af:panelLabelAndMessage label="#{bindings.Style.hints.label}"
-                                         id="plam3">
-                  <af:outputText value="#{bindings.Style.inputValue}"
-                                 id="ot204"/>
-                </af:panelLabelAndMessage>
-                <af:panelLabelAndMessage label="#{bindings.Color.hints.label}"
-                                         id="plam1">
-                  <af:outputText value="#{bindings.Color.inputValue}"
-                                 id="ot205"/>
-                </af:panelLabelAndMessage>
-                <af:panelLabelAndMessage label="Wash Name" id="plam5">
-                  <af:outputText value="#{bindings.WashName.inputValue}"
-                                 id="ot206"/>
-                </af:panelLabelAndMessage>
-                <af:panelLabelAndMessage label="Current Sam Version" id="plam4">
-                  <af:outputText value="#{bindings.CurrentSamVersion.inputValue}"
-                                 id="ot209">
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.CurrentSamVersion.format}"/>
-                  </af:outputText>
-                </af:panelLabelAndMessage>
-                <af:panelLabelAndMessage label="Available Sam Version"
-                                         id="plam2">
-                  <af:outputText value="#{bindings.AvailableSamVersion.inputValue}"
-                                 id="ot208">
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.AvailableSamVersion.format}"/>
-                  </af:outputText>
-                </af:panelLabelAndMessage>
-              </af:panelFormLayout>
               <af:table value="#{bindings.CurrentSamVsAvailableSamVO1.collectionModel}"
                         var="row"
                         rows="#{bindings.CurrentSamVsAvailableSamVO1.rangeSize}"
