@@ -6,7 +6,8 @@
           xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
   <f:view beforePhase="#{ManagedBean.onPageLoad}">
-    <af:document id="d1">
+      <af:document id="d1" clientComponent="true">
+    <af:resource type="javascript" source="view.js"  />
       <af:messages id="m1"/>
       <af:form id="f1">
         <af:panelStretchLayout id="psl1"
