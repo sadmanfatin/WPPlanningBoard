@@ -65,6 +65,7 @@ public class ManagedBean {
     private RichTable planningBoardTable;
     Map<String, Integer> daysColumnsWithValue ;
    List <Integer> holidayDayNoList ;
+    List <Integer> fridayNoList ;
     private RichInputText numberOfDays;
     private RichColumn d10Load;
 
@@ -96,13 +97,15 @@ public class ManagedBean {
         if (!AdfFacesContext.getCurrentInstance().isPostback()) {
 
         //     System.out.println("========================== onPageLoad not isPostback  ====================== ");         
-             setCurrentMonthFromList();   
-             hideAndDisableInvalidDateCulumns();
+            setCurrentMonthFromList();   
+            hideAndDisableInvalidDateCulumns();
+            highlightFridayColumns();
                   
         }
         else{
          //   System.out.println("========================== onPageLoad  isPostback  ====================== ");   
             hideAndDisableInvalidDateCulumns();
+            highlightFridayColumns();
         }
           
 
@@ -209,6 +212,27 @@ public class ManagedBean {
         
         return holidayDayNoList;
     }
+    
+    public List<Integer> getFridayNoList() {
+        
+        this.fridayNoList = new ArrayList<Integer>();
+        
+        ViewObject holidayCalendar = appM.getWpHolidayCalendarVO1();
+        holidayCalendar.setRangeSize(32);
+        Row[] holidayCalendarRows = holidayCalendar.getAllRowsInRange();
+        
+        for (Row r : holidayCalendarRows){
+            if(r.getAttribute("DayName").equals("Friday")    ){
+                fridayNoList.add(  Integer.parseInt(r.getAttribute("DayNo").toString()) ) ;
+            }
+        }
+        
+        
+        return fridayNoList;
+    }
+    
+    
+    
 
     private void hideAndDisableInvalidDateForTable(RichTable table) {
 
@@ -699,4 +723,46 @@ public class ManagedBean {
     }
 
   
+    private void highlightFridayColumns() {
+        highlightFridayColumnsForTable(this.getPlanningBoardTable());
+    }
+
+    private void highlightFridayColumnsForTable(RichTable table) {
+        RichColumn column;
+        
+        int columnDayNo = 0;
+
+        List<UIComponent> uiComponents = table.getChildren();
+
+        for (UIComponent uiComponent : uiComponents) {
+            if (uiComponent instanceof RichColumn) {
+
+                column = (RichColumn)uiComponent;
+
+                String attributeName = column.getSortProperty();
+
+                //   System.out.println(" this.getDaysColumnsWithValue().size() "+ this.getDaysColumnsWithValue().size());
+                //    System.out.println(" this.getHolidayDayNoList().size() "+ this.getHolidayDayNoList().size());
+
+                if (this.getDaysColumnsWithValue().containsKey(attributeName)) {
+                    columnDayNo =  this.getDaysColumnsWithValue().get(attributeName);
+                    
+                   // System.out.println("columnDayNo :  " + columnDayNo );
+                    
+                    // workingStatus = holidayCalendarVo.getRow(key).getAttribute("WorkingStatus").toString();
+                    if (this.getFridayNoList().contains(columnDayNo)) {
+                       //  System.out.println("(this.getFridayNoList().contains(columnDayNo)) :  " );
+                         //column.setStyleClass("friday");
+                         column.setHeaderClass("friday");
+                     }
+                    else{
+                        column.setHeaderClass(null);
+                    }
+
+                }    
+
+            }
+         }
+
+    }
 }

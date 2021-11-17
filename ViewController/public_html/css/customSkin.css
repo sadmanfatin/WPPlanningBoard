@@ -52,6 +52,14 @@ af|column::column-header-cell-content {
     padding: 3px;*/
 }
 
+/*af|column::column-header-cell-content.friday {
+    color: red;
+  
+}*/
+
+.friday {
+   background-color:rgb(120, 170, 220);
+}
 
 
 af|column::column-data-cell-content {
