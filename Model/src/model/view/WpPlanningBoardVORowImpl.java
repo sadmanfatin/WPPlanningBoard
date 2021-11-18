@@ -11,6 +11,7 @@ import oracle.adf.model.binding.DCDataControl;
 import oracle.jbo.Key;
 import oracle.jbo.Row;
 import oracle.jbo.RowIterator;
+import oracle.jbo.RowSet;
 import oracle.jbo.ViewObject;
 import oracle.jbo.domain.Date;
 import oracle.jbo.domain.Number;
@@ -554,6 +555,26 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        CompleteStatus {
+            public Object get(WpPlanningBoardVORowImpl obj) {
+                return obj.getCompleteStatus();
+            }
+
+            public void put(WpPlanningBoardVORowImpl obj, Object value) {
+                obj.setCompleteStatus((String)value);
+            }
+        }
+        ,
+        PbSerial {
+            public Object get(WpPlanningBoardVORowImpl obj) {
+                return obj.getPbSerial();
+            }
+
+            public void put(WpPlanningBoardVORowImpl obj, Object value) {
+                obj.setPbSerial((Number)value);
+            }
+        }
+        ,
         LcUnit {
             public Object get(WpPlanningBoardVORowImpl obj) {
                 return obj.getLcUnit();
@@ -783,6 +804,16 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
                 obj.setAttributeInternal(index(), value);
             }
         }
+        ,
+        CompleteStatusLOV1 {
+            public Object get(WpPlanningBoardVORowImpl obj) {
+                return obj.getCompleteStatusLOV1();
+            }
+
+            public void put(WpPlanningBoardVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -856,6 +887,8 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
     public static final int D31 = AttributesEnum.D31.index();
     public static final int ORGID = AttributesEnum.OrgId.index();
     public static final int MONTHLYTOTAL = AttributesEnum.MonthlyTotal.index();
+    public static final int COMPLETESTATUS = AttributesEnum.CompleteStatus.index();
+    public static final int PBSERIAL = AttributesEnum.PbSerial.index();
     public static final int LCUNIT = AttributesEnum.LcUnit.index();
     public static final int LCUNITNAME = AttributesEnum.LcUnitName.index();
     public static final int BUYERID = AttributesEnum.BuyerId.index();
@@ -879,6 +912,7 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
     public static final int STYLEWISESECTIONPROCESSSAMVO = AttributesEnum.StyleWiseSectionProcessSamVO.index();
     public static final int CURRENTSAMVSAVAILABLESAMVO = AttributesEnum.CurrentSamVsAvailableSamVO.index();
     public static final int WPSECTIONSAMOFSTYLEVO = AttributesEnum.WpSectionSamOfStyleVO.index();
+    public static final int COMPLETESTATUSLOV1 = AttributesEnum.CompleteStatusLOV1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1881,6 +1915,38 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
 
 
     /**
+     * Gets the attribute value for COMPLETE_STATUS using the alias name CompleteStatus.
+     * @return the COMPLETE_STATUS
+     */
+    public String getCompleteStatus() {
+        return (String) getAttributeInternal(COMPLETESTATUS);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for COMPLETE_STATUS using the alias name CompleteStatus.
+     * @param value value to set the COMPLETE_STATUS
+     */
+    public void setCompleteStatus(String value) {
+        setAttributeInternal(COMPLETESTATUS, value);
+    }
+
+    /**
+     * Gets the attribute value for PB_SERIAL using the alias name PbSerial.
+     * @return the PB_SERIAL
+     */
+    public Number getPbSerial() {
+        return (Number) getAttributeInternal(PBSERIAL);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for PB_SERIAL using the alias name PbSerial.
+     * @param value value to set the PB_SERIAL
+     */
+    public void setPbSerial(Number value) {
+        setAttributeInternal(PBSERIAL, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link WpMonthListVO.
      */
     public Row getWpMonthListVO() {
@@ -1920,6 +1986,13 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
      */
     public RowIterator getWpSectionSamOfStyleVO() {
         return (RowIterator)getAttributeInternal(WPSECTIONSAMOFSTYLEVO);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> CompleteStatusLOV1.
+     */
+    public RowSet getCompleteStatusLOV1() {
+        return (RowSet)getAttributeInternal(COMPLETESTATUSLOV1);
     }
 
     /**

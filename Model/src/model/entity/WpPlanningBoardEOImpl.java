@@ -437,6 +437,26 @@ public class WpPlanningBoardEOImpl extends EntityImpl {
             }
         }
         ,
+        CompleteStatus {
+            public Object get(WpPlanningBoardEOImpl obj) {
+                return obj.getCompleteStatus();
+            }
+
+            public void put(WpPlanningBoardEOImpl obj, Object value) {
+                obj.setCompleteStatus((String)value);
+            }
+        }
+        ,
+        PbSerial {
+            public Object get(WpPlanningBoardEOImpl obj) {
+                return obj.getPbSerial();
+            }
+
+            public void put(WpPlanningBoardEOImpl obj, Object value) {
+                obj.setPbSerial((Number)value);
+            }
+        }
+        ,
         WpMonthListEO {
             public Object get(WpPlanningBoardEOImpl obj) {
                 return obj.getWpMonthListEO();
@@ -516,6 +536,8 @@ public class WpPlanningBoardEOImpl extends EntityImpl {
     public static final int D31 = AttributesEnum.D31.index();
     public static final int ORGID = AttributesEnum.OrgId.index();
     public static final int MONTHLYTOTAL = AttributesEnum.MonthlyTotal.index();
+    public static final int COMPLETESTATUS = AttributesEnum.CompleteStatus.index();
+    public static final int PBSERIAL = AttributesEnum.PbSerial.index();
     public static final int WPMONTHLISTEO = AttributesEnum.WpMonthListEO.index();
 
     /**
@@ -1193,6 +1215,38 @@ public class WpPlanningBoardEOImpl extends EntityImpl {
         
        // System.out.println(" eo setMonthlyTotal  " +  value); 
         setAttributeInternal(MONTHLYTOTAL, value);
+    }
+
+    /**
+     * Gets the attribute value for CompleteStatus, using the alias name CompleteStatus.
+     * @return the CompleteStatus
+     */
+    public String getCompleteStatus() {
+        return (String)getAttributeInternal(COMPLETESTATUS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for CompleteStatus.
+     * @param value value to set the CompleteStatus
+     */
+    public void setCompleteStatus(String value) {
+        setAttributeInternal(COMPLETESTATUS, value);
+    }
+
+    /**
+     * Gets the attribute value for PbSerial, using the alias name PbSerial.
+     * @return the PbSerial
+     */
+    public Number getPbSerial() {
+        return (Number)getAttributeInternal(PBSERIAL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for PbSerial.
+     * @param value value to set the PbSerial
+     */
+    public void setPbSerial(Number value) {
+        setAttributeInternal(PBSERIAL, value);
     }
 
     /**
