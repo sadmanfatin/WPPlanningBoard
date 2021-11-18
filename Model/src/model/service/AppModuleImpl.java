@@ -34,8 +34,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         
     //      System.out.println("====================  set session values    ================================");
                 
-     //   orgId = "343";
-      //   userId = "5219";
+        orgId = "343";
+         userId = "5219";
 
     //       System.out.println(" orgId "+ orgId  + "  data type  "+ orgId.getClass().getName());
     //
