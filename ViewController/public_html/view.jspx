@@ -109,12 +109,12 @@
                                       inlineStyle="border-style:solid; border-width:thin; background-color:rgb(248,248,265); border-color:rgb(198,198,198); padding:3px; margin-top:2.0px;margin-bottom:2.0px;">
                     <af:panelGroupLayout id="pgl46">
                       <af:commandButton text="Populate Style" id="cb3"
-                                        icon="/icons/popup icon .png">
+                                        icon="/icons/popupicon5.png">
                         <af:showPopupBehavior popupId="p1"/>
                       </af:commandButton>
                       <af:spacer width="10" height="10" id="spacer4"/>
                       <af:commandButton text="Populate From Previous Month"
-                                        id="cb2" icon="/icons/popup icon .png">
+                                        id="cb2" icon="/icons/popupicon5.png">
                         <af:showPopupBehavior popupId="p3"/>
                       </af:commandButton>
                       <af:spacer width="10" height="10" id="s4"/>
@@ -147,12 +147,12 @@
                               selectedRowKeys="#{bindings.WpPlanningBoardLoadVO1.collectionModel.selectedRow}"
                               selectionListener="#{bindings.WpPlanningBoardLoadVO1.collectionModel.makeCurrent}"
                               id="t1"
-                              inlineStyle="height:30.0px; width:3400px;"
+                              inlineStyle="height:30.0px; width:2800px;"
                               styleClass="AFStretchWidth"
                               clientComponent="true"
                               binding="#{ManagedBean.planningBoardLoadTable}"
                               partialTriggers="::soc1 ::soc2 ::cb5">
-                      <af:column id="c74" align="center" width="1109">
+                      <af:column id="c74" align="center" width="1014">
                         <af:outputText value="Wet Section Load (%)" id="ot1"/>
                       </af:column>
                       <af:column
@@ -227,7 +227,7 @@
                       </af:column>
                       <af:column
                                  id="c177" align="center" sortable="true"
-                                 filterable="true" width="60"
+                                 filterable="true" width="45"
                                  styleClass="avgload">
                         <af:inputText value="Avg:  #{row.bindings.AvgLoad.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.AvgLoad.label}"
@@ -272,7 +272,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D1" filterable="false"
-                                 sortable="false" id="c18" width="55"
+                                 sortable="false" id="c18" width="45"
                                  align="center"
                                 styleClass="#{ row.bindings.D1.inputValue == null ? 'disableload' : row.bindings.D1.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D1.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D1.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D1.inputValue}"
@@ -288,7 +288,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D2" filterable="false"
-                                 sortable="false" id="c2" width="55"
+                                 sortable="false" id="c2" width="45"
                                  align="center"
                                styleClass="#{ row.bindings.D2.inputValue == null ? 'disableload' : row.bindings.D2.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D2.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D2.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D2.inputValue}"
@@ -304,7 +304,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D3" filterable="false"
-                                 sortable="false" id="c20" width="55"
+                                 sortable="false" id="c20" width="45"
                                  align="center"
                                styleClass="#{ row.bindings.D3.inputValue == null ? 'disableload' : row.bindings.D3.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D3.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D3.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D3.inputValue}"
@@ -320,7 +320,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D4" filterable="false"
-                                 sortable="false" id="c32" width="55"
+                                 sortable="false" id="c32" width="45"
                                  align="center"
                                 styleClass="#{ row.bindings.D4.inputValue == null ? 'disableload' : row.bindings.D4.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D4.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D4.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D4.inputValue}"
@@ -336,7 +336,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D5" filterable="false"
-                                 sortable="false" id="c25" width="55"
+                                 sortable="false" id="c25" width="45"
                                  align="center"
                                   styleClass="#{ row.bindings.D5.inputValue == null ? 'disableload' : row.bindings.D5.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D5.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D5.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D5.inputValue}"
@@ -352,7 +352,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D6" filterable="false"
-                                 sortable="false" id="c17" width="55"
+                                 sortable="false" id="c17" width="45"
                                  align="center"
                                  styleClass="#{ row.bindings.D6.inputValue == null ? 'disableload' : row.bindings.D6.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D6.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D6.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D6.inputValue}"
@@ -368,7 +368,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D7" filterable="false"
-                                 sortable="false" id="c3" width="55"
+                                 sortable="false" id="c3" width="45"
                                  align="center"
                                  styleClass="#{ row.bindings.D7.inputValue == null ? 'disableload' : row.bindings.D7.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D7.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D7.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D7.inputValue}"
@@ -384,7 +384,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D8" filterable="false"
-                                 sortable="false" id="c28" width="55"
+                                 sortable="false" id="c28" width="45"
                                  align="center"     
                                  styleClass="#{ row.bindings.D8.inputValue == null ? 'disableload' : row.bindings.D8.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D8.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D8.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D8.inputValue}"
@@ -400,7 +400,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D9" filterable="false"
-                                 sortable="false" id="c14" width="55"
+                                 sortable="false" id="c14" width="45"
                                  align="center"      
                                  styleClass="#{ row.bindings.D9.inputValue == null ? 'disableload' : row.bindings.D9.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D9.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D9.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D9.inputValue}"
@@ -416,7 +416,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D10" filterable="false"
-                                 sortable="false" id="c31" width="55"
+                                 sortable="false" id="c31" width="45"
                                  align="center"      
                                  styleClass="#{ row.bindings.D10.inputValue == null ? 'disableload' : row.bindings.D10.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D10.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D10.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D10.inputValue}"
@@ -432,7 +432,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D11" filterable="false"
-                                 sortable="false" id="c27" width="55"
+                                 sortable="false" id="c27" width="45"
                                  align="center"      
                                  styleClass="#{ row.bindings.D11.inputValue == null ? 'disableload' : row.bindings.D11.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D11.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D11.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D11.inputValue}"
@@ -448,7 +448,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D12" filterable="false"
-                                 sortable="false" id="c15" width="55"
+                                 sortable="false" id="c15" width="45"
                                  align="center"      
                                   styleClass="#{ row.bindings.D12.inputValue == null ? 'disableload' : row.bindings.D12.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D12.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D12.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D12.inputValue}"
@@ -464,7 +464,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D13" filterable="false"
-                                 sortable="false" id="c29" width="55"
+                                 sortable="false" id="c29" width="45"
                                  align="center"      
                                    styleClass="#{ row.bindings.D13.inputValue == null ? 'disableload' : row.bindings.D13.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D13.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D13.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D13.inputValue}"
@@ -480,7 +480,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D14" filterable="false"
-                                 sortable="false" id="c10" width="55"
+                                 sortable="false" id="c10" width="45"
                                  align="center"      
                                    styleClass="#{ row.bindings.D14.inputValue == null ? 'disableload' : row.bindings.D14.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D14.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D14.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D14.inputValue}"
@@ -496,7 +496,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D15" filterable="false"
-                                 sortable="false" id="c9" width="55"
+                                 sortable="false" id="c9" width="45"
                                  align="center"      
                                   styleClass="#{ row.bindings.D15.inputValue == null ? 'disableload' : row.bindings.D15.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D15.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D15.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D15.inputValue}"
@@ -512,7 +512,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D16" filterable="false"
-                                 sortable="false" id="c33" width="55"
+                                 sortable="false" id="c33" width="45"
                                  align="center"      
                                   styleClass="#{ row.bindings.D16.inputValue == null ? 'disableload' : row.bindings.D16.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D16.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D16.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D16.inputValue}"
@@ -528,7 +528,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D17" filterable="false"
-                                 sortable="false" id="c24" width="55"
+                                 sortable="false" id="c24" width="45"
                                  align="center"      
                                  styleClass="#{ row.bindings.D17.inputValue == null ? 'disableload' : row.bindings.D17.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D17.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D17.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D17.inputValue}"
@@ -544,7 +544,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D18" filterable="false"
-                                 sortable="false" id="c11" width="55"
+                                 sortable="false" id="c11" width="45"
                                  align="center"      
                                     styleClass="#{ row.bindings.D18.inputValue == null ? 'disableload' : row.bindings.D18.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D18.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D18.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D18.inputValue}"
@@ -560,7 +560,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D19" filterable="false"
-                                 sortable="false" id="c21" width="55"
+                                 sortable="false" id="c21" width="45"
                                  align="center"      
                                     styleClass="#{ row.bindings.D19.inputValue == null ? 'disableload' : row.bindings.D19.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D19.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D19.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D19.inputValue}"
@@ -576,7 +576,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D20" filterable="false"
-                                 sortable="false" id="c19" width="55"
+                                 sortable="false" id="c19" width="45"
                                  align="center"      
                                     styleClass="#{ row.bindings.D20.inputValue == null ? 'disableload' : row.bindings.D20.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D20.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D20.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">
                         <af:inputText value="#{row.bindings.D20.inputValue}"
@@ -592,7 +592,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D21" filterable="false"
-                                 sortable="false" id="c12" width="55"
+                                 sortable="false" id="c12" width="45"
                                  align="center"      
                                     styleClass="#{ row.bindings.D21.inputValue == null ? 'disableload' : row.bindings.D21.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D21.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D21.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">                        <af:inputText value="#{row.bindings.D21.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D21.label}"
@@ -607,7 +607,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D22" filterable="false"
-                                 sortable="false" id="c16" width="55"
+                                 sortable="false" id="c16" width="45"
                                  align="center"      
                                     styleClass="#{ row.bindings.D22.inputValue == null ? 'disableload' : row.bindings.D22.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D22.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D22.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">                        <af:inputText value="#{row.bindings.D22.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D22.label}"
@@ -622,7 +622,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D23" filterable="false"
-                                 sortable="false" id="c23" width="55"
+                                 sortable="false" id="c23" width="45"
                                  align="center"      
                                     styleClass="#{ row.bindings.D23.inputValue == null ? 'disableload' : row.bindings.D23.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D23.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D23.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">                        <af:inputText value="#{row.bindings.D23.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D23.label}"
@@ -637,7 +637,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D24" filterable="false"
-                                 sortable="false" id="c7" width="55"
+                                 sortable="false" id="c7" width="45"
                                  align="center"      
                                 styleClass="#{ row.bindings.D24.inputValue == null ? 'disableload' : row.bindings.D24.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D24.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D24.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">                        <af:inputText value="#{row.bindings.D24.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D24.label}"
@@ -652,7 +652,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D25" filterable="false"
-                                 sortable="false" id="c1" width="55"
+                                 sortable="false" id="c1" width="45"
                             styleClass="#{ row.bindings.D25.inputValue == null ? 'disableload' : row.bindings.D25.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D25.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D25.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}"
                                  align="center">
                         <af:inputText value="#{row.bindings.D25.inputValue}"
@@ -668,7 +668,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D26" filterable="false"
-                                 sortable="false" id="c13" width="55"
+                                 sortable="false" id="c13" width="45"
                                  align="center"      
                                 styleClass="#{ row.bindings.D26.inputValue == null ? 'disableload' : row.bindings.D26.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D26.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D26.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">                        <af:inputText value="#{row.bindings.D26.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D26.label}"
@@ -683,7 +683,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D27" filterable="false"
-                                 sortable="false" id="c8" width="55"
+                                 sortable="false" id="c8" width="45"
                                  align="center"      
                                     styleClass="#{ row.bindings.D27.inputValue == null ? 'disableload' : row.bindings.D27.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D27.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D27.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">                        <af:inputText value="#{row.bindings.D27.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D27.label}"
@@ -698,7 +698,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D28" filterable="false"
-                                 sortable="false" id="c5" width="55"
+                                 sortable="false" id="c5" width="45"
                                  align="center"      
                                 styleClass="#{ row.bindings.D28.inputValue == null ? 'disableload' : row.bindings.D28.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D28.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D28.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">                        <af:inputText value="#{row.bindings.D28.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D28.label}"
@@ -713,7 +713,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D29" filterable="false"
-                                 sortable="false" id="c6" width="55"
+                                 sortable="false" id="c6" width="45"
                                  align="center"      
                                     styleClass="#{ row.bindings.D29.inputValue == null ? 'disableload' : row.bindings.D29.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D29.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D29.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">                        <af:inputText value="#{row.bindings.D29.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D29.label}"
@@ -728,7 +728,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D30" filterable="false"
-                                 sortable="false" id="c22" width="55"
+                                 sortable="false" id="c22" width="45"
                                  align="center"      
                                     styleClass="#{ row.bindings.D30.inputValue == null ? 'disableload' : row.bindings.D30.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D30.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D30.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">                        <af:inputText value="#{row.bindings.D30.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D30.label}"
@@ -743,7 +743,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column sortProperty="D31" filterable="false"
-                                 sortable="false" id="c26" width="55"
+                                 sortable="false" id="c26" width="45"
                                  align="center"      
                                     styleClass="#{ row.bindings.D31.inputValue == null ? 'disableload' : row.bindings.D31.inputValue &lt;= row.bindings.UnderLoad.inputValue ? 'underload' : row.bindings.D31.inputValue &lt;= row.bindings.ModerateLoad.inputValue ? 'moderateload' : row.bindings.D31.inputValue &lt;= row.bindings.StandardLoad.inputValue ? 'standardload' : 'overload'}">                        <af:inputText value="#{row.bindings.D31.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.D31.label}"
@@ -771,7 +771,7 @@
                               selectionListener="#{bindings.WpPlanningBoardVO1.collectionModel.makeCurrent}"
                               rowSelection="single" id="t2"
                               styleClass="AFStretchWidth"
-                              inlineStyle="width:3400.0px;" rendered="true"
+                              inlineStyle="width:2800.0px;" rendered="true"
                               binding="#{ManagedBean.planningBoardTable}"
                               partialTriggers="::soc1 ::soc2 ::cb4 ::cb2">
                       <af:column sortProperty="PlanningBoardId"
@@ -811,7 +811,7 @@
                       <af:column sortProperty="SystemId" filterable="true"
                                  sortable="true"
                                  headerText="System Id"
-                                 id="c35" width="50" align="center"
+                                 id="c35" width="40" align="center"
                                  visible="true" styleClass="h1">
                         <af:inputText value="#{row.bindings.SystemId.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.SystemId.label}"
@@ -867,7 +867,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.BuyerName.label}"
-                                 id="c41" width="120" align="center"
+                                 id="c41" width="110" align="center"
                                  sortable="true" filterable="true"
                                  sortProperty="BuyerName"
                                  filterFeatures="caseInsensitive">
@@ -886,7 +886,7 @@
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.Season.label}"
                                  id="c53" align="center" sortable="true"
                                  filterable="true" sortProperty="Season"
-                                 filterFeatures="caseInsensitive" width="90">
+                                 filterFeatures="caseInsensitive" width="80">
                         <af:inputText value="#{row.bindings.Season.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.Season.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.Season.mandatory}"
@@ -901,7 +901,7 @@
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.Style.label}"
                                  id="c62" align="center" sortable="true"
                                  filterable="true" sortProperty="Style"
-                                 filterFeatures="caseInsensitive">
+                                 filterFeatures="caseInsensitive" width="90">
                         <af:commandLink text="#{row.bindings.Style.inputValue}" id="cl2">
                           <af:showPopupBehavior popupId="::p5"
                                                 align="endBefore"
@@ -911,7 +911,7 @@
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.Color.label}"
                                  id="c95" align="center" sortable="true"
                                  filterable="true" sortProperty="Color"
-                                 filterFeatures="caseInsensitive">
+                                 filterFeatures="caseInsensitive" width="90">
                         <af:inputText value="#{row.bindings.Color.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.Color.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.Color.mandatory}"
@@ -928,7 +928,8 @@
                                  filterable="true" sortProperty="WashName"
                                  filterFeatures="caseInsensitive"
                                  partialTriggers="sbc3"
-                                 inlineStyle="#{row.bindings.CompleteStatus.inputValue == true ? 'background-color:Yellow' :  'background-color:White' }">
+                                 inlineStyle="#{row.bindings.CompleteStatus.inputValue == true ? 'background-color:Yellow' :  'background-color:White' }"
+                                 width="90">
                         <af:commandLink text="#{row.bindings.WashName.inputValue}"
                                         id="cl3">
                           <af:showPopupBehavior popupId="::p6" align="endBefore"
@@ -964,7 +965,7 @@
                       <af:column sortProperty="Remarks" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.Remarks.label}"
-                                 id="c48" width="120" align="center"
+                                 id="c48" width="90" align="center"
                                  frozen="false"
                                  filterFeatures="caseInsensitive">
                         <af:inputText value="#{row.bindings.Remarks.inputValue}"
@@ -978,7 +979,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="Order Qty"
-                                 id="c175" width="60" align="center"
+                                 id="c175" width="55" align="center"
                                  sortable="true" filterable="true"
                                  sortProperty="OrderQty">
                         <af:outputText value="#{row.OrderQty}" id="ot102">
@@ -1004,7 +1005,7 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="Remaining Qty"
-                                 id="c200" align="center" width="60"
+                                 id="c200" align="center" width="45"
                                  sortProperty="RemainingQty" sortable="true"
                                  filterable="true">
                         <af:inputText value="#{row.bindings.RemainingQty.inputValue}"
@@ -1024,7 +1025,7 @@
                       <af:column headerText="Monthly Qty"
                                  id="c30" align="center"
                                  sortProperty="MonthlyTotal" sortable="true"
-                                 filterable="true" width="60">
+                                 filterable="true" width="50">
                         <af:inputText value="#{row.bindings.MonthlyTotal.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.mandatory}"
@@ -1052,7 +1053,7 @@
                       <af:column sortProperty="D1" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D1.label}"
-                                 id="c52" width="55" align="center">
+                                 id="c52" width="45" align="center">
                         <af:inputText value="#{row.bindings.D1.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D1.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D1.mandatory}"
@@ -1084,7 +1085,7 @@
                       <af:column sortProperty="D2" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D2.label}"
-                                 id="c46" width="55" align="center">
+                                 id="c46" width="45" align="center">
                         <af:inputText value="#{row.bindings.D2.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D2.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D2.mandatory}"
@@ -1116,7 +1117,7 @@
                       <af:column sortProperty="D3" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D3.label}"
-                                 id="c40" width="55" align="center">
+                                 id="c40" width="45" align="center">
                         <af:inputText value="#{row.bindings.D3.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D3.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D3.mandatory}"
@@ -1147,7 +1148,7 @@
                       <af:column sortProperty="D4" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D4.label}"
-                                 id="c70" width="55" align="center">
+                                 id="c70" width="45" align="center">
                         <af:inputText value="#{row.bindings.D4.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D4.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D4.mandatory}"
@@ -1178,7 +1179,7 @@
                       <af:column sortProperty="D5" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D5.label}"
-                                 id="c65" width="55" align="center">
+                                 id="c65" width="45" align="center">
                         <af:inputText value="#{row.bindings.D5.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D5.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D5.mandatory}"
@@ -1210,7 +1211,7 @@
                       <af:column sortProperty="D6" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D6.label}"
-                                 id="c45" width="55" align="center">
+                                 id="c45" width="45" align="center">
                         <af:inputText value="#{row.bindings.D6.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D6.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D6.mandatory}"
@@ -1241,7 +1242,7 @@
                       <af:column sortProperty="D7" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D7.label}"
-                                 id="c60" width="55" align="center">
+                                 id="c60" width="45" align="center">
                         <af:inputText value="#{row.bindings.D7.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D7.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D7.mandatory}"
@@ -1272,7 +1273,7 @@
                       <af:column sortProperty="D8" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D8.label}"
-                                 id="c59" width="55" align="center">
+                                 id="c59" width="45" align="center">
                         <af:inputText value="#{row.bindings.D8.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D8.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D8.mandatory}"
@@ -1303,7 +1304,7 @@
                       <af:column sortProperty="D9" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D9.label}"
-                                 id="c49" width="55" align="center">
+                                 id="c49" width="45" align="center">
                         <af:inputText value="#{row.bindings.D9.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D9.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D9.mandatory}"
@@ -1334,7 +1335,7 @@
                       <af:column sortProperty="D10" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D10.label}"
-                                 id="c63" width="55" align="center">
+                                 id="c63" width="45" align="center">
                         <af:inputText value="#{row.bindings.D10.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D10.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D10.mandatory}"
@@ -1365,7 +1366,7 @@
                       <af:column sortProperty="D11" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D11.label}"
-                                 id="c68" width="55" align="center">
+                                 id="c68" width="45" align="center">
                         <af:inputText value="#{row.bindings.D11.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D11.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D11.mandatory}"
@@ -1396,7 +1397,7 @@
                       <af:column sortProperty="D12" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D12.label}"
-                                 id="c55" width="55" align="center">
+                                 id="c55" width="45" align="center">
                         <af:inputText value="#{row.bindings.D12.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D12.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D12.mandatory}"
@@ -1427,7 +1428,7 @@
                       <af:column sortProperty="D13" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D13.label}"
-                                 id="c58" width="55" align="center">
+                                 id="c58" width="45" align="center">
                         <af:inputText value="#{row.bindings.D13.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D13.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D13.mandatory}"
@@ -1458,7 +1459,7 @@
                       <af:column sortProperty="D14" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D14.label}"
-                                 id="c43" width="55" align="center">
+                                 id="c43" width="45" align="center">
                         <af:inputText value="#{row.bindings.D14.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D14.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D14.mandatory}"
@@ -1489,7 +1490,7 @@
                       <af:column sortProperty="D15" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D15.label}"
-                                 id="c69" width="55" align="center">
+                                 id="c69" width="45" align="center">
                         <af:inputText value="#{row.bindings.D15.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D15.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D15.mandatory}"
@@ -1520,7 +1521,7 @@
                       <af:column sortProperty="D16" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D16.label}"
-                                 id="c42" width="55" align="center">
+                                 id="c42" width="45" align="center">
                         <af:inputText value="#{row.bindings.D16.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D16.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D16.mandatory}"
@@ -1551,7 +1552,7 @@
                       <af:column sortProperty="D17" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D17.label}"
-                                 id="c57" width="55" align="center">
+                                 id="c57" width="45" align="center">
                         <af:inputText value="#{row.bindings.D17.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D17.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D17.mandatory}"
@@ -1582,7 +1583,7 @@
                       <af:column sortProperty="D18" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D18.label}"
-                                 id="c73" width="55" align="center">
+                                 id="c73" width="45" align="center">
                         <af:inputText value="#{row.bindings.D18.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D18.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D18.mandatory}"
@@ -1613,7 +1614,7 @@
                       <af:column sortProperty="D19" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D19.label}"
-                                 id="c66" width="55" align="center">
+                                 id="c66" width="45" align="center">
                         <af:inputText value="#{row.bindings.D19.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D19.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D19.mandatory}"
@@ -1644,7 +1645,7 @@
                       <af:column sortProperty="D20" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D20.label}"
-                                 id="c54" width="55" align="center">
+                                 id="c54" width="45" align="center">
                         <af:inputText value="#{row.bindings.D20.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D20.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D20.mandatory}"
@@ -1674,7 +1675,7 @@
                       <af:column sortProperty="D21" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D21.label}"
-                                 id="c47" width="55" align="center">
+                                 id="c47" width="45" align="center">
                         <af:inputText value="#{row.bindings.D21.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D21.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D21.mandatory}"
@@ -1705,7 +1706,7 @@
                       <af:column sortProperty="D22" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D22.label}"
-                                 id="c51" width="55" align="center">
+                                 id="c51" width="45" align="center">
                         <af:inputText value="#{row.bindings.D22.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D22.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D22.mandatory}"
@@ -1736,7 +1737,7 @@
                       <af:column sortProperty="D23" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D23.label}"
-                                 id="c61" width="55" align="center">
+                                 id="c61" width="45" align="center">
                         <af:inputText value="#{row.bindings.D23.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D23.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D23.mandatory}"
@@ -1767,7 +1768,7 @@
                       <af:column sortProperty="D24" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D24.label}"
-                                 id="c56" width="55" align="center">
+                                 id="c56" width="45" align="center">
                         <af:inputText value="#{row.bindings.D24.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D24.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D24.mandatory}"
@@ -1798,7 +1799,7 @@
                       <af:column sortProperty="D25" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D25.label}"
-                                 id="c72" width="55" align="center">
+                                 id="c72" width="45" align="center">
                         <af:inputText value="#{row.bindings.D25.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D25.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D25.mandatory}"
@@ -1829,7 +1830,7 @@
                       <af:column sortProperty="D26" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D26.label}"
-                                 id="c50" width="55" align="center">
+                                 id="c50" width="45" align="center">
                         <af:inputText value="#{row.bindings.D26.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D26.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D26.mandatory}"
@@ -1860,7 +1861,7 @@
                       <af:column sortProperty="D27" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D27.label}"
-                                 id="c39" width="55" align="center">
+                                 id="c39" width="45" align="center">
                         <af:inputText value="#{row.bindings.D27.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D27.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D27.mandatory}"
@@ -1891,7 +1892,7 @@
                       <af:column sortProperty="D28" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D28.label}"
-                                 id="c71" width="55" align="center">
+                                 id="c71" width="45" align="center">
                         <af:inputText value="#{row.bindings.D28.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D28.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D28.mandatory}"
@@ -1922,7 +1923,7 @@
                       <af:column sortProperty="D29" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D29.label}"
-                                 id="c38" width="55" align="center">
+                                 id="c38" width="45" align="center">
                         <af:inputText value="#{row.bindings.D29.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D29.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D29.mandatory}"
@@ -1953,7 +1954,7 @@
                       <af:column sortProperty="D30" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D30.label}"
-                                 id="c36" width="55" align="center">
+                                 id="c36" width="45" align="center">
                         <af:inputText value="#{row.bindings.D30.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D30.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D30.mandatory}"
@@ -1984,7 +1985,7 @@
                       <af:column sortProperty="D31" filterable="true"
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.D31.label}"
-                                 id="c44" width="55" align="center">
+                                 id="c44" width="45" align="center">
                         <af:inputText value="#{row.bindings.D31.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.D31.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.D31.mandatory}"
