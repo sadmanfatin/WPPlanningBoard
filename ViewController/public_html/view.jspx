@@ -152,7 +152,7 @@
                               clientComponent="true"
                               binding="#{ManagedBean.planningBoardLoadTable}"
                               partialTriggers="::soc1 ::soc2 ::cb5">
-                      <af:column id="c74" align="center" width="1035">
+                      <af:column id="c74" align="center" width="1109">
                         <af:outputText value="Wet Section Load (%)" id="ot1"/>
                       </af:column>
                       <af:column
@@ -926,11 +926,40 @@
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.WashName.label}"
                                  id="c67" align="center" sortable="true"
                                  filterable="true" sortProperty="WashName"
-                                 filterFeatures="caseInsensitive">
-                        <af:commandLink text="#{row.bindings.WashName.inputValue}" id="cl3">
-                          <af:showPopupBehavior popupId="::p6"
-                                                align="endBefore" alignId="c67"/>
+                                 filterFeatures="caseInsensitive"
+                                 partialTriggers="sbc3"
+                                 inlineStyle="#{row.bindings.CompleteStatus.inputValue == true ? 'background-color:Yellow' :  'background-color:White' }">
+                        <af:commandLink text="#{row.bindings.WashName.inputValue}"
+                                        id="cl3">
+                          <af:showPopupBehavior popupId="::p6" align="endBefore"
+                                                alignId="c67"/>
                         </af:commandLink>
+                      </af:column>
+                      <af:column headerText="Serial"
+                                 id="c324" width="40" align="center"
+                                 sortable="true" filterable="true"
+                                 sortProperty="PbSerial">
+                        <af:inputText value="#{row.bindings.PbSerial.inputValue}"
+                                      label="#{bindings.WpPlanningBoardVO1.hints.PbSerial.label}"
+                                      required="#{bindings.WpPlanningBoardVO1.hints.PbSerial.mandatory}"
+                                      columns="#{bindings.WpPlanningBoardVO1.hints.PbSerial.displayWidth}"
+                                      maximumLength="#{bindings.WpPlanningBoardVO1.hints.PbSerial.precision}"
+                                      shortDesc="#{bindings.WpPlanningBoardVO1.hints.PbSerial.tooltip}"
+                                      id="it150">
+                          <f:validator binding="#{row.bindings.PbSerial.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardVO1.hints.PbSerial.format}"/>
+                        </af:inputText>
+                      </af:column>
+                      <af:column
+                                 id="c323" width="35" align="center"
+                                 sortable="true" filterable="true"
+                                 sortProperty="CompleteStatus"
+                                 partialTriggers="sbc3">
+                        <af:selectBooleanCheckbox value="#{row.bindings.CompleteStatus.inputValue}"
+                                                  label="#{row.bindings.CompleteStatus.label}"
+                                                  shortDesc="#{bindings.WpPlanningBoardVO1.hints.CompleteStatus.tooltip}"
+                                                  id="sbc3" autoSubmit="true"/>
                       </af:column>
                       <af:column sortProperty="Remarks" filterable="true"
                                  sortable="true"

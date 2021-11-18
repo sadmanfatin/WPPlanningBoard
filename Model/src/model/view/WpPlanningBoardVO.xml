@@ -17,6 +17,10 @@
     <Attr Name="_isCodegen" Value="true"/>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
+  <ViewAccessor
+    Name="CompleteStatusLOV1"
+    ViewObjectName="model.lov.CompleteStatusLOV"
+    RowLevelBinds="true"/>
   <SQLQuery>
     <![CDATA[SELECT WpPlanningBoardEO.PLANNING_BOARD_ID, 
        WpPlanningBoardEO.MONTH_ID, 
@@ -61,6 +65,8 @@
        WpPlanningBoardEO.D31,
        WpPlanningBoardEO.ORG_ID,
        WpPlanningBoardEO.MONTHLY_TOTAL,
+       WpPlanningBoardEO.COMPLETE_STATUS,
+       WpPlanningBoardEO.PB_SERIAL,
        PV.LC_UNIT,  
        APPS.ORG_ID_TO_ORG_NAME(LC_UNIT) LC_UNIT_NAME,       
        PV.BUYER_ID, 
@@ -444,6 +450,19 @@
         Value="D9"/>
     </Dependencies>
   </ViewAttribute>
+  <ViewAttribute
+    Name="CompleteStatus"
+    PrecisionRule="true"
+    EntityAttrName="CompleteStatus"
+    EntityUsage="WpPlanningBoardEO"
+    AliasName="COMPLETE_STATUS"
+    DefaultValue="n"/>
+  <ViewAttribute
+    Name="PbSerial"
+    PrecisionRule="true"
+    EntityAttrName="PbSerial"
+    EntityUsage="WpPlanningBoardEO"
+    AliasName="PB_SERIAL"/>
   <ViewAttribute
     Name="LcUnit"
     IsPersistent="false"

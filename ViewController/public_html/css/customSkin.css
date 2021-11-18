@@ -90,3 +90,10 @@ background-color:rgb(158,195,255);
     
 }
 
+af|column::data-cell.complete{
+
+background-color:Yellow;
+    
+}
+
+

@@ -218,6 +218,8 @@
           <Item Value="ProductionUnitShortName"/>
           <Item Value="PrevMonthsQty"/>
           <Item Value="RemainingQty"/>
+          <Item Value="CompleteStatus" Binds="CompleteStatus"/>
+          <Item Value="PbSerial"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -820,5 +822,15 @@
         </groups>
       </graphDataMap>
     </graph>
+    <button IterBinding="WpPlanningBoardVO1Iterator" id="CompleteStatus"
+            DTSupportsMRU="false" StaticList="true">
+      <AttrNames>
+        <Item Value="CompleteStatus"/>
+      </AttrNames>
+      <ValueList>
+        <Item Value="y"/>
+        <Item Value="n"/>
+      </ValueList>
+    </button>
   </bindings>
 </pageDefinition>
