@@ -46,3 +46,4 @@ deploy/WPPlanningBoard_application1.ear
 Model/classes/.data/Model.cdi_javac
 Model/classes/model/service/AppModuleImpl.class
 ViewController/deploy/WPPlanningBoard_ViewController_webapp1.war
+*.ear

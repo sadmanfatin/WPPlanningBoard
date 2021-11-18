@@ -468,7 +468,7 @@ public class ManagedBean {
         appM.getWpPlanningBoardLoadVO1().executeQuery();
         this.refreshQueryKeepingCurrentRow(appM.getWpPlanningBoardVO1());
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardLoadTable());
-     
+      //  AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardTable());
         
     }
     
