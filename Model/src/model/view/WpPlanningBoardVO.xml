@@ -104,7 +104,13 @@
  WHERE WpPlanningBoardEO.SYSTEM_ID = PV.SYSTEM_ID
  AND PV.SYSTEM_ID = SS.SYSTEM_ID
  and WpPlanningBoardEO.MONTH_ID = ML.MONTH_ID
- AND WpPlanningBoardEO.ORG_ID = SS.ORG_ID]]>
+ AND WpPlanningBoardEO.ORG_ID = SS.ORG_ID
+ order by WpPlanningBoardEO.pb_serial,  PV.BUYER_ID, 
+       pv.BUYER_NAME ,
+       PV.SEASON, 
+       PV.STYLE ,   
+       PV.COLOR, 
+       PV.WASH_NAME]]>
   </SQLQuery>
   <EntityUsage
     Name="WpPlanningBoardEO"
