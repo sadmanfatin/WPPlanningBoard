@@ -4963,24 +4963,24 @@
                 <f:facet name="footer"/>
                 <af:column sortProperty="OrgId" sortable="false"
                            headerText="#{bindings.CurrentSamVsAvailableSamVO1.hints.OrgId.label}"
-                           id="c64" visible="false">
-                  <af:outputText value="#{row.OrgId}" id="ot14">
+                           id="c329" visible="false">
+                  <af:outputText value="#{row.OrgId}" id="ot209">
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.CurrentSamVsAvailableSamVO1.hints.OrgId.format}"/>
                   </af:outputText>
                 </af:column>
                 <af:column sortProperty="SystemId" sortable="false"
                            headerText="#{bindings.CurrentSamVsAvailableSamVO1.hints.SystemId.label}"
-                           id="c67" visible="false">
-                  <af:outputText value="#{row.SystemId}" id="ot15">
+                           id="c325" visible="false">
+                  <af:outputText value="#{row.SystemId}" id="ot206">
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.CurrentSamVsAvailableSamVO1.hints.SystemId.format}"/>
                   </af:outputText>
                 </af:column>
                 <af:column sortProperty="WpProcessId" sortable="false"
                            headerText="#{bindings.CurrentSamVsAvailableSamVO1.hints.WpProcessId.label}"
-                           id="c60" visible="false">
-                  <af:outputText value="#{row.WpProcessId}" id="ot20">
+                           id="c326" visible="false">
+                  <af:outputText value="#{row.WpProcessId}" id="ot208">
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.CurrentSamVsAvailableSamVO1.hints.WpProcessId.format}"/>
                   </af:outputText>
@@ -5008,16 +5008,16 @@
                 </af:column>
                 <af:column sortProperty="CurrentSamVersion" sortable="false"
                            headerText="#{bindings.CurrentSamVsAvailableSamVO1.hints.CurrentSamVersion.label}"
-                           id="c68" visible="false">
-                  <af:outputText value="#{row.CurrentSamVersion}" id="ot18">
+                           id="c330" visible="false">
+                  <af:outputText value="#{row.CurrentSamVersion}" id="ot204">
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.CurrentSamVsAvailableSamVO1.hints.CurrentSamVersion.format}"/>
                   </af:outputText>
                 </af:column>
                 <af:column sortProperty="AvailableSamVersion" sortable="false"
                            headerText="#{bindings.CurrentSamVsAvailableSamVO1.hints.AvailableSamVersion.label}"
-                           id="c66" visible="false">
-                  <af:outputText value="#{row.AvailableSamVersion}" id="ot17">
+                           id="c328" visible="false">
+                  <af:outputText value="#{row.AvailableSamVersion}" id="ot205">
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.CurrentSamVsAvailableSamVO1.hints.AvailableSamVersion.format}"/>
                   </af:outputText>
