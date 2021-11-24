@@ -147,7 +147,7 @@
                               selectedRowKeys="#{bindings.WpPlanningBoardLoadVO1.collectionModel.selectedRow}"
                               selectionListener="#{bindings.WpPlanningBoardLoadVO1.collectionModel.makeCurrent}"
                               id="t1"
-                              inlineStyle="height:30.0px; width:2800px;"
+                              inlineStyle="height:40.0px;"
                               styleClass="AFStretchWidth"
                               clientComponent="true"
                               binding="#{ManagedBean.planningBoardLoadTable}"
@@ -757,6 +757,8 @@
                                             pattern="#{bindings.WpPlanningBoardLoadVO1.hints.D31.format}"/>
                         </af:inputText>
                       </af:column>
+                      <af:clientListener type="mouseMove"
+                                         method="mouseOverTabletT1"/>
                     </af:table>
                     <af:table value="#{bindings.WpPlanningBoardVO1.collectionModel}"
                               var="row"
@@ -770,10 +772,10 @@
                               selectedRowKeys="#{bindings.WpPlanningBoardVO1.collectionModel.selectedRow}"
                               selectionListener="#{bindings.WpPlanningBoardVO1.collectionModel.makeCurrent}"
                               rowSelection="single" id="t2"
-                              styleClass="AFStretchWidth"
-                              inlineStyle="width:2800.0px;" rendered="true"
+                              styleClass="AFStretchWidth" rendered="true"
                               binding="#{ManagedBean.planningBoardTable}"
-                              partialTriggers="::soc1 ::soc2 ::cb4 ::cb2">
+                              partialTriggers="::soc1 ::soc2 ::cb4 ::cb2"
+                              clientComponent="true">
                       <af:column sortProperty="PlanningBoardId"
                                  filterable="true" sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.PlanningBoardId.label}"
@@ -2015,7 +2017,7 @@
                         
                       </af:column>
                       <af:column headerText="Current Sam Version"
-                                 id="c98" width="55">
+                                 id="c98" width="55" visible="false">
                         <af:inputText value="#{row.bindings.CurrentSamVersion.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.CurrentSamVersion.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.CurrentSamVersion.mandatory}"
@@ -2030,7 +2032,7 @@
                                                 <f:facet name="footer"/>
                       </af:column>
                       <af:column headerText="Available Sam Version"
-                                 id="c97" width="55">
+                                 id="c97" width="55" visible="false">
                         <af:inputText value="#{row.bindings.AvailableSamVersion.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.AvailableSamVersion.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.AvailableSamVersion.mandatory}"
@@ -2043,6 +2045,8 @@
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.AvailableSamVersion.format}"/>
                         </af:inputText>
                       </af:column>
+                      <af:clientListener method="mouseOverTableT2"
+                                         type="mouseMove"/>
                     </af:table>
                   </af:panelGroupLayout>
                   <f:facet name="toolbar">
