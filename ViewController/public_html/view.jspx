@@ -147,12 +147,13 @@
                               selectedRowKeys="#{bindings.WpPlanningBoardLoadVO1.collectionModel.selectedRow}"
                               selectionListener="#{bindings.WpPlanningBoardLoadVO1.collectionModel.makeCurrent}"
                               id="t1"
-                              inlineStyle="height:40.0px;"
                               styleClass="AFStretchWidth"
                               clientComponent="true"
                               binding="#{ManagedBean.planningBoardLoadTable}"
-                              partialTriggers="::soc1 ::soc2 ::cb5">
-                      <af:column id="c74" align="center" width="1014">
+                              partialTriggers="::soc1 ::soc2 ::cb5"
+                              inlineStyle="height:40.0px;">
+                      <af:column id="c74" align="center" width="881"
+                                 frozen="true">
                         <af:outputText value="Wet Section Load (%)" id="ot1"/>
                       </af:column>
                       <af:column
@@ -227,8 +228,8 @@
                       </af:column>
                       <af:column
                                  id="c177" align="center" sortable="true"
-                                 filterable="true" width="45"
-                                 styleClass="avgload">
+                                 filterable="true" width="50"
+                                 styleClass="avgload" frozen="true">
                         <af:inputText value="Avg:  #{row.bindings.AvgLoad.inputValue}"
                                       label="#{bindings.WpPlanningBoardLoadVO1.hints.AvgLoad.label}"
                                       required="#{bindings.WpPlanningBoardLoadVO1.hints.AvgLoad.mandatory}"
@@ -757,6 +758,8 @@
                                             pattern="#{bindings.WpPlanningBoardLoadVO1.hints.D31.format}"/>
                         </af:inputText>
                       </af:column>
+                      <af:column id="c331" width="70"/>
+                      <af:column id="c327" width="12"/>
                       <af:clientListener type="mouseMove"
                                          method="mouseOverTabletT1"/>
                     </af:table>
@@ -813,8 +816,8 @@
                       <af:column sortProperty="SystemId" filterable="true"
                                  sortable="true"
                                  headerText="System Id"
-                                 id="c35" width="40" align="center"
-                                 visible="true" styleClass="h1">
+                                 id="c35" width="35" align="center"
+                                 visible="true" frozen="true">
                         <af:inputText value="#{row.bindings.SystemId.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.SystemId.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.SystemId.mandatory}"
@@ -839,24 +842,11 @@
                           <f:validator binding="#{row.bindings.UpdatedSamVersionAvaliable.validator}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column id="c174" width="70"
-                                 align="center">
-                        <af:commandButton text="Update Sam" id="cb6"
-                                          partialSubmit="true"
-                                          inlineStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;"
-                                          visible="#{row.bindings.UpdatedSamVersionAvaliable.inputValue}">
-                          <af:showPopupBehavior popupId="::p7"/>
-                        </af:commandButton>
-                        <f:facet name="footer">
-                          <af:outputLabel value="Total:" id="ol1"
-                                          inlineStyle="font-size:small; font-weight:bold;"/>
-                        </f:facet>
-                      </af:column>
-                      <af:column headerText="Production Unit"
+                      <af:column headerText="Prod Unit"
                                  id="c96" align="center" sortable="true"
                                  sortProperty="ProductionUnitShortName"
-                                 width="50" filterable="true"
-                                 filterFeatures="caseInsensitive">
+                                 width="35" filterable="true"
+                                 filterFeatures="caseInsensitive" frozen="true">
                         <af:inputText value="#{row.bindings.ProductionUnitShortName.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitShortName.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.ProductionUnitShortName.mandatory}"
@@ -869,10 +859,10 @@
                         </af:inputText>
                       </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.BuyerName.label}"
-                                 id="c41" width="110" align="center"
+                                 id="c41" width="100" align="center"
                                  sortable="true" filterable="true"
                                  sortProperty="BuyerName"
-                                 filterFeatures="caseInsensitive">
+                                 filterFeatures="caseInsensitive" frozen="true">
                         <af:inputText value="#{row.bindings.BuyerName.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.BuyerName.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.BuyerName.mandatory}"
@@ -888,7 +878,8 @@
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.Season.label}"
                                  id="c53" align="center" sortable="true"
                                  filterable="true" sortProperty="Season"
-                                 filterFeatures="caseInsensitive" width="80">
+                                 filterFeatures="caseInsensitive" width="80"
+                                 frozen="true">
                         <af:inputText value="#{row.bindings.Season.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.Season.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.Season.mandatory}"
@@ -903,7 +894,8 @@
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.Style.label}"
                                  id="c62" align="center" sortable="true"
                                  filterable="true" sortProperty="Style"
-                                 filterFeatures="caseInsensitive" width="90">
+                                 filterFeatures="caseInsensitive" width="90"
+                                 frozen="true">
                         <af:commandLink text="#{row.bindings.Style.inputValue}" id="cl2">
                           <af:showPopupBehavior popupId="::p5"
                                                 align="endBefore"
@@ -913,7 +905,8 @@
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.Color.label}"
                                  id="c95" align="center" sortable="true"
                                  filterable="true" sortProperty="Color"
-                                 filterFeatures="caseInsensitive" width="90">
+                                 filterFeatures="caseInsensitive" width="80"
+                                 frozen="true">
                         <af:inputText value="#{row.bindings.Color.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.Color.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.Color.mandatory}"
@@ -931,7 +924,7 @@
                                  filterFeatures="caseInsensitive"
                                  partialTriggers="sbc3"
                                  inlineStyle="#{row.bindings.CompleteStatus.inputValue == true ? 'background-color:Yellow' :  'background-color:White' }"
-                                 width="90">
+                                 width="80" frozen="true">
                         <af:commandLink text="#{row.bindings.WashName.inputValue}"
                                         id="cl3">
                           <af:showPopupBehavior popupId="::p6" align="endBefore"
@@ -941,7 +934,7 @@
                       <af:column headerText="Serial"
                                  id="c324" width="40" align="center"
                                  sortable="true" filterable="true"
-                                 sortProperty="PbSerial">
+                                 sortProperty="PbSerial" frozen="true">
                         <af:inputText value="#{row.bindings.PbSerial.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.PbSerial.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.PbSerial.mandatory}"
@@ -955,10 +948,10 @@
                         </af:inputText>
                       </af:column>
                       <af:column
-                                 id="c323" width="35" align="center"
+                                 id="c323" width="30" align="center"
                                  sortable="true" filterable="true"
                                  sortProperty="CompleteStatus"
-                                 partialTriggers="sbc3">
+                                 partialTriggers="sbc3" frozen="true">
                         <af:selectBooleanCheckbox value="#{row.bindings.CompleteStatus.inputValue}"
                                                   label="#{row.bindings.CompleteStatus.label}"
                                                   shortDesc="#{bindings.WpPlanningBoardVO1.hints.CompleteStatus.tooltip}"
@@ -968,7 +961,7 @@
                                  sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.Remarks.label}"
                                  id="c48" width="90" align="center"
-                                 frozen="false"
+                                 frozen="true"
                                  filterFeatures="caseInsensitive">
                         <af:inputText value="#{row.bindings.Remarks.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.Remarks.label}"
@@ -983,16 +976,16 @@
                       <af:column headerText="Order Qty"
                                  id="c175" width="55" align="center"
                                  sortable="true" filterable="true"
-                                 sortProperty="OrderQty">
+                                 sortProperty="OrderQty" frozen="true">
                         <af:outputText value="#{row.OrderQty}" id="ot102">
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.OrderQty.format}"/>
                         </af:outputText>
                       </af:column>
-                      <af:column headerText="Previous Months Qty"
+                      <af:column headerText="Prev Months Qty"
                                  id="c199" align="center" width="60"
                                  sortProperty="PrevMonthsQty" sortable="true"
-                                 filterable="true">
+                                 filterable="true" frozen="true">
                         <af:inputText value="#{row.bindings.PrevMonthsQty.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.PrevMonthsQty.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.PrevMonthsQty.mandatory}"
@@ -1009,7 +1002,7 @@
                       <af:column headerText="Remaining Qty"
                                  id="c200" align="center" width="45"
                                  sortProperty="RemainingQty" sortable="true"
-                                 filterable="true">
+                                 filterable="true" frozen="true">
                         <af:inputText value="#{row.bindings.RemainingQty.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.RemainingQty.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.RemainingQty.mandatory}"
@@ -1023,11 +1016,15 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.RemainingQty.format}"/>
                         </af:inputText>
+                        <f:facet name="footer">
+                          <af:outputLabel value="Total:" id="ol1"
+                                          inlineStyle="font-size:small; font-weight:bold;"/>
+                        </f:facet>
                       </af:column>
                       <af:column headerText="Monthly Qty"
                                  id="c30" align="center"
                                  sortProperty="MonthlyTotal" sortable="true"
-                                 filterable="true" width="50">
+                                 filterable="true" width="50" frozen="true">
                         <af:inputText value="#{row.bindings.MonthlyTotal.inputValue}"
                                       label="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.label}"
                                       required="#{bindings.WpPlanningBoardVO1.hints.MonthlyTotal.mandatory}"
@@ -2044,6 +2041,16 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.AvailableSamVersion.format}"/>
                         </af:inputText>
+                      </af:column>
+                      <af:column id="c174" width="70" align="center"
+                                 frozen="false">
+                        <af:commandButton text="Update Sam" id="cb6"
+                                          partialSubmit="true"
+                                          inlineStyle=" #{row.bindings.UpdatedSamVersionAvaliable.inputValue ?   'color:rgb(210,0,0)'  :  'color:Black' } ;"
+                                          visible="#{row.bindings.UpdatedSamVersionAvaliable.inputValue}">
+                          <af:showPopupBehavior popupId="::p7"/>
+                        </af:commandButton>
+                        <f:facet name="footer"/>
                       </af:column>
                       <af:clientListener method="mouseOverTableT2"
                                          type="mouseMove"/>
