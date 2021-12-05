@@ -408,9 +408,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR">
-    <TransientExpression><![CDATA[LastDayQty > 0 ? 'y' : 'n']]></TransientExpression>
-  </ViewAttribute>
+    SQLType="VARCHAR"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
