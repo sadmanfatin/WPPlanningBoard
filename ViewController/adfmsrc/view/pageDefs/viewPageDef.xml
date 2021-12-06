@@ -220,6 +220,7 @@
           <Item Value="RemainingQty"/>
           <Item Value="CompleteStatus" Binds="CompleteStatus"/>
           <Item Value="PbSerial"/>
+          <Item Value="StyleSetupId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

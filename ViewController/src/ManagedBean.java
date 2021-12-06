@@ -644,7 +644,7 @@ public class ManagedBean {
                  planningBoardRow.setRemainingQty(populateStylesRow.getRemainingQty());
                  planningBoardRow.setCurrentSamVersion(populateStylesRow.getCurrentSamVersion());
                  planningBoardRow.setAvailableSamVersion(populateStylesRow.getAvailableSamVersion());
-             
+                 planningBoardRow.setStyleSetupId(populateStylesRow.getStyleSetupId());
                 planningBoardVo.insertRow(planningBoardRow);
                  
 

@@ -813,6 +813,22 @@
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.MonthId.format}"/>
                         </af:inputText>
                       </af:column>
+                      <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.StyleSetupId.label}"
+                                 id="c332" width="40"
+                                 sortProperty="StyleSetupId" filterable="true"
+                                 visible="false">
+                        <af:inputText value="#{row.bindings.StyleSetupId.inputValue}"
+                                      label="#{bindings.WpPlanningBoardVO1.hints.StyleSetupId.label}"
+                                      required="#{bindings.WpPlanningBoardVO1.hints.StyleSetupId.mandatory}"
+                                      columns="#{bindings.WpPlanningBoardVO1.hints.StyleSetupId.displayWidth}"
+                                      maximumLength="#{bindings.WpPlanningBoardVO1.hints.StyleSetupId.precision}"
+                                      shortDesc="#{bindings.WpPlanningBoardVO1.hints.StyleSetupId.tooltip}"
+                                      id="it151" readOnly="true">
+                          <f:validator binding="#{row.bindings.StyleSetupId.validator}"/>
+                          <af:convertNumber groupingUsed="false"
+                                            pattern="#{bindings.WpPlanningBoardVO1.hints.StyleSetupId.format}"/>
+                        </af:inputText>
+                      </af:column>
                       <af:column sortProperty="SystemId" filterable="true"
                                  sortable="true"
                                  headerText="System Id"
