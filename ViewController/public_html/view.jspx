@@ -134,7 +134,7 @@
                       </af:commandButton>
                     </af:panelGroupLayout>
                   </af:panelFormLayout>
-                  <af:panelGroupLayout id="pgl3" layout="scroll">
+                  <af:panelGroupLayout id="pgl3" layout="default">
                     <af:table value="#{bindings.WpPlanningBoardLoadVO1.collectionModel}"
                               var="row"
                               rows="#{bindings.WpPlanningBoardLoadVO1.rangeSize}"
@@ -151,7 +151,7 @@
                               clientComponent="true"
                               binding="#{ManagedBean.planningBoardLoadTable}"
                               partialTriggers="::soc1 ::soc2 ::cb5"
-                              inlineStyle="height:40.0px;">
+                              inlineStyle="height:43.0px;">
                       <af:column id="c74" align="center" width="881"
                                  frozen="true">
                         <af:outputText value="Wet Section Load (%)" id="ot1"/>
@@ -845,6 +845,12 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.SystemId.format}"/>
                         </af:inputText>
+                        <f:facet name="footer">
+                          <af:group id="g3">
+                            <af:outputLabel value="Total:" id="ol1"
+                                            inlineStyle="font-size:small; font-weight:bold;"/>
+                          </af:group>
+                        </f:facet>
                       </af:column>
                       <af:column headerText="#{bindings.WpPlanningBoardVO1.hints.UpdatedSamVersionAvaliable.label}"
                                  id="c176" width="60" visible="false">
@@ -946,6 +952,17 @@
                           <af:showPopupBehavior popupId="::p6" align="endBefore"
                                                 alignId="c67"/>
                         </af:commandLink>
+                        <f:facet name="footer">
+                          <af:panelGroupLayout id="pgl47" halign="center"
+                                               layout="vertical">
+                            <af:outputText value="#{bindings.PlanningBoardRowCount.inputValue}"
+                                           id="ot212"
+                                           inlineStyle="font-weight:bold; color:rgb(0,66,198); font-size:small;">
+                              <af:convertNumber groupingUsed="false"
+                                                pattern="#{bindings.PlanningBoardRowCount.format}"/>
+                            </af:outputText>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                       <af:column headerText="Serial"
                                  id="c324" width="40" align="center"
@@ -1032,10 +1049,7 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.WpPlanningBoardVO1.hints.RemainingQty.format}"/>
                         </af:inputText>
-                        <f:facet name="footer">
-                          <af:outputLabel value="Total:" id="ol1"
-                                          inlineStyle="font-size:small; font-weight:bold;"/>
-                        </f:facet>
+                        <f:facet name="footer"/>
                       </af:column>
                       <af:column headerText="Monthly Qty"
                                  id="c30" align="center"

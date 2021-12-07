@@ -421,6 +421,15 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     SQLType="NUMERIC">
     <TransientExpression><![CDATA[MonthlyGrandTotal/WorkingdayCount]]></TransientExpression>
   </ViewAttribute>
+  <ViewAttribute
+    Name="PlanningBoardRowCount"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="NUMERIC"/>
   <ViewLinkAccessor
     Name="MonthSearchVO"
     ViewLink="model.viewlinks.MonthSearchVO_vs_WpMonthListVO_vl"

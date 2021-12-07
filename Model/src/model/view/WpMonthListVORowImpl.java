@@ -477,6 +477,16 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        PlanningBoardRowCount {
+            public Object get(WpMonthListVORowImpl obj) {
+                return obj.getPlanningBoardRowCount();
+            }
+
+            public void put(WpMonthListVORowImpl obj, Object value) {
+                obj.setPlanningBoardRowCount((Number)value);
+            }
+        }
+        ,
         MonthSearchVO {
             public Object get(WpMonthListVORowImpl obj) {
                 return obj.getMonthSearchVO();
@@ -678,6 +688,7 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
     public static final int D31TOTAL = AttributesEnum.D31Total.index();
     public static final int MONTHLYGRANDTOTAL = AttributesEnum.MonthlyGrandTotal.index();
     public static final int AVERAGEPERDAY = AttributesEnum.AveragePerDay.index();
+    public static final int PLANNINGBOARDROWCOUNT = AttributesEnum.PlanningBoardRowCount.index();
     public static final int MONTHSEARCHVO = AttributesEnum.MonthSearchVO.index();
     public static final int WPPLANNINGBOARDVO = AttributesEnum.WpPlanningBoardVO.index();
     public static final int WPPLANNINGBOARDLOADVO = AttributesEnum.WpPlanningBoardLoadVO.index();
@@ -1416,6 +1427,27 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
         setAttributeInternal(AVERAGEPERDAY, value);
     }
 
+
+    /**
+     * Gets the attribute value for the calculated attribute PlanningBoardRowCount.
+     * @return the PlanningBoardRowCount
+     */
+    public Number getPlanningBoardRowCount() {
+
+        RowIterator rs =  this.getWpPlanningBoardVO();      
+       // rs.getRowCount();     
+      //  return new Number(rs.getRowCount());
+       return new Number( appM.getWpPlanningBoardVO1().getAllRowsInRange().length);
+     
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute PlanningBoardRowCount.
+     * @param value value to set the  PlanningBoardRowCount
+     */
+    public void setPlanningBoardRowCount(Number value) {
+        setAttributeInternal(PLANNINGBOARDROWCOUNT, value);
+    }
 
     /**
      * Gets the attribute value for MONTH_SERIAL using the alias name MonthSerial.

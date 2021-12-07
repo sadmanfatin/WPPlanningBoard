@@ -74,7 +74,7 @@ public class ManagedBean {
        //  this.setHolidayDayNoList(holidayDayNoList);
       //  this.setDaysColumnsWithValue(daysColumnsWithValue);
        
-     
+    
     }
 
     AppModuleImpl appM = getAppModuleImpl();

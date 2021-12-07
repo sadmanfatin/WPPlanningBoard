@@ -833,5 +833,11 @@
         <Item Value="n"/>
       </ValueList>
     </button>
+    <attributeValues IterBinding="WpMonthListVO1Iterator"
+                     id="PlanningBoardRowCount">
+      <AttrNames>
+        <Item Value="PlanningBoardRowCount"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
