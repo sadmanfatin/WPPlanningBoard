@@ -39,7 +39,21 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
         return appM;
     }
 
-    private void updateLoadPercentage(String columnName, Number newQty) {
+    private double numberToDouble(Object number){
+    
+        if(number instanceof Number && !number.equals(null)){
+            Number n = (Number) number;
+            return n.doubleValue();
+        }
+        else{
+            return 0.0;
+        }
+       
+    }
+    private void updateLoadPercentage(String columnName, Number newQtyVal) {
+        
+        double newQty = numberToDouble(newQtyVal) ;
+       // System.out.println("========== in updateLoadPercentage ==========  ");
         ViewObject sectionLoadVo = appM.getWpPlanningBoardLoadVO1();
         Row sectionLoadVoRow = sectionLoadVo.getCurrentRow();
         Number sectionId ;
@@ -55,63 +69,61 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
         ViewObject sectionCapacityVo = appM.getWpMonthlySectionCapacityVO1();
         Row sectionCapacityVoRow = null;
         
-        Number sectionCapacity = null;
+        double sectionCapacity = 0.0;
                 
-        Number newLoad = null;
-        Number oldLoad = (Number)sectionLoadVoRow.getAttribute(columnName);
-        if(oldLoad == null){
-            oldLoad = new Number(0);
-        }
-        Number oldQty = (Number)this.getAttribute(columnName);
-        if(oldQty == null){
-            oldQty = new Number(0);
-        }
-             
-        if(newQty == null){
-            newQty = new Number(0);
-        }
-        Number qtyDifference = newQty.subtract(oldQty);
+        double newLoad = 0.0;
+        double oldLoad =  numberToDouble(sectionLoadVoRow.getAttribute(columnName));
+
+        double oldQty =  numberToDouble(this.getAttribute(columnName));
+      
+       double qtyDifference = newQty - oldQty;
         RowIterator sectionSamOfStyleRows =  this.getWpSectionSamOfStyleVO();
         Row sectionSamOfStyleRow;
         //  Number sectionId = null;
-        Number sectionSam = null;
-        Number samDifference =  null;
+        double sectionSam = 0.0;
+       double samDifference =  0.0;
 
-        Number loadDifference = null;
+        double loadDifference = 0.0;
         sectionCapacityVoRow = sectionCapacityVo.getRow(new Key(new Object[]{sectionId }));
         
-    //    System.out.println("========= sectionCapacityVoRow =========== "+ sectionCapacityVoRow);
+    //   System.out.println("========= sectionCapacityVoRow =========== "+ sectionCapacityVoRow);
         
-        sectionCapacity = (Number)sectionCapacityVoRow.getAttribute(columnName);
+        sectionCapacity =  this.numberToDouble(sectionCapacityVoRow.getAttribute(columnName)) ;
         
         sectionSamOfStyleRow = sectionSamOfStyleRows.getRow(new Key(new Object[]{sectionId}));
         
         
-       //  sectionId = (Number)sectionSamOfStyleRow.getAttribute("StyleSetupId");
+
         
-        sectionSam = (Number)sectionSamOfStyleRow.getAttribute("SectionSam");
+        sectionSam =  this.numberToDouble(sectionSamOfStyleRow.getAttribute("SectionSam"));
         
-        samDifference = qtyDifference.multiply(sectionSam);
-   //     System.out.println("======== sam difference ========== "+samDifference);
+        samDifference = qtyDifference*sectionSam;
+     //   System.out.println("======== sam difference ========== "+samDifference);
         
-        loadDifference = samDifference.divide(sectionCapacity) ;
-       // System.out.println("======== loadDifference ========== "+loadDifference);
-        
-        
-        loadDifference = loadDifference.multiply(100);
-        System.out.println("======== loadDifference 100 multiple ========== "+loadDifference);
+        loadDifference = samDifference/sectionCapacity ;
+     //   System.out.println("======== loadDifference ========== "+loadDifference);
+      
+       
+        loadDifference = loadDifference*100;
+       // System.out.println("======== loadDifferenceeee 100 multiple ========== "+loadDifference);
                  
-    //    System.out.println("========  oldLoad ========== "+ oldLoad);
+      //  System.out.println("========  oldLoad ========== "+ oldLoad);
         
-        newLoad = oldLoad.add(loadDifference);
+        newLoad = oldLoad+ loadDifference;
         
-    //    System.out.println("========  newLoad ========== "+ newLoad);
+     // System.out.println("========  newLoad ========== "+ newLoad);
          
-        newLoad = (Number)newLoad.round(0);
-        
-     // System.out.println("========  newLoad round========== "+ newLoad.round(0));
+       Number newLoadNumber = null;
+      try {
+             newLoadNumber =  new Number(newLoad)  ;
+       } catch (Exception e) {
+            // TODO: Add catch code
+            e.printStackTrace();
+        }   
+        newLoadNumber = (Number) newLoadNumber.round(0);
+     //   System.out.println("========  newLoad round========== "+ newLoadNumber );
          
-        sectionLoadVoRow.setAttribute(columnName, newLoad);
+        sectionLoadVoRow.setAttribute(columnName, newLoadNumber);
          
         // System.out.println();
     }
