@@ -125,11 +125,13 @@
                       <af:commandButton actionListener="#{ManagedBean.save}"
                                         text="Save" id="cb5"
                                         partialSubmit="true"
-                                        icon="/icons/check_sign_icon_green.png"/>
+                                        icon="/icons/check_sign_icon_green.png"
+                                        disabled="#{sessionScope.respId != 53251 and   sessionScope.respId  != 53253 }"/>
                       <af:spacer width="100" height="10" id="spacer5"/>
                       <af:commandButton text="Freeze Plan" id="cb8"
                                         partialSubmit="true"
-                                        icon="/icons/Lock Icon2.jpg">
+                                        icon="/icons/Lock Icon2.jpg"
+                                        disabled="#{sessionScope.respId != 53251 and   sessionScope.respId  != 53253 }">
                         <af:showPopupBehavior popupId="p4"/>
                       </af:commandButton>
                     </af:panelGroupLayout>
