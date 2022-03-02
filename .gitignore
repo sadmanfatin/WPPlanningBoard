@@ -3,16 +3,11 @@
 Thumbs.db
 
 # Compiled class file
-*.class
-
 # Log files
 *.log
 
 # Archives
-*.jar
 *.war
-*.ear
-
 # Misc
 *.sso
 
@@ -20,31 +15,9 @@ Thumbs.db
 classes/
 deploy/
 *.cdi_javac
-*.ear
-*.cdi_javac
-*.class
-*.ear
-*.war
-*.class
-*.class
-*.cdi_javac
-*.ear
-Model/classes/.data/Model.cdi_javac
+Model/classes/
 deploy/WPPlanningBoard_application1.ear
 *.png
-ViewController/classes/.wlsjsps/jsp_servlet/__view_jspx.class
-Model/classes/model/view/StyleWiseShipmentVO.xml
-Model/classes/model/service/AppModuleImpl.class
+ViewController/classes/
 Model/classes/.data/Model.cdi_javac
-ViewController/classes/.wlsjsps/jsp_servlet/__view_jspx.class
-Model/classes/model/service/AppModuleImpl.class
-Model/classes/.data/Model.cdi_javac
-*.class
-*.class
-Model/classes/model/view/WpPlanningBoardVORowImpl$AttributesEnum$10.class
-deploy/WPPlanningBoard_application1.ear
-Model/classes/.data/Model.cdi_javac
-Model/classes/model/service/AppModuleImpl.class
 ViewController/deploy/WPPlanningBoard_ViewController_webapp1.war
-*.ear
-*.class
