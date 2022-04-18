@@ -487,7 +487,7 @@ public class ManagedBean {
 
     public void updateSamVersion(ActionEvent actionEvent) {
         // Add event code here...
-        String statement = "BEGIN APPS.UPDATE_WP_STYLE_SETUP_VERSION(:1,:2); END;";
+        String statement = "BEGIN APPS.UPDATE_WP_STYLE_SETUP_VERSION(:1,:2,:3); END;";
         CallableStatement cs =  appM.getDBTransaction().createCallableStatement(statement, 1);
         WpPlanningBoardVOImpl planningBoardVo = ( WpPlanningBoardVOImpl)appM.getWpPlanningBoardVO1();
         WpPlanningBoardVORowImpl styleSetupVoRow = (WpPlanningBoardVORowImpl)planningBoardVo.getCurrentRow();
@@ -495,17 +495,19 @@ public class ManagedBean {
         
         Map sessionScope = ADFContext.getCurrent().getSessionScope();
         String userId = (String)sessionScope.get("userId");
+        String orgId = (String)sessionScope.get("orgId");
+               
+               try {
+                   cs.setInt(1, Integer.parseInt(styleSetupId));
+                   cs.setInt(2, Integer.parseInt(userId));
+                   cs.setInt(3, Integer.parseInt(orgId));
+                   cs.execute();
+               }
         
-        
-        try {
-            cs.setInt(1, Integer.parseInt(styleSetupId));
-            cs.setInt(2, Integer.parseInt(userId));
-            cs.execute();
-        }
-        catch(Exception e){
-            e.printStackTrace();
-            ;
-        }              
+                catch(Exception e){
+                    e.printStackTrace();
+                    ;
+                }              
         
         this.refreshQueryKeepingCurrentRow(appM.getWpPlanningBoardVO1());
         this.refreshQueryKeepingCurrentRow(appM.getWpPlanningBoardLoadVO1());
