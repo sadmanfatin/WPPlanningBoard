@@ -821,7 +821,7 @@
                               styleClass="AFStretchWidth" rendered="true"
                               binding="#{ManagedBean.planningBoardTable}"
                               partialTriggers="::soc1 ::soc2 ::cb4 ::cb2"
-                              clientComponent="true">
+                              clientComponent="true" autoHeightRows="16">
                       <af:column sortProperty="PlanningBoardId"
                                  filterable="true" sortable="true"
                                  headerText="#{bindings.WpPlanningBoardVO1.hints.PlanningBoardId.label}"
