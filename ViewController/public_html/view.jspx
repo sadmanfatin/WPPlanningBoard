@@ -2163,7 +2163,8 @@
                           <f:facet name="toolbar"/>
                           <f:facet name="legend"/>
                           <f:facet name="info"/>
-                          <af:panelGroupLayout id="pgl41" layout="horizontal">
+                          <af:panelGroupLayout id="pgl41" layout="horizontal"
+                                               valign="top">
                             <af:table value="#{bindings.BuyerWiseMonthlyQtyVO1.collectionModel}"
                                       var="row"
                                       rows="#{bindings.BuyerWiseMonthlyQtyVO1.rangeSize}"
@@ -2253,80 +2254,26 @@
                                 </af:inputText>
                               </af:column>
                             </af:table>
-                            <af:spacer width="10" height="10" id="s2"/>
-                            <af:table value="#{bindings.StyleWiseMonthlyQtyVO1.collectionModel}"
-                                      var="row"
-                                      rows="#{bindings.StyleWiseMonthlyQtyVO1.rangeSize}"
-                                      emptyText="#{bindings.StyleWiseMonthlyQtyVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                      fetchSize="#{bindings.StyleWiseMonthlyQtyVO1.rangeSize}"
-                                      rowBandingInterval="0"
-                                      selectedRowKeys="#{bindings.StyleWiseMonthlyQtyVO1.collectionModel.selectedRow}"
-                                      selectionListener="#{bindings.StyleWiseMonthlyQtyVO1.collectionModel.makeCurrent}"
-                                      rowSelection="single" id="t12"
-                                      inlineStyle="height:220.0px;"
-                                      partialTriggers="::t5">
-                              <af:column sortProperty="Style" sortable="false"
-                                         headerText="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.label}"
-                                         id="c288" align="center">
-                                <af:inputText value="#{row.bindings.Style.inputValue}"
-                                              label="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.label}"
-                                              required="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.mandatory}"
-                                              columns="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.displayWidth}"
-                                              maximumLength="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.precision}"
-                                              shortDesc="#{bindings.StyleWiseMonthlyQtyVO1.hints.Style.tooltip}"
-                                              id="it137">
-                                  <f:validator binding="#{row.bindings.Style.validator}"/>
-                                </af:inputText>
-                              </af:column>
-                              <af:column sortProperty="WashQuantity"
-                                         sortable="false"
-                                         headerText="Wash Quantity" id="c285"
-                                         width="60" align="center">
-                                <af:inputText value="#{row.bindings.WashQuantity.inputValue}"
-                                              label="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.label}"
-                                              required="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.mandatory}"
-                                              columns="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.displayWidth}"
-                                              maximumLength="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.precision}"
-                                              shortDesc="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.tooltip}"
-                                              id="it138">
-                                  <f:validator binding="#{row.bindings.WashQuantity.validator}"/>
-                                  <af:convertNumber groupingUsed="false"
-                                                    pattern="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashQuantity.format}"/>
-                                </af:inputText>
-                              </af:column>
-                              <af:column sortProperty="AveragePerDay"
-                                         sortable="false"
-                                         headerText="Average Per Day" id="c282"
-                                         width="60" align="center">
-                                <af:inputText value="#{row.bindings.AveragePerDay.inputValue}"
-                                              label="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.label}"
-                                              required="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.mandatory}"
-                                              columns="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.displayWidth}"
-                                              maximumLength="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.precision}"
-                                              shortDesc="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.tooltip}"
-                                              id="it133">
-                                  <f:validator binding="#{row.bindings.AveragePerDay.validator}"/>
-                                  <af:convertNumber groupingUsed="false"
-                                                    pattern="#{bindings.StyleWiseMonthlyQtyVO1.hints.AveragePerDay.format}"/>
-                                </af:inputText>
-                              </af:column>
-                              <af:column sortProperty="WashPercentage"
-                                         sortable="false"
-                                         headerText="Wash Percentage (%)"
-                                         id="c286" width="60" align="center">
-                                <af:inputText value="#{row.bindings.WashPercentage.inputValue}"
-                                              label="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.label}"
-                                              required="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.mandatory}"
-                                              columns="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.displayWidth}"
-                                              maximumLength="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.precision}"
-                                              shortDesc="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.tooltip}"
-                                              id="it139">
-                                  <f:validator binding="#{row.bindings.WashPercentage.validator}"/>
-                                  <af:convertNumber groupingUsed="false"
-                                                    pattern="#{bindings.StyleWiseMonthlyQtyVO1.hints.WashPercentage.format}"/>
-                                </af:inputText>
-                              </af:column>
-                            </af:table>
+                            <dvt:pieGraph id="pieGraph4"
+                                          value="#{bindings.BuyerWiseMonthlyQtyVO11.graphModel}"
+                                          subType="PIE"
+                                          inlineStyle="height:320.0px;"
+                                          contentDelivery="immediate">
+                              <dvt:background>
+                                <dvt:specialEffects fillType="FT_COLOR"/>
+                              </dvt:background>
+                              <dvt:graphPieFrame/>
+                              <dvt:seriesSet>
+                                <dvt:series/>
+                              </dvt:seriesSet>
+                              <dvt:sliceLabel textType="LD_PERCENT">
+                                <dvt:graphFont id="graphFont5" size="12"
+                                               color="#ffffff" bold="true"/>
+                              </dvt:sliceLabel>
+                              <dvt:pieLabel rendered="true"/>
+                              <dvt:legendArea automaticPlacement="AP_NEVER"/>
+                              <dvt:slice labelPosition="LP_INSIDE"/>
+                            </dvt:pieGraph>
                           </af:panelGroupLayout>
                         </af:panelHeader>
                       </af:panelGroupLayout>
@@ -2350,7 +2297,7 @@
                                       selectionListener="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel.makeCurrent}" id="t6"
                                       partialTriggers="::soc1 ::soc2"
                                       autoHeightRows="5"
-                                      inlineStyle="height:200.0px; width:545px;"
+                                      inlineStyle="height:200.0px;"
                                       width="313">
                               <af:column sortProperty="MonthId" sortable="false"
                                          headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.label}"
@@ -2443,7 +2390,7 @@
                               <dvt:seriesSet>
                                 <dvt:series/>
                               </dvt:seriesSet>
-                              <dvt:sliceLabel textType="LD_TEXT_VALUE"
+                              <dvt:sliceLabel textType="LD_PERCENT"
                                               autoPrecision="off"
                                               scaling="none">
                                 <dvt:graphFont id="graphFont2" size="12"
@@ -2497,7 +2444,6 @@
                             </af:table>
                             <dvt:pieGraph id="pieGraph2"
                                           value="#{bindings.FabricationWiseMonthlyQtyVO11.graphModel}"
-                                          subType="PIE"
                                           inlineStyle="height:320.0px;"
                                           dynamicResize="FIXED_SIZE"
                                           contentDelivery="immediate">
@@ -2510,7 +2456,7 @@
                               <dvt:seriesSet>
                                 <dvt:series/>
                               </dvt:seriesSet>
-                              <dvt:sliceLabel textType="LD_TEXT_VALUE"
+                              <dvt:sliceLabel textType="LD_PERCENT"
                                               autoPrecision="off"
                                               scaling="none">
                                 <dvt:graphFont id="graphFont3" size="12"
@@ -2570,7 +2516,7 @@
                               <dvt:seriesSet>
                                 <dvt:series/>
                               </dvt:seriesSet>
-                              <dvt:sliceLabel textType="LD_TEXT_VALUE"
+                              <dvt:sliceLabel textType="LD_PERCENT"
                                               scaling="none"
                                               autoPrecision="off">
                                 <dvt:graphFont id="graphFont4" size="12"

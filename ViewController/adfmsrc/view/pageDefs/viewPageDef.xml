@@ -30,7 +30,7 @@
     <searchRegion Binds="PopulateStylesVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="PopulateStylesVO1Query"/>
-    <iterator Binds="BuyerWiseMonthlyQtyVO1" RangeSize="25"
+    <iterator Binds="BuyerWiseMonthlyQtyVO1" RangeSize="-1"
               DataControl="AppModuleDataControl"
               id="BuyerWiseMonthlyQtyVO1Iterator"/>
     <iterator Binds="ProductionUnitWiseMonthlyQtyVO1" RangeSize="-1"
@@ -66,9 +66,6 @@
     <searchRegion Binds="WpPlanningBoardFreezeVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="WpPlanningBoardFreezeVO1Query"/>
-    <iterator Binds="StyleWiseMonthlyQtyVO1" RangeSize="25"
-              DataControl="AppModuleDataControl"
-              id="StyleWiseMonthlyQtyVO1Iterator"/>
     <iterator Binds="StyleWiseShipmentVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="StyleWiseShipmentVO1Iterator"/>
@@ -691,21 +688,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <tree IterBinding="StyleWiseMonthlyQtyVO1Iterator"
-          id="StyleWiseMonthlyQtyVO1">
-      <nodeDefinition DefName="model.view.monthlysummary.StyleWiseMonthlyQtyVO"
-                      Name="StyleWiseMonthlyQtyVO10">
-        <AttrNames>
-          <Item Value="MonthId"/>
-          <Item Value="BuyerId"/>
-          <Item Value="BuyerName"/>
-          <Item Value="Style"/>
-          <Item Value="WashQuantity"/>
-          <Item Value="AveragePerDay"/>
-          <Item Value="WashPercentage"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <tree IterBinding="StyleWiseShipmentVO1Iterator" id="StyleWiseShipmentVO1">
       <nodeDefinition DefName="model.view.StyleWiseShipmentVO"
                       Name="StyleWiseShipmentVO10">
@@ -839,5 +821,20 @@
         <Item Value="PlanningBoardRowCount"/>
       </AttrNames>
     </attributeValues>
+    <graph IterBinding="BuyerWiseMonthlyQtyVO1Iterator"
+           id="BuyerWiseMonthlyQtyVO11"
+           xmlns="http://xmlns.oracle.com/adfm/dvt" type="PIE">
+      <graphDataMap leafOnly="true">
+        <series>
+          <item value="BuyerName"/>
+          <item value="WashQuantity"/>
+        </series>
+        <groups>
+          <data>
+            <item value="WashQuantity"/>
+          </data>
+        </groups>
+      </graphDataMap>
+    </graph>
   </bindings>
 </pageDefinition>
