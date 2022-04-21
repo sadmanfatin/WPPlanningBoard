@@ -24,7 +24,7 @@
     <searchRegion Binds="WpPlanningBoardVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="WpPlanningBoardVO1Query"/>
-    <iterator Binds="PopulateStylesVO1" RangeSize="25"
+    <iterator Binds="PopulateStylesVO1" RangeSize="250"
               DataControl="AppModuleDataControl"
               id="PopulateStylesVO1Iterator"/>
     <searchRegion Binds="PopulateStylesVO1Iterator" Criteria=""
@@ -48,7 +48,7 @@
     <searchRegion Binds="MonthWiseDailyProcessQtyVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="MonthWiseDailyProcessQtyVO1Query"/>
-    <iterator Binds="PopulateStyleFromPreviousMonthVO1" RangeSize="25"
+    <iterator Binds="PopulateStyleFromPreviousMonthVO1" RangeSize="400"
               DataControl="AppModuleDataControl"
               id="PopulateStyleFromPreviousMonthVO1Iterator"/>
     <searchRegion Binds="PopulateStyleFromPreviousMonthVO1Iterator" Criteria=""

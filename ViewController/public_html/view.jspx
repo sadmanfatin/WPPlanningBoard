@@ -4040,9 +4040,11 @@
         <af:popup id="p1" contentDelivery="lazyUncached"
                   popupFetchListener="#{ManagedBean.populateStylePopUpFetchListener}">
           <af:dialog id="d2"
-                     dialogListener="#{ManagedBean.populateStyleDialogueListener}">
+                     dialogListener="#{ManagedBean.populateStyleDialogueListener}"
+                     type="none">
             <af:panelHeader text="Populate Style" id="ph2"
-                            styleClass="AFStretchWidth">
+                            styleClass="AFStretchWidth"
+                            inlineStyle="width:1290.0px;">
               <f:facet name="context"/>
               <f:facet name="menuBar"/>
               <f:facet name="toolbar"/>
@@ -4300,6 +4302,10 @@
                 </af:column>
               </af:table>
             </af:panelHeader>
+            <f:facet name="buttonBar">
+              <af:commandButton text="   OK    " id="cb10"
+                                actionListener="#{ManagedBean.populateStyleActionListener}"/>
+            </f:facet>
           </af:dialog>
         </af:popup>
         <af:popup id="p2">
@@ -4311,8 +4317,10 @@
         <af:popup id="p3" contentDelivery="lazyUncached"
                   popupFetchListener="#{ManagedBean.pupylateStyleFromPrevMonthPopUpFetchListener}">
           <af:dialog id="d3"
-                     dialogListener="#{ManagedBean.populateStyleFromPrevMonthDialogListener}">
-            <af:panelHeader text="Populate Previous Month Styles" id="ph8">
+                     dialogListener="#{ManagedBean.populateStyleFromPrevMonthDialogListener}"
+                     type="none">
+            <af:panelHeader text="Populate Previous Month Styles" id="ph8"
+                            inlineStyle="width:1290.0px;">
               <af:table value="#{bindings.PopulateStyleFromPreviousMonthVO1.collectionModel}"
                         var="row"
                         rows="#{bindings.PopulateStyleFromPreviousMonthVO1.rangeSize}"
@@ -4636,6 +4644,10 @@
                 </af:column>
               </af:table>
             </af:panelHeader>
+            <f:facet name="buttonBar">
+              <af:commandButton text="   OK   " id="cb12"
+                                actionListener="#{ManagedBean.populateStyleFromPrevMonthActionListener}"/>
+            </f:facet>
           </af:dialog>
         </af:popup>
         <af:popup id="p4">

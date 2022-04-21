@@ -396,6 +396,17 @@ public class ManagedBean {
             ;
         }
     }
+    //added on 21 Apr 2022 as custom popup ok listener for bug in stock dialog event
+    public void populateStyleActionListener(ActionEvent actionEvent) {
+        // Add event code here...
+              
+          //  System.out.println("dialogEvent.getOutcome().name().equals(\"ok\")" );        
+            populateStyle();
+            
+            AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardLoadTable());
+            AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardTable());
+       
+    }
 
     private void populateStyle() {
         
@@ -600,6 +611,19 @@ public class ManagedBean {
        
         
     }
+    
+    
+    public void populateStyleFromPrevMonthActionListener(ActionEvent dialogEvent) {
+        // Add event code here...
+           
+            System.out.println("dialogEvent.getOutcome().name().equals(\"ok\")" );
+        
+            populatePrevMonthStyle();
+                        
+            AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardLoadTable());
+            AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardTable());
+             
+    }
 
     private void populatePrevMonthStyle() {
         
@@ -671,6 +695,8 @@ public class ManagedBean {
         }
         
     }
+    
+    
 
 
     private void freezePlan(String currentMonthId) {
