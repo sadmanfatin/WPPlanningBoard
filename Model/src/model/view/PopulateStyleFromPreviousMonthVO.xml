@@ -37,7 +37,7 @@
        PB.SYSTEM_ID, 
        PB.REMARKS, 
        PB.ORG_ID,
-       PV.ORDER_QTY ,     
+       STYLES.ORDER_QTY ,     
        PB.MONTHLY_TOTAL  ,   
                     
        ( SELECT  NVL(   SUM(QUANTITY)  , 0)
@@ -45,7 +45,7 @@
        WHERE SQ.SYSTEM_ID =   PB.SYSTEM_ID AND SQ.ORG_ID = PB.ORG_ID 
        AND SQ.MONTH_SERIAL < ML.MONTH_SERIAL    )   PREV_MONTHS_QTY,  
                  
-      PV.ORDER_QTY -    (      
+      STYLES.ORDER_QTY -    (      
       PB.MONTHLY_TOTAL +    ( SELECT  NVL(   SUM(    QUANTITY) , 0)
        FROM WP_DAILY_STYLE_QUANTITY SQ    
        WHERE SQ.SYSTEM_ID =   PB.SYSTEM_ID AND SQ.ORG_ID = PB.ORG_ID 
@@ -54,12 +54,12 @@
       
         APPS.WP_LAST_DAY_QTY( PB.MONTH_ID,   PB.SYSTEM_ID )  LAST_DAY_QTY,
       
-       PV.BUYER_ID, 
-       PV.BUYER_NAME ,
-       PV.SEASON, 
-       PV.STYLE ,   
-       PV.COLOR, 
-       PV.WASH_NAME ,      
+       STYLES.BUYER_ID, 
+       STYLES.BUYER_NAME ,
+       STYLES.SEASON, 
+       STYLES.STYLE ,   
+       STYLES.COLOR, 
+       STYLES.WASH_NAME ,      
        SS.SAM_VERSION CURRENT_SAM_VERSION,       
        SS.AVAILABLE_SAM_VERSION   ,      
        SS.STYLE_SETUP_ID ,
@@ -67,13 +67,35 @@
         FROM WP_PLANNING_BOARD PB, 
         WP_STYLE_SETUP SS,
         WP_MONTH_LIST ML, 
-        POC_SYSTEM_ID_VIEW PV
+          (SELECT PV.SYSTEM_ID,
+                 PV.LC_UNIT,
+                 APPS.ORG_ID_TO_ORG_NAME (PV.LC_UNIT) LC_UNIT_NAME,
+                 PV.BUYER_ID,
+                 APPS.XX_OM_BUYER_NAME_FOR_ID (PV.BUYER_ID) BUYER_NAME,
+                 PV.SEASON,
+                 PV.STYLE,
+                 PV.COLOR,
+                 PV.WASH_NAME,
+                 PV.ORDER_QTY
+            FROM POC_SYSTEM_ID_VIEW PV
+          UNION
+          SELECT WPS.SYSTEM_ID,
+                 WPS.LC_UNIT,
+                 APPS.ORG_ID_TO_ORG_NAME (WPS.LC_UNIT) LC_UNIT_NAME,
+                 WPS.BUYER_ID,
+                 APPS.XX_OM_BUYER_NAME_FOR_ID (WPS.BUYER_ID) BUYER_NAME,
+                 WPS.SEASON,
+                 WPS.STYLE,
+                 WPS.COLOR,
+                 WPS.WASH WASH_NAME,
+                 WPS.ORDERED_QTY ORDER_QTY
+            FROM WP_PROJECTION_STYLE WPS) STYLES
        
-     WHERE PB.SYSTEM_ID = PV.SYSTEM_ID
-     AND PV.SYSTEM_ID = SS.SYSTEM_ID
+     WHERE PB.SYSTEM_ID = STYLES.SYSTEM_ID
+     AND STYLES.SYSTEM_ID = SS.SYSTEM_ID
      AND PB.ORG_ID = SS.ORG_ID
      AND ML.MONTH_ID =  PB.MONTH_ID
- AND   PV.ORDER_QTY -    (      
+ AND   STYLES.ORDER_QTY -    (      
       PB.MONTHLY_TOTAL +    ( SELECT  NVL(   SUM(    QUANTITY) , 0)
        FROM WP_DAILY_STYLE_QUANTITY SQ    
        WHERE SQ.SYSTEM_ID =   PB.SYSTEM_ID AND SQ.ORG_ID = PB.ORG_ID 
