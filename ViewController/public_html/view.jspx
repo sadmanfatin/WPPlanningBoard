@@ -4228,7 +4228,7 @@
                         selectedRowKeys="#{bindings.PopulateStylesVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.PopulateStylesVO1.collectionModel.makeCurrent}"
                         rowSelection="single" id="t4"
-                        styleClass="AFStretchWidth">
+                        styleClass="AFStretchWidth" autoHeightRows="20">
                 <af:column headerText="Select"
                            id="c92" align="center" width="40">
                   <af:selectBooleanCheckbox value="#{row.bindings.CheckBox.inputValue}"
@@ -4515,7 +4515,7 @@
                         selectedRowKeys="#{bindings.PopulateStyleFromPreviousMonthVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.PopulateStyleFromPreviousMonthVO1.collectionModel.makeCurrent}"
                         rowSelection="single" id="t9"
-                        styleClass="AFStretchWidth">
+                        styleClass="AFStretchWidth" autoHeightRows="20">
                 <af:column headerText="Select"
                            id="c198" align="center" sortable="true"
                            filterable="true" width="40">
