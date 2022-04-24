@@ -29,38 +29,60 @@
     Type="java.lang.String"/>
   <SQLQuery>
     <![CDATA[SELECT DISTINCT
-    SS.SYSTEM_ID, 
-    PV.LC_UNIT, 
-    APPS.ORG_ID_TO_ORG_NAME(PV.LC_UNIT) LC_UNIT_NAME, 
-      
-    SS.PRODUCTION_UNIT, 
-    APPS.ORG_ID_TO_ORG_NAME(SS.PRODUCTION_UNIT)   PRODUCTION_UNIT_NAME,
-    PV.BUYER_ID, 
-    APPS.XX_OM_BUYER_NAME_FOR_ID(PV.BUYER_ID) BUYER_NAME ,
-    PV.SEASON, 
-    PV.STYLE ,   
-    PV.COLOR, 
-    PV.WASH_NAME , 
-    PV.ORDER_QTY ,
-           ( SELECT  NVL(   SUM(QUANTITY)  , 0)
-       FROM WP_DAILY_STYLE_QUANTITY SQ    
-       WHERE SQ.SYSTEM_ID =   SS.SYSTEM_ID AND SQ.ORG_ID = SS.ORG_ID 
- 
-        )   PREV_MONTHS_QTY, 
-    SS.ORG_ID,
-    SS.SAM_VERSION CURRENT_SAM_VERSION,       
-    SS.AVAILABLE_SAM_VERSION     ,
-    SS.STYLE_SETUP_ID
+         SS.SYSTEM_ID,
+         STYLES.LC_UNIT,
+         APPS.ORG_ID_TO_ORG_NAME (STYLES.LC_UNIT) LC_UNIT_NAME,
+         SS.PRODUCTION_UNIT,
+         APPS.ORG_ID_TO_ORG_NAME (SS.PRODUCTION_UNIT) PRODUCTION_UNIT_NAME,
+         STYLES.BUYER_ID,
+         APPS.XX_OM_BUYER_NAME_FOR_ID (STYLES.BUYER_ID) BUYER_NAME,
+         STYLES.SEASON,
+         STYLES.STYLE,
+         STYLES.COLOR,
+         STYLES.WASH_NAME,
+         STYLES.ORDER_QTY,
+         (SELECT NVL (SUM (QUANTITY), 0)
+            FROM WP_DAILY_STYLE_QUANTITY SQ
+           WHERE SQ.SYSTEM_ID = SS.SYSTEM_ID AND SQ.ORG_ID = SS.ORG_ID)
+            PREV_MONTHS_QTY,
+         SS.ORG_ID,
+         SS.SAM_VERSION CURRENT_SAM_VERSION,
+         SS.AVAILABLE_SAM_VERSION,
+         SS.STYLE_SETUP_ID
     FROM WP_STYLE_SETUP SS,
-         POC_SYSTEM_ID_VIEW PV
-
-    WHERE 1=1
-    AND SS.SYSTEM_ID = PV.SYSTEM_ID
-
-        AND NOT EXISTS (SELECT  PB.SYSTEM_ID FROM WP_PLANNING_BOARD PB WHERE PB.SYSTEM_ID =  PV.SYSTEM_ID
-                 AND  SS.ORG_ID = (SELECT ORG_ID FROM WP_MONTH_LIST ML WHERE  ML.MONTH_ID = PB.MONTH_ID)
-      AND PB.MONTH_ID = :p_month_id      
-                    )
+         (SELECT STYLES.SYSTEM_ID,
+                 STYLES.LC_UNIT,
+                 APPS.ORG_ID_TO_ORG_NAME (STYLES.LC_UNIT) LC_UNIT_NAME,
+                 STYLES.BUYER_ID,
+                 APPS.XX_OM_BUYER_NAME_FOR_ID (STYLES.BUYER_ID) BUYER_NAME,
+                 STYLES.SEASON,
+                 STYLES.STYLE,
+                 STYLES.COLOR,
+                 STYLES.WASH_NAME,
+                 STYLES.ORDER_QTY
+            FROM POC_SYSTEM_ID_VIEW STYLES
+          UNION
+          SELECT WPS.SYSTEM_ID,
+                 WPS.LC_UNIT,
+                 APPS.ORG_ID_TO_ORG_NAME (WPS.LC_UNIT) LC_UNIT_NAME,
+                 WPS.BUYER_ID,
+                 APPS.XX_OM_BUYER_NAME_FOR_ID (WPS.BUYER_ID) BUYER_NAME,
+                 WPS.SEASON,
+                 WPS.STYLE,
+                 WPS.COLOR,
+                 WPS.WASH WASH_NAME,
+                 WPS.ORDERED_QTY ORDER_QTY
+            FROM WP_PROJECTION_STYLE WPS) STYLES
+   WHERE     1 = 1
+         AND SS.SYSTEM_ID = STYLES.SYSTEM_ID
+         AND NOT EXISTS
+                (SELECT PB.SYSTEM_ID
+                   FROM WP_PLANNING_BOARD PB
+                  WHERE     PB.SYSTEM_ID = STYLES.SYSTEM_ID
+                        AND SS.ORG_ID = (SELECT ORG_ID
+                                           FROM WP_MONTH_LIST ML
+                                          WHERE ML.MONTH_ID = PB.MONTH_ID)
+                        AND PB.MONTH_ID = :p_month_id)
 ORDER BY SS.SYSTEM_ID DESC]]>
   </SQLQuery>
   <ViewAttribute
