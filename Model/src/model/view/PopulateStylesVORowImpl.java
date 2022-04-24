@@ -184,6 +184,16 @@ public class PopulateStylesVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        ProjectionStyle {
+            public Object get(PopulateStylesVORowImpl obj) {
+                return obj.getProjectionStyle();
+            }
+
+            public void put(PopulateStylesVORowImpl obj, Object value) {
+                obj.setProjectionStyle((String)value);
+            }
+        }
+        ,
         CheckBox {
             public Object get(PopulateStylesVORowImpl obj) {
                 return obj.getCheckBox();
@@ -239,6 +249,7 @@ public class PopulateStylesVORowImpl extends ViewRowImpl {
     public static final int CURRENTSAMVERSION = AttributesEnum.CurrentSamVersion.index();
     public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
     public static final int STYLESETUPID = AttributesEnum.StyleSetupId.index();
+    public static final int PROJECTIONSTYLE = AttributesEnum.ProjectionStyle.index();
     public static final int CHECKBOX = AttributesEnum.CheckBox.index();
 
     /**
@@ -517,6 +528,22 @@ public class PopulateStylesVORowImpl extends ViewRowImpl {
      */
     public void setStyleSetupId(Number value) {
         setAttributeInternal(STYLESETUPID, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute ProjectionStyle.
+     * @return the ProjectionStyle
+     */
+    public String getProjectionStyle() {
+        return (String) getAttributeInternal(PROJECTIONSTYLE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute ProjectionStyle.
+     * @param value value to set the  ProjectionStyle
+     */
+    public void setProjectionStyle(String value) {
+        setAttributeInternal(PROJECTIONSTYLE, value);
     }
 
     /**

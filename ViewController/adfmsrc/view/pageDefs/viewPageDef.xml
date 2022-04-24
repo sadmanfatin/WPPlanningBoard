@@ -221,6 +221,7 @@
           <Item Value="CompleteStatus" Binds="CompleteStatus"/>
           <Item Value="PbSerial"/>
           <Item Value="StyleSetupId"/>
+          <Item Value="ProjectionStyle"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -251,6 +252,7 @@
           <Item Value="CheckBox" Binds="CheckBox"/>
           <Item Value="AvailableSamVersion"/>
           <Item Value="CurrentSamVersion"/>
+          <Item Value="ProjectionStyle"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -583,6 +585,7 @@
           <Item Value="PrevStyleCheckBox" Binds="PrevStyleCheckBox"/>
           <Item Value="MonthName"/>
           <Item Value="Year"/>
+          <Item Value="ProjectionStyle"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

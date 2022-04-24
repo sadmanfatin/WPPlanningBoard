@@ -63,7 +63,8 @@
        SS.SAM_VERSION CURRENT_SAM_VERSION,       
        SS.AVAILABLE_SAM_VERSION   ,      
        SS.STYLE_SETUP_ID ,
-       APPS.ORG_ID_TO_ORG_SHORT_NAME(SS.PRODUCTION_UNIT) PRODUCTION_UNIT_SHORT_NAME              
+       APPS.ORG_ID_TO_ORG_SHORT_NAME(SS.PRODUCTION_UNIT) PRODUCTION_UNIT_SHORT_NAME  ,
+       SS.PROJECTION_STYLE            
         FROM WP_PLANNING_BOARD PB, 
         WP_STYLE_SETUP SS,
         WP_MONTH_LIST ML, 
@@ -412,6 +413,21 @@
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProjectionStyle"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PROJECTION_STYLE"
+    Expression="PROJECTION_STYLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute

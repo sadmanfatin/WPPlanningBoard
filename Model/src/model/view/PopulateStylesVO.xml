@@ -48,7 +48,8 @@
          SS.ORG_ID,
          SS.SAM_VERSION CURRENT_SAM_VERSION,
          SS.AVAILABLE_SAM_VERSION,
-         SS.STYLE_SETUP_ID
+         SS.STYLE_SETUP_ID,
+         SS.PROJECTION_STYLE
     FROM WP_STYLE_SETUP SS,
          (
            SELECT 
@@ -322,6 +323,21 @@ ORDER BY SS.SYSTEM_ID DESC]]>
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProjectionStyle"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PROJECTION_STYLE"
+    Expression="PROJECTION_STYLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute

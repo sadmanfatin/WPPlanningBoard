@@ -94,7 +94,8 @@
        WHERE SQ.SYSTEM_ID =   WPPLANNINGBOARDEO.SYSTEM_ID AND SQ.ORG_ID = WPPLANNINGBOARDEO.ORG_ID 
        AND SQ.MONTH_SERIAL < ML.MONTH_SERIAL  )
       
-      ) REMAINING_QTY
+      ) REMAINING_QTY,
+     SS.PROJECTION_STYLE
            
     FROM WP_PLANNING_BOARD WpPlanningBoardEO, 
     WP_STYLE_SETUP SS,
@@ -713,6 +714,21 @@
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProjectionStyle"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="250"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PROJECTION_STYLE"
+    Expression="PROJECTION_STYLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute

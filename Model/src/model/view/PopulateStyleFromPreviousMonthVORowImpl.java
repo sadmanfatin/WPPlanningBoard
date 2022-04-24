@@ -267,6 +267,17 @@ public class PopulateStyleFromPreviousMonthVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        ProjectionStyle {
+            public Object get(PopulateStyleFromPreviousMonthVORowImpl obj) {
+                return obj.getProjectionStyle();
+            }
+
+            public void put(PopulateStyleFromPreviousMonthVORowImpl obj,
+                            Object value) {
+                obj.setProjectionStyle((String)value);
+            }
+        }
+        ,
         PrevStyleCheckBox {
             public Object get(PopulateStyleFromPreviousMonthVORowImpl obj) {
                 return obj.getPrevStyleCheckBox();
@@ -330,6 +341,7 @@ public class PopulateStyleFromPreviousMonthVORowImpl extends ViewRowImpl {
     public static final int AVAILABLESAMVERSION = AttributesEnum.AvailableSamVersion.index();
     public static final int STYLESETUPID = AttributesEnum.StyleSetupId.index();
     public static final int PRODUCTIONUNITSHORTNAME = AttributesEnum.ProductionUnitShortName.index();
+    public static final int PROJECTIONSTYLE = AttributesEnum.ProjectionStyle.index();
     public static final int PREVSTYLECHECKBOX = AttributesEnum.PrevStyleCheckBox.index();
 
     /**
@@ -704,6 +716,22 @@ public class PopulateStyleFromPreviousMonthVORowImpl extends ViewRowImpl {
      */
     public void setProductionUnitShortName(String value) {
         setAttributeInternal(PRODUCTIONUNITSHORTNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute ProjectionStyle.
+     * @return the ProjectionStyle
+     */
+    public String getProjectionStyle() {
+        return (String) getAttributeInternal(PROJECTIONSTYLE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute ProjectionStyle.
+     * @param value value to set the  ProjectionStyle
+     */
+    public void setProjectionStyle(String value) {
+        setAttributeInternal(PROJECTIONSTYLE, value);
     }
 
     /**
