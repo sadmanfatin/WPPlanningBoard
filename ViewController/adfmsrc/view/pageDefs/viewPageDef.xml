@@ -18,7 +18,7 @@
     <searchRegion Binds="WpPlanningBoardLoadVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="WpPlanningBoardLoadVO1Query"/>
-    <iterator Binds="WpPlanningBoardVO1" RangeSize="400"
+    <iterator Binds="WpPlanningBoardVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="WpPlanningBoardVO1Iterator"/>
     <searchRegion Binds="WpPlanningBoardVO1Iterator" Criteria=""

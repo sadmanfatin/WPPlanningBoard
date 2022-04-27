@@ -1435,9 +1435,9 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
     public Number getPlanningBoardRowCount() {
 
         RowIterator rs =  this.getWpPlanningBoardVO();      
-       // rs.getRowCount();     
-      //  return new Number(rs.getRowCount());
-       return new Number( appM.getWpPlanningBoardVO1().getAllRowsInRange().length);
+        rs.getRowCount();     
+        return new Number(rs.getRowCount());
+      // return new Number( appM.getWpPlanningBoardVO1().getAllRowsInRange().length);
      
     }
 
