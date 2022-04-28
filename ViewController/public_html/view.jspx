@@ -11,7 +11,7 @@
       <af:messages id="m1"/>
       <af:form id="f1">
         <af:panelStretchLayout id="psl1"
-                               styleClass="AFStretchWidth" topHeight="74px">
+                               styleClass="AFStretchWidth" topHeight="80px">
                     <f:facet name="top">
             <af:panelGroupLayout
                                  xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
@@ -23,78 +23,119 @@
                 <f:facet name="menuBar"/>
                 <f:facet name="toolbar"/>
               </af:panelHeader>
-              <af:panelFormLayout id="pfl1" rows="1" maxColumns="10"
-                                  inlineStyle="border-style:solid; border-width:thin; background-color:rgb(248,248,265); border-color:rgb(198,198,198); margin-bottom:2px; padding:3px; height:25.0px;">
-                <af:selectOneChoice value="#{bindings.MonthName.inputValue}"
-                                    label="Month"
-                                    required="#{bindings.MonthName.hints.mandatory}"
-                                    shortDesc="#{bindings.MonthName.hints.tooltip}"
-                                    id="soc1" autoSubmit="true"
-                                    valueChangeListener="#{ManagedBean.monthNameValueChangeListener}">
-                  <f:selectItems value="#{bindings.MonthName.items}" id="si1"/>
-                </af:selectOneChoice>
-                <af:selectOneChoice value="#{bindings.Year.inputValue}"
-                                    label="Year"
-                                    required="#{bindings.Year.hints.mandatory}"
-                                    shortDesc="#{bindings.Year.hints.tooltip}"
-                                    id="soc2" autoSubmit="true"
-                                    valueChangeListener="#{ManagedBean.yearValueChangeListener}">
-                  <f:selectItems value="#{bindings.Year.items}" id="si2"/>
-                </af:selectOneChoice>
-                <af:inputText value="#{bindings.MonthId.inputValue}"
-                              label="#{bindings.MonthId.hints.label}"
-                              required="#{bindings.MonthId.hints.mandatory}"
-                              columns="#{bindings.MonthId.hints.displayWidth}"
-                              maximumLength="#{bindings.MonthId.hints.precision}"
-                              shortDesc="#{bindings.MonthId.hints.tooltip}"
-                              id="it5" partialTriggers="soc1 soc2"
-                              readOnly="true" visible="false">
-                  <f:validator binding="#{bindings.MonthId.validator}"/>
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.MonthId.format}"/>
-                </af:inputText>
-                <af:panelGroupLayout id="pgl39" layout="horizontal"
-                                     valign="middle" halign="center">
-                  <af:inputText value="#{bindings.HolidayCount.inputValue}"
-                                label="Holiday"
-                                required="#{bindings.HolidayCount.hints.mandatory}"
-                                columns="#{bindings.HolidayCount.hints.displayWidth}"
-                                maximumLength="#{bindings.HolidayCount.hints.precision}"
-                                shortDesc="#{bindings.HolidayCount.hints.tooltip}"
-                                id="it109" readOnly="true">
-                    <f:validator binding="#{bindings.HolidayCount.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.HolidayCount.format}"/>
-                  </af:inputText>
-                  <af:spacer width="30" height="10" id="s1"/>
-                  <af:inputText value="#{bindings.WorkingdayCount.inputValue}"
-                                label="Workingday"
-                                required="#{bindings.WorkingdayCount.hints.mandatory}"
-                                columns="#{bindings.WorkingdayCount.hints.displayWidth}"
-                                maximumLength="#{bindings.WorkingdayCount.hints.precision}"
-                                shortDesc="#{bindings.WorkingdayCount.hints.tooltip}"
-                                id="it108" readOnly="true">
-                    <f:validator binding="#{bindings.WorkingdayCount.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.WorkingdayCount.format}"/>
-                  </af:inputText>
-                  <af:spacer width="30" height="10" id="spacer1"/>
-                  <af:inputText value="#{bindings.NumberOfDays.inputValue}"
-                                label="Total Days"
-                                required="#{bindings.NumberOfDays.hints.mandatory}"
-                                columns="#{bindings.NumberOfDays.hints.displayWidth}"
-                                maximumLength="#{bindings.NumberOfDays.hints.precision}"
-                                shortDesc="#{bindings.NumberOfDays.hints.tooltip}"
-                                id="it73" readOnly="true"
-                                partialTriggers="soc1 soc2"
-                                binding="#{ManagedBean.numberOfDays}">
-                    <f:validator binding="#{bindings.NumberOfDays.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.NumberOfDays.format}"/>
-                  </af:inputText>
-                  <af:spacer width="30" height="10" id="spacer2"/>
-                </af:panelGroupLayout>
-              </af:panelFormLayout>
+              <af:panelGroupLayout id="pgl50" layout="horizontal"
+                                   styleClass="AFStretchWidth"
+                                   inlineStyle="border-style:solid; border-width:thin; background-color:rgb(248,248,265); border-color:rgb(198,198,198); margin-bottom:2px; padding:3px;">
+                <af:panelDashboard id="pd2" styleClass="AFStretchWidth"
+                                   columns="3"
+                                   rowHeight="50px">
+                  <af:panelGroupLayout id="pgl49" layout="horizontal"
+                                       inlineStyle="border-style:solid; border-width:thin; background-color:rgb(248,248,265); border-color:rgb(198,198,198); margin-bottom:2px; padding:3px;">
+                    <af:selectOneChoice value="#{bindings.MonthName.inputValue}"
+                                        label="Month"
+                                        required="#{bindings.MonthName.hints.mandatory}"
+                                        shortDesc="#{bindings.MonthName.hints.tooltip}"
+                                        id="soc1" autoSubmit="true"
+                                        valueChangeListener="#{ManagedBean.monthNameValueChangeListener}">
+                      <f:selectItems value="#{bindings.MonthName.items}"
+                                     id="si1"/>
+                    </af:selectOneChoice>
+                    <af:spacer width="30" height="10" id="spacer7"/>
+                    <af:selectOneChoice value="#{bindings.Year.inputValue}"
+                                        label="Year"
+                                        required="#{bindings.Year.hints.mandatory}"
+                                        shortDesc="#{bindings.Year.hints.tooltip}"
+                                        id="soc2" autoSubmit="true"
+                                        valueChangeListener="#{ManagedBean.yearValueChangeListener}">
+                      <f:selectItems value="#{bindings.Year.items}" id="si2"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.MonthId.inputValue}"
+                                  label="#{bindings.MonthId.hints.label}"
+                                  required="#{bindings.MonthId.hints.mandatory}"
+                                  columns="#{bindings.MonthId.hints.displayWidth}"
+                                  maximumLength="#{bindings.MonthId.hints.precision}"
+                                  shortDesc="#{bindings.MonthId.hints.tooltip}"
+                                  id="it5" partialTriggers="soc1 soc2"
+                                  readOnly="true" visible="false">
+                      <f:validator binding="#{bindings.MonthId.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MonthId.format}"/>
+                    </af:inputText>
+                  </af:panelGroupLayout>
+                  <af:panelGroupLayout id="pgl39" layout="horizontal"
+                                       valign="middle" halign="center"
+                                       inlineStyle="border-style:solid; border-width:thin; background-color:rgb(248,248,265); border-color:rgb(198,198,198); margin-bottom:2px; padding:3px;">
+                    <af:inputText value="#{bindings.HolidayCount.inputValue}"
+                                  label="Holiday"
+                                  required="#{bindings.HolidayCount.hints.mandatory}"
+                                  columns="#{bindings.HolidayCount.hints.displayWidth}"
+                                  maximumLength="#{bindings.HolidayCount.hints.precision}"
+                                  shortDesc="#{bindings.HolidayCount.hints.tooltip}"
+                                  id="it109" readOnly="true">
+                      <f:validator binding="#{bindings.HolidayCount.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.HolidayCount.format}"/>
+                    </af:inputText>
+                    <af:spacer width="30" height="10" id="s1"/>
+                    <af:inputText value="#{bindings.WorkingdayCount.inputValue}"
+                                  label="Workingday"
+                                  required="#{bindings.WorkingdayCount.hints.mandatory}"
+                                  columns="#{bindings.WorkingdayCount.hints.displayWidth}"
+                                  maximumLength="#{bindings.WorkingdayCount.hints.precision}"
+                                  shortDesc="#{bindings.WorkingdayCount.hints.tooltip}"
+                                  id="it108" readOnly="true">
+                      <f:validator binding="#{bindings.WorkingdayCount.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.WorkingdayCount.format}"/>
+                    </af:inputText>
+                    <af:spacer width="30" height="10" id="spacer1"/>
+                    <af:inputText value="#{bindings.NumberOfDays.inputValue}"
+                                  label="TotalDays"
+                                  required="#{bindings.NumberOfDays.hints.mandatory}"
+                                  columns="#{bindings.NumberOfDays.hints.displayWidth}"
+                                  maximumLength="#{bindings.NumberOfDays.hints.precision}"
+                                  shortDesc="#{bindings.NumberOfDays.hints.tooltip}"
+                                  id="it73" readOnly="true"
+                                  partialTriggers="soc1 soc2"
+                                  binding="#{ManagedBean.numberOfDays}">
+                      <f:validator binding="#{bindings.NumberOfDays.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.NumberOfDays.format}"/>
+                    </af:inputText>
+                  </af:panelGroupLayout>
+                  <af:panelGroupLayout id="pgl48" layout="horizontal"
+                                       halign="center"
+                                       inlineStyle="border-style:solid; border-width:thin; background-color:rgb(248,248,265); border-color:rgb(198,198,198); margin-bottom:2px; padding:3px;"
+                                       valign="middle">
+                    <af:inputText value="#{bindings.MonthlyGrandTotal.inputValue}"
+                                  label="#{bindings.MonthlyGrandTotal.hints.label}"
+                                  required="#{bindings.MonthlyGrandTotal.hints.mandatory}"
+                                  columns="#{bindings.MonthlyGrandTotal.hints.displayWidth}"
+                                  maximumLength="#{bindings.MonthlyGrandTotal.hints.precision}"
+                                  shortDesc="#{bindings.MonthlyGrandTotal.hints.tooltip}"
+                                  id="it96" readOnly="true"
+                                  inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin; font-size:medium; font-weight:bold;">
+                      <f:validator binding="#{bindings.MonthlyGrandTotal.validator}"/>
+                      <af:convertNumber groupingUsed="true"
+                                        pattern="#{bindings.MonthlyGrandTotal.format}"/>
+                    </af:inputText>
+                    <af:spacer width="30" height="10" id="spacer2"/>
+                    <af:inputText value="#{bindings.AveragePerDay.inputValue}"
+                                  label="#{bindings.AveragePerDay.hints.label}"
+                                  required="#{bindings.AveragePerDay.hints.mandatory}"
+                                  columns="#{bindings.AveragePerDay.hints.displayWidth}"
+                                  maximumLength="#{bindings.AveragePerDay.hints.precision}"
+                                  shortDesc="#{bindings.AveragePerDay.hints.tooltip}"
+                                  id="it95" readOnly="true"
+                                  inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin; font-size:medium; font-weight:bold;">
+                      <f:validator binding="#{bindings.AveragePerDay.validator}"/>
+                      <af:convertNumber groupingUsed="true"
+                                        pattern="#{bindings.AveragePerDay.format}"/>
+                    </af:inputText>
+                    <af:spacer width="10" height="10" id="spacer6"/>
+                  </af:panelGroupLayout>
+                </af:panelDashboard>
+              </af:panelGroupLayout>
             </af:panelGroupLayout>
           </f:facet>
           <f:facet name="center">
@@ -2105,56 +2146,6 @@
                     <af:panelDashboard id="pd1" columns="2" rowHeight="360px"
                                        styleClass="AFStretchWidth"
                                        dimensionsFrom="children">
-                      <af:panelGroupLayout id="pgl38"
-                                           inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
-                        <af:panelHeader text="Wrking Day" id="ph3">
-                          <f:facet name="context"/>
-                          <f:facet name="menuBar"/>
-                          <f:facet name="toolbar"/>
-                          <f:facet name="legend"/>
-                          <f:facet name="info"/>
-                          <af:panelFormLayout id="pfl3"
-                                              partialTriggers="soc1 soc2"
-                                              inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
-                            <af:inputText value="#{bindings.WorkingdayCount.inputValue}"
-                                          label="#{bindings.WorkingdayCount.hints.label}"
-                                          required="#{bindings.WorkingdayCount.hints.mandatory}"
-                                          columns="#{bindings.WorkingdayCount.hints.displayWidth}"
-                                          maximumLength="#{bindings.WorkingdayCount.hints.precision}"
-                                          shortDesc="#{bindings.WorkingdayCount.hints.tooltip}"
-                                          id="it97" readOnly="true"
-                                          inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
-                              <f:validator binding="#{bindings.WorkingdayCount.validator}"/>
-                              <af:convertNumber groupingUsed="false"
-                                                pattern="#{bindings.WorkingdayCount.format}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.MonthlyGrandTotal.inputValue}"
-                                          label="#{bindings.MonthlyGrandTotal.hints.label}"
-                                          required="#{bindings.MonthlyGrandTotal.hints.mandatory}"
-                                          columns="#{bindings.MonthlyGrandTotal.hints.displayWidth}"
-                                          maximumLength="#{bindings.MonthlyGrandTotal.hints.precision}"
-                                          shortDesc="#{bindings.MonthlyGrandTotal.hints.tooltip}"
-                                          id="it96" readOnly="true"
-                                          inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
-                              <f:validator binding="#{bindings.MonthlyGrandTotal.validator}"/>
-                              <af:convertNumber groupingUsed="false"
-                                                pattern="#{bindings.MonthlyGrandTotal.format}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.AveragePerDay.inputValue}"
-                                          label="#{bindings.AveragePerDay.hints.label}"
-                                          required="#{bindings.AveragePerDay.hints.mandatory}"
-                                          columns="#{bindings.AveragePerDay.hints.displayWidth}"
-                                          maximumLength="#{bindings.AveragePerDay.hints.precision}"
-                                          shortDesc="#{bindings.AveragePerDay.hints.tooltip}"
-                                          id="it95" readOnly="true"
-                                          inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
-                              <f:validator binding="#{bindings.AveragePerDay.validator}"/>
-                              <af:convertNumber groupingUsed="false"
-                                                pattern="#{bindings.AveragePerDay.format}"/>
-                            </af:inputText>
-                          </af:panelFormLayout>
-                        </af:panelHeader>
-                      </af:panelGroupLayout>
                       <af:panelGroupLayout id="pgl35"
                                            inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
                         <af:panelHeader text="Buyer Wise Monthly View" id="ph4">
@@ -2173,7 +2164,7 @@
                                       rowBandingInterval="0"
                                       selectedRowKeys="#{bindings.BuyerWiseMonthlyQtyVO1.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.BuyerWiseMonthlyQtyVO1.collectionModel.makeCurrent}"
-                                      rowSelection="single" id="t5" width="361"
+                                      rowSelection="single" id="t5"
                                       partialTriggers="::soc1 ::soc2"
                                       inlineStyle="height:220.0px;">
                               <af:column sortProperty="MonthId" sortable="false"
@@ -2240,7 +2231,8 @@
                               <af:column sortProperty="WashPercentage"
                                          sortable="false"
                                          headerText="Wash Percentage (%)"
-                                         id="c77" width="60" align="center">
+                                         id="c77" width="60" align="center"
+                                         rendered="false">
                                 <af:inputText value="#{row.bindings.WashPercentage.inputValue}"
                                               label="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.label}"
                                               required="#{bindings.BuyerWiseMonthlyQtyVO1.hints.WashPercentage.mandatory}"
@@ -2257,22 +2249,29 @@
                             <dvt:pieGraph id="pieGraph4"
                                           value="#{bindings.BuyerWiseMonthlyQtyVO11.graphModel}"
                                           subType="PIE"
-                                          inlineStyle="height:320.0px;"
                                           contentDelivery="immediate">
                               <dvt:background>
-                                <dvt:specialEffects fillType="FT_COLOR"/>
+                                <dvt:specialEffects/>
                               </dvt:background>
                               <dvt:graphPieFrame/>
                               <dvt:seriesSet>
                                 <dvt:series/>
                               </dvt:seriesSet>
-                              <dvt:sliceLabel textType="LD_PERCENT">
-                                <dvt:graphFont id="graphFont5" size="12"
-                                               color="#ffffff" bold="true"/>
+                              <dvt:sliceLabel textType="LD_PERCENT"
+                                              autoPrecision="off"
+                                              scaling="none">
+                                <dvt:graphFont id="graphFont7" size="12"
+                                               bold="false" color="#ffffff"/>
                               </dvt:sliceLabel>
                               <dvt:pieLabel rendered="true"/>
-                              <dvt:legendArea automaticPlacement="AP_NEVER"/>
+                              <dvt:legendArea automaticPlacement="AP_NEVER"
+                                              position="LAP_RIGHT"
+                                              alongGraphEdge="true"/>
                               <dvt:slice labelPosition="LP_INSIDE"/>
+                              <dvt:legendText id="legendText2">
+                                <dvt:graphFont id="graphFont8" size="12"
+                                               bold="false"/>
+                              </dvt:legendText>
                             </dvt:pieGraph>
                           </af:panelGroupLayout>
                         </af:panelHeader>
@@ -2294,11 +2293,10 @@
                                       fetchSize="#{bindings.ProductionUnitWiseMonthlyQtyVO1.rangeSize}"
                                       rowBandingInterval="0"
                                       selectedRowKeys="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel.selectedRow}"
-                                      selectionListener="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel.makeCurrent}" id="t6"
-                                      partialTriggers="::soc1 ::soc2"
+                                      selectionListener="#{bindings.ProductionUnitWiseMonthlyQtyVO1.collectionModel.makeCurrent}"
+                                      id="t6" partialTriggers="::soc1 ::soc2"
                                       autoHeightRows="5"
-                                      inlineStyle="height:200.0px;"
-                                      width="313">
+                                      inlineStyle="height:200.0px;">
                               <af:column sortProperty="MonthId" sortable="false"
                                          headerText="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.MonthId.label}"
                                          id="c100" visible="false">
@@ -2364,7 +2362,8 @@
                               <af:column sortProperty="WashPercentage"
                                          sortable="true"
                                          headerText="Wash Percentage" id="c104"
-                                         align="center" width="70">
+                                         align="center" width="70"
+                                         visible="true" rendered="false">
                                 <af:inputText value="#{row.bindings.WashPercentage.inputValue}"
                                               label="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.label}"
                                               required="#{bindings.ProductionUnitWiseMonthlyQtyVO1.hints.WashPercentage.mandatory}"
@@ -2381,7 +2380,6 @@
                             <dvt:pieGraph id="pieGraph1"
                                           value="#{bindings.ProductionUnitWiseMonthlyQtyVO11.graphModel}"
                                           subType="PIE"
-                                          inlineStyle="height:330.0px;"
                                           contentDelivery="immediate">
                               <dvt:background>
                                 <dvt:specialEffects/>
@@ -2395,6 +2393,7 @@
                                               scaling="none">
                                 <dvt:graphFont id="graphFont2" size="12"
                                                bold="false" color="#ffffff"/>
+                                <af:convertNumber/>
                               </dvt:sliceLabel>
                               <dvt:pieLabel rendered="true"/>
                               <dvt:legendArea automaticPlacement="AP_NEVER"
@@ -2411,7 +2410,8 @@
                       </af:panelGroupLayout>
                       <af:panelGroupLayout id="pgl37"
                                            inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
-                        <af:panelHeader text="Fabrication Type Wise Qty" id="ph11">
+                        <af:panelHeader text="Fabrication Type Wise Qty"
+                                        id="ph11">
                           <f:facet name="context"/>
                           <f:facet name="menuBar"/>
                           <f:facet name="toolbar"/>
@@ -2444,26 +2444,23 @@
                             </af:table>
                             <dvt:pieGraph id="pieGraph2"
                                           value="#{bindings.FabricationWiseMonthlyQtyVO11.graphModel}"
-                                          inlineStyle="height:320.0px;"
-                                          dynamicResize="FIXED_SIZE"
-                                          contentDelivery="immediate">
+                                          contentDelivery="immediate"
+                                          subType="PIE">
                               <dvt:background>
                                 <dvt:specialEffects/>
                               </dvt:background>
-                              <dvt:graphPieFrame>
-                                <dvt:specialEffects id="specialEffects1"/>
-                              </dvt:graphPieFrame>
+                              <dvt:graphPieFrame/>
                               <dvt:seriesSet>
                                 <dvt:series/>
                               </dvt:seriesSet>
-                              <dvt:sliceLabel textType="LD_PERCENT"
-                                              autoPrecision="off"
-                                              scaling="none">
+                              <dvt:sliceLabel autoPrecision="off">
                                 <dvt:graphFont id="graphFont3" size="12"
                                                color="#ffffff"/>
+                                <af:convertNumber/>
                               </dvt:sliceLabel>
                               <dvt:pieLabel rendered="true"/>
-                              <dvt:legendArea automaticPlacement="AP_NEVER"
+                                  <dvt:legendArea automaticPlacement="AP_NEVER"
+                                              position="LAP_RIGHT"
                                               alongGraphEdge="true"/>
                               <dvt:slice labelPosition="LP_INSIDE"/>
                               <dvt:legendText>
@@ -2473,21 +2470,24 @@
                           </af:panelGroupLayout>
                         </af:panelHeader>
                       </af:panelGroupLayout>
-                      <af:panelGroupLayout id="panelGroupLayout3"
-                                           inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                      <af:panelGroupLayout
+                                           inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;"
+                                           id="p70">
                         <af:panelHeader text="Wash Type Wise Qty" id="ph12">
                           <f:facet name="context"/>
                           <f:facet name="menuBar"/>
                           <f:facet name="toolbar"/>
                           <f:facet name="legend"/>
                           <f:facet name="info"/>
-                          <af:panelGroupLayout id="pgl45" layout="horizontal">
+                          <af:panelGroupLayout id="pgl45" layout="horizontal"
+                                               valign="top">
                             <af:table value="#{bindings.WashTypeWiseMonthlyQtyVO1.collectionModel}"
                                       var="row"
                                       rows="#{bindings.WashTypeWiseMonthlyQtyVO1.rangeSize}"
                                       emptyText="#{bindings.WashTypeWiseMonthlyQtyVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                                       fetchSize="#{bindings.WashTypeWiseMonthlyQtyVO1.rangeSize}"
-                                      rowBandingInterval="0" id="t16">
+                                      rowBandingInterval="0" id="t16"
+                                      inlineStyle="height:200.0px;">
                               <af:column sortProperty="WashType"
                                          sortable="false"
                                          headerText="#{bindings.WashTypeWiseMonthlyQtyVO1.hints.WashType.label}"
@@ -2504,34 +2504,102 @@
                                 </af:outputText>
                               </af:column>
                             </af:table>
-                            <dvt:pieGraph id="pieGraph3"
+                                <dvt:pieGraph id="pieGraph3"
                                           value="#{bindings.WashTypeWiseMonthlyQtyVO11.graphModel}"
-                                          subType="PIE"
-                                          inlineStyle="height:330.0px;"
+                                      contentDelivery="immediate"
+                                      subType="PIE">
+                              <dvt:background>
+                                <dvt:specialEffects/>
+                              </dvt:background>
+                              <dvt:graphPieFrame>
+                                <dvt:specialEffects id="specialEffects1"/>
+                              </dvt:graphPieFrame>
+                              <dvt:seriesSet>
+                                <dvt:series/>
+                              </dvt:seriesSet>
+                              <dvt:sliceLabel autoPrecision="off">
+                                <dvt:graphFont id="gf1" size="12"
+                                               color="#ffffff"/>
+                                <af:convertNumber/>
+                              </dvt:sliceLabel>
+                              <dvt:pieLabel rendered="true"/>
+                                        <dvt:legendArea automaticPlacement="AP_NEVER"
+                                              position="LAP_RIGHT"
+                                              alongGraphEdge="true"/>
+                              <dvt:slice labelPosition="LP_INSIDE"/>
+                              <dvt:legendText>
+                                <dvt:graphFont size="12" bold="false"/>
+                              </dvt:legendText>
+                            </dvt:pieGraph>
+                           
+                          </af:panelGroupLayout>
+                        </af:panelHeader>
+                      </af:panelGroupLayout>
+                      <af:panelGroupLayout id="pgl38"
+                                           inlineStyle="border-color:rgb(231,231,231); border-style:solid; border-width:thin;">
+                        <af:panelHeader text="Wash Catagory Wise Qty" id="ph3">
+                          <f:facet name="context"/>
+                          <f:facet name="menuBar"/>
+                          <f:facet name="toolbar"/>
+                          <f:facet name="legend"/>
+                          <f:facet name="info"/>
+                          <af:panelGroupLayout id="pgl51" layout="horizontal"
+                                               valign="top">
+                            <af:table value="#{bindings.WashCatagoryWiseMonthlyQtyVO1.collectionModel}"
+                                      var="row"
+                                      rows="#{bindings.WashCatagoryWiseMonthlyQtyVO1.rangeSize}"
+                                      emptyText="#{bindings.WashCatagoryWiseMonthlyQtyVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      fetchSize="#{bindings.WashCatagoryWiseMonthlyQtyVO1.rangeSize}"
+                                      rowBandingInterval="0" id="t12">
+                              <af:column sortProperty="WashCatagory"
+                                         sortable="false"
+                                         headerText="Wash Catagory" id="c285"
+                                         align="center">
+                                <af:outputText value="#{row.WashCatagory}"
+                                               id="ot213"/>
+                              </af:column>
+                              <af:column sortProperty="Total" sortable="false"
+                                         headerText="#{bindings.WashCatagoryWiseMonthlyQtyVO1.hints.Total.label}"
+                                         id="c282" align="center">
+                                <af:outputText value="#{row.Total}" id="ot214">
+                                  <af:convertNumber groupingUsed="false"
+                                                    pattern="#{bindings.WashCatagoryWiseMonthlyQtyVO1.hints.Total.format}"/>
+                                </af:outputText>
+                              </af:column>
+                            </af:table>
+                            <dvt:pieGraph id="pieGraph5"
+                                          value="#{bindings.WashCatagoryWiseMonthlyQtyVO11.graphModel}"
+                                          dynamicResize="FIXED_SIZE"
                                           contentDelivery="immediate">
                               <dvt:background>
                                 <dvt:specialEffects/>
                               </dvt:background>
-                              <dvt:graphPieFrame/>
+                              <dvt:graphPieFrame>
+                                <dvt:specialEffects id="specialEffects2"/>
+                              </dvt:graphPieFrame>
                               <dvt:seriesSet>
                                 <dvt:series/>
                               </dvt:seriesSet>
                               <dvt:sliceLabel textType="LD_PERCENT"
-                                              scaling="none"
-                                              autoPrecision="off">
-                                <dvt:graphFont id="graphFont4" size="12"
+                                              autoPrecision="off"
+                                              scaling="none">
+                                <dvt:graphFont id="graphFont6" size="12"
                                                color="#ffffff"/>
+                                <af:convertNumber/>
                               </dvt:sliceLabel>
                               <dvt:pieLabel rendered="true"/>
                               <dvt:legendArea automaticPlacement="AP_NEVER"
                                               alongGraphEdge="true"/>
                               <dvt:slice labelPosition="LP_INSIDE"/>
+                              <dvt:legendText>
+                                <dvt:graphFont size="12"/>
+                              </dvt:legendText>
                             </dvt:pieGraph>
                           </af:panelGroupLayout>
                         </af:panelHeader>
                       </af:panelGroupLayout>
                       <af:panelGroupLayout id="panelGroupLayout2">
-                        <af:panelHeader text="panelHeader 3" id="ph13">
+                        <af:panelHeader text="Empty" id="ph13">
                           <f:facet name="context"/>
                           <f:facet name="menuBar"/>
                           <f:facet name="toolbar"/>
