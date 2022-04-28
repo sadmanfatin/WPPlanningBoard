@@ -616,6 +616,16 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
                 obj.setAttributeInternal(index(), value);
             }
         }
+        ,
+        WashCatagoryWiseMonthlyQtyVO {
+            public Object get(WpMonthListVORowImpl obj) {
+                return obj.getWashCatagoryWiseMonthlyQtyVO();
+            }
+
+            public void put(WpMonthListVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -702,6 +712,7 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
     public static final int FABRICATIONWISEMONTHLYQTYVO = AttributesEnum.FabricationWiseMonthlyQtyVO.index();
     public static final int WASHTYPEWISEMONTHLYQTYVO = AttributesEnum.WashTypeWiseMonthlyQtyVO.index();
     public static final int WPMONTHLYSECTIONCAPACITYVO = AttributesEnum.WpMonthlySectionCapacityVO.index();
+    public static final int WASHCATAGORYWISEMONTHLYQTYVO = AttributesEnum.WashCatagoryWiseMonthlyQtyVO.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1577,6 +1588,13 @@ public class WpMonthListVORowImpl extends ViewRowImpl {
      */
     public RowIterator getWpMonthlySectionCapacityVO() {
         return (RowIterator)getAttributeInternal(WPMONTHLYSECTIONCAPACITYVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link WashCatagoryWiseMonthlyQtyVO.
+     */
+    public RowIterator getWashCatagoryWiseMonthlyQtyVO() {
+        return (RowIterator)getAttributeInternal(WASHCATAGORYWISEMONTHLYQTYVO);
     }
 
     /**

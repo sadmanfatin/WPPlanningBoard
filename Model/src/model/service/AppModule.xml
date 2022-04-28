@@ -86,6 +86,9 @@
   <ViewUsage
     Name="WpMonthlySectionCapacityVO1"
     ViewObjectName="model.view.WpMonthlySectionCapacityVO"/>
+  <ViewUsage
+    Name="WashCatagoryWiseMonthlyQtyVO1"
+    ViewObjectName="model.view.monthlysummary.WashCatagoryWiseMonthlyQtyVO"/>
   <ViewLinkUsage
     Name="MonthSearchVO_vs_WpMonthListVO_vl1"
     ViewLinkObjectName="model.viewlinks.MonthSearchVO_vs_WpMonthListVO_vl"
@@ -205,6 +208,12 @@
     ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_WpMonthlySectionCapacityVO_vl"
     SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
     DstViewUsageName="model.service.AppModule.WpMonthlySectionCapacityVO1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="WpMonthListVO_vs_WashCatagoryQtyVO_vl1"
+    ViewLinkObjectName="model.viewlinks.WpMonthListVO_vs_WashCatagoryQtyVO_vl"
+    SrcViewUsageName="model.service.AppModule.WpMonthListVO1"
+    DstViewUsageName="model.service.AppModule.WashCatagoryWiseMonthlyQtyVO1"
     Reversed="false"/>
   <ClientInterface>
     <Method

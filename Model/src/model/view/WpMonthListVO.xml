@@ -496,4 +496,9 @@ FROM WP_MONTH_LIST WpMonthListEO]]>
     ViewLink="model.viewlinks.WpMonthListVO_vs_WpMonthlySectionCapacityVO_vl"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="WashCatagoryWiseMonthlyQtyVO"
+    ViewLink="model.viewlinks.WpMonthListVO_vs_WashCatagoryQtyVO_vl"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>
