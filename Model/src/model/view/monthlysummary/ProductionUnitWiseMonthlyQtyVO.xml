@@ -28,7 +28,8 @@
    
  ROUND( ( SUM( SQ.QUANTITY) /  (SELECT   NULLIF(  SUM( QUANTITY ) ,0 )  FROM   WP_DAILY_STYLE_QUANTITY SQ2 WHERE SQ2.MONTH_ID = SQ.MONTH_ID )  )* 100) WASH_PERCENTAGE
 FROM WP_DAILY_STYLE_QUANTITY SQ
-GROUP BY    SQ.MONTH_ID, sq.production_unit]]>
+GROUP BY    SQ.MONTH_ID, sq.production_unit
+order by WASH_QUANTITY desc]]>
   </SQLQuery>
   <ViewAttribute
     Name="MonthId"
