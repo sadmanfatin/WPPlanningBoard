@@ -477,7 +477,7 @@ public class ManagedBean {
         this.executeOperation("Commit");
         
         appM.getWpPlanningBoardLoadVO1().executeQuery();
-        this.refreshQueryKeepingCurrentRow(appM.getWpPlanningBoardVO1());
+      //  this.refreshQueryKeepingCurrentRow(appM.getWpPlanningBoardVO1());
         AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardLoadTable());
       //  AdfFacesContext.getCurrentInstance().addPartialTarget(this.getPlanningBoardTable());
         
