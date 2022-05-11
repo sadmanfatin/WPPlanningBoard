@@ -25,7 +25,8 @@
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
     TableName="WP_PLANNING_BOARD"
-    PrimaryKey="true">
+    PrimaryKey="true"
+    ChangeIndicator="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
