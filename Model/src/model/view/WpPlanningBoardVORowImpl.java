@@ -92,10 +92,17 @@ public class WpPlanningBoardVORowImpl extends ViewRowImpl {
         
         sectionSamOfStyleRow = sectionSamOfStyleRows.getRow(new Key(new Object[]{sectionId}));
         
-        
+        if (sectionSamOfStyleRow != null){
+          //  System.out.println("==============  sectionSamOfStyleRow != null" );
+            sectionSam =  this.numberToDouble(sectionSamOfStyleRow.getAttribute("SectionSam"));
+        }
+        else{
+          //  System.out.println("==============  sectionSamOfStyleRow == null" );
+            return ;
+        }
 
-        
-        sectionSam =  this.numberToDouble(sectionSamOfStyleRow.getAttribute("SectionSam"));
+         
+ 
         
         samDifference = qtyDifference*sectionSam;
      //   System.out.println("======== sam difference ========== "+samDifference);
