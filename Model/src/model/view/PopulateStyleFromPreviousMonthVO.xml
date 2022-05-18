@@ -67,29 +67,21 @@
         FROM WP_PLANNING_BOARD PB, 
         WP_STYLE_SETUP SS,
         WP_MONTH_LIST ML, 
-          (SELECT PV.SYSTEM_ID,
-                 PV.LC_UNIT,
-                 APPS.ORG_ID_TO_ORG_NAME (PV.LC_UNIT) LC_UNIT_NAME,
-                 PV.BUYER_ID,
-                 APPS.XX_OM_BUYER_NAME_FOR_ID (PV.BUYER_ID) BUYER_NAME,
-                 PV.SEASON,
-                 PV.STYLE,
-                 PV.COLOR,
-                 PV.WASH_NAME,
-                 PV.ORDER_QTY
-            FROM POC_SYSTEM_ID_VIEW PV
-          UNION
-          SELECT WPS.SYSTEM_ID,
-                 WPS.LC_UNIT,
-                 APPS.ORG_ID_TO_ORG_NAME (WPS.LC_UNIT) LC_UNIT_NAME,
-                 WPS.BUYER_ID,
-                 APPS.XX_OM_BUYER_NAME_FOR_ID (WPS.BUYER_ID) BUYER_NAME,
-                 WPS.SEASON,
-                 WPS.STYLE,
-                 WPS.COLOR,
-                 WPS.WASH WASH_NAME,
-                 WPS.ORDERED_QTY ORDER_QTY
-            FROM WP_PROJECTION_STYLE WPS) STYLES
+          ( 
+               SELECT 
+                   SV.SYSTEM_ID,
+                   SV.LC_UNIT,
+                    SV.LC_UNIT_NAME,
+                   SV.BUYER_ID,
+                   SV.BUYER_NAME,
+                   SV.SEASON,
+                   SV.STYLE,
+                   SV.COLOR,
+                   SV.WASH_NAME,
+                SV.ORDER_QTY
+            
+            FROM APPS.WP_STYLES_V SV
+          ) STYLES
        
      WHERE PB.SYSTEM_ID = STYLES.SYSTEM_ID
      AND STYLES.SYSTEM_ID = SS.SYSTEM_ID

@@ -31,11 +31,11 @@
     <![CDATA[SELECT DISTINCT
          SS.SYSTEM_ID,
          STYLES.LC_UNIT,
-         APPS.ORG_ID_TO_ORG_NAME (STYLES.LC_UNIT) LC_UNIT_NAME,
+         STYLES.LC_UNIT_NAME,
          SS.PRODUCTION_UNIT,
          APPS.ORG_ID_TO_ORG_NAME (SS.PRODUCTION_UNIT) PRODUCTION_UNIT_NAME,
          STYLES.BUYER_ID,
-         APPS.XX_OM_BUYER_NAME_FOR_ID (STYLES.BUYER_ID) BUYER_NAME,
+         STYLES.BUYER_NAME,
          STYLES.SEASON,
          STYLES.STYLE,
          STYLES.COLOR,
@@ -50,29 +50,22 @@
          SS.AVAILABLE_SAM_VERSION,
          SS.STYLE_SETUP_ID
     FROM WP_STYLE_SETUP SS,
-         (SELECT STYLES.SYSTEM_ID,
-                 STYLES.LC_UNIT,
-                 APPS.ORG_ID_TO_ORG_NAME (STYLES.LC_UNIT) LC_UNIT_NAME,
-                 STYLES.BUYER_ID,
-                 APPS.XX_OM_BUYER_NAME_FOR_ID (STYLES.BUYER_ID) BUYER_NAME,
-                 STYLES.SEASON,
-                 STYLES.STYLE,
-                 STYLES.COLOR,
-                 STYLES.WASH_NAME,
-                 STYLES.ORDER_QTY
-            FROM POC_SYSTEM_ID_VIEW STYLES
-          UNION
-          SELECT WPS.SYSTEM_ID,
-                 WPS.LC_UNIT,
-                 APPS.ORG_ID_TO_ORG_NAME (WPS.LC_UNIT) LC_UNIT_NAME,
-                 WPS.BUYER_ID,
-                 APPS.XX_OM_BUYER_NAME_FOR_ID (WPS.BUYER_ID) BUYER_NAME,
-                 WPS.SEASON,
-                 WPS.STYLE,
-                 WPS.COLOR,
-                 WPS.WASH WASH_NAME,
-                 WPS.ORDERED_QTY ORDER_QTY
-            FROM WP_PROJECTION_STYLE WPS) STYLES
+         (
+           SELECT 
+               SV.SYSTEM_ID,
+               SV.LC_UNIT,
+                SV.LC_UNIT_NAME,
+               SV.BUYER_ID,
+               SV.BUYER_NAME,
+               SV.SEASON,
+               SV.STYLE,
+               SV.COLOR,
+               SV.WASH_NAME,
+         SV.ORDER_QTY
+    
+        FROM APPS.WP_STYLES_V SV
+         
+        ) STYLES
    WHERE     1 = 1
          AND SS.SYSTEM_ID = STYLES.SYSTEM_ID
          AND NOT EXISTS
