@@ -751,6 +751,8 @@
         <AttrNames>
           <Item Value="Fabrication"/>
           <Item Value="Total"/>
+          <Item Value="AveragePerDay"/>
+          <Item Value="WashPercentage"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -761,6 +763,8 @@
         <AttrNames>
           <Item Value="WashType"/>
           <Item Value="Total"/>
+          <Item Value="AveragePerDay"/>
+          <Item Value="WashPercentage"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -817,6 +821,8 @@
         <AttrNames>
           <Item Value="WashCatagory"/>
           <Item Value="Total"/>
+          <Item Value="AveragePerDay"/>
+          <Item Value="WashPercentage"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

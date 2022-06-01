@@ -20,15 +20,15 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>
-    <![CDATA[SELECT   PB.MONTH_ID, ML.MONTH_NAME, ML.YEAR,  PB.ORG_ID,   SS.WASH_TYPE, SUM( PB.MONTHLY_TOTAL) TOTAL 
-FROM WP_PLANNING_BOARD  PB,
-WP_STYLE_SETUP SS,
-WP_MONTH_LIST ML
-WHERE PB.SYSTEM_ID  = SS.SYSTEM_ID
-AND PB.ORG_ID = SS.ORG_ID
-AND ML.MONTH_ID = PB.MONTH_ID
-GROUP BY PB.MONTH_ID, ML.MONTH_NAME, ML.YEAR,  PB.ORG_ID,  SS.WASH_TYPE
-order by TOTAL desc]]>
+    <![CDATA[SELECT SQ.MONTH_ID,   
+SQ.WASH_TYPE,
+ SUM( SQ.QUANTITY) TOTAL,
+ ROUND( SUM( SQ.QUANTITY) / (  (SELECT  NULLIF(    COUNT ( *), 0)  FROM WP_HOLIDAY_CALENDAR HC WHERE HC.MONTH_ID  =  SQ.MONTH_ID AND  HC.WORKING_STATUS = 'Workingday') ) )   AVERAGE_PER_DAY,
+   
+ ROUND( ( SUM( SQ.QUANTITY) /  (SELECT   NULLIF(  SUM( QUANTITY ) ,0 )  FROM   WP_DAILY_STYLE_QUANTITY SQ2 WHERE SQ2.MONTH_ID = SQ.MONTH_ID )  )* 100) WASH_PERCENTAGE
+FROM WP_DAILY_STYLE_QUANTITY SQ
+GROUP BY    SQ.MONTH_ID, SQ.WASH_TYPE
+order by TOTAL desC]]>
   </SQLQuery>
   <ViewAttribute
     Name="MonthId"
@@ -39,49 +39,6 @@ order by TOTAL desc]]>
     ColumnType="NUMBER"
     AliasName="MONTH_ID"
     Expression="MONTH_ID"
-    SQLType="NUMERIC">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="22"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="MonthName"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="100"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="MONTH_NAME"
-    Expression="MONTH_NAME"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="100"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Year"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    AliasName="YEAR"
-    Expression="YEAR"
-    SQLType="NUMERIC">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="22"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="OrgId"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    AliasName="ORG_ID"
-    Expression="ORG_ID"
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="22"/>
@@ -110,10 +67,51 @@ order by TOTAL desc]]>
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
     AliasName="TOTAL"
-    Expression="TOTAL"
-    SQLType="NUMERIC">
+    SQLType="NUMERIC"
+    Expression="TOTAL">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AveragePerDay"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="AVERAGE_PER_DAY"
+    Expression="AVERAGE_PER_DAY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WashPercentage"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="WASH_PERCENTAGE"
+    Expression="WASH_PERCENTAGE"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WashQuantity"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="WASH_QUANTITY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </ViewAttribute>
   <ResourceBundle>
