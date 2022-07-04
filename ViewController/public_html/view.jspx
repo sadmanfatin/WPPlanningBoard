@@ -987,7 +987,6 @@
                                  id="c67" align="center" sortable="true"
                                  filterable="true" sortProperty="WashName"
                                  filterFeatures="caseInsensitive"
-                                 partialTriggers="sbc3"
                                  inlineStyle="#{row.bindings.CompleteStatus.inputValue == true ? 'background-color:Yellow' :  'background-color:White' }"
                                  width="80" frozen="true">
                         <af:commandLink text="#{row.bindings.WashName.inputValue}"
@@ -1026,8 +1025,7 @@
                       <af:column
                                  id="c323" width="30" align="center"
                                  sortable="true" filterable="true"
-                                 sortProperty="CompleteStatus"
-                                 partialTriggers="sbc3" frozen="true">
+                                 sortProperty="CompleteStatus" frozen="true">
                         <af:selectBooleanCheckbox value="#{row.bindings.CompleteStatus.inputValue}"
                                                   label="#{row.bindings.CompleteStatus.label}"
                                                   shortDesc="#{bindings.WpPlanningBoardVO1.hints.CompleteStatus.tooltip}"
